@@ -1,0 +1,46 @@
+Requirements
+------------
+
+PloneHelpCenter requires:
+
+* Plone 2.5 or later
+
+
+Installation
+============
+
+See the `Installing an Add-on Product`_ tutorial for more detailed product installation instructions.
+
+.. _Installing an Add-on Product: http://plone.org/documentation/tutorial/third-party-products/installing
+
+
+
+Installing with buildout
+------------------------
+
+If you are using `buildout`_ to manage your instance installing Ploneboard
+is very simple. You can install it by adding it to the eggs line for your
+instance::
+
+  [instance]
+  eggs = Products.PloneHelpCenter
+
+
+If another egg package depends on Products.Ploneboard you do not need
+to specify anything in the buildout configuration: buildout will detect this
+automatically.
+
+After updating the configuration you need to run the ''bin/buildout'', which
+will take care of updating your system.
+
+.. _buildout: http://pypi.python.org/pypi/zc.buildout
+
+Installing without buildout
+---------------------------
+
+Move (or symlink) the ``PloneHelpCenter`` folder of this project
+(``Products.PloneHelpCenter/Products/PloneHelpCenter``) into the ``Products`` directory of
+the Zope instance it has to be installed for, and restart the server.
+
+You may also download a traditional tarball that you unpack into Products
+from http://plone.org/products/PloneHelpCenter .
