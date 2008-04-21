@@ -1,6 +1,6 @@
 from setuptools import setup, find_packages
 
-version = '1.5b7'
+version = '1.5rc1'
 
 setup(name='Products.PloneHelpCenter',
       version=version,
