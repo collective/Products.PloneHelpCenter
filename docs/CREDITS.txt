@@ -8,13 +8,13 @@ Development, Assistance -- Christian "Tiran" Heimes
 
 Original FAQ code -- "Tim Terlegard":mailto:tim@se.linux.org, "Edward Muller":mailto:edwardam@interlix.com - further enhancements by Jean-Paul Ladage and Ahmad Hadi from "Zest software":http://zestsoftware.nl
 
-Fixing various stuff, documentation -- The Sprinters: Christian Heimes, Dorneles Treméa, Daniel Nouri, Nate Aune
+Fixing various stuff, documentation -- The Sprinters: Christian Heimes, Dorneles Tremea, Daniel Nouri, Nate Aune
 
 Added optional "see also" references to other Archetypes based types -- Jens "jensens" Klein, "jens quadrat":http://jensquadrat.com/
 
 i18n improvements -- And general fixes in some templates and brazilian translations by Jean Ferri <jeanferri@gmail.com>
 
-Bugfixes and occasional Quality Assurance -- Geir Bækholt, "Jarn":http://www.jarn.com
+Bugfixes and occasional Quality Assurance -- Geir Baekholt, "Jarn":http://www.jarn.com
 
 Topic, start-here, and 1.0 search options -- The 2007 documentation
 sprint participants, particularly aclark, joelburton, magnon and stevem.
