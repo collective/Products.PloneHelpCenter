@@ -1,3 +1,6 @@
+Credits
+=======
+
 Project Architecture, Development, Content Types, Archetypes, Workflow -- "Joel Burton":mailto:joel@joelburton.com
 
 Development, User Interface, Project Architecture, Quality Assurance --  Alexander Limi, "Jarn":http://www.jarn.com

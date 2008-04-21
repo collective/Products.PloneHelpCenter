@@ -1,236 +1,236 @@
-History of significant changes for PloneHelpCenter:
+HISTORY
+=======
 
-   (name of developer listed in brackets)
+(name of developer listed in brackets)
 
 PloneHelpCenter 1.5
 
-    Beta 7
+Beta 7
 
-    - Add link to api.plone.org in list of additional resources. This
-      fixes http://dev.plone.org/plone/ticket/7898.
-      [vinsci]
+- Add link to api.plone.org in list of additional resources. This
+  fixes http://dev.plone.org/plone/ticket/7898.
+  [vinsci]
 
-    Beta 6
+Beta 6
 
-    - Restored getAudiencesVocab method to PHCFolder. It had been accidentally
-      deleted in a recen refactoring. Fixes #93.
-      [kteague]
-      
-    - The latest Archetypes changed the defaults for text fields, creating the
-      possibility that content types other than plain text might be allowed 
-      for some text-only fields. Fixed by specifying allowable and default
-      content types. Fixes #99.
-      [kteague]
-      
-    Beta 5 and earlier
+- Restored getAudiencesVocab method to PHCFolder. It had been accidentally
+  deleted in a recen refactoring. Fixes #93.
+  [kteague]
+  
+- The latest Archetypes changed the defaults for text fields, creating the
+  possibility that content types other than plain text might be allowed 
+  for some text-only fields. Fixed by specifying allowable and default
+  content types. Fixes #99.
+  [kteague]
+  
+Beta 5 and earlier
 
-    - Remove "statistics" tab from subfolders. I don't know if it
-      was ever meant to be there, but it's useless and doesn't work.
-      [stevem]
+- Remove "statistics" tab from subfolders. I don't know if it
+  was ever meant to be there, but it's useless and doesn't work.
+  [stevem]
 
-    - Move presentation support from PHCFolder.py to browser view.
-      [stevem]
+- Move presentation support from PHCFolder.py to browser view.
+  [stevem]
 
-    - Items without sections were not showing in phcfolder_view.
-      [stevem]
+- Items without sections were not showing in phcfolder_view.
+  [stevem]
 
-    - Revise utils.discussionNotify() to use secureSend.
-      [stevem]
+- Revise utils.discussionNotify() to use secureSend.
+  [stevem]
 
-    - Plone 3 doesn't allow discussion of content without dynamic layouts,
-      so migrate all the FTIs to dynamic view.
-      [stevem]
+- Plone 3 doesn't allow discussion of content without dynamic layouts,
+  so migrate all the FTIs to dynamic view.
+  [stevem]
 
-    - Fixed issue #41, Content accessible when container is hidden.
-      [stevem]
+- Fixed issue #41, Content accessible when container is hidden.
+  [stevem]
 
-    - Consolidate ad-hoc topic css into stylesheet. (issue #78)
-      [stevem]
+- Consolidate ad-hoc topic css into stylesheet. (issue #78)
+  [stevem]
 
-    - Made it possible to use non-ASCII section titles (issues #80, #81, #83).
-      [stevem]
+- Made it possible to use non-ASCII section titles (issues #80, #81, #83).
+  [stevem]
 
-    - Started building browser support; shifted much of the presentation
-      logic for the PHC views to browser views.
-      [stevem]
-      
-    - Fixed broken install under 2.5.x.
-      [stevem]
+- Started building browser support; shifted much of the presentation
+  logic for the PHC views to browser views.
+  [stevem]
+  
+- Fixed broken install under 2.5.x.
+  [stevem]
 
-    - A bug in CMF 1.2's DiscussionTool prevents setting a default
-      allow_discussion via class attribute. (Archetypes used to work
-      around this by catching the exception. That was lost in Archetypes
-      1.5. Until fixed, commented out the code that sets allow_discussion.
-      [stevem]
+- A bug in CMF 1.2's DiscussionTool prevents setting a default
+  allow_discussion via class attribute. (Archetypes used to work
+  around this by catching the exception. That was lost in Archetypes
+  1.5. Until fixed, commented out the code that sets allow_discussion.
+  [stevem]
 
-    - Add rudimentary test for comment mailing.
-      [stevem]
+- Add rudimentary test for comment mailing.
+  [stevem]
 
-    - Test and install cleanup targetting Plone 3.
-      [stevem]
+- Test and install cleanup targetting Plone 3.
+  [stevem]
 
 PloneHelpCenter 1.0
 
-    - Hide several visual artifacts that aid navigation on printed 
-      media. 
-      [servilio]
+- Hide several visual artifacts that aid navigation on printed 
+  media. 
+  [servilio]
 
-    - Using the stylesheet registry to include the custom styles,
-      instead of including them directly from the templates.
-      [servilio]
- 
-    - Fix issue #64: Topic area listings should be restricted to the HelpCenter
-      [stevem].
-      
-    - Make import of CMFCorePermissions compatible with later versions of CMF
-      [mj]
+- Using the stylesheet registry to include the custom styles,
+  instead of including them directly from the templates.
+  [servilio]
 
-    - PHC tracker cleanup [stevem]:
-      Fix issue #59: Images don't show in highest level nonpaginated view
-       for a PloneHelpCenter manual.
-      Fix for issues #44 and 52. Make view actions Plone 2.5 friendly.
-      Fix issue #55 by adding contributed spanish .po files
-      Fix issue #54: German Umlaute by updating .po files
-      Fix issue #54: German Umlaute by updating .po file
-      Fix issue #31: Token 'ATOM' required, 'Not' found in searches.
-      Fix issue #62: Duplicated listings on content-type folders
-      Fix issue #35, Contents fail to display if no section value assigned
+- Fix issue #64: Topic area listings should be restricted to the HelpCenter
+  [stevem].
   
-    - Rephrase all-content-in-one-page view's note for reference
-      manuals and tutorials to make it simple/shorter and avoid the
-      ambiguity-prone "page" term (simple users might think it refers
-      to print media, and might be surprised :O when it doesn't
-      actually fit in one page).
-      [Kathryn Hryb, servilio]
+- Make import of CMFCorePermissions compatible with later versions of CMF
+  [mj]
 
-    - Added full contents view option to TOC drop-down for section
-      views of reference manual and tutorial.
-      [servilio]
+- PHC tracker cleanup [stevem]:
+  Fix issue #59: Images don't show in highest level nonpaginated view
+   for a PloneHelpCenter manual.
+  Fix for issues #44 and 52. Make view actions Plone 2.5 friendly.
+  Fix issue #55 by adding contributed spanish .po files
+  Fix issue #54: German Umlaute by updating .po files
+  Fix issue #54: German Umlaute by updating .po file
+  Fix issue #31: Token 'ATOM' required, 'Not' found in searches.
+  Fix issue #62: Duplicated listings on content-type folders
+  Fix issue #35, Contents fail to display if no section value assigned
 
-    - Fixed some templates that weren't honouring the setting of
-      site_properties.allowAnonymousViewAbout
-      [servilio]
+- Rephrase all-content-in-one-page view's note for reference
+  manuals and tutorials to make it simple/shorter and avoid the
+  ambiguity-prone "page" term (simple users might think it refers
+  to print media, and might be surprised :O when it doesn't
+  actually fit in one page).
+  [Kathryn Hryb, servilio]
 
-    - Fixed document actions placement for some templates that have
-      them after the title.
-      [servilio]
+- Added full contents view option to TOC drop-down for section
+  views of reference manual and tutorial.
+  [servilio]
 
-    - Make getRelatedItems return an empty list when no relatedItems
-      property is present.
-      [servilio]
+- Fixed some templates that weren't honouring the setting of
+  site_properties.allowAnonymousViewAbout
+  [servilio]
 
-    - Added search template for searches by topic, audience, version.
-      [stevem]
+- Fixed document actions placement for some templates that have
+  them after the title.
+  [servilio]
 
-    - Added option to make PHC searches be global rather than local-only.
-      This will support including product-area documentation in searches
-      on plone.org.
-      [stevem]
+- Make getRelatedItems return an empty list when no relatedItems
+  property is present.
+  [servilio]
 
-    - Added HelpCenter templates to support browsing by section (topic).
-      Added some support for using the section field for a
-      "topic : subtopic" taxonomy. Added portlets to support these
-      pages.
-      [stevem, templates by vedawms, joelburton, and limi]
+- Added search template for searches by topic, audience, version.
+  [stevem]
 
-    - Added default sections at HelpCenter folder level. These may be
-      overridden in folders.
-      [stevem]
+- Added option to make PHC searches be global rather than local-only.
+  This will support including product-area documentation in searches
+  on plone.org.
+  [stevem]
 
-    - Added 'Start Here' flag for key documentation
-      [aclark and stevem]
+- Added HelpCenter templates to support browsing by section (topic).
+  Added some support for using the section field for a
+  "topic : subtopic" taxonomy. Added portlets to support these
+  pages.
+  [stevem, templates by vedawms, joelburton, and limi]
+
+- Added default sections at HelpCenter folder level. These may be
+  overridden in folders.
+  [stevem]
+
+- Added 'Start Here' flag for key documentation
+  [aclark and stevem]
 
 PloneHelpCenter 0.9
 
-    - i18n improvements and general fixes in some templates
-      [ferri]
+- i18n improvements and general fixes in some templates
+  [ferri]
 
-    - Added plone-pt-br.po and plonehelpcenter-pt-br.po
-      [ferri]
+- Added plone-pt-br.po and plonehelpcenter-pt-br.po
+  [ferri]
 
-    - Another template / i18n update.
-      [hannosch]
+- Another template / i18n update.
+  [hannosch]
 
-    - Made it possible to have standalone objects outside the Help Center
-      (very useful for reference manuals, for example)
-      [limi]
-    
-    - Major overhaul of all i18n files.
-      [hannosch]
+- Made it possible to have standalone objects outside the Help Center
+  (very useful for reference manuals, for example)
+  [limi]
 
-    - actually start using the ADD_HELP_AREA_PERMISSION as the
-      add permission for HelpCenter, instead of the generic
-      'Add Portal Content' permission
-      [rafrombrc]
+- Major overhaul of all i18n files.
+  [hannosch]
 
-    - fixed lots of failing and erroring unit tests.  got all
-      tests to pass w/ plones 2.0 and 2.1
-      [rafrombrc]
+- actually start using the ADD_HELP_AREA_PERMISSION as the
+  add permission for HelpCenter, instead of the generic
+  'Add Portal Content' permission
+  [rafrombrc]
 
-    - Made Glossary's getItemsBySection() return sorted list.
-      [optilude]
+- fixed lots of failing and erroring unit tests.  got all
+  tests to pass w/ plones 2.0 and 2.1
+  [rafrombrc]
 
-    - Made reference manual and todo navigation drop-downs select current page
-      [optilude]
+- Made Glossary's getItemsBySection() return sorted list.
+  [optilude]
 
-    - Removed Help Center workflow from TutorialPages for now. They should
-      probably just have a simple in-progress/finished marker workflow that
-      doesn't really affect permissions, but just whether they are listed
-      or not in the index/page navigation. Had to remove it because of permission
-      problems right now (if any pages are not published in a Tutorial, you get
-      permission denied on the entire Tutorial).
-      [limi]
+- Made reference manual and todo navigation drop-downs select current page
+  [optilude]
+
+- Removed Help Center workflow from TutorialPages for now. They should
+  probably just have a simple in-progress/finished marker workflow that
+  doesn't really affect permissions, but just whether they are listed
+  or not in the index/page navigation. Had to remove it because of permission
+  problems right now (if any pages are not published in a Tutorial, you get
+  permission denied on the entire Tutorial).
+  [limi]
 
 PloneHelpCenter 0.2
 
-    - Added Help Center portlet, this will aggregate published entries
-      from all the available Help Centers, and display links to the published 
-      help centers.
-      [limi]
+- Added Help Center portlet, this will aggregate published entries
+  from all the available Help Centers, and display links to the published 
+  help centers.
+  [limi]
 
-    - Added Glossary types, updated Help Center view
-      [limi]
+- Added Glossary types, updated Help Center view
+  [limi]
 
-    - Added Link types
-      [Joel]
+- Added Link types
+  [Joel]
 
-    - Added ErrorReference types
-      [Joel]
+- Added ErrorReference types
+  [Joel]
 
-    - Added helpcenter_workflow & associate installation stuff.
-      [Joel]
+- Added helpcenter_workflow & associate installation stuff.
+  [Joel]
 
-    - Cleaned up FAQFolder, HowtoFolder, TutorialFolder displays
-      [Joel]
+- Cleaned up FAQFolder, HowtoFolder, TutorialFolder displays
+  [Joel]
 
-    - Folders now only list visible-to-users content
-      [Joel]
+- Folders now only list visible-to-users content
+  [Joel]
 
-    - Changed how versions are printed on pages: uses getVersions method
-      rather than macro. Also, only prints a versions: line if there is
-      anything in versions vocabulary--so, to create a help center that
-      doesn't really use versions, just leave the vocab for this blank.
-      It will still appear on Archetypes' forms, but won't show up
-      one view modes
-      [Joel]
+- Changed how versions are printed on pages: uses getVersions method
+  rather than macro. Also, only prints a versions: line if there is
+  anything in versions vocabulary--so, to create a help center that
+  doesn't really use versions, just leave the vocab for this blank.
+  It will still appear on Archetypes' forms, but won't show up
+  one view modes
+  [Joel]
 
-    - Cleaned up and refactored text/doc files.
-      [Joel]
+- Cleaned up and refactored text/doc files.
+  [Joel]
 
-    - Made many small API changes throughout. Sorry, but now this
-      means that any existing Plone Help Centers will have to be migrated.
-      I doubt if there are enough out there to justify making a 
-      migration script. The API should be fairly stable from now on,
-      but keep in mind this is still only a 0.2 release ;)
-      [Joel]
+- Made many small API changes throughout. Sorry, but now this
+  means that any existing Plone Help Centers will have to be migrated.
+  I doubt if there are enough out there to justify making a 
+  migration script. The API should be fairly stable from now on,
+  but keep in mind this is still only a 0.2 release ;)
+  [Joel]
 
-    - added an optional ReferenceField (controlled in config.py) to cross-
-      reference from a PHC-type to another Archetype in the portal. This 
-      shouldnt affect existing code. If you have ATReferenceBrowserWidget
-      installed its used instead of the dumb default ReferenceWidget.
-      [Jensens]
+- added an optional ReferenceField (controlled in config.py) to cross-
+  reference from a PHC-type to another Archetype in the portal. This 
+  shouldnt affect existing code. If you have ATReferenceBrowserWidget
+  installed its used instead of the dumb default ReferenceWidget.
+  [Jensens]
 
 PloneHelpCenter 0.1
 
-    - Development version
-
+- Development version
