@@ -1,0 +1,84 @@
+<metal:master define-macro="master">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plonehelpcenter">
+
+  <body>
+    <div metal:fill-slot="main"
+         tal:define="view here/@@hcf_view;
+                     audiences view/getItemsByAudiencesAndSections;
+                     noAudiences python:len(audiences) == 1">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+      Document actions (print, sendto etc)
+    </div>
+    
+    <h1 tal:content="here/Title" class="documentFirstHeading">
+      Folder Title
+    </h1>
+    
+    <table class="sectionIndex" tal:condition="not:noAudiences">
+        <thead>
+            <tr><th i18n:translate="phc_index_audiences">Audiences</th></tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="audience audiences">
+                <td><a tal:attributes="href python:'%s#%s'% (here.absolute_url(), audience['id'],)"
+                       tal:content="audience/audience" i18n:translate="">audience</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="documentDescription"
+         tal:content="here/Description">
+      Description.
+    </div>
+
+    <tal:audience repeat="audience audiences">
+
+        <h2 tal:condition="not:noAudiences" >
+            <a class="link-anchor" 
+                tal:attributes="name audience/id"
+                tal:content="audience/audience"
+		i18n:translate="">
+                Audience Heading
+            </a>
+        </h2>
+
+        <tal:block define="sections audience/sections;
+                           noSections python:len(sections) == 1">
+        
+        <tal:section repeat="section sections">
+
+           <h3 tal:condition="not:noSections" i18n:translate="" tal:content="section/section">Section Heading</h3>
+
+           <dl>
+               <tal:howto tal:repeat="item python:section['items']">
+                  <dt>
+                      <img metal:define-slot="item_icon"
+                           tal:replace="structure here/howto_icon.gif" />
+                      <a href="" tal:content="item/Title"
+                         tal:attributes="href item/getURL;
+                                         class string:state-${item/review_state}">Item</a>
+                      <img src="error_icon.gif" alt="!" class="outdatedMarker"
+                           tal:condition="item/isOutdated"
+                           title="This item applies to a previous version" 
+                           i18n:attributes="title"/>
+                  </dt>
+               <dd tal:content="item/Description">Description</dd>
+             </tal:howto>
+           </dl>
+
+        </tal:section>
+        
+      </tal:block>
+
+    </tal:audience>
+
+    </div>
+  </body>
+
+</html>
+</metal:master>

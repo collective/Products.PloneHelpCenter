@@ -1,0 +1,96 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonehelpcenter">
+
+  <head>
+    <metal:override fill-slot="column_one_slot" />
+  </head>
+
+  <body>
+
+    <div metal:fill-slot="main">
+
+      <div metal:define-macro="main">
+	
+	<div metal:use-macro="here/document_actions/macros/document_actions">
+	  Document actions (print, sendto etc)
+	</div>
+	
+	<h1 class="documentFirstHeading">
+	  <img tal:replace="structure here/howto_icon.gif" />
+	  <span tal:replace="here/title_or_id">Title or id</span>
+	</h1>
+	
+	<div class="documentDescription"
+	     tal:content="here/Description">
+	  description
+	</div>
+	
+	<object id="flashMovie" 
+		style="margin: auto; display:block;"
+		codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" 
+		height="600" 
+		width="800"
+		classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+		VIEWASTEXT=""
+		tal:define="physical_path python:'/'.join(here.getPhysicalPath())"
+		tal:attributes="width here/width; height here/height">
+
+	  <param name="_cx"                value="26" />
+	  <param name="_cy"                value="26" />
+	  <param name="FlashVars"          value="" />
+	  <param name="Movie"              value=""
+		 tal:attributes="value here/Title" />   
+	  <param name="Src"                value=""
+		 tal:attributes="value string:${physical_path}/video_file" />
+	  <param name="WMode"              value="Window" />
+	  <param name="Loop"               value="false" />
+	  <param name="Quality"            value="high" />
+	  <param name="SAlign"             value="" />
+	  <param name="Menu"               value="-1" />
+	  <param name="Base"               value="" />
+	  <param name="AllowScriptAccess"  value="always" />
+	  <param name="Scale"              value="ShowAll" />
+	  <param name="DeviceFont"         value="0" />
+	  <param name="EmbedMovie"         value="0" />
+	  <param name="BGColor"            value="#FFFFFF" />
+	  <param name="SWRemote"           value="" />
+	  <param name="MovieData"          value="" />
+	  <param name="SeamlessTabbing"    value="1" />
+	  
+	  <embed src         ="" 
+		 quality     ="high" 
+		 bgcolor     ="#FFFFFF" 
+		 width       ="800" 
+		 height      ="600" 
+		 type        ="application/x-shockwave-flash" 
+		 pluginspace ="http://www.macromedia.com/go/getflashplayer"
+		 tal:attributes="src string:${physical_path}/video_file; width here/width; height here/height">
+	  </embed>
+	</object>
+
+	<p tal:condition="here/getVersionsVocab" tal:define="versions here/Versions" class="discreet" style="text-align: center">
+	  <span i18n:translate="phc_video_applies_to">This Video applies to:</span>         
+	  <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
+	  <span tal:condition="not: versions">
+	    <span i18n:translate="phc_any_version">
+	      Any version.
+	    </span>
+	  </span>
+	</p>
+
+
+	<div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+	  see also - shows the references if this feature is switched on
+	</div>
+	<div metal:use-macro="here/document_byline/macros/byline">
+	  Get the byline - contains details about author and modification date.
+	</div>    
+
+      </div>
+
+    </div>
+
+  </body>
+</html>

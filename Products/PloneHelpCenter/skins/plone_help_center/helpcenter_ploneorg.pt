@@ -1,0 +1,177 @@
+<html metal:use-macro="context/main_template/macros/master">
+<head>
+<style type="text/css" media="all" metal:fill-slot="css_slot">
+.supportlink {
+    font-size:1.1em;
+}
+ul.quickLinks {
+    margin: 0 0 1em 0;
+    background-color: #dee7ec;
+    border: solid 1px #8cacbb;
+    padding: 1em;
+    text-align: center;
+}
+ul.quickLinks li {
+    display: inline;
+    margin-right: 1em;
+}
+
+dl.topicList {
+    width: 45%;
+    display: block;
+    float: left;
+    margin: 0 2em 2em 0;
+/*    min-height: 7em; */
+}
+dl.topicList dt {
+    font-size: 120%;
+    border-bottom: 1px solid #000;
+}
+dl.topicList dt a {
+    color: black;
+    text-decoration: none;
+}
+dl.topicList dd {
+    margin: 0;
+    display: inline;
+}
+#books {
+    display: block;
+    float: left;
+    width: 240px;
+    margin-bottom: 1em;
+}
+#searchform {
+    clear: both;
+    float: left;
+    width: 240px;
+    margin-top: 0;
+}
+#searchform fieldset {
+    margin-top: -0.5em;
+}
+#reading .rc {
+    margin-left: 270px;
+}
+</style>
+</head>
+<body>
+   
+  <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getSectionMap">
+
+    <dl id="reading" class="portlet">
+      <dt class="portletHeader">Recommended Reading</dt>
+      <dd class="portletItem">
+
+        <a href="books" id="books"><img tal:replace="structure here/books.jpg" /></a>
+        
+        <div class="rc">
+            <h3>Books</h3>
+            <ul>
+              <li tal:repeat="book python:context.books.getFolderContents()[:5]">
+                <a href="[book-url]"
+                    tal:attributes="href book/getURL"
+                    tal:content="book/Title">[Book Title]
+                </a>
+              </li>
+            </ul>
+        </div>
+        
+        <br style="clear:both" />
+        
+        <form name="searchform"
+              id="searchform"
+              action="phc_search"
+              tal:attributes="action string:${here/absolute_url}/phc_search">
+               
+            <fieldset>
+                
+                <legend i18n:translate="phc_doc_search">Documentation search</legend>
+                
+                <label for="searchGadget"
+                       class="hiddenStructure"
+                       i18n:domain="plone"
+                       i18n:translate="text_search">
+                    Search Documentation
+                </label>
+                <input name="SearchableText"
+                       type="text"
+                       size="14"
+                       value=""
+                       alt="Search Documentation"
+                       title="Search Documentation"
+                       accesskey="accesskeys-search"
+                       i18n:attributes="alt; accesskey; title"
+                       tal:attributes="value request/SearchableText|nothing;
+                                       tabindex tabindex/next" 
+                />
+        
+                <input class="searchButton"
+                       name="Search"
+                       type="submit"
+                       value="Search"
+                       accesskey="accesskeys-search"
+                       tal:attributes="tabindex tabindex/next"
+                       i18n:attributes="value; accesskey" />
+                       
+                
+                <div id="phc_asearch_link" style="margin-top: 6px;">
+                    <a href="phc_asearch_form" tal:attributes="href string:${here/getPHCUrl}/phc_asearch_form" i18n:translate="phc_asearch_link">
+                        Search by topic, version, audience&hellip;
+                    </a>
+                </div>
+                
+            </fieldset>
+        </form>
+    
+        <div class="rc">    
+            <h3>Additional Resources</h3>
+            <ul>
+                <li><a href="manual">Manuals</a></li>
+                <li><a href="faq">Frequently Asked Questions</a></li>
+                <li><a href="error">Error Reference</a></li>
+                <li><a href="glossary">Glossary</a></li>
+                <li><a href="http://api.plone.org/">Programmer's API Reference Guides</a></li>
+            </ul>
+        </div>
+
+      </dd>
+    </dl>
+
+    <br style="clear:both" />
+        
+    <dl class="topicList"
+        tal:repeat="section sections">
+      <dt><a href="[section-url]" tal:attributes="href section/url">
+            <span tal:content="section/title" />
+            (<span tal:content="section/count" />)</a></dt>
+      <dd tal:repeat="item section/subtopics" class="discreet">
+          <a href="[item url]" 
+              tal:attributes="href item/url;" 
+              tal:content="python:item['title'].split(':')[-1]" 
+              >[Title of start-here item]
+          </a><tal:separator condition="not:repeat/item/end"> |</tal:separator>
+      </dd>
+      <dd tal:condition="not:section/subtopics" class="discreet">
+          <a href="[section-url]" tal:attributes="href section/url">General</a>
+      </dd>
+    </dl>
+
+    <div class="visualClear"></div>
+
+    <dl class="portlet" tal:condition="nothing">
+      <dt class="portletHeader">Getting Started</dt>
+      <dd class="portletItem">
+        <ul>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+        </ul>
+      </dd>
+      <dd class="portletFooter">All End User Documentation</dd>
+    </dl>
+
+    <div class="visualClear"></div>
+
+</div>
+</body>
+</html>    

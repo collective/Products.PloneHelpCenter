@@ -1,0 +1,262 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:head fill-slot="top_slot"
+            tal:define="dummy python:request.set('disable_border',1)" />
+
+<div metal:fill-slot="main" tal:define="view context/@@hc_view;">
+
+    <h1 i18n:translate="heading_documentation_search">Search for documentation</h1>
+
+    <p i18n:translate="description_documentation_asearch">
+    This search form enables you to find documenation by
+    specifying one or more search terms.
+    </p>
+
+  	<form action="phc_asearch"
+          method="get"
+          name="search"
+          tal:define="DateTime python:modules['DateTime'].DateTime">
+
+        <fieldset>
+
+            <legend i18n:translate="legend_search_terms">Search Terms</legend>
+
+            <div class="field">
+                <label for="SearchableText" i18n:translate="label_search_text">Search Text</label>
+
+                <div class="formHelp" i18n:translate="help_search_text">
+                For a simple text search, enter your search term
+                here. Multiple words may be found by combining
+                them with <strong>AND</strong> and <strong>OR</strong>.
+                The text in this field will be matched with
+                items' contents, title and description.
+                </div>
+
+                <input type="text"
+                       id="SearchableText"
+                       name="SearchableText"
+                       size="25"
+                       tabindex=""
+                       tal:attributes="tabindex tabindex/next;"
+                       />
+            </div>
+
+            <div class="field">
+                <label i18n:translate="label_item_topic">Topic</label>
+
+                <div class="formHelp" i18n:translate="help_search_item_topic">
+                Return only documents matching at least one of the selected topics. Select no topics for widest search.
+                </div>
+
+                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                    <input type="checkbox"
+                           onclick="javascript:toggleSelect(this, 'getSections:list', true);"
+                           name="pt_toggle"
+                           value="#"
+                           id="t_toggle"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex;"/>
+                    <label for="t_toggle"
+                           i18n:translate="label_toggle"
+                           >Select All/None
+                    </label>
+                </span>
+
+                <div style="float:left; margin-right: 2em;"
+                     tal:define="allTypes view/getMajorTopics;
+                             typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
+                     tal:repeat="sublist typeLists">
+                    <tal:items repeat="type sublist">
+                    <tal:tabindex define="tabindex tabindex/next">
+                    <input type="checkbox"
+                           name="getSections:list"
+                           value="#"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="value type;
+                                           tabindex tabindex;
+                                           id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
+                    <label for=""
+                           i18n:translate=""
+                           tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
+                           tal:content="type"
+                           />
+                    <br />
+                    </tal:tabindex>
+                    </tal:items>
+                </div>
+            </div>
+
+            <div class="visualClear" id="clear-space-before-version"><!-- --></div>
+            <br />
+
+            <div class="field">
+                <label i18n:translate="label_item_version">Version</label>
+
+                <div class="formHelp" i18n:translate="help_search_item_version">
+                Return only documents matching at least one of the selected versions. Select no versions for widest search.
+                </div>
+
+                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                    <input type="checkbox"
+                           onclick="javascript:toggleSelect(this, 'getVersions:list', true);"
+                           name="v_toggle"
+                           value="#"
+                           id="v_toggle"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex;"/>
+                    <label for="v_toggle"
+                           i18n:translate="label_toggle"
+                           >Select All/None
+                    </label>
+                </span>
+
+                <div style="float:left; margin-right: 2em;"
+                     tal:define="allTypes here/getVersionsVocab;
+                             typeLists python:here.createMultiColumnList(list(allTypes), numCols=2, sort_on='self');"
+                     tal:repeat="sublist typeLists">
+                    <tal:items repeat="type sublist">
+                    <tal:tabindex define="tabindex tabindex/next">
+                    <input type="checkbox"
+                           name="getVersions:list"
+                           value="#"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="value type;
+                                           tabindex tabindex;
+                                           id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
+                    <label for=""
+                           i18n:translate=""
+                           tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
+                           tal:content="type"
+                           />
+                    <br />
+                    </tal:tabindex>
+                    </tal:items>
+                </div>
+            </div>
+
+            <div class="visualClear" id="clear-space-before-audience"><!-- --></div>
+            <br />
+
+            <div class="field">
+                <label i18n:translate="label_item_version">Audience</label>
+
+                <div class="formHelp" i18n:translate="help_search_item_version">
+                Return only documents for at least one of the selected audiences. Select no audiences for widest search.
+                </div>
+
+                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                    <input type="checkbox"
+                           onclick="javascript:toggleSelect(this, 'getAudiences:list', true);"
+                           name="a_toggle"
+                           value="#"
+                           id="a_toggle"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="tabindex tabindex;"/>
+                    <label for="a_toggle"
+                           i18n:translate="label_toggle"
+                           >Select All/None
+                    </label>
+                </span>
+
+                <div style="float:left; margin-right: 2em;"
+                     tal:define="allTypes here/getAudiencesVocab;
+                             typeLists python:here.createMultiColumnList(list(allTypes), numCols=2, sort_on='self');"
+                     tal:repeat="sublist typeLists">
+                    <tal:items repeat="type sublist">
+                    <tal:tabindex define="tabindex tabindex/next">
+                    <input type="checkbox"
+                           name="getAudiences:list"
+                           value="#"
+                           class="noborder"
+                           tabindex=""
+                           tal:attributes="value type;
+                                           tabindex tabindex;
+                                           id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
+                    <label for=""
+                           i18n:translate=""
+                           tal:attributes="for string:portal_type_${repeat/sublist/number}_${repeat/type/number}"
+                           tal:content="type"
+                           />
+                    <br />
+                    </tal:tabindex>
+                    </tal:items>
+                </div>
+            </div>
+
+<tal:omit tal:condition="nothing">
+            <div class="visualClear" id="clear-space-before-phc_selection"><!-- --></div>
+            <br />
+
+            <div class="field">
+                <label i18n:translate="label_item_type">Item type</label>
+
+                <div class="formHelp" i18n:translate="help_search_item_type">
+                Return items of a specific type.
+                </div>
+    
+                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                    <input type="checkbox"
+                           onclick="javascript:toggleSelect(this, 'phc_selection:list', true);"
+                           name="pt_toggle"
+                           value="#"
+                           id="pt_toggle"
+                           class="noborder"
+                           tabindex=""
+                           checked="checked"
+                           tal:attributes="tabindex tabindex;"/>
+                    <label for="pt_toggle"
+                           i18n:translate="label_toggle"
+                           >Select All/None
+                    </label>
+                </span>
+
+                <div style="float:left; margin-right: 2em;">
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="faq" id="pt_faq" i18n:translate="phc_faq" />
+                    <label for="pt_faq">FAQs</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="howto" id="pt_howto" i18n:translate="phc_howto" />
+                    <label for="pt_howto">How-tos</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="tutorial" id="pt_tutorial" i18n:translate="phc_tutorial" />
+                    <label for="pt_tutorial">Tutorials</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="link" id="pt_link" i18n:translate="phc_links" />
+                    <label for="pt_link">Links</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="error" id="pt_error" i18n:translate="phc_errorreference" />
+                    <label for="pt_error">Error references</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="glossary" id="pt_glossary" i18n:translate="phc_definition" />
+                    <label for="pt_glossary">Glossary definitions</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="manual" id="pt_manual" i18n:translate="phc_referencemanual" />
+                    <label for="pt_manual">Reference manuals</label>
+                </div>
+            </div>
+</tal:omit>
+
+            <div class="visualClear" id="clear-space-before-submit"><!-- --></div>
+
+            <div class="formControls">
+                <input class="context"
+                       tabindex=""
+                       type="submit"
+                       name="submit"
+                       value="Search"
+                       i18n:attributes="value label_search;"
+                       tal:attributes="tabindex tabindex/next;"
+                       />
+            </div>
+
+        </fieldset>
+
+    </form>
+
+</div>
+
+<div metal:fill-slot="column_two_slot" id="portal-column-two" style="display:none" />
+
+
+</html>

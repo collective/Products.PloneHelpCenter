@@ -1,0 +1,10 @@
+/* <dtml-with base_properties> */
+
+/* Hide screen navigation artifacts */
+
+.link-parent, .link-expand, .jumpBox, .listingBar,
+.sectionIndex, .link-anchor {
+    display: none;
+}
+
+/* </dtml-with> */

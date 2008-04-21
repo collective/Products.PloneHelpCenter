@@ -1,0 +1,24 @@
+When a new HelpCenter is created, it automatically creates one of each 
+folderish type.  These container types hold the help center content.  
+
+
+I want anonymous users to see the folderish types in the nav portlet.
+
+  Publish the folderish help center types that you want to show.
+
+
+I don't have Error References, and I never will.  How should I get rid
+of the Error Reference portlet in the helpcenter_view.
+
+  Under the HelpCenter, find the FAQ folderish type.  Delete it.  The 
+  helpcenter_view will now no longer show the type.  
+
+
+I don't want anonymous users to see the FAQ portlet in the
+helpcenter_view, but I don't want to delete the FAQ folderish type
+yet.
+
+  Under the HelpCenter, find the FAQ folderish type.  Make it private.
+  Of course, now no one else will be able to see the FAQs in that
+  folder.
+

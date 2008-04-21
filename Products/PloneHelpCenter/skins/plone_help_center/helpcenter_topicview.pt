@@ -1,0 +1,47 @@
+<html metal:use-macro="context/main_template/macros/master">
+<head>
+  <metal:block fill-slot="column_one_slot" />
+</head>
+<body>
+   
+  <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getTopics">
+
+    <ul class="quickLinks">
+        <li><img tal:replace="structure here/faq_icon.gif" /><a href="faq">FAQ</a></li>
+        <li><img tal:replace="structure here/link_icon.gif" /><a href="link">Links</a></li>
+        <li><img tal:replace="structure here/error_icon.gif" /><a href="error">Error Reference</a></li>
+        <li><img tal:replace="structure here/glossary_icon.gif" /><a href="glossary">Glossary</a></li>
+        <li><img tal:replace="structure here/book_icon.gif" /><a href="manual">Manuals</a></li>
+    </ul>
+
+
+    <dl class="topicList"
+        tal:repeat="section sections">
+      <dt ><a href="[section-url]" tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></dt>
+      <dd tal:repeat="item section/subtopics">
+          <a href="[item url]" 
+              tal:attributes="href item/url;" 
+              tal:content="python:item['title'].split(':')[-1]" 
+              >[Title of start-here item]
+          </a><tal:separator condition="not:repeat/item/end">,</tal:separator>
+      </dd>
+    </dl>
+
+    <div class="visualClear"></div>
+
+    <dl class="portlet" tal:condition="nothing">
+      <dt class="portletHeader">Getting Started</dt>
+      <dd class="portletItem">
+        <ul>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+        </ul>
+      </dd>
+      <dd class="portletFooter">All End User Documentation</dd>
+    </dl>
+
+    <div class="visualClear"></div>
+
+</div>
+</body>
+</html>    

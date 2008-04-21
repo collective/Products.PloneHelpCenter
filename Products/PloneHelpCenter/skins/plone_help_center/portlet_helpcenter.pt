@@ -1,0 +1,73 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonehelpcenter">
+
+<body>
+
+<!-- Recent Help Center items -->
+
+<div metal:define-macro="portlet"
+     tal:define="results python: here.portal_catalog.searchResults(portal_type=('HelpCenterDefinition'
+                                                                               ,'HelpCenterErrorReference'
+                                                                               ,'HelpCenterLink'
+                                                                               ,'HelpCenterFAQ'
+                                                                               ,'HelpCenterHowTo'
+                                                                               ,'HelpCenterTutorial'
+                                                                               )
+                                                                 , sort_on='Date'
+                                                                 , sort_order='reverse'
+                                                                 , review_state='published')[:5];">
+
+    <div class="portlet" id="portlet-helpcenter">
+
+        <h5 i18n:translate="portlet_header_recent_docs">Recent documentation</h5>
+
+        <div class="portletBody">
+
+            <tal:block tal:repeat="obj results">
+
+                <div tal:define="oddrow repeat/obj/odd"
+                     tal:attributes="class python:test(oddrow, 'portletContent even', 'portletContent odd')">
+
+                    <a href=""
+                       tal:attributes="href obj/getURL;
+                                       title obj/Description">
+                        <img src="" height="16" width="16"
+                             tal:attributes="src string:${here/portal_url}/${obj/getIcon};
+                                             title obj/Type;" />
+                        <span tal:replace="python:test(obj.Title, obj.Title, obj.getId)"> Extended Calendar Product </span>
+                    </a>
+
+                    <div class="portletDetails">
+                    <tal:sections content="python: ', '.join(obj.getSections)">Sections</tal:sections>
+                    </div>
+                </div>
+
+            </tal:block>
+
+            <div class="portletContent odd">
+            
+                <tal:helpcenters repeat="center python: here.portal_catalog.searchResults(portal_type='HelpCenter', review_state='published')">
+
+                <a href=""
+                   class="portletMore"
+                   tal:attributes="href center/absolute_url;
+                                   title center/Description;"
+                   i18n:translate="box_more_documentation"
+                   >
+                    More <tal:center replace="center/Title">Documentation</tal:center>&#8230;
+                </a>
+                
+                </tal:helpcenters>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>

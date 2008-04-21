@@ -1,0 +1,97 @@
+Using a PloneHelpCenter RSS Feed
+================================
+
+Test that we have and correctly updating and usable RSS feed for our HelpCenter
+instance.
+
+First, some set-up:
+    
+    >>> from Products.Five import zcml
+    >>> import Products    
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    
+Let us log all exceptions, which is useful for debugging. Also, clear portlet
+slots, to make the test browser less confused by things like the recent portlet
+and the navtree.
+
+    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> self.portal.left_slots = self.portal.right_slots = []
+
+Setup our site with a PHC instance data provided in Data.py and utilities in CustomSetup.py
+
+    >>> from Products.PloneHelpCenter.tests import CustomSetup
+    >>> from Products.PloneHelpCenter.tests import Data
+    >>> CustomSetup.CreateRootPHC(self,self.portal)
+    'Created a PHC instance in the root of your Plone site.'
+
+Make sure that our link to the documentation-specific is well advertised
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.contents
+    '...<a...search_rss...>...Feed for all documentation...</a>...'
+
+Let's also make sure it has the right path parameter for the test help center we created
+
+    >>> browser.contents
+    '...<a...path=/plone/hc...>...Feed for all documentation...</a>...'
+
+
+More of a functional test for Plone, but let's make sure we're dealing with XML 
+of the RDF variety, rather than HTML
+
+    >>> browser.getLink(text='Feed for all documentation').click()
+    >>> browser.contents
+    '<?xml version...?>...<rdf:RDF...'
+
+Now we make sure we have our one and only out-of-the-box how to for the 
+relevant Help Center instance
+
+    >>> browser.contents
+    '...<title>How to use this resource</title>...<link>http://nohost/plone/hc/how-to/use-help-center</link>...'
+
+Because the helpcenter_workflow doesn't give view permission to members/anonymous users in 
+the default "in-progress" state, we wouldn't want this showing up in RSS feeds and 
+confusing people.  We unpublish the stock "How to use this resource" and recheck the 
+RSS feed
+
+    >>> self.setRoles(('Manager',))
+    >>> browser.goBack()
+    >>> browser.getLink(text='How to use this resource').click()
+    >>> self.helpcenter = getattr(self.portal, Data.Hc.Id)
+    >>> self.howto = getattr(self.helpcenter, "how-to")
+    >>> self.use = getattr(self.howto, "use-help-center")
+    >>> workflow = self.portal.portal_workflow
+    >>> workflow.doActionFor(self.use, 'retract')
+    >>> workflow.getInfoFor(self.use, 'review_state')
+    'in-progress'
+    >>> browser.getLink('%s' % Data.Hc.Title).click()
+    >>> self.setRoles(('Member',))
+    >>> browser.getLink('Feed for all documentation.').click()
+    >>> browser.contents
+    '...<items>...<rdf:Seq>...</rdf:Seq>...</items>...'
+    
+Now, we add a few new items to make sure they show up on our feed and thus
+our great documentation becomes "push", rather than "pull".
+
+    >>> CustomSetup.CreateFaqs(self,self.portal)
+    'Created 4 PHC FAQs.'
+    >>> browser.reload()
+    >>> # XXX having trouble asserting order here, need to revisit so that our
+    >>> # feed follows standard behavior
+    >>> 'What is Test FAQ 1?' and 'What is Test FAQ 4?' in browser.contents
+    True
+    
+
+Finally, we create an alternate help center, which should come with the default
+"how to use this resource" how-to in a published state.  If we're lucky, this 
+item won't bleed into our original help center's RSS feed.
+
+    >>> CustomSetup.CreateAltPHC(self,self.portal)
+    'Created an alternate PHC instance in the root of your Plone site.'
+    >>> browser.reload()
+    >>> '<title>How to use this resource</title>' not in browser.contents
+    True
+    >>> browser.url
+    '...path=/plone/hc...'

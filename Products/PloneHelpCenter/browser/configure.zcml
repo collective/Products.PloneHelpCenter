@@ -1,0 +1,23 @@
+<configure  xmlns="http://namespaces.zope.org/browser"
+            i18n_domain="plonehelpcenter">
+
+<page
+    name="hc_view"
+    for="..interfaces.IHelpCenterContent"
+    class=".helpcenter.HelpCenterView"
+    permission="zope2.View"
+    allowed_attributes="subtypes rss_subtypes sections sectionContents
+        getTopics getSubTopics getMajorTopics getSyndicationURL
+        getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
+    />
+
+<page
+    name="hcf_view"
+    for="..interfaces.IHelpCenterFolder"
+    class=".phcfolder.HelpCenterFolderView"
+    permission="zope2.View"
+    allowed_attributes="Versions getItemsBySection getItemsBySections
+        getItemsByAudiencesAndSections getSectionsToList"
+    />
+
+</configure>

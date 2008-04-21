@@ -1,0 +1,419 @@
+# PloneHelpCenter
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneHelpCenter\n"
+"POT-Creation-Date: 2006-09-20 09:17+0000\n"
+"PO-Revision-Date: 2005-12-27 11:59+0000\n"
+"Last-Translator: Hanno Schlichting\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plone\n"
+
+#. Default: "Definition"
+msgid "Definition"
+msgstr ""
+
+#. Default: "Error Reference"
+msgid "Error Reference"
+msgstr ""
+
+#. Default: "Error Reference Section"
+msgid "Error Reference Section"
+msgstr ""
+
+#. Default: "FAQ"
+msgid "FAQ"
+msgstr ""
+
+#. Default: "FAQ Section"
+msgid "FAQ Section"
+msgstr ""
+
+#. Default: "Glossary"
+msgid "Glossary"
+msgstr ""
+
+#. Default: "Help Center"
+msgid "Help Center"
+msgstr ""
+
+#. Default: "Help Center"
+msgid "HelpCenter"
+msgstr ""
+
+#. Default: "Help Center Definition"
+msgid "HelpCenterDefinition"
+msgstr ""
+
+#. Default: "Help Center Error Reference"
+msgid "HelpCenterErrorReference"
+msgstr ""
+
+#. Default: "Help Center Error Reference Folder"
+msgid "HelpCenterErrorReferenceFolder"
+msgstr ""
+
+#. Default: "HelpCenter FAQ"
+msgid "HelpCenterFAQ"
+msgstr ""
+
+#. Default: "FAQ Folder"
+msgid "HelpCenterFAQFolder"
+msgstr ""
+
+#. Default: "Help Center Glossary"
+msgid "HelpCenterGlossary"
+msgstr ""
+
+#. Default: "Help Center How-To"
+msgid "HelpCenterHowTo"
+msgstr ""
+
+#. Default: "HelpCenter How To Folder"
+msgid "HelpCenterHowToFolder"
+msgstr ""
+
+#. Default: "Help Center Instructional Video"
+msgid "HelpCenterInstructionalVideo"
+msgstr ""
+
+#. Default: "Help Center Instructional Video Folder"
+msgid "HelpCenterInstructionalVideoFolder"
+msgstr ""
+
+#. Default: "Help Center Link"
+msgid "HelpCenterLink"
+msgstr ""
+
+#. Default: "Help Center Link Folder"
+msgid "HelpCenterLinkFolder"
+msgstr ""
+
+#. Default: "Help Center Tutorial"
+msgid "HelpCenterTutorial"
+msgstr ""
+
+#. Default: "Help Center Tutorial Folder"
+msgid "HelpCenterTutorialFolder"
+msgstr ""
+
+#. Default: "Help Center Tutorial Page"
+msgid "HelpCenterTutorialPage"
+msgstr ""
+
+#. Default: "How-to"
+msgid "How-to"
+msgstr ""
+
+#. Default: "How-to Section"
+msgid "How-to Section"
+msgstr ""
+
+#. Default: "Link Section"
+msgid "Link Section"
+msgstr ""
+
+#. Default: "Plone Help Center Folder"
+msgid "PHCFolder"
+msgstr ""
+
+#. Default: "Tutorial"
+msgid "Tutorial"
+msgstr ""
+
+#. Default: "Tutorial Page"
+msgid "Tutorial Page"
+msgstr ""
+
+#. Default: "Tutorial Section"
+msgid "Tutorial Section"
+msgstr ""
+
+#. Default: "Video"
+msgid "Video"
+msgstr ""
+
+#. Default: "Video Section"
+msgid "Video Section"
+msgstr ""
+
+#. Default: "${number} items matching your criteria."
+#: ../skins/plone_help_center/phc_search.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "batch_x_items_matching_your_criteria"
+msgstr ""
+
+#. Default: "You can add a Definition to the Glossary, and it will be reviewed and approved by our documentation team."
+msgid "description_edit_definition"
+msgstr ""
+
+#. Default: "You can add a Frequently Asked Question (preferrably with an answer), and it will be reviewed and approved by our documentation team."
+msgid "description_edit_faq"
+msgstr ""
+
+#. Default: "This is a folder that holds FAQs, and it allows you to display individual sections."
+msgid "description_edit_faqfolder"
+msgstr ""
+
+#. Default: "This is a folder that holds Definitions, and it lists them in a dictionary-like fashion, with anchor links."
+msgid "description_edit_glossary"
+msgstr ""
+
+#. Default: "Help Center links are links to other documentation, etc."
+msgid "description_edit_link"
+msgstr ""
+
+#. Default: "This is a folder that holds Help Center Links, and it allows you to display individual sections."
+msgid "description_edit_linkfolder"
+msgstr ""
+
+#. Default: "This is a folder that holds PHC content"
+msgid "description_edit_phc"
+msgstr ""
+
+#. Default: "A Tutorial can contain Tutorial Pages, Image and Files. Index order is decided by the folder order, use the normal up/down selectors to rearrange content."
+msgid "description_edit_tutorial"
+msgstr ""
+
+#. Default: "No results were found."
+#: ../skins/plone_help_center/phc_search.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "description_no_results_found"
+msgstr ""
+
+#. Default: "This folder has no visible items. To add content, press the add button, or paste content from another location."
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "description_no_visible_items_add_paste"
+msgstr ""
+
+#. Default: "Match all"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_subject_and"
+msgstr ""
+
+#. Default: "Match any"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_subject_or"
+msgstr ""
+
+#. Default: "Up one level"
+#: ../skins/plone_help_center/referencemanualsection_view.pt
+#: ../skins/plone_help_center/phc_attachments.pt
+#: ../skins/plone_help_center/referencemanualpage_view.pt
+msgid "go_to_parent_url"
+msgstr ""
+
+#. Default: "Search results"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "heading_search_results"
+msgstr ""
+
+#. Default: "Return items created by a particular person."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_author"
+msgstr ""
+
+#. Default: "Return items matching this description. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_description"
+msgstr ""
+
+#. Default: "Return items of a specific type."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_item_type"
+msgstr ""
+
+#. Default: "Return items matching some or all of these keywords. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_keywords"
+msgstr ""
+
+#. Default: "Return items added since you were last logged on, the last week, etc."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_new_items_since"
+msgstr ""
+
+#. Default: "As a reviewer, you may search for items based on their review state. If you wish to constrain results to items in certain states, select them from this list."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_review_status"
+msgstr ""
+
+#. Default: "For a simple text search, enter your search term here. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>. The text in this field will be matched with items' contents, title and description."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_text"
+msgstr ""
+
+#. Default: "Select an item to add"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "label_add_item"
+msgstr ""
+
+#. Default: "Any Author"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_any_author"
+msgstr ""
+
+#. Default: "Author"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_author"
+msgstr ""
+
+#. Default: "Description"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_description"
+msgstr ""
+
+#. Default: "Item type"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_item_type"
+msgstr ""
+
+#. Default: "Keywords"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_keywords"
+msgstr ""
+
+#. Default: "New items since"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_new_items_since"
+msgstr ""
+
+#. Default: "[ ${percentage} %]"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "label_relevance_percentage"
+msgstr ""
+
+#. Default: "Review status"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_review_status"
+msgstr ""
+
+#. Default: "Search Text"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_search_text"
+msgstr ""
+
+#. Default: "Select"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "label_select"
+msgstr ""
+
+#. Default: "Select all items"
+#: ../skins/plone_help_center/phc_attachments.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "label_select_all_items"
+msgstr ""
+
+#. Default: "Select All/None"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_toggle"
+msgstr ""
+
+#. Default: "Last log-in"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "last_login"
+msgstr ""
+
+#. Default: "Modified"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_modified"
+msgstr ""
+
+#. Default: "Order"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_order"
+msgstr ""
+
+#. Default: "Size"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_size"
+msgstr ""
+
+#. Default: "State"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_status"
+msgstr ""
+
+#. Default: "Title"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_title"
+msgstr ""
+
+#. Default: "This item does not have any body text, click the edit tab to change it."
+#: ../skins/plone_help_center/errorreference_view.pt
+#: ../skins/plone_help_center/howto_view.pt
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "no_body_text"
+msgstr ""
+
+#. Default: "by ${author}, ${date}"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "results_by_author"
+msgstr ""
+
+#. Default: "Did you not find what you were looking for? Try the ${advanced_search} for more precise search options."
+#: ../skins/plone_help_center/phc_search.pt
+msgid "search_results_advanced"
+msgstr ""
+
+#. Default: "Advanced Search"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "search_results_advanced_link"
+msgstr ""
+
+#. Default: "Content listing"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "summary_content_listing"
+msgstr ""
+
+#. Default: "Search"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "text_search"
+msgstr ""
+
+#. Default: "Ever"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_ever"
+msgstr ""
+
+#. Default: "expired"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "time_expired"
+msgstr ""
+
+#. Default: "Last month"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_last_month"
+msgstr ""
+
+#. Default: "Last week"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_last_week"
+msgstr ""
+
+#. Default: "Yesterday"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_yesterday"
+msgstr ""
+
+#. Default: "Move item down"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "title_move_item_down"
+msgstr ""
+
+#. Default: "Move item up"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "title_move_item_up"
+msgstr ""
+
+#. Default: "Relevance"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "title_relevance"
+msgstr ""
+

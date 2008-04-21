@@ -1,0 +1,369 @@
+# PloneHelpCenter
+msgid ""
+msgstr ""
+"Project-Id-Version: PloneHelpCenter\n"
+"POT-Creation-Date: 2005-12-27 11:59+0000\n"
+"PO-Revision-Date: 2005-12-27 11:59+0000\n"
+"Last-Translator: Hanno Schlichting\n"
+"Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plonehelpcenter\n"
+
+#. Default: "Meaningful sentences that explains the answer."
+msgid "desc_answer"
+msgstr ""
+
+#. Default: "Description for the Error Reference Container."
+msgid "description_edit_ErrorReference"
+msgstr ""
+
+#. Default: "Description for the Link."
+msgid "description_edit_Link"
+msgstr ""
+
+#. Default: "Description for the Link Container."
+msgid "description_edit_Link_Container"
+msgstr ""
+
+#. Default: "Description"
+msgid "description_label_ErrorReference"
+msgstr ""
+
+#. Default: "Description"
+msgid "description_label_Link"
+msgstr ""
+
+#. Default: "More details on the question, if not evident from the title."
+msgid "help_detailed_question"
+msgstr ""
+
+#. Default: "Answer"
+msgid "label_answer"
+msgstr ""
+
+#. Default: "Detailed Question"
+msgid "label_detailed_question"
+msgstr ""
+
+#. Default: "Body"
+msgid "phc_body"
+msgstr ""
+
+#. Default: "Enter a brief description"
+msgid "phc_desc_ErrorReference"
+msgstr ""
+
+#. Default: "Explanation of the error."
+msgid "phc_desc_body_ErrorReference"
+msgstr ""
+
+#. Default: "The body text."
+msgid "phc_desc_body_tutorial"
+msgstr ""
+
+#. Default: "An explanation of the term."
+msgid "phc_desc_definition"
+msgstr ""
+
+#. Default: "Description of the FAQ Container."
+msgid "phc_desc_folder"
+msgstr ""
+
+#. Default: "Description of the Glossary."
+msgid "phc_desc_folder_glossary"
+msgstr ""
+
+#. Default: "Description for the Help Center."
+msgid "phc_desc_helpcenter"
+msgstr ""
+
+#. Default: "The text of the Howto"
+msgid "phc_desc_howto_body"
+msgstr ""
+
+#. Default: "Description for the How-to Container."
+msgid "phc_desc_howto_folder"
+msgstr ""
+
+#. Default: "Web address"
+msgid "phc_desc_link_url"
+msgstr ""
+
+#. Default: "Enter a brief description"
+msgid "phc_desc_tutorial_page"
+msgstr ""
+
+#. Default: "Description for the Video section."
+msgid "phc_desc_video_folder"
+msgstr ""
+
+#. Default: "Error reference section."
+msgid "phc_errorreference_description"
+msgstr ""
+
+#. Default: "Error References"
+msgid "phc_errorreference_title"
+msgstr ""
+
+#. Default: "Frequently Asked Questions"
+msgid "phc_faq_description"
+msgstr ""
+
+#. Default: "FAQs"
+msgid "phc_faq_title"
+msgstr ""
+
+#. Default: "Glossary of terms."
+msgid "phc_glossary_description"
+msgstr ""
+
+#. Default: "Glossary Definitions"
+msgid "phc_glossary_title"
+msgstr ""
+
+#. Default: "Brief explanation of the How To."
+msgid "phc_help_detailed_howto"
+msgstr ""
+
+#. Default: "Brief explanation of the video's content."
+msgid "phc_help_detailed_video"
+msgstr ""
+
+#. Default: "A summary of the tutorial--aims and scope. Will be displayed on every page of the tutorial."
+msgid "phc_help_tutorial_summary"
+msgstr ""
+
+#. Default: "Length (in minutes) of the video"
+msgid "phc_help_video_duration"
+msgstr ""
+
+#. Default: "Height of the video"
+msgid "phc_help_video_height"
+msgstr ""
+
+#. Default: "Add a screenshot by clicking the \'Browse\' button. Add a screenshot that highlights the content of the instructional video.""
+msgid "phc_help_video_screenshot"
+msgstr ""
+
+#. Default: "Width of the video"
+msgid "phc_help_video_width"
+msgstr ""
+
+#. Default: "Click 'Browse' to upload a Flash .swf file."
+msgid "phc_help_videofile_description"
+msgstr ""
+
+#. Default: "Step-by-step instructions."
+msgid "phc_howto_description"
+msgstr ""
+
+#. Default: "How-tos"
+msgid "phc_howto_title"
+msgstr ""
+
+#. Default: "Importance of this item."
+msgid "phc_importance"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_ErrorReference"
+msgstr ""
+
+#. Default: "Body text"
+msgid "phc_label_body_ErrorReference"
+msgstr ""
+
+#. Default: "Body text"
+msgid "phc_label_body_tutorial"
+msgstr ""
+
+#. Default: "Definition"
+msgid "phc_label_definition"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_desc_helpcenter"
+msgstr ""
+
+#. Default: "Summary"
+msgid "phc_label_detailed_howto"
+msgstr ""
+
+#. Default: "Summary"
+msgid "phc_label_detailed_video"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_folder"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_folder_glossary"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_folder_tutorial"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_howto_folder"
+msgstr ""
+
+#. Default: "Importance"
+msgid "phc_label_importance"
+msgstr ""
+
+#. Default: "URL"
+msgid "phc_label_link_url"
+msgstr ""
+
+#. Default: "Referenced Items"
+msgid "phc_label_reference"
+msgstr ""
+
+#. Default: "Related keywords"
+msgid "phc_label_related"
+msgstr ""
+
+#. Default: "Sections"
+msgid "phc_label_sections"
+msgstr ""
+
+#. Default: "Sections"
+msgid "phc_label_sections-vocab"
+msgstr ""
+
+#. Default: "Tutorial Description"
+msgid "phc_label_tutorial_description"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_tutorial_page"
+msgstr ""
+
+#. Default: "Versions"
+msgid "phc_label_version_helpcenter"
+msgstr ""
+
+#. Default: "Versions"
+msgid "phc_label_versions"
+msgstr ""
+
+#. Default: "Duration"
+msgid "phc_label_video_duration"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_video_folder"
+msgstr ""
+
+#. Default: "Height"
+msgid "phc_label_video_height"
+msgstr ""
+
+#. Default: "Screenshot"
+msgid "phc_label_video_screenshot"
+msgstr ""
+
+#. Default: "Width"
+msgid "phc_label_video_width"
+msgstr ""
+
+#. Default: "Flash File (.swf)"
+msgid "phc_label_videofile_description"
+msgstr ""
+
+#. Default: "Links section."
+msgid "phc_links_description"
+msgstr ""
+
+#. Default: "Links"
+msgid "phc_links_title"
+msgstr ""
+
+#. Default: "Set one or more references to HelpCenter items."
+msgid "phc_reference"
+msgstr ""
+
+#. Default: "A list of keywords that should be indexed along with the content (e.g. for a how-to on VerboseSecurity, you might include Verbose Security, Insufficient Privileges, Debugging security problems)"
+msgid "phc_related"
+msgstr ""
+
+#. Default: "Section(s) that this item should appear in."
+msgid "phc_sections"
+msgstr ""
+
+#. Default: "Define the available sections for classifying these items."
+msgid "phc_sections_vocab"
+msgstr ""
+
+#. Default: "Detailed tutorials."
+msgid "phc_tutorial_description"
+msgstr ""
+
+#. Default: "Tutorials"
+msgid "phc_tutorial_title"
+msgstr ""
+
+#. Default: "Versions that items in help can refer to."
+msgid "phc_version_helpcenter"
+msgstr ""
+
+#. Default: "Versions of product that apply to this item (leave blank if not version-specific)"
+msgid "phc_versions"
+msgstr ""
+
+#. Default: "Instructional videos."
+msgid "phc_video_description"
+msgstr ""
+
+#. Default: "Videos"
+msgid "phc_video_title"
+msgstr ""
+
+#. Default: "Reference Manual"
+msgid "phc_referencemanual_title"
+msgstr ""
+
+#. Default: "Reference Manual description"
+msgid "phc_referencemanual_description"
+msgstr ""
+
+#. Default: "Readers will be informed when content relates to versions not in this list, as it may be outdated."
+msgid "phc_current_versions_helpcenter"
+msgstr ""
+
+#. Default: "Current versions"
+msgid "phc_label_current_versions_helpcenter"
+msgstr ""
+
+#. Default: "Importance ratings content may have."
+msgid "phc_importance_helpcenter"
+msgstr ""
+
+#. Default: "Importance"
+msgid "phc_label_importance_helpcenter"
+msgstr ""
+
+#. Default: "Default importance rating for new content."
+msgid "phc_default_importance_helpcenter"
+msgstr ""
+
+#. Default: "Default importance"
+msgid "phc_label_default_importance_helpcenter"
+msgstr ""
+
+#. Default: "Reference Manual Description"
+msgid "phc_label_referencemanual_description"
+msgstr ""
+
+#. Default: "A summary of the reference manual -- subject and scope. Will be displayed on every page of the manual."
+msgid "phc_help_referencemanual_summary"
+msgstr ""
+

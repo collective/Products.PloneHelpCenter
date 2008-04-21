@@ -1,0 +1,24 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet">
+      <dt class="portletHeader"><a href="books" tal:attributes="href string:${here/getPHCUrl}/books">Books</a></dt>
+      <dd class="portletItem">
+        <ul>
+          <li tal:repeat="book python:context.books.getFolderContents()[:3]">
+            <a href="[book-url]"
+                tal:attributes="href book/getURL"
+                tal:content="book/Title">[Book Title]
+            </a>
+          </li>
+        </ul>
+      </dd>
+      <dd class="portletFooter"><a href="books"  tal:attributes="href string:${here/getPHCUrl}/books">See all books&hellip;</a></dd>
+    </dl>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<html metal:use-macro="context/main_template/macros/master">
+<head>
+</head>
+<body>
+
+  <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getTopics">
+
+    <h1 tal:content="context/Title">Documentation</h1>
+
+    <p class="documentDescription" tal:content="context/Description">Our descrip area...</p>
+
+    <div class="flatlist">
+        <ul>
+            <li><a href="faq">Frequently Asked Questions</a></li>
+            <li><a href="error">Error Reference</a></li>
+            <li><a href="glossary">Glossary</a></li>
+            <li><a href="link">Links</a></li>
+            <li><a href="manual">Manuals</a></li>
+        </ul>
+    </div>
+
+    <dl class="portlet" tal:condition="nothing">
+      <dt class="portletHeader">Getting Started</dt>
+      <dd class="portletItem">
+        <ul>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+        </ul>
+      </dd>
+      <dd class="portletFooter">All End User Documentation</dd>
+    </dl>
+
+    <h2>Quick Links: Find documentation by topic</h2>
+
+    <div class="quicklinks" tal:define="length python: len(sections); splitat python: int(modules['math'].ceil(length/2.0)); left python: sections[:splitat]; right python: sections[splitat:]">
+      <ul style="float: left; width: 45%">
+          <li tal:repeat="section left"><a tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></li>
+      </ul>
+      <ul>
+         <li tal:repeat="section right"><a tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></li>
+      </ul>
+      <div style="clear: both"></div>
+    </div>
+
+    <div tal:repeat="section sections">
+      <h2 class="section-subheading"><a href="[section-url]" tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></h2>
+      <ul tal:condition="section/subtopics">
+        <li tal:repeat="item section/subtopics">
+          <a href="[item url]" 
+              tal:attributes="href item/url;" 
+              tal:content="item/title" 
+              >[Title of start-here item]
+          </a>
+        </li>
+      </ul> 
+      <div class="readmore">
+        <a href="[section-url]" tal:attributes="href section/url"> Read More&hellip;</a>
+      </div>
+    </div>
+  </div>
+        
+</body>
+
+</html>    

@@ -1,0 +1,4 @@
+<metal:folderView use-macro="here/phc_genericfolder_view/macros/master">
+    <img metal:fill-slot="item_icon" 
+        tal:replace="structure here/helplink_icon.gif"/>
+</metal:folderView>

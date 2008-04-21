@@ -1,0 +1,24 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet" style="width:100%">
+      <dt class="portletHeader"><a href="/support">Support</a></dt>
+      <dd class="portletItem">
+         <span>
+           <a href="/support"><img src="speakplone_sm.png" tal:replace="structure here/speakplone_sm.png" /></a>
+         </span>
+         <span><b class="supportlink"><a href="/support">Get Help</a></b></span>
+      </dd>
+      <dd class="portletItem">
+         <p>Join our 
+           <a href="/support/irc">chat rooms</a> or <a href="http://www.nabble.com/Plone-f6741.html">support forums</a> if you have more specific questions.
+         </p>
+      </dd>
+    </dl>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plonehelpcenter">
+
+  <body>
+    <div metal:fill-slot="main"
+         tal:define="view here/@@hcf_view;
+                     sections python:view.getItemsBySections(sort_on = 'sortable_title');
+                     noSections python:len(sections) == 1">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+      Document actions (print, sendto etc)
+    </div>
+
+    <h1 tal:content="here/Title" class="documentFirstHeading">
+      Folder Title
+    </h1>
+    
+    <table class="sectionIndex" tal:condition="not:noSections">
+        <thead>
+            <tr><th i18n:translate="phc_index_sections">Sections</th></tr>
+        </thead>
+        <tbody>
+            <tr tal:repeat="section sections">
+                <td><a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+                       tal:content="section/section">Section</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="documentDescription"
+         tal:content="here/Description">
+      Description.
+    </div>
+
+    <div tal:repeat="section sections">
+
+        <h2 tal:condition="not:noSections">
+          <a class="link-anchor" 
+              tal:content="section/section"
+              tal:attributes="name section/id">
+              Section heading
+          </a>
+        </h2>
+
+        <dl>
+            <tal:howto tal:repeat="item python:section['items']">
+            <dt>
+                <img tal:replace="structure here/glossary_icon.gif" />
+                <a href="" tal:content="item/Title"
+                   tal:attributes="href item/getURL;
+                                   class string:state-${item/review_state}">Item</a>
+                <a class="link-anchor" 
+                    tal:attributes="name item/getId;
+                                    href string:${here/absolute_url}#${item/getId};">#</a>
+                <img src="error_icon.gif" alt="!" class="outdatedMarker"
+                     tal:condition="item/isOutdated"
+                     title="This item applies to a previous version" 
+                     i18n:attributes="title"/>
+            </dt>
+            
+            <dd tal:content="structure item/Description">Description</dd>
+          </tal:howto>
+        </dl>
+
+    </div>
+
+    </div>
+  </body>
+
+</html>

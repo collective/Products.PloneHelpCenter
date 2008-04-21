@@ -1,0 +1,174 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonehelpcenter">
+      
+<head>
+    <metal:css fill-slot="css_slot">
+    <style type="text/css" media="all"
+           tal:content="string: @import url(${portal_url}/helpcenter.css);"></style>
+    </metal:css>
+
+</head>
+<body>
+
+<metal:main fill-slot="main">
+    <tal:main-macro metal:define-macro="main" tal:define="view context/@@hc_view;">
+                    
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+        
+        <h1 tal:content="here/title_or_id" class="documentFirstHeading">
+          Title or id
+        </h1>
+
+        <form name="searchform"
+              action="phc_search"
+              tal:attributes="action string:${here/absolute_url}/phc_search">
+               
+            <fieldset style="float: right;">
+                
+                <legend i18n:translate="phc_doc_search">Documentation search</legend>
+                
+                <label for="searchGadget"
+                       class="hiddenStructure"
+                       i18n:domain="plone"
+                       i18n:translate="text_search">
+                    Search Documentation
+                </label>
+                <input name="SearchableText"
+                       type="text"
+                       size="20"
+                       value=""
+                       alt="Search Documentation"
+                       title="Search Documentation"
+                       style="margin-bottom: 0.5em;"
+                       accesskey="accesskeys-search"
+                       i18n:attributes="alt; accesskey; title"
+                       tal:attributes="value request/SearchableText|nothing;
+                                       tabindex tabindex/next" 
+                />
+
+                <input class="searchButton"
+                       name="Search"
+                       type="submit"
+                       value="Search"
+                       accesskey="accesskeys-search"
+                       tal:attributes="tabindex tabindex/next"
+                       i18n:attributes="value; accesskey" />
+                       
+                <br />
+                
+                <span i18n:translate="searchform_in" tal:omit-tag="">in</span>
+                
+                  <select name="phc_selection">
+                    <option value="all" i18n:translate="phc_full_area" tal:condition="here/constrainSearches | nothing">Entire documentation area</option>
+                    <option value="all" i18n:translate="phc_all_docs" tal:condition="not:here/constrainSearches | nothing">All documentation</option>
+                    <option value="faq" i18n:translate="phc_faq">FAQs</option>
+                    <option value="howto" i18n:translate="phc_howto">How-tos</option>
+                    <option value="tutorial" i18n:translate="phc_tutorial">Tutorials</option>
+                    <option value="link" i18n:translate="phc_links">Links</option>
+                    <option value="error" i18n:translate="phc_errorreference">Error references</option>
+                    <option value="glossary" i18n:translate="phc_definition">Glossary definitions</option>
+                    <option value="manual" i18n:translate="phc_referencemanual">Reference manuals</option>
+                </select>
+            </fieldset>
+        </form>
+
+        <div class="documentDescription"
+             tal:content="here/Description">
+            description
+        </div>
+    
+        <p>
+          <img tal:replace="structure here/rss.gif" />
+          <a tal:attributes="href view/getSyndicationURL" 
+             i18n:translate="phc_rss_all">
+            Feed for all documentation.
+          </a>
+        </p>
+
+        <p tal:condition="exists:here/how-to/use-help-center">
+          <img tal:replace="structure here/helpcenter_icon.gif" />
+          <a tal:attributes="href string:${here_url}/how-to/use-help-center"
+             i18n:translate="phc_contrib_use">
+            Instructions on how to contribute to and use this resource.
+          </a>
+        </p>
+
+        <div class="visualClear"><!----></div>
+        
+        <tal:defs define="sections view/sections">
+
+          <tal:listings repeat="section sections">
+            <div tal:define="objs python:view.sectionContents(section, limit=5);">
+
+              <dl class="portlet portletThirdWidth">
+                <dt class="portletHeader">
+                  <a tal:attributes="href section/getURL;
+                                     title section/Description|nothing;">
+                  <span i18n:translate="latest_helptype">
+                    Latest <span i18n:name="title" tal:content="section/Title">Section title</span>
+                  </span>
+                </a>
+                </dt>
+
+                <tal:list repeat="obj python:objs[:5]">
+                  <dd class="portletItem"
+                      tal:define="oddrow repeat/obj/odd"
+                      tal:attributes="class python:test(oddrow, 'portletItem even', 'portletItem odd')">
+                    <a href="#" 
+                       tal:attributes="href obj/getURL" >
+                        <img src="" alt="" tal:attributes="src obj/getIcon" />
+                        <span tal:replace="obj/Title">Title</span>
+                        <span class="portletItemDetails"
+                              tal:content="python:toLocalizedTime(obj.modified)">May 5</span>
+                    </a>
+                  </dd>
+                </tal:list>
+
+                <dd class="portletFooter">
+                    <a tal:attributes="href section/getURL">
+                      <span i18n:translate="all_helptype" tal:condition="python:len(objs) > 0">
+                        All <span tal:content="python:len(objs)"
+                                  i18n:name="number" /> 
+                        <span i18n:name="title" tal:content="string:${section/Title}">
+                            Title of section
+                        </span>&hellip;
+                      </span>
+                      <span i18n:translate="nopublished_helptype" tal:condition="python:len(objs) == 0">
+                        Nothing published in
+                        <span i18n:name="title" tal:content="string:${section/Title}">
+                            Title of section
+                        </span>&hellip;
+                      </span>
+                    </a>
+                </dd>
+              </dl>
+            </div>
+
+            <div class="visualClear" tal:condition="python: repeat['section'].number() % 3 == 0"><!----></div>
+          </tal:listings>
+        
+            <tal:nolist tal:condition="python: not sections">
+              <p class="discreet" i18n:translate="phc_nolist">
+                There are no contained help center object types.
+              </p>
+            </tal:nolist>
+        
+        </tal:defs>
+
+        <div class="visualClear"><!----></div>
+        
+        <tal:otherItems tal:define="folderContents view/getNonPHCContents | nothing"
+                        tal:condition="folderContents">
+          <metal:include use-macro="here/folder_listing/macros/listing"/>
+        </tal:otherItems>    
+      
+        </tal:main-macro>
+
+    </metal:main>
+
+  </body>
+</html>

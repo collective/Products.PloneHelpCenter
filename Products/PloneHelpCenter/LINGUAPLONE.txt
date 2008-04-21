@@ -1,0 +1,24 @@
+===================================
+LinguaPlone support
+===================================
+
+  - Add LinguaPlone support to the types
+    
+        -> The LinguaPlone import statement
+        -> Declare relevant fields as language-independent
+
+Language-independent fields in schemata.py of PHC 
+-------------------------------------------------- 
+
+ImportanceSchema -- "importance" 
+RelatedSchema -- "related_keywords" 
+VersionsSchema -- "versions" 
+SectionsSchema -- "sections" 
+SectionsVocbSchema -- "sections_vocab" 
+ReferenceSchema? --"referenced_items" 
+ContributorsSchema -- "contributors" 
+HCRootSchema -- "currentVersions", "versions_vocab"?, "importance_vocab"?,
+"defaultImportance", "rights" 
+LinkSchema -- "url" 
+InstructionalVideoSchema -- "video_file", "screenshot", "duration", 
+"width", "height" 

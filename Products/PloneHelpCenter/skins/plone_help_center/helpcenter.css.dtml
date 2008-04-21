@@ -1,0 +1,163 @@
+/* 
+** Plone Help Center style sheet for CSS2-capable browsers.
+**
+** Copyright Alexander Limi - http://www.plonesolutions.com
+**
+** Feel free to use whole or parts of this for your own designs, but give credit
+** where credit is due.
+**
+*/
+
+/* <dtml-with base_properties> */
+
+.link-expand {
+    background: transparent url(&dtml-portal_url;/arrowDown.gif) 4px 5px no-repeat;
+    padding: 1px 0px 1px 16px;
+    display: block;
+    font-size: &dtml-fontSmallSize;;
+    float: right;
+}
+
+.faqMarker {
+    list-style-type: square;
+    list-style-image: url(&dtml-portal_url;/faq_icon.gif);
+}
+
+.portletHalfWidth {
+    width: 45%; 
+    float: left; 
+    margin: 0 1em 1em 0 !important;
+}
+
+.portletThirdWidth {
+    width: 30%; 
+    float: left; 
+    margin: 0 1em 1em 0 !important;
+}
+
+/* Section index */
+table.sectionIndex {
+    float: right;
+    background: &dtml-backgroundColor;;
+    border-collapse: collapse;
+    border-left: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    border-bottom: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    font-size: &dtml-fontSmallSize;;
+    margin: 0.5em 0em 1em 1em;
+}
+.sectionIndex th {
+    background: &dtml-globalBackgroundColor;;
+    border-top: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    border-bottom: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    border-right: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    font-weight: normal;
+    padding: 0.25em 1em;
+    text-transform: &dtml-textTransform;;
+}
+.sectionIndex td {
+    border-right: &dtml-borderWidth; &dtml-borderStyle; &dtml-globalBorderColor;;
+    padding: 0.25em 1em;
+}
+
+.sectionIndex a {
+    text-decoration: none;
+}
+
+.sectionIndex a:hover {
+    text-decoration: underline;
+}
+
+
+/* Box with info about a tutorial, displayed on a tutorial page */
+.tutorialAbout {
+    display: inline;
+    float: right;
+    background-color: &dtml-globalBackgroundColor;;
+    border-color: &dtml-globalBorderColor;;
+    border-width: &dtml-borderWidth;;
+    border-style: &dtml-borderStyle;;
+    font-size: &dtml-fontSmallSize;;
+    margin: 0.5em 0 0.5em 0.5em;
+    padding: 1em;
+    width: 10em;
+    clear: right;
+    text-align: center;
+}
+
+/* Jump box for reference manual indexes */
+.jumpBox {
+    float: right;
+    text-align: right;
+}
+
+/* Image flagging outdated items in listings */
+.outdatedMarker {
+    
+}
+
+/* States for things */
+.state-hidden {
+    color: red;
+}
+
+.state-in-progress {
+    color: #74AE0B;
+}
+
+.state-obsolete {
+    color: #cccccc;
+}
+
+ul.quickLinks {
+    margin: 0 0 1em 0;
+    background-color: #dee7ec;
+    border: solid 1px #8cacbb;
+    padding: 1em;
+    text-align: center;
+}
+ul.quickLinks li {
+    display: inline;
+    margin-right: 1em;
+}
+
+dl.topicList {
+    width: 32%;
+    display: block;
+    float: left;
+    margin: 0 0.5em 1em 0;
+/*    min-height: 7em; */
+}
+dl.topicList dt {
+    font-size: 120%;
+}
+dl.topicList dt a {
+    color: black;
+}
+dl.topicList dd {
+    margin: 0;
+    display: inline;
+}
+
+.flatlist li {
+    display: inline;
+    margin-right: 2em;
+}
+.flatlist ul {
+    margin-left: 0;
+    margin-bottom: 1em;
+}
+
+.doclist dd {
+  margin-left: 20px;
+}
+
+.template-helpcenter_topicview_main .readmore {
+  text-align: right;
+}
+
+h2.section-subheading {
+  margin-top: 0.5em;
+}
+
+
+/* </dtml-with> */

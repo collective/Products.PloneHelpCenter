@@ -1,0 +1,44 @@
+Tests for Topic Functionality
+=============================
+
+Test PHC "topics" functionality. When sections are specified in the PHC
+and use a "Topic Area: Section" pattern, they should allow us to use
+the topic views.
+
+First, some set-up:
+    
+    >>> from Products.Five import zcml
+    >>> import Products
+    >>> from zope.component import getMultiAdapter
+    
+Setup our site with a PHC instance data provided in Data.py and utilities in CustomSetup.py
+
+    >>> from Products.PloneHelpCenter.tests import CustomSetup
+    >>> from Products.PloneHelpCenter.tests import Data
+    >>> CustomSetup.CreateRootPHC(self,self.portal)
+    'Created a PHC instance in the root of your Plone site.'
+
+Check PHC Sections Vocabulary Setup
+    >>> hc = self.portal.hc
+    >>> hc.sectionsVocab
+    (u'Topic1', u'Topic1: Section1', u'Topic1: Section2 - \xe1', u'Topic2', u'Topic2: Section1', u'Topic2: Section2')
+
+CreateRootPHC creates a sections vocabulary for the how-to folder, so we'll
+need to clear it to test global sections.
+    >>> htf = hc['how-to']
+    >>> htf.setSectionsVocab([])
+
+Now, let's see if we can get sections inherited from the PHC object.    
+    >>> len(htf.getSectionsVocab())
+    6
+
+Exercise the folder view's getItemsByAudiencesAndSections method.
+    >>> view = getMultiAdapter((htf, htf.REQUEST), name=u'hcf_view')
+    >>> len( view.getItemsByAudiencesAndSections() )
+    1
+
+Exercise the folder view's getItemsBySections method.
+We don't expect to find anything since the only existing howto
+isn't in a current section.
+    >>> len( view.getItemsBySections() )
+    0

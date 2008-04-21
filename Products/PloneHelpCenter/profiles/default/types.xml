@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<object name="portal_types" meta_type="Plone Types Tool">
+ <object name="HelpCenter"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterDefinition"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterErrorReference"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterErrorReferenceFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterFAQ" meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterFAQFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterGlossary"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterHowTo" meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterHowToFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterInstructionalVideo"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterInstructionalVideoFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterLink" meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterLinkFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterReferenceManual"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterReferenceManualFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterReferenceManualPage"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterReferenceManualSection"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterTutorial"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterTutorialFolder"
+    meta_type="Factory-based Type Information with dynamic views"/>
+ <object name="HelpCenterTutorialPage"
+    meta_type="Factory-based Type Information with dynamic views"/>
+</object>

@@ -1,0 +1,111 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plonehelpcenter">
+
+<body>
+
+  <div metal:fill-slot="main">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+      Document actions (print, sendto etc)
+    </div>
+
+    <h1 class="documentFirstHeading">
+        <img tal:replace="structure here/referencemanual_icon.gif" />
+        <span tal:replace="here/Title">Title</span>
+    </h1>
+    
+    <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+           Warning: This item is marked as outdated.
+        </div>
+    <p class="discreet">
+       <span tal:condition="here/getVersionsVocab | nothing" tal:define="versions here/Versions" >
+    <span i18n:translate="phc_referencemanual_applies_to">This Reference Manual applies to:</span>         
+    <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
+    <span tal:condition="not: versions">
+      <span i18n:translate="phc_any_version">
+      Any version.
+      </span>
+    </span>
+ </span>
+    <span tal:condition="here/getAudiencesVocab | nothing" tal:define="audiences here/Audiences">
+          <br/>
+         <span i18n:translate="phc_referencemanual_audiences">This Reference Manual is intended for:</span>         
+          <span tal:condition="audiences" tal:replace="audiences">1.0, 2.0</span>
+          <span tal:condition="not: audiences">
+           <span i18n:translate="phc_any_audience">
+           Any audience.
+           </span>
+          </span>
+         </span>
+    </p>
+
+    <div class="documentDescription"
+      tal:condition="here/Description"
+      tal:content="structure here/Description">
+      Description
+    </div>
+
+    
+    <tal:block define="toc here/getTOC;">
+    
+        <p class="visualNoPrint" tal:condition="nocall:toc">
+          <img tal:replace="structure here/referencemanual_icon.gif" />
+          <a href="referencemanual-all-pages"
+             i18n:translate="all_content_on_one_page">
+            All content on one page (useful for printing, presentation mode etc.)
+          </a>
+        </p>
+    
+        <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
+            
+        <p tal:condition="not:nocall:toc" class="discreet">
+          <span i18n:translate="view_no_reference_manual1"
+                tal:omit-tag="">There are no pages or sections in this Reference Manual.</span>
+          <tal:block condition="python:user.has_permission('Modify portal content', here)"
+                     i18n:translate="view_no_reference_manual2">
+            Use the 'add new item' menu to add Sections, Pages, Files, or Images.
+            Sections can be nested in an arbitrary depth, but we recommend not
+            using more than three or four levels for good legibility.
+          </tal:block>
+        </p>
+       
+    </tal:block>
+    
+     <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
+           <fieldset tal:condition="nocall:items">
+               <legend>Attached files</legend>
+               <ul class="visualNoMarker">
+               <tal:related tal:repeat="item items">
+                   <li tal:define="
+                           desc      item/Description;
+                           item_type item/portal_type;
+                           item_type_class python: 'contenttype-' + putils.normalizeString(item_type);
+                           item_wf_state       item/review_state|python: getInfoFor(item, 'review_state', '');
+                           item_wf_state_class python: 'state-' + putils.normalizeString(item_wf_state);
+                           item_url           item/getURL;">
+                       <span tal:attributes="class item_type_class">
+                       <a href="" class="visualIconPadding"
+                           tal:attributes="href  item_url;
+                                           title desc;"
+                           tal:content="item/pretty_title_or_id">
+                           Related Item
+                       </a>
+                       </span>
+                   </li>
+               </tal:related>
+               </ul>
+           </fieldset>
+      </tal:block>
+        
+    <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+      see also - shows the references if this feature is switched on
+    </div>
+    <div metal:use-macro="here/document_byline/macros/byline">
+      Get the byline - contains details about author and modification date.
+    </div>
+  </div>
+</body>
+</html>
+

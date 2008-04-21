@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+ <index name="getAudiences" meta_type="KeywordIndex">
+  <indexed_attr value="getAudiences"/>
+ </index>
+ <index name="getSections" meta_type="KeywordIndex">
+  <indexed_attr value="getSections"/>
+ </index>
+ <index name="getStartHere" meta_type="FieldIndex">
+  <indexed_attr value="getStartHere"/>
+ </index>
+ <index name="getVersions" meta_type="KeywordIndex">
+  <indexed_attr value="getVersions"/>
+ </index>
+ <index name="isOutdated" meta_type="FieldIndex">
+  <indexed_attr value="isOutdated"/>
+ </index>
+
+ <column value="getAudiences"/>
+ <column value="getSections"/>
+ <column value="getStartHere"/>
+ <column value="getVersions"/>
+ <column value="isOutdated"/>
+</object>

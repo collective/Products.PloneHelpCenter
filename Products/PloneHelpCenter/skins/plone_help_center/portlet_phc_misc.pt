@@ -1,0 +1,25 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet"
+    tal:define="view context/@@hc_view;"
+    style="width:23em">
+
+    <p>
+      <img tal:replace="structure here/rss.gif" />
+      <a tal:attributes="href view/getSyndicationURL" 
+         i18n:translate="phc_rss_all">
+        Feed for all documentation.
+      </a>
+    </p>
+
+    <p>
+        <a href="helpcenter_view" tal:attributes="href string:${portal_url}/documentation/helpcenter_view">
+            Newest documentation.
+        </a>
+    </p>
+
+</div>
+</body>
+</html>

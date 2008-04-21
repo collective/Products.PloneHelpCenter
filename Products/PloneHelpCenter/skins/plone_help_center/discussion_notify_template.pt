@@ -1,0 +1,25 @@
+<div i18n:domain="plonehelpcenter" 
+     tal:omit-tag=""
+     tal:define="charset site_properties/default_charset | string:utf-8;
+                 dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);
+                 comment_on_object nocall:options/comment_on_object;
+                 comment_on_type comment_on_object/portal_type;
+                 comment_on_title comment_on_object/title_or_id;">
+<tal:body i18n:translate="discussion_notify_template_body">
+Someone added a comment on your <span i18n:name="type" tal:replace="comment_on_type">type</span>:
+<span i18n:name="title" tal:replace="comment_on_title" />.
+
+If you are the author of this item, we recommend that you read the comment,
+and update the documentation accordingly if required - then remove the comment.
+
+If further clarification is needed, reply to the comment, and the person who
+made the comment will get a notification like this, and will likely give you
+more details.
+
+To view the new comment, visit:
+<span i18n:name="url" tal:replace="comment_on_object/absolute_url" />
+</tal:body>
+
+-- 
+<span tal:replace="here/email_from_name" />
+</div>

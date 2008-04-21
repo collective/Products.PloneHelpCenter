@@ -1,0 +1,54 @@
+
+WORKFLOWS & PERMISSIONS:
+
+- Any logged in user can add FAQ/HowTo/Tutorial/Link/ErrorRef.
+
+- The content is not visible or searchable to anybody else than the
+  Reviewers/Managers before it is Published.
+
+- There is no 'visible state', available states are:
+
+  - In-progress: Initial state, seen only to author/reviewers/managers.
+
+  - Pending: In the review queue to be approved by reviewers/managers.
+
+  - Published: Viewable to all.
+
+  - Obsolete: Viewable only to author/reviewers/managers. This state
+    has a very simple use now, but when plone.org finishes developing
+    our rating/obsolescence-marking tool, this will likely be
+    enhanced.
+
+- Transitions should be pretty self-explanatory:
+
+- User creates content object (state=in-progress)
+
+  - User has checkmark in the add form that says "Submit for approval
+    immediately" so they don't have to worry about the state menu
+    (state="pending")
+
+    This feature is not implemented yet; doing so would appear to
+    either add a useful field to the schema, or hacking the base_edit
+    form, neither of which is too pleasant. Instead, as a temporary
+    measure, the portal_status_message returned after editing a
+    non-published items reminds the editor that, unlike most
+    plone.org content, this needs to be published to be visible.
+
+  - Reviewer sees content in queue, checks content +
+    sections/versions, answers the question if it's a relevant
+    Question without an Answer, publishes. (state="published")
+
+  - Ideally, every time someone adds a comment to an item, the owner
+    of it gets a mail containing the comment + content URL.
+
+  - The Obsolete state is for later, when the ratings tool can push
+    something into an obsolete status if 3 or more people have marked
+    the content wrong/obsolete. The Owner should then get a mail about
+    it. 
+    
+    Mail sending is not turned on for these last two items. A good
+    idea would be integrate this with Geoff Davis' excellent
+    PortalNotifications, rather than doing this as one-off scripts.
+    This product can send mail on a status change, and does so in a
+    nice, clean way.
+

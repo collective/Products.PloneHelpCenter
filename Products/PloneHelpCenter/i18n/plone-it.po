@@ -1,0 +1,422 @@
+# translation of plone-it.po to Italiano
+# Mirto Busico <m.busico@ieee.org>, 2006.
+# Lallo Gaifas <lallo@artiemestieri.tn.it>, 14-10-2006.
+msgid ""
+msgstr ""
+"Project-Id-Version: plone-it\n"
+"POT-Creation-Date: 2006-09-20 09:17+0000\n"
+"PO-Revision-Date: 2006-10-21 09:37+0200\n"
+"Last-Translator: Mirto Busico <m.busico@ieee.org>\n"
+"Language-Team: Italiano <it@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: it\n"
+"Language-Name: Italiano\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: plone\n"
+"X-Generator: KBabel 1.10.2\n"
+
+#. Default: "Definition"
+msgid "Definition"
+msgstr "Definizione"
+
+#. Default: "Error Reference"
+msgid "Error Reference"
+msgstr "Breviario errori"
+
+#. Default: "Error Reference Section"
+msgid "Error Reference Section"
+msgstr "Errore"
+
+#. Default: "FAQ"
+msgid "FAQ"
+msgstr "Domanda frequenti"
+
+#. Default: "FAQ Section"
+msgid "FAQ Section"
+msgstr "Domanda frequente"
+
+#. Default: "Glossary"
+msgid "Glossary"
+msgstr "Glossario"
+
+#. Default: "Help Center"
+msgid "Help Center"
+msgstr "Centro documentazione"
+
+#. Default: "Help Center"
+msgid "HelpCenter"
+msgstr "Centro documentazione"
+
+#. Default: "Help Center Definition"
+msgid "HelpCenterDefinition"
+msgstr "Definizione del Centro di documentazione"
+
+#. Default: "Help Center Error Reference"
+msgid "HelpCenterErrorReference"
+msgstr "Breviario degli errori del centro di documentazione"
+
+#. Default: "Help Center Error Reference Folder"
+msgid "HelpCenterErrorReferenceFolder"
+msgstr "Cartella del breviario degli errori del centro di documentazione"
+
+#. Default: "HelpCenter FAQ"
+msgid "HelpCenterFAQ"
+msgstr "Domande frequenti"
+
+#. Default: "FAQ Folder"
+msgid "HelpCenterFAQFolder"
+msgstr "Cartella delle domande frequenti"
+
+#. Default: "Help Center Glossary"
+msgid "HelpCenterGlossary"
+msgstr "Glossario del centro di documentazione"
+
+#. Default: "Help Center How-To"
+msgid "HelpCenterHowTo"
+msgstr "Aiuto del centro di documentazione"
+
+#. Default: "HelpCenter How To Folder"
+msgid "HelpCenterHowToFolder"
+msgstr "Cartella degli aiuti del centro di documentazione"
+
+#. Default: "Help Center Instructional Video"
+msgid "HelpCenterInstructionalVideo"
+msgstr "Filmato didattico del centro di documentazione"
+
+#. Default: "Help Center Instructional Video Folder"
+msgid "HelpCenterInstructionalVideoFolder"
+msgstr "Cartella dei filmati didattici del centro di documentazione"
+
+#. Default: "Help Center Link"
+msgid "HelpCenterLink"
+msgstr "Collegamento del centro di documentazione"
+
+#. Default: "Help Center Link Folder"
+msgid "HelpCenterLinkFolder"
+msgstr "Cartella dei collegamenti del centro di documentazione"
+
+#. Default: "Help Center Tutorial"
+msgid "HelpCenterTutorial"
+msgstr "Guida del centro di documentazione"
+
+#. Default: "Help Center Tutorial Folder"
+msgid "HelpCenterTutorialFolder"
+msgstr "Cartella delle guide del centro di documentazione"
+
+#. Default: "Help Center Tutorial Page"
+msgid "HelpCenterTutorialPage"
+msgstr "Pagina di una guida del centro di documentazione"
+
+#. Default: "How-to"
+msgid "How-to"
+msgstr "Aiuto"
+
+#. Default: "How-to Section"
+msgid "How-to Section"
+msgstr "Aiuto"
+
+#. Default: "Link Section"
+msgid "Link Section"
+msgstr "Collegamento"
+
+#. Default: "Plone Help Center Folder"
+msgid "PHCFolder"
+msgstr "Cartella del centro di documentazione"
+
+#. Default: "Tutorial"
+msgid "Tutorial"
+msgstr "Guida"
+
+#. Default: "Tutorial Page"
+msgid "Tutorial Page"
+msgstr "Pagina della guida"
+
+#. Default: "Tutorial Section"
+msgid "Tutorial Section"
+msgstr "Guida"
+
+#. Default: "Video"
+msgid "Video"
+msgstr "Filmato"
+
+#. Default: "Video Section"
+msgid "Video Section"
+msgstr "Filmato"
+
+#. Default: "${number} items matching your criteria."
+#: ../skins/plone_help_center/phc_search.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "batch_x_items_matching_your_criteria"
+msgstr "${number} elementi corrispondono ai criteri inseriti."
+
+#. Default: "You can add a Definition to the Glossary, and it will be reviewed and approved by our documentation team."
+msgid "description_edit_definition"
+msgstr "Puoi aggiungere una definizione nel glossario e sarà rivista ed approvata dal gruppo di documentazione."
+
+#. Default: "You can add a Frequently Asked Question (preferrably with an answer), and it will be reviewed and approved by our documentation team."
+msgid "description_edit_faq"
+msgstr "Puoi aggiungere una domanda frequente (preferibilmente con una adeguata risposta), e sarà rivista ed approvata dal gruppo di documentazione."
+
+#. Default: "This is a folder that holds FAQs, and it allows you to display individual sections."
+msgid "description_edit_faqfolder"
+msgstr "Questa cartella contiene le domande frequenti e permette di visualizzarle suddivise per sezioni."
+
+#. Default: "This is a folder that holds Definitions, and it lists them in a dictionary-like fashion, with anchor links."
+msgid "description_edit_glossary"
+msgstr "Questa cartella contiene le definizioni del glossario e le visualizza in un elenco tipo vocabolario, dotato di collegamenti."
+
+#. Default: "Help Center links are links to other documentation, etc."
+msgid "description_edit_link"
+msgstr "I collegamenti del centro di documentazione sono collegamenti che puntano ad altra documentazione, etc."
+
+#. Default: "This is a folder that holds Help Center Links, and it allows you to display individual sections."
+msgid "description_edit_linkfolder"
+msgstr "Questa cartella contiene i collegamenti del centro di documentazione e permette di visualizzarli suddivisi per sezioni."
+
+#. Default: "This is a folder that holds PHC content"
+msgid "description_edit_phc"
+msgstr "Questa è la cartella che contiene il centro di documentazione."
+
+#. Default: "A Tutorial can contain Tutorial Pages, Image and Files. Index order is decided by the folder order, use the normal up/down selectors to rearrange content."
+msgid "description_edit_tutorial"
+msgstr "Una guida contiene pagine, immagini e file. L'ordine nell'indice viene stabilito in base all'ordine dei contenuti nella cartella. Utilizza le normali frecce su/giù nella vista dei contenuti per riorganizzarne l'ordine."
+
+#. Default: "No results were found."
+#: ../skins/plone_help_center/phc_search.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "description_no_results_found"
+msgstr "Non è stato trovata alcuna corrispondenza."
+
+#. Default: "This folder has no visible items. To add content, press the add button, or paste content from another location."
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "description_no_visible_items_add_paste"
+msgstr "Questa cartella non ha elementi visibili. Per aggiungere un contenuto premi il pulsante aggiungi o incolla il contenuto da un altra posizione."
+
+#. Default: "Match all"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_subject_and"
+msgstr "Tutte le corrispondenze"
+
+#. Default: "Match any"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_subject_or"
+msgstr "Qualsiasi corrispondenza"
+
+#. Default: "Up one level"
+#: ../skins/plone_help_center/referencemanualsection_view.pt
+#: ../skins/plone_help_center/phc_attachments.pt
+#: ../skins/plone_help_center/referencemanualpage_view.pt
+msgid "go_to_parent_url"
+msgstr "Su di un livello"
+
+#. Default: "Search results"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "heading_search_results"
+msgstr "Risultati della ricerca"
+
+#. Default: "Return items created by a particular person."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_author"
+msgstr "Trova gli elementi creati da una particolare persona."
+
+#. Default: "Return items matching this description. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_description"
+msgstr "Trova gli elementi che corrispondono a questa descrizione. Parole multiple possono essere trovate combinandole con <strong>AND</strong> e <strong>OR</strong>."
+
+#. Default: "Return items of a specific type."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_item_type"
+msgstr "Trova solo gli elementi di uno specifico tipo."
+
+#. Default: "Return items matching some or all of these keywords. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_keywords"
+msgstr "Trova gli elementi in cui corrispondono tutte queste parole chiave. Parole multiple possono essere trovate premendo <strong>Ctrl</strong> (o il tasto <strong>Apple</strong> su Mac) contemporaneamente alla parola."
+
+#. Default: "Return items added since you were last logged on, the last week, etc."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_new_items_since"
+msgstr "Trova gli elementi aggiunti dall'ultima tua registrazione, dalla settimana scorsa, ecc."
+
+#. Default: "As a reviewer, you may search for items based on their review state. If you wish to constrain results to items in certain states, select them from this list."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_review_status"
+msgstr "Come revisore puoi cercare gli elementi in base al loro stato di revisione. Se desideri limitare il risultato agli elementi in qualche stato, selezionali da questo elenco."
+
+#. Default: "For a simple text search, enter your search term here. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>. The text in this field will be matched with items' contents, title and description."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_text"
+msgstr "Inserisci qui i termini per la ricerca di testo. Parole multiple possono essere trovate combinandole con <strong>AND</strong> e <strong>OR</strong>. Il testo di questo campo sarà cercato nei contenuti degli elementi, nei titoli e nelle descrizioni."
+
+#. Default: "Select an item to add"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "label_add_item"
+msgstr "Seleziona un elemento da aggiungere"
+
+#. Default: "Any Author"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_any_author"
+msgstr "Qualsiasi autore"
+
+#. Default: "Author"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_author"
+msgstr "Autore"
+
+#. Default: "Description"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_description"
+msgstr "Descrizione"
+
+#. Default: "Item type"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_item_type"
+msgstr "Tipo di elemento"
+
+#. Default: "Keywords"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_keywords"
+msgstr "Parole chiave"
+
+#. Default: "New items since"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_new_items_since"
+msgstr "Nuovi elementi da"
+
+#. Default: "[ ${percentage} %]"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "label_relevance_percentage"
+msgstr "[ ${percentage} %]"
+
+#. Default: "Review status"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_review_status"
+msgstr "Stato di revisione"
+
+#. Default: "Search Text"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_search_text"
+msgstr "Testo ricerca"
+
+#. Default: "Select"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "label_select"
+msgstr "Seleziona"
+
+#. Default: "Select all items"
+#: ../skins/plone_help_center/phc_attachments.pt
+#: ../skins/plone_help_center/phc_stats_search.cpt
+msgid "label_select_all_items"
+msgstr "Seleziona tutti"
+
+#. Default: "Select All/None"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_toggle"
+msgstr "Seleziona/deseleziona tutto"
+
+#. Default: "Last log-in"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "last_login"
+msgstr "Ultima registrazione"
+
+#. Default: "Modified"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_modified"
+msgstr "Modificati"
+
+#. Default: "Order"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_order"
+msgstr "Ordinamento"
+
+#. Default: "Size"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_size"
+msgstr "Dimensione"
+
+#. Default: "State"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_status"
+msgstr "Stato"
+
+#. Default: "Title"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "listingheader_title"
+msgstr "Titolo"
+
+#. Default: "This item does not have any body text, click the edit tab to change it."
+#: ../skins/plone_help_center/errorreference_view.pt
+#: ../skins/plone_help_center/howto_view.pt
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "no_body_text"
+msgstr "Questo elemento non ha un corpo di testo, premi sulla scheda modifica per inserirlo."
+
+#. Default: "by ${author}, ${date}"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "results_by_author"
+msgstr "di ${author}, ${date}"
+
+#. Default: "Did you not find what you were looking for? Try the ${advanced_search} for more precise search options."
+#: ../skins/plone_help_center/phc_search.pt
+msgid "search_results_advanced"
+msgstr "Non trovi quello che cerchi? Prova la ${advanced_search} per opzioni di ricerca più precise."
+
+#. Default: "Advanced Search"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "search_results_advanced_link"
+msgstr "Ricerca avanzata"
+
+#. Default: "Content listing"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "summary_content_listing"
+msgstr "Elenco contenuti"
+
+#. Default: "Search"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "text_search"
+msgstr "Cerca"
+
+#. Default: "Ever"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_ever"
+msgstr "Sempre"
+
+#. Default: "expired"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "time_expired"
+msgstr "scaduto"
+
+#. Default: "Last month"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_last_month"
+msgstr "Ultimo mese"
+
+#. Default: "Last week"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_last_week"
+msgstr "Ultima settimana"
+
+#. Default: "Yesterday"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "time_yesterday"
+msgstr "Ieri"
+
+#. Default: "Move item down"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "title_move_item_down"
+msgstr "Muovi in giù l'elemento"
+
+#. Default: "Move item up"
+#: ../skins/plone_help_center/phc_attachments.pt
+msgid "title_move_item_up"
+msgstr "Muovi in su l'elemento"
+
+#. Default: "Relevance"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "title_relevance"
+msgstr "Pertinenza"
+

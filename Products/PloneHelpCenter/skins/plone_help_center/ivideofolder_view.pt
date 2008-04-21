@@ -1,0 +1,76 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  metal:use-macro="here/main_template/macros/master"
+  i18n:domain="plonehelpcenter">
+
+  <body>
+    <div metal:fill-slot="main"
+         tal:define="view here/@@hcf_view;
+                     global getInfoFor nocall:here/portal_workflow/getInfoFor">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+      Document actions (print, sendto etc)
+    </div>
+
+    <h1 tal:content="here/Title" class="documentFirstHeading">
+      Folder Title
+    </h1>
+
+    <div class="documentDescription"
+         tal:content="here/Description">
+      Description.
+    </div>
+
+    <div tal:repeat="section view/getSectionsToList">
+
+        <h2 tal:content="section">Section Heading</h2>
+
+        <dl>
+            <tal:video tal:repeat="video python:view.getItemsBySection(section=section)">
+            <dt>
+                <div style="float:right; text-align: center; margin: 1em 0 1em 1em;"
+                     tal:condition="video/screenshot_thumb | nothing">
+                    <a class="discreet"
+                       tal:attributes="href string:${video/absolute_url}/screenshot/image_view_fullscreen">
+                        <img tal:replace="structure video/screenshot_thumb" />
+                        <br />
+                        <img tal:replace="structure here/search_icon.gif" />
+                        <span i18n:translate="label_click_to_enlarge">
+                            Click to enlarge
+                        </span>
+                    </a>
+                </div>
+                <img tal:replace="structure here/movie_icon.gif" />
+                <a href="" tal:content="video/Title"
+                   tal:attributes="href video/getURL;
+                                   class string:state-${video/review_state}">Video</a>
+                <img src="error_icon.gif" alt="!" class="outdatedMarker"
+                     tal:condition="video/isOutdated"
+                     title="This video applies to a previous version" 
+                     i18n:attributes="title"/>
+            </dt>
+            
+            <dd tal:content="video/Description">Description</dd>
+            <div class="discreet" tal:define="getObjSize nocall:portal/getObjSize">
+                <strong i18n:translate="">Duration:</strong>
+                <span tal:content="video/duration" tal:condition="video/duration | nothing">
+                      Duration
+                </span> <span i18n:translate="" tal:omit-tag="">minutes</span>
+                <br />
+                <strong i18n:translate="">Size:</strong>
+                <span tal:content="python:getObjSize(video)" tal:condition="video/video_file | nothing">
+                      Size
+                </span>
+            </div>
+          </tal:video>
+        </dl>
+
+    </div>
+
+    <div metal:use-macro="here/document_byline/macros/byline">
+      Get the byline - contains details about author and modification date.
+    </div>
+    </div>
+  </body>
+
+</html>

@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonehelpcenter">
+
+<body>
+
+<div metal:fill-slot="main">
+
+    <div metal:define-macro="main"
+         tal:define="toc python:here.getTOC(root = here);">
+
+        <div metal:use-macro="here/document_actions/macros/document_actions">
+            Document actions (print, sendto etc)
+        </div>
+
+        <h1>
+            <img tal:replace="structure here/referencemanual_icon.gif" />
+            <span tal:replace="here/Title" />
+        </h1>
+
+        <p class="discreet visualNoPrint"
+           i18n:translate="view_paginated_reference_manual">
+	  Note: Return to <a href="" tal:attributes="href here/absolute_url">reference manual view</a>.
+        </p>
+
+        <div class="documentDescription" 
+             tal:content="here/getReferenceManualDescription">
+            Reference Manual Description
+        </div>
+        
+        <metal:recursion use-macro="here/referencemanual_macros/macros/section_collation"/>
+        
+    </div>
+
+</div>
+
+</body>
+</html>

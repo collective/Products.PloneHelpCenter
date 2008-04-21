@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<object name="portal_workflow">
+ <object name="helpcenter_workflow" meta_type="Workflow"/>
+ <object name="helpcenterfolder_workflow" meta_type="Workflow"/>
+ <object name="helpcentersubitem_workflow" meta_type="Workflow"/>
+ <bindings>
+  <type type_id="HelpCenterDefinition">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterErrorReference">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterErrorReferenceFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterFAQ">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterFAQFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterGlossary">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterHowTo">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterHowToFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterInstructionalVideo">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterInstructionalVideoFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterLink">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterLinkFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterReferenceManual">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterReferenceManualFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterReferenceManualPage">
+   <bound-workflow workflow_id="helpcentersubitem_workflow"/>
+  </type>
+  <type type_id="HelpCenterReferenceManualSection">
+   <bound-workflow workflow_id="helpcentersubitem_workflow"/>
+  </type>
+  <type type_id="HelpCenterTutorial">
+   <bound-workflow workflow_id="helpcenter_workflow"/>
+  </type>
+  <type type_id="HelpCenterTutorialFolder">
+   <bound-workflow workflow_id="helpcenterfolder_workflow"/>
+  </type>
+  <type type_id="HelpCenterTutorialPage">
+   <bound-workflow workflow_id="helpcentersubitem_workflow"/>
+  </type>
+ </bindings>
+</object>

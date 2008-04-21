@@ -1,0 +1,36 @@
+<configure  xmlns="http://namespaces.zope.org/zope"
+            xmlns:five="http://namespaces.zope.org/five"
+	        xmlns:gs="http://namespaces.zope.org/genericsetup"
+            xmlns:i18n="http://namespaces.zope.org/i18n"
+            i18n_domain="plonehelpcenter">
+
+  <include package=".browser" />
+
+  <i18n:registerTranslations directory="locales"/>
+
+  <gs:registerProfile
+	name="default"
+    title="PloneHelpCenter"
+	directory="profiles/default"
+	description="What's powering the documentation section on plone.org"
+	provides="Products.GenericSetup.interfaces.EXTENSION"
+	/>
+
+  <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
+  <five:deprecatedManageAddDelete class=".content.FAQFolder.HelpCenterFAQFolder" />
+  <five:deprecatedManageAddDelete class=".content.HowToFolder.HelpCenterHowToFolder" />
+  <five:deprecatedManageAddDelete class=".content.TutorialFolder.HelpCenterTutorialFolder" />
+  <five:deprecatedManageAddDelete class=".content.ReferenceManualFolder.HelpCenterReferenceManualFolder" />
+  <five:deprecatedManageAddDelete class=".content.ErrorReferenceFolder.HelpCenterErrorReferenceFolder" />
+  <five:deprecatedManageAddDelete class=".content.LinkFolder.HelpCenterLinkFolder" />
+  <five:deprecatedManageAddDelete class=".content.Glossary.HelpCenterGlossary" />
+  <five:deprecatedManageAddDelete class=".content.HowTo.HelpCenterHowTo" />
+  <five:deprecatedManageAddDelete class=".content.Tutorial.HelpCenterTutorial" />
+  <five:deprecatedManageAddDelete class=".content.TutorialPage.HelpCenterTutorialPage" />
+  <five:deprecatedManageAddDelete class=".content.ErrorReference.HelpCenterErrorReference" />
+  <five:deprecatedManageAddDelete class=".content.FAQ.HelpCenterFAQ" />
+  <five:deprecatedManageAddDelete class=".content.Definition.HelpCenterDefinition" />
+  <five:deprecatedManageAddDelete class=".content.Link.HelpCenterLink" />
+
+
+</configure>

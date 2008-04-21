@@ -1,0 +1,283 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+   lang="en"
+   i18n:domain="plonehelpcenter"
+   metal:use-macro="here/main_template/macros/master">
+
+   <div metal:fill-slot="main"
+      tal:define="view context/@@hc_view; results view/statsQueryCatalog">
+
+      <h1>Search results</h1>
+      
+      <a href=""
+         class="link-parent"
+         tal:attributes="href string:${here/absolute_url}/phc_stats"
+         >
+          Return to statistics search
+      </a>
+
+      <div tal:condition="not: results">
+         <p><strong i18n:domain="plone" i18n:translate="description_no_results_found">No results were found.</strong></p>
+      </div>
+
+      <p tal:condition="results">
+         You can assign audiences, sections and keywords to the items below in
+         aggregate. Select the items you wish to modify, and use the controls
+         at the bottom.
+      </p>
+
+      <form method="post"
+            tal:condition="results"
+            tal:attributes="action string:${here/absolute_url}/${template/getId}">
+         
+         <input type="hidden" name="form.submitted" value="1" />
+
+         <strong i18n:domain="plone"
+                 i18n:translate="batch_x_items_matching_your_criteria">
+            <span i18n:name="number" tal:omit-tag="" tal:content="python:len(results)">234</span> items matching your criteria.
+         </strong>
+
+         <table class="listing nosort">
+            <thead>
+               <tr>
+                  <th>
+                     <input class="noborder"
+                        type="checkbox"
+                        src="select_all_icon.gif"
+                        name="selectButton"
+                        title="Select all items"
+                        onClick="toggleSelect(this,'paths:list');"
+                        tal:attributes="src string:$portal_url/select_all_icon.gif"
+                        alt="Select all items"
+                        i18n:domain="plone"
+                        i18n:attributes="title label_select_all_items; alt label_select_all_items;" />
+                  </th>
+                  <th>Title</th>
+                  <th>Audience(s)</th>
+                  <th>Section(s)</th>
+                  <th>Version(s)</th>
+                  <th>Keyword(s)</th>
+               </tr>
+            </thead>
+            <tbody>
+               <tal:items repeat="item results">
+                  <tr tal:define="oddrow  repeat/item/odd"
+                     tal:attributes="class python:test(oddrow, 'even', 'odd')">
+                     <td>
+                        <input type="checkbox" name="paths:list" tal:attributes="value item/getPath"/>
+                     </td>
+                     <td><a tal:content="item/Title" tal:attributes="href item/getURL"/></td>
+                     <td tal:content="python:'; '.join(item.getAudiences)" tal:on-error="nothing"/>
+                     <td tal:content="python:'; '.join(item.getSections)" tal:on-error="nothing"/>
+                     <td tal:content="python:'; '.join(item.getVersions)" tal:on-error="nothing"/>
+                     <td tal:content="python:'; '.join(item.Subject)" tal:on-error="nothing"/>
+                  </tr>
+               </tal:items>
+            </tbody>
+         </table>
+         
+         <div class="field">
+             <label for="Subject">Assign keywords</label>
+
+             <div class="formHelp">
+                You can either replace the existing keywords of the selected
+                items with the selection below, or replace all keywords on
+                the items selected with your selection.
+             </div>
+
+             <select name="Subject:list"
+                     id="Subject"
+                     size="7"
+                     multiple="multiple"
+                     tabindex=""
+                     tal:define="usedSubjects python:here.portal_catalog.uniqueValuesFor('Subject');"
+                     >
+                 <option value="#"
+                         tal:repeat="subject usedSubjects"
+                         tal:content="subject"
+                         tal:attributes="value subject"
+                         i18n:translate=""
+                         >dummy</option>
+             </select>
+             <br />
+
+             <input type="radio"
+                    name="Subject_mode:ignore_empty"
+                    id="Subject_add"
+                    value="add"
+                    class="noborder"
+                    checked="checked"
+                    />
+                 <label for="Subject_add">
+                     Add to existing keywords
+                 </label>
+                 <br />
+
+             <input type="radio"
+                     name="Subject_mode:ignore_empty"
+                     id="Subject_replace"
+                     value="replace"
+                     class="noborder"
+                     tabindex=""
+                     />
+             <label for="Subject_replace">
+                 Replace existing keywords
+             </label>
+         </div>
+         
+         <div class="field">
+             <label for="audiences">Assign audiences</label>
+
+             <div class="formHelp">
+                You can either replace the existing audiences of the selected
+                items with the selection below, or replace all audiences on
+                the items selected with your selection.
+             </div>
+
+             <select name="audiences:list"
+                     id="audiences"
+                     size="7"
+                     multiple="multiple"
+                     tabindex=""
+                     tal:define="usedAudiences here/getAudiencesVocab"
+                     >
+                 <option value="#"
+                         tal:repeat="audience usedAudiences"
+                         tal:content="audience"
+                         tal:attributes="value audience"
+                         i18n:translate=""
+                         >dummy</option>
+             </select>
+             <br />
+
+             <input type="radio"
+                    name="audiences_mode:ignore_empty"
+                    id="audiences_add"
+                    value="add"
+                    class="noborder"
+                    checked="checked"
+                    />
+                 <label for="audiences_add">
+                     Add to existing audiences
+                 </label>
+                 <br />
+
+             <input type="radio"
+                     name="audiences_mode:ignore_empty"
+                     id="audiences_replace"
+                     value="replace"
+                     class="noborder"
+                     />
+             <label for="audiences_replace">
+                 Replace existing audiences
+             </label>
+         </div>
+         
+         <div class="field" tal:define="usedSections here/aq_explicit/getSectionsVocab | nothing"
+                            tal:condition="usedSections">
+             <label for="sections">Assign sections</label>
+
+             <div class="formHelp">
+                You can either replace the existing sections of the selected
+                items with the selection below, or replace all sections on
+                the items selected with your selection.
+             </div>
+
+             <select name="sections:list"
+                     id="sections"
+                     size="7"
+                     multiple="multiple"
+                     tabindex=""
+                     >
+                 <option value="#"
+                         tal:repeat="section usedSections"
+                         tal:content="section"
+                         tal:attributes="value section"
+                         i18n:translate=""
+                         >dummy</option>
+             </select>
+             <br />
+
+             <input type="radio"
+                    name="sections_mode:ignore_empty"
+                    id="sections_add"
+                    value="add"
+                    class="noborder"
+                    checked="checked"
+                    />
+                 <label for="sections_add">
+                     Add to existing sections
+                 </label>
+                 <br />
+
+             <input type="radio"
+                     name="sections_mode:ignore_empty"
+                     id="sections_replace"
+                     value="replace"
+                     class="noborder"
+                     tabindex=""
+                     />
+             <label for="sections_replace">
+                 Replace existing sections
+             </label>
+         </div>
+         
+         <div class="field">
+             <label for="versions">Assign versions</label>
+
+             <div class="formHelp">
+                You can either replace the existing versions of the selected
+                items with the selection below, or replace all versions on
+                the items selected with your selection.
+             </div>
+
+             <select name="versions:list"
+                     id="versions"
+                     size="7"
+                     multiple="multiple"
+                     tabindex=""
+                     tal:define="usedVersions here/getVersionsVocab"
+                     >
+                 <option value="#"
+                         tal:repeat="version usedVersions"
+                         tal:content="version"
+                         tal:attributes="value version"
+                         i18n:translate=""
+                         >dummy</option>
+             </select>
+             <br />
+
+             <input type="radio"
+                    name="versions_mode:ignore_empty"
+                    id="versions_add"
+                    value="add"
+                    class="noborder"
+                    checked="checked"
+                    />
+                 <label for="versions_add">
+                     Add to existing versions
+                 </label>
+                 <br />
+
+             <input type="radio"
+                     name="versions_mode:ignore_empty"
+                     id="versions_replace"
+                     value="replace"
+                     class="noborder"
+                     />
+             <label for="versions_replace">
+                 Replace existing versions
+             </label>
+         </div>
+         
+         <div class="formControls">
+            <input class="context"
+                    type="submit"
+                    name="form.button.Modify"
+                    value="Modify selected items"/>
+         </div>
+      </form>
+   </div>
+
+
+</html>
+

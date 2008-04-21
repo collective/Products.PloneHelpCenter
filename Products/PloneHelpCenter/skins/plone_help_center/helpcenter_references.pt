@@ -1,0 +1,26 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+  lang="en"
+  i18n:domain="plonehelpcenter">
+
+<body>    
+    <metal:define define-macro="view_referenced_items">
+        <tal:define define="objs here/getRelatedItems;"
+                    condition="objs">    
+            <h3 i18n:translate="see_also">see also:</h3>
+            <dl>
+              <tal:repeat tal:repeat="obj objs">
+                    <dt>
+                      <img tal:attributes="src obj/getIcon" />
+                      <a href="#"
+                         tal:attributes="href obj/absolute_url;"
+                         tal:content="python:obj.Title() or obj.absolute_url(relative=1)">
+                        Target Title
+                      </a>
+                    </dt>
+                    <dd tal:content="obj/Description"></dd>
+              </tal:repeat>
+            </dl>
+        </tal:define>
+    </metal:define>
+</body>
+</html>

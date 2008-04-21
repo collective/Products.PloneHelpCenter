@@ -1,0 +1,80 @@
+Welcome to the Help Center! This way of doing documentation is a bit
+different from what you may be used to, so please read this document
+to understand how to contribute.
+
+Quick Start
+    
+  For the impatient, here's the bare minimum you should know:
+
+o You normally need to be logged in.
+
+o There are several different documentation types, most are self-explanatory, but pay attention to the difference between a How-to and a Tutorial (explained below).
+        
+o To add a piece of documentation/help, go into the relevant section, make sure there isn't already an existing entry about what you want to add, and use the button at the top right to add (normally says Add  FAQ or similar).
+        
+o Add your content, and save it. This edit/view cycle can be performed as many times as you like, until you are happy with the result.
+        
+o Make sure you Submit your document for publication when you are done - top right pulldown in the content area.
+        
+o A reviewer will then pick up the document, and publish it unless the content needs to be improved.
+
+o If somebody adds comments to your entry later, you will be notified by e-mail.
+        
+What type of item is my documentation?
+
+  Below is a description, usage and example for each type.
+
+Frequently Asked Question (FAQ) -- An FAQ is a short question with a 1-2 paragraph answer. You can add several questions to a FAQ area and group the questions into sections::
+
+    FAQ Example
+    Question: What is Plone?
+
+    
+    Answer:
+    Plone is an open source Enterprise Content Management
+    System (ECM/CMS) that runs on top of Zope and CMF.
+                
+HowTo -- A HowTo is a one-page description on how to accomplish something, but is folderish, so Files/Images can be attached. It's usually very brief and to-the-point.
+
+  Typical How-Tos:
+
+  o How to set up Plone with the Apache Web Server
+  
+  o How to change the tabs that appear at the top of the portal
+
+Tutorial -- A tutorial is a multi-paged article with lots of detail. The tutorial is more in-depth than a How-to, and may cover the conceptual aspects of the task, in addition to the practical steps to get the job done.
+            
+  If you are unsure of the difference of a How-to and a Tutorial, think about it as the difference between a recipe that only teaches you what ingredients are needed, and how to bake the cake (How-to), and an article telling you about the history behind cakes in general, that may or may not teach you how to actually bake one (Tutorial).
+            
+  Typical Tutorials:
+
+  o How to utilize workflows in your projects
+   
+  o Why separate content, logic and presentation?
+                
+Reference Manual -- A reference manual is a definitive piece of documentation for some product or technology, and tends to be several pages in lenght, with sections breaking up the content. This is by far the rarest documentation type. 
+        
+Help Link -- A help link is a link (either external or internal). It is different from a standard Plone link in that it can have section and version information.
+
+  Typical Help Links:
+
+  o The Zope Book at zope.org
+    
+  o CSS reference manual at W3C
+                
+Error Reference -- An error reference is meant to be the explanation of a particular error, with details on how to fix it, if relevant.
+            
+  Typical Error References
+
+  o Expected sequence, got integer
+  
+  o FS Page Template has errors: Compilation failed
+                
+            
+Glossary Definition -- A glossary definition describes a particular term used as concisely as possible.
+            
+  Typical Glossary Definitions:
+
+  o CMF: The Content Management Framework
+  
+  o Workflow: A state machine structure used to model business processes

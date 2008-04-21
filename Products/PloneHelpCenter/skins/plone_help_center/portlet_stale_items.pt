@@ -1,0 +1,82 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plonehelpcenter">
+
+<body>
+
+<div metal:define-macro="portlet"
+     tal:condition="python: (context.portal_type == 'HelpCenter') and (
+         (member.has_role('Reviewer', context)) or
+         (member.has_role(['Manager'], context))
+     )">
+     
+    <tal:staleitemslist tal:define="stale_interval context/REQUEST/SESSION/stale_PHC_items_interval | string:1_year;
+                 results python:context.fetchStaleItems( stale_interval )">
+
+    <div class="portlet" id="portlet-stale-items">
+
+        <h5 i18n:translate="box_staleitems">Stale Help Center Items</h5>
+
+        <div class="portletBody">
+
+            <tal:block tal:repeat="obj results"
+                       tal:define="oddrow python:0;
+                                   portal_types_info python: 
+                                    {  
+                                      'HelpCenterDefinition': ('definition', 'glossary_icon'),
+                                      'HelpCenterErrorReference': ('error reference', 'errorref_icon'),
+                                      'HelpCenterFAQ': ('question', 'faq_icon'),
+                                      'HelpCenterHowTo': ('how-to', 'topic_icon'),
+                                      'HelpCenterLink': ('link', 'link_icon'),
+                                      'HelpCenterTutorial': ('tutorial', 'tutorial_icon'), 
+                                    };">
+
+                <div tal:condition="repeat/obj/first/portal_type"
+                     tal:define="oddrow         python:not oddrow;
+                                 items_found    python:len([x for x in results if (x.portal_type == obj.portal_type)]);
+                                 display_name   python:portal_types_info[obj.portal_type][0];
+                                 icon_path      python:portal_types_info[obj.portal_type][1];"
+                     tal:attributes="class python:test(oddrow, 'portletContent even', 'portletContent odd')">
+
+                    <a href=""
+                       tal:attributes="href string:queryForStaleItems?type=${obj/portal_type}&amp;stale_interval=${stale_interval}">
+                        <img src="" tal:attributes="src string:${icon_path}.gif" />
+                        <span tal:replace="string:$items_found stale ${display_name}s">ITEM_COUNT</span>
+                    </a>
+                </div>
+
+            </tal:block>
+
+            <div class="portletContent odd" tal:condition="not: results"
+                 i18n:translate="box_no_stale_items">
+            No stale items found in the Help Center.
+            </div>
+
+            <div class="portletContent">
+            <form action="updateStaleItems" method="get" name="stale_item_interval" >
+              <select name="newInterval" onchange="MM_jumpMenu('parent',this,0)">
+                <option value="1_day" tal:attributes="selected python:stale_interval =='1_day'">1 day old</option>
+                <option value="1_week" tal:attributes="selected python:stale_interval =='1_week'">1 week old</option>
+                <option value="2_weeks" tal:attributes="selected python:stale_interval =='2_weeks'">2 weeks old</option>
+                <option value="1_month" tal:attributes="selected python:stale_interval =='1_month'">1 month old</option>
+                <option value="3_months" tal:attributes="selected python:stale_interval =='3_months'">3 months old</option>
+                <option value="6_months" tal:attributes="selected python:stale_interval =='6_months'">6 months old</option>
+                <option value="1_year" tal:attributes="selected python:stale_interval =='1_year'">1 year old</option>
+              </select>
+                <!-- TODO: Make the jump when an item is selected? Conform to
+                Plone UI style (like the Add Item DHTML menus)? -->
+              <input name="update_btn" type="submit" value="Update" />
+            </form>
+            </div>
+
+        </div>
+
+    </div>
+
+    </tal:staleitemslist>
+    
+</div>
+
+</body>
+
+</html>

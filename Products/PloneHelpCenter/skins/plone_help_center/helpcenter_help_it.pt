@@ -1,0 +1,237 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plonehelpcenter">
+
+    <head>
+        <metal:block fill-slot="top_slot"
+                     tal:define="dummy python:request.set('disable_border',1)" />
+    </head>
+
+<body>
+    <div metal:fill-slot="main">
+
+    <div metal:use-macro="here/document_actions/macros/document_actions">
+    Document actions (print, sendto etc)
+    </div>
+
+    <h1 class="documentFirstHeading">
+    Usare il Centro di Supporto
+    </h1>
+
+    <a class="link-parent visualNoPrint"
+      href=".">
+      Ritorna al Centro di Supporto
+    </a>
+    
+
+    <div class="documentDescription">
+    Una breve descrizione di come potete contribuire ed utilizzare il Centro di Supporto.
+    </div>
+
+    <p>
+    Benvenuti al centro di Supporto! Questo modo di documentare e' leggermente
+    diverso da quello a cui siete abituati, quindi, per cortesia, leggete questo documento
+    per comprendere come contribuire.
+    </p>
+    
+    <h2>Partenza rapida</h2>
+    
+    <p>Per l'impaziente: c'e' un minimo di cose da sapere:</p>
+    
+    <ol>
+        <li>Normalmente dovete essere "loggati" cioe' aver fornito un identificativo d'utente ed una password.</li>
+
+        <li>Ci sono differenti tipi di documentazione, la maggior parte sono
+	    autoesplicativi, ma prestate attenzione alla differenza tra
+	    <strong>Manuali di istruzione</strong> e <strong>Vademecum</strong>
+	    (la differenza e' spiegata qui sotto).
+        </li>
+
+        <li>
+	    Per aggiungere un elemento di documentazione/aiuto, andare alla sezione corrispondente
+	    <strong>controllate che non ci sia gia' un documento relativo allo
+	    stesso argomento che volete aggiungere</strong>
+	    ed utilizzate il bottone in alto a destra (normalmente contiene la
+	    scritta <code>Aggiungi Domanda Frequente</code> o qualcosa di simile).
+        </li>
+
+        <li>
+	    Aggiungere il contenuto e salvarlo. Questo ciclo modifica/riguarda
+	    puo' essere eseguito tante volte quante si vuole, finche' sarete
+	    soddisfatti del risultato.
+        </li>
+
+        <li>
+	    Assicuratevi di cambiare lo stato del documento in <code>Conferma</code>
+	    per pubblicarlo quando avrete finito la redazione
+	    &mdash; utilizzate il menu a tendina sulla destra nell'area
+	    del documento.
+        </li>
+        
+        <li>
+	    Un revisore si prendera' in carico il documento, e provvedrera'
+	    a pubblicarlo, a meno che il contenuto non necessiti di miglioramenti.
+        </li>
+            
+        <li>
+	    Se qualcuno in seguito aggiungera' dei commenti, sarete informati via e-mail.
+        </li>
+    </ol>    
+
+    <h2>Quali tipi di elementi sono compresi nella documentazione?</h2>
+
+    <p>Qui di seguito trovate una descrizione, utilizzo ed esempio per ogni tipo.</p>
+
+    <dl>
+        <dt>Domande frequenti (FAQ)</dt>
+
+        <dd>
+            <p>
+	    Una "Domanda frequente" e' una breve domanda che richiede una risposta
+	    di 1-2 paragrafi.
+	    Potete aggiungere molte domande alla sezione delle "Domande frequenti"
+	    e raggrupparle in sezioni.
+            </p>
+
+            <fieldset>
+                <legend>Esempio di Domanda frequente</legend>
+                <strong>Domanda:</strong> Che cosa e' Plone?
+
+                <p>
+                <strong>Risposta:</strong>
+		Plone e' sistema open source per la gestione di contenuti di
+		livello azienda (Enterprise Content Management
+                System - ECM/CMS) basato su Zope e CMF.
+                </p>
+            </fieldset>
+
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>Ricette</dt>
+
+        <dd>
+            <p>
+	    Una ricetta e' una descrizione di una pagina su come fare qualcosa,
+	    ma ha il formato di una cartella, quindi puo' avere come allegati file/immagini.
+	    In genere e' breve e focalizzata.
+            </p>
+
+            <fieldset>
+                <legend>Tipiche ricette</legend>
+
+                <ul>
+                    <li>Come impostare Plone per lavorare con un server web Apache</li>
+                    <li>Come cambiare le linguette che appaiono in cima alla pagina del portale</li>
+                </ul>
+            </fieldset>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>Guide</dt>
+
+        <dd>
+            <p>
+	    Una guida e' un articolo su piu' pagine che contiene molti dettagli.
+	    La guida e' molto piu' approfondita del Manuale d'istruzione,
+	    e copre aspetti concettuali dell'attivita', oltre ai passi effettivi
+	    per completare il lavoro.
+            </p>
+            <p>
+	    Se non sei sicuro di aver compreso la differenza tra Ricette 
+	    e Guide, pensa alla differenza tra una ricetta che ti indica soltanto
+	    gli ingredienti richiesti, e come fare (ricetta) una torta,
+	    ed un articolo che parla della storia delle torte in generale,
+	    che puo', o meno, insegnare come farne effettivamente una (guida).
+            </p>
+
+            <fieldset>
+                <legend>Tipiche guide</legend>
+
+                <ul>
+                    <li>Come utilizzare il "workflow" nei vostri progetti</li>
+                    <li>Perche' separare contenuto, logica e presentazione?</li>
+                </ul>
+            </fieldset>
+        </dd>
+    </dl>
+
+
+
+
+    <dl>
+        <dt>Collegamenti di aiuto</dt>
+
+        <dd>
+            <p>
+	       Un Collegamento di aiuto e' un collegamento (interno od esterno).
+	       E' differente da un normale collegamento di Plone in quanto
+	       possiede informazioni relative alla sezione ed alla versione.
+
+            </p>
+
+            <fieldset>
+                <legend>Tipici collegamenti di aiuto</legend>
+
+                <ul>
+                    <li>Il Libro di Zope sul sito zope.org</li>
+                    <li>Il manuale di riferimento del CSS sul sito del W3C</li>
+                </ul>
+            </fieldset>
+        </dd>
+    </dl>
+
+    <dl>
+        <dt>Decodifica degli errori</dt>
+
+        <dd>
+            <p>
+	       Una Decodifica di errore rappresenta la spiegazione di un 
+	       particolare errore, con dettagli su come risolverlo,
+	       se rilevante.
+            </p>
+
+            <fieldset>
+                <legend>Tipiche decodifiche di errori</legend>
+
+                <ul>
+                    <li>Ci si aspetta una sequenza, e' stato ricevuto un intero</li>
+                    <li>FS Page Template contiene degli errori: Compilazione fallita</li>
+                </ul>
+            </fieldset>
+        </dd>
+    </dl>
+    
+    <dl>
+        <dt>Definizioni del Glossario</dt>
+
+        <dd>
+            <p>
+	       Una definizione del glossario descrive 
+	       il significato di un termine
+	       particolare nel modo piu' conciso possibile.
+            </p>
+
+            <fieldset>
+                <legend>Tipiche definizioni del glossario</legend>
+
+                <ul>
+                    <li><strong>CMF</strong>: L'ambiente di gestione dei contenuti
+		    (Content Management Framework)</li>
+                    <li><strong>Workflow</strong>: Una macchina a stati finiti
+		    utilizzata per modellare il processo elaborativo
+		    </li>
+                </ul>
+            </fieldset>
+        </dd>
+    </dl>
+
+    
+
+  </div>
+</body>
+
+</html>

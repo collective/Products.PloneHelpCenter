@@ -1,0 +1,114 @@
+Browser tests for search
+========================
+
+Test that we have and can correctly use the search widget provided by 
+helpcenter_view.
+
+First, some set-up:
+    
+    >>> from Products.Five import zcml
+    >>> import Products    
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    
+Let us log all exceptions, which is useful for debugging. Also, clear portlet
+slots, to make the test browser less confused by things like the recent portlet
+and the navtree.
+
+    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> self.portal.left_slots = self.portal.right_slots = []
+    >>> workflow = self.portal.portal_workflow
+
+Setup our site with the data provided in Data.py and utilities in CustomSetup.py
+
+    >>> from Products.PloneHelpCenter.tests import CustomSetup
+    >>> from Products.PloneHelpCenter.tests import Data
+    >>> CustomSetup.CreateRootPHC(self,self.portal)
+    'Created a PHC instance in the root of your Plone site.'
+
+Make sure that our search facility is in place and functional.  We should find
+our one howto instructing on PloneHelpCenter use.  Indexes are used to find the
+correct search form fields.
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = ''
+    >>> browser.getControl(name='phc_selection').value = ['all']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.url
+    '.../phc_search...'
+    >>> browser.contents
+    '...<strong>...1...items matching your criteria...</strong>...'
+
+Next we search for the word 'Test', which is not in our out of the box howto
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = 'Test'
+    >>> browser.getControl(name='phc_selection').value = ['all']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.url
+    '...SearchableText=Test...'
+    >>> browser.contents
+    '...<strong>No results were found.</strong>...'
+
+Now we want to create some FAQ items from Data.py that we can search for. Our
+call to CreateFaqs happens to make 4 FAQs, only 2 of which are published and 
+thus found in our search
+
+    >>> CustomSetup.CreateFaqs(self,self.portal)
+    'Created 4 PHC FAQs.'
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = 'Test FAQ'
+    >>> browser.getControl(name='phc_selection').value = ['all']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.contents
+    '...<strong>...2...items matching your criteria...</strong>...'
+
+Now let's make sure we get the same results within the faq section of our PHC
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = 'Test FAQ'
+    >>> browser.getControl(name='phc_selection').value = ['faq']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.contents
+    '...<strong>...2...items matching your criteria...</strong>...'
+
+We should get nothing when we search within another section
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = 'Test FAQ'
+    >>> browser.getControl(name='phc_selection').value = ['link']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.contents
+    '...<strong>No results were found.</strong>...'
+
+Now, we prove that each help center search only works for the PHC instance in 
+question.  For example, say an organization creates a help center for product 1
+and product 2.  In that instance, you wouldn't want to see documentation about
+product 2 when you own product 1.
+
+    >>> CustomSetup.CreateAltPHC(self,self.portal)
+    'Created an alternate PHC instance in the root of your Plone site.'
+    >>> CustomSetup.CreateFaqs(self,self.portal,True)
+    'Created 4 PHC FAQs.'
+
+We still only want 2 items in our original PHC instance
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.getControl(name='SearchableText', index=1).value = 'Test FAQ'
+    >>> browser.getControl(name='phc_selection').value = ['all']
+    >>> browser.getControl(name='Search', index=0).click()
+    >>> browser.contents
+    '...<strong>...2...items matching your criteria...</strong>...'
+
+But, the site as a whole should have 4 items (2 published in each PHC) with 
+SearchableText containing 'Test FAQ'.  Note, the other 2 aren't found because
+the helpcenter_workflow doesn't give view permission to those that aren't owners
+or managers in the context. We perform this search from site root as a site 
+member.
+
+    >>> browser.open(self.portal.absolute_url())
+    >>> browser.getControl(name='SearchableText', index=0).value = 'Test FAQ'
+    >>> browser.getControl('Search', index=1).click()
+    >>> browser.contents
+    '...4 items matching your search terms...'

@@ -1,0 +1,22 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet">
+
+    <dl class="portlet">
+      <dt class="portletHeader">
+        <a href="/events/training">Plone Training</a>
+      </dt>
+      <dd class="portletItem">
+        Learn how to design, build, and deploy a website in Plone 
+        through one of the numerous Plone training sessions around the world.
+      </dd>
+      <dd class="portletFooter">
+         <a href="/events/training">Find Plone training&hellip;</a>
+      </dd>
+    </dl>
+
+</div>
+</body>
+</html>

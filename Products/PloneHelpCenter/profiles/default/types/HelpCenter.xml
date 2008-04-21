@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<object name="HelpCenter"
+   meta_type="Factory-based Type Information with dynamic views"
+   xmlns:i18n="http://xml.zope.org/namespaces/i18n">
+ <property name="title">Help Center</property>
+ <property name="description">A simple folderish archetype</property>
+ <property name="content_icon">helpcenter_icon.gif</property>
+ <property name="content_meta_type">HelpCenter</property>
+ <property name="product">PloneHelpCenter</property>
+ <property name="factory">addHelpCenter</property>
+ <property name="immediate_view">base_edit</property>
+ <property name="global_allow">True</property>
+ <property name="filter_content_types">True</property>
+ <property name="allowed_content_types">
+  <element value="HelpCenterFAQFolder"/>
+  <element value="HelpCenterHowToFolder"/>
+  <element value="HelpCenterTutorialFolder"/>
+  <element value="HelpCenterReferenceManualFolder"/>
+  <element value="HelpCenterLinkFolder"/>
+  <element value="HelpCenterErrorReferenceFolder"/>
+  <element value="HelpCenterGlossary"/>
+  <element value="HelpCenterInstructionalVideoFolder"/>
+ </property>
+ <property name="allow_discussion">False</property>
+ <property name="default_view">helpcenter_view</property>
+ <property name="view_methods">
+  <element value="helpcenter_topicview"/>
+  <element value="helpcenter_topicview_main"/>
+  <element value="helpcenter_view"/>
+ </property>
+ <property name="default_view_fallback">False</property>
+ <alias from="(Default)" to="(dynamic view)"/>
+ <alias from="edit" to="base_edit"/>
+ <alias from="properties" to="base_metadata"/>
+ <alias from="sharing" to="folder_localrole_form"/>
+ <alias from="stats" to="phc_stats"/>
+ <alias from="view" to="(selected layout)"/>
+ <action title="View" action_id="view" category="object" condition_expr=""
+    url_expr="string:${object_url}" visible="True">
+  <permission value="View"/>
+ </action>
+ <action title="Edit" action_id="edit" category="object" condition_expr=""
+    url_expr="string:${object_url}/edit" visible="True">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="Properties" action_id="metadata" category="object"
+    condition_expr="" url_expr="string:${object_url}/properties"
+    visible="False">
+  <permission value="Modify portal content"/>
+ </action>
+ <action title="References" action_id="references" category="object"
+    condition_expr="object/archetype_tool/has_graphviz"
+    url_expr="string:${object_url}/reference_graph" visible="False">
+  <permission value="Modify portal content"/>
+  <permission value="Review portal content"/>
+ </action>
+ <action title="Folder Listing" action_id="folderlisting" category="folder"
+    condition_expr="object/isPrincipiaFolderish"
+    url_expr="string:${folder_url}/view" visible="False">
+  <permission value="View"/>
+ </action>
+ <action title="Statistics" action_id="stats" category="object"
+    condition_expr="" url_expr="string:${object_url}/stats" visible="True">
+  <permission value="Manage properties"/>
+ </action>
+</object>

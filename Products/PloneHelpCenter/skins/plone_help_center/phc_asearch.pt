@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="plone">
+
+<metal:block metal:fill-slot="head_slot">
+    <link rel="alternate" title="RSS 1.0" type="application/rss+xml"
+          tal:condition="request/SearchableText|nothing"
+          tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}"/>
+</metal:block>
+
+<metal:block fill-slot="top_slot"
+             tal:define="dummy python:request.set('disable_border',1)" />
+
+<div metal:fill-slot="main"
+     tal:define="view context/@@hc_view;
+                 use_types_blacklist request/use_types_blacklist | python:True;
+                 dummy python:request.set('portal_type',view.searchTypes());
+                 dummy python:request.set('path', test(getattr(here,'constrainSearches', True), here.getPHCPath(), '/'.join(portal.getPhysicalPath())));
+                 results python:here.queryCatalog(REQUEST=request,use_types_blacklist=use_types_blacklist);
+                 Batch python:modules['Products.CMFPlone'].Batch;
+                 b_size python:30;b_start python:0;b_start request/b_start | b_start;
+                 desc_length site_properties/search_results_description_length;
+                 desc_ellipsis site_properties/ellipsis;
+                 searchterm request/SearchableText|nothing;
+                 use_view_action site_properties/typesUseViewActionInListings|python:();">
+
+    <h1 i18n:translate="heading_search_results">Search results</h1>
+
+    <div tal:condition="not: results">
+        <p><strong i18n:translate="description_no_results_found">No results were found.</strong></p>
+    </div>
+
+    <div tal:condition="results"
+          tal:define="batch python:Batch(results, b_size, int(b_start), orphan=1);">
+
+        <strong i18n:translate="batch_x_items_matching_your_criteria">
+            <span i18n:name="number" tal:omit-tag="" tal:content="python:len(results)">234</span> items matching your criteria.
+        </strong>
+
+        <p i18n:domain="plonehelpcenter"
+           i18n:translate="phc_search_results_advanced">
+            Did you not find what you were looking for? <a href="phc_asearch_form">Try again.</a> Or, use the
+            <span i18n:name="advanced_search">
+            <a href=""
+               i18n:translate="search_results_advanced_link"
+               tal:attributes="href string:$portal_url/search_form">Advanced Search</a>
+            </span>
+            for more precise search options or to search other kinds of documents.
+        </p>
+
+
+        <tal:syndicate condition="syntool/isSiteSyndicationAllowed">
+        <a href="" tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}">
+        <img i18n:attributes="title title_rss_feed; alt label_rss_feed;"
+             tal:attributes="src string:$portal_url/rss.gif"
+             src="rss.gif"
+             alt="RSS Feed"
+             title="RSS feed of these search results" />
+        </a>
+        </tal:syndicate>
+
+        <!-- Search results -->
+
+        <dl>
+        <tal:results repeat="result batch">
+        <tal:entry define="result_url result/getURL;
+                           result_type result/portal_type;
+                           url python:'%s?searchterm=%s'%(test(result_type in use_view_action, result_url+'/view', result_url+'/'), searchterm);">
+            <dt tal:define="item_wf_state result/review_state;
+                            item_wf_state_class python:'state-' + normalizeString(item_wf_state);">
+                <a href="#" 
+                 tal:attributes="href url; class string:$item_wf_state_class"
+                 tal:content="result/pretty_title_or_id" />
+               <span class="discreet" 
+                     title="Relevance"
+                     tal:condition="result/data_record_normalized_score_"
+                     i18n:translate="label_relevance_percentage"
+                     i18n:attributes="title title_relevance;">
+                    [<span tal:content="result/data_record_normalized_score_"
+                           tal:omit-tag=""
+                           i18n:name="percentage">23%</span>%]
+               </span>
+
+            </dt>
+            
+            <dd>
+                <div class="discreet">
+                  <span tal:content="result/Type" />
+                  <span tal:condition="result/getAudiences | nothing">for <span tal:replace="python:', '.join(result.getAudiences)" /></span><span tal:condition="result/getVersions | nothing">; Versions: <span tal:replace="python:', '.join(result.getVersions)" /></span>
+                </div>
+                <div tal:content="python:here.cropText(result.Description, desc_length, desc_ellipsis)"> Description </div>
+            </dd>
+
+        </tal:entry>
+        </tal:results>
+        </dl>
+         
+        <!-- Navigation -->
+        <div metal:use-macro="here/batch_macros/macros/navigation" />
+
+    </div>
+</div>
+
+<div metal:fill-slot="column_two_slot" id="portal-column-two" style="display:none" />
+
+
+</html>
+

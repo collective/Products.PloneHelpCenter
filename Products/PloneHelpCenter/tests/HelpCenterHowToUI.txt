@@ -1,0 +1,58 @@
+Browser tests for HowTos
+========================
+
+Sanity checks for HowToFolder and HowTo
+
+First, some set-up:
+    
+    >>> from Products.Five import zcml
+    >>> import Products    
+    >>> from Products.Five.testbrowser import Browser
+    >>> browser = Browser()
+    >>> browser.handleErrors = False
+    
+Let us log all exceptions, which is useful for debugging. Also, clear portlet
+slots, to make the test browser less confused by things like the recent portlet
+and the navtree.
+
+    >>> self.portal.error_log._ignored_exceptions = ()
+    >>> self.portal.left_slots = self.portal.right_slots = []
+
+Setup our site with a PHC instance data provided in Data.py and utilities in CustomSetup.py
+
+    >>> from Products.PloneHelpCenter.tests import CustomSetup
+    >>> from Products.PloneHelpCenter.tests import Data
+    >>> CustomSetup.CreateRootPHC(self,self.portal)
+    'Created a PHC instance in the root of your Plone site.'
+
+Check for "How to use this resource" howto
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.contents
+    '...How to use this resource...'
+
+Setup some sample howtos to interact with
+
+    >>> CustomSetup.CreateHowtos(self,self.portal)
+    'Created 10 PHC Howtos.'
+
+Check to see if the new Howtos are visible.
+We should have seven total (includes "how to use this resource").
+Only five will show.
+
+    >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
+    >>> browser.contents
+    '...All <span>7</span>...How-tos...'
+
+Let's follow the link to the howto page and see if the rest of the
+howtos are there.
+
+    >>> browser.getLink('All 7 How-tos').click()
+    >>> browser.contents
+    '...Test Howto 10...Test Howto 1...Test Howto 8...How to use this resource...'
+
+Follow the link to one of the howtos. Check content.
+
+    >>> browser.getLink('Test Howto 1').click()
+    >>> browser.contents
+    '...Howto Title...End of test document content...'

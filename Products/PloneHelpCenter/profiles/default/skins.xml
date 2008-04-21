@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<object name="portal_skins">
+ <object name="plone_help_center" meta_type="Filesystem Directory View"
+    directory="PloneHelpCenter/skins/plone_help_center"/>
+ <object name="plone_help_center_images" meta_type="Filesystem Directory View"
+    directory="PloneHelpCenter/skins/plone_help_center_images"/>
+ <skin-path name="*">
+  <layer name="plone_help_center_images" insert-after="custom"/>
+  <layer name="plone_help_center" insert-after="plone_help_center_images"/>
+ </skin-path>
+</object>

@@ -1,0 +1,96 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet"
+    tal:define="view context/@@hc_view;"
+    >
+
+<div id="phcsearch_portlet" style="width:23em">
+
+<form name="searchform"
+      action="phc_search"
+      tal:attributes="action string:${here/absolute_url}/phc_search">
+       
+    <fieldset style="margin-top: -1em">
+        
+        <legend i18n:translate="phc_doc_search">Documentation search</legend>
+        
+        <label for="searchGadget"
+               class="hiddenStructure"
+               i18n:domain="plone"
+               i18n:translate="text_search">
+            Search Documentation
+        </label>
+        <input name="SearchableText"
+               type="text"
+               size="14"
+               value=""
+               alt="Search Documentation"
+               title="Search Documentation"
+               accesskey="accesskeys-search"
+               i18n:attributes="alt; accesskey; title"
+               tal:attributes="value request/SearchableText|nothing;
+                               tabindex tabindex/next" 
+        />
+
+        <input class="searchButton"
+               name="Search"
+               type="submit"
+               value="Search"
+               accesskey="accesskeys-search"
+               tal:attributes="tabindex tabindex/next"
+               i18n:attributes="value; accesskey" />
+               
+        
+          <select name="phc_selection" style="margin-top: 1em;" tal:condition="nothing">
+            <option value="all" i18n:translate="phc_full_area" tal:condition="here/constrainSearches | nothing">Entire documentation area</option>
+            <option value="all" i18n:translate="phc_all_docs" tal:condition="not:here/constrainSearches | nothing">All documentation</option>
+            <option value="faq" i18n:translate="phc_faq">FAQs</option>
+            <option value="howto" i18n:translate="phc_howto">How-tos</option>
+            <option value="tutorial" i18n:translate="phc_tutorial">Tutorials</option>
+            <option value="link" i18n:translate="phc_links">Links</option>
+            <option value="error" i18n:translate="phc_errorreference">Error references</option>
+            <option value="glossary" i18n:translate="phc_definition">Glossary definitions</option>
+            <option value="manual" i18n:translate="phc_referencemanual">Reference manuals</option>
+        </select>
+        
+        <div id="phc_asearch_link" style="margin-top: 12px;">
+            <a href="phc_asearch_form" tal:attributes="href string:${here/getPHCUrl}/phc_asearch_form" i18n:translate="phc_asearch_link">
+                Search by topic, version, audience&hellip;
+            </a>
+        </div> 
+        
+    </fieldset>
+</form>
+
+<p tal:define="my_path here/getPHCPath;
+                subtypes_tuples python:(
+                                 ('HelpCenterFAQFolder','HelpCenterFAQ'),
+                                 ('HelpCenterHowToFolder','HelpCenterHowTo'),
+                                 ('HelpCenterTutorialFolder','HelpCenterTutorial'),
+                                 ('HelpCenterLinkFolder','HelpCenterLink'),
+                                 ('HelpCenterErrorReferenceFolder','HelpCenterErrorReference'),
+                                 ('HelpCenterGlossary','HelpCenterDefinition'),
+                                 ('HelpCenterReferenceManualFolder','HelpCenterReferenceManual'),
+                                 ('HelpCenterInstructionalVideoFolder','HelpCenterInstructionalVideo'));
+                subtypes python:[t[0] for t in subtypes_tuples];
+                rss_subtypes python:[t[1] for t in subtypes_tuples];">
+  <img tal:replace="structure here/rss.gif" />
+  <a tal:attributes="href view/getSyndicationURL"
+     i18n:translate="phc_rss_all">
+    Subscribe to updates using RSS
+  </a>
+</p>
+
+<p tal:condition="exists:here/how-to/use-help-center">
+  <img tal:replace="structure here/helpcenter_icon.gif" />
+  <a tal:attributes="href string:${here/getPHCUrl}/how-to/use-help-center"
+     i18n:translate="phc_contrib_use">
+    How to contribute your content
+  </a>
+</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<object name="portal_properties">
+ <object name="navtree_properties">
+  <property name="parentMetaTypesNotToQuery" type="lines">
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterFAQ"/>
+   <element value="HelpCenterDefinition"/>
+   <element value="HelpCenterLink"/>
+   <element value="HelpCenterInstructionalVideo"/>
+   <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterTutorialPage"/>
+   <element value="HelpCenterReferenceManualPage"/>
+  </property>
+  <property name="metaTypesNotToList" type="lines">
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterFAQ"/>
+   <element value="HelpCenterDefinition"/>
+   <element value="HelpCenterLink"/>
+   <element value="HelpCenterInstructionalVideo"/>
+   <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterTutorialPage"/>
+   <element value="HelpCenterReferenceManualPage"/>
+  </property>
+ </object>
+ <object name="site_properties" meta_type="Plone Property Sheet">
+  <property name="use_folder_tabs" type="lines">
+   <element value="HelpCenterReferenceManualFolder"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterInstructionalVideoFolder"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterErrorReferenceFolder"/>
+   <element value="HelpCenterGlossary"/>
+   <element value="HelpCenterTutorialFolder"/>
+   <element value="HelpCenterHowToFolder"/>
+   <element value="HelpCenterFAQFolder"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterReferenceManualSection"/>
+   <element value="HelpCenterLinkFolder"/>
+   <element value="HelpCenter"/>
+   <element value="HelpCenterReferenceManual"/>
+  </property>
+  <property name="typesLinkToFolderContentsInFC" type="lines">
+   <element value="HelpCenterReferenceManualFolder"/>
+   <element value="HelpCenterHowTo"/>
+   <element value="HelpCenterInstructionalVideoFolder"/>
+   <element value="HelpCenterErrorReference"/>
+   <element value="HelpCenterErrorReferenceFolder"/>
+   <element value="HelpCenterGlossary"/>
+   <element value="HelpCenterTutorialFolder"/>
+   <element value="HelpCenterHowToFolder"/>
+   <element value="HelpCenterFAQFolder"/>
+   <element value="HelpCenterTutorial"/>
+   <element value="HelpCenterReferenceManualSection"/>
+   <element value="HelpCenterLinkFolder"/>
+   <element value="HelpCenter"/>
+   <element value="HelpCenterReferenceManual"/>
+  </property>
+ </object>
+</object>

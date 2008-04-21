@@ -1,0 +1,855 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2006-09-20 09:11+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: Hannes Mayrhofer <mayhan@another.at>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8\n"
+"Domain: plonehelpcenter\n"
+"X-Is-Fallback-For: de-at de-ch\n"
+
+#. Default: "Duration:"
+#: ../skins/plone_help_center/ivideofolder_view.pt
+msgid "Duration:"
+msgstr ""
+
+#. Default: "Find and modify content"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "Find and modify content"
+msgstr ""
+
+#. Default: "Go"
+#: ../skins/plone_help_center/referencemanual_macros.pt
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "Go"
+msgstr "Los"
+
+#. Default: "Help Center Statistics and Maintenance"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "Help Center Statistics and Maintenance"
+msgstr ""
+
+#. Default: "RSS Feed"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "RSS Feed"
+msgstr ""
+
+#. Default: "RSS feed of these search results"
+#: ../skins/plone_help_center/phc_search.pt
+msgid "RSS feed of these search results"
+msgstr ""
+
+#. Default: "Search"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "Search"
+msgstr "Suche"
+
+#. Default: "Search for content"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "Search for content"
+msgstr ""
+
+#. Default: "Size:"
+#: ../skins/plone_help_center/ivideofolder_view.pt
+msgid "Size:"
+msgstr ""
+
+#. Default: "This FAQ applies to a previous version"
+#: ../skins/plone_help_center/faqfolder_view.pt
+#: ../skins/plone_help_center/faqsection_view.pt
+msgid "This FAQ applies to a previous version"
+msgstr "Diese FAQ betrifft eine alte Version"
+
+#. Default: "This form aids maintenance of help center content."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "This form aids maintenance of help center content."
+msgstr ""
+
+#. Default: "This item applies to a previous version"
+#: ../skins/plone_help_center/phc_genericfolder_view.pt
+#: ../skins/plone_help_center/glossary_view.pt
+#: ../skins/plone_help_center/phcfolder_view.pt
+msgid "This item applies to a previous version"
+msgstr ""
+
+#. Default: "This video applies to a previous version"
+#: ../skins/plone_help_center/ivideofolder_view.pt
+msgid "This video applies to a previous version"
+msgstr "Dieser Film betrifft eine alte Version"
+
+#. Default: "Using the criteria below, you can find content and then modify it from the search results page."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "Using the criteria below, you can find content and then modify it from the search results page."
+msgstr ""
+
+#. Default: "accesskeys-search"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "accesskeys-search"
+msgstr "AccessKeys (Zugangsschlssel) suchen"
+
+#. Default: "All content on one page (useful for printing, presentation mode etc.)"
+#: ../skins/plone_help_center/tutorial_view.pt
+#: ../skins/plone_help_center/referencemanual_view.pt
+msgid "all_content_on_one_page"
+msgstr ""
+
+#. Default: "All ${number} ${title}"
+#: ../skins/plone_help_center/helpcenter_view.pt
+#, fuzzy
+msgid "all_helptype"
+msgstr "Alle ${title}"
+
+#. Default: "More <tal:center replace=\"center/Title\">Documentation</tal:center> …"
+#: ../skins/plone_help_center/portlet_helpcenter.pt
+msgid "box_more_documentation"
+msgstr ""
+
+#. Default: "No stale items found in the Help Center."
+#: ../skins/plone_help_center/portlet_stale_items.pt
+msgid "box_no_stale_items"
+msgstr ""
+
+#. Default: "Stale Help Center Items"
+#: ../skins/plone_help_center/portlet_stale_items.pt
+msgid "box_staleitems"
+msgstr ""
+
+#. Default: "Meaningful sentences that explains the answer."
+msgid "desc_answer"
+msgstr "Sinnvolle Sätze, die die Antwort erklären."
+
+#. Default: "Match all"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_audiences_and"
+msgstr ""
+
+#. Default: "Has more than one audience selected"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_audiences_multiple"
+msgstr ""
+
+#. Default: "Match any"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_audiences_or"
+msgstr ""
+
+#. Default: "Description for the Error Reference Container."
+msgid "description_edit_ErrorReference"
+msgstr "Beschreibung des Bezuges zum Fehlercontainers."
+
+#. Default: "Description for the Link."
+msgid "description_edit_Link"
+msgstr "Beschreibung für den Link."
+
+#. Default: "Description for the Link Container."
+msgid "description_edit_Link_Container"
+msgstr "Beschreibung des Link Containers."
+
+#. Default: "Description"
+msgid "description_label_ErrorReference"
+msgstr "Beschreibung"
+
+#. Default: "Description"
+msgid "description_label_Link"
+msgstr "Beschreibung"
+
+#. Default: "Match all"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_sections_and"
+msgstr ""
+
+#. Default: "Has more than one section selected"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_sections_multiple"
+msgstr ""
+
+#. Default: "Match any"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_sections_or"
+msgstr ""
+
+#. Default: "Match all"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_versions_and"
+msgstr ""
+
+#. Default: "Has more than one version selected"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_versions_multiple"
+msgstr ""
+
+#. Default: "Match any"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "description_versions_or"
+msgstr ""
+
+#. Default: "Someone added a comment on your ${type}: ${title}. \nIf you are the author of this item, we recommend that you read the comment, and update the documentation accordingly if required - then remove the comment. \nIf further clarification is needed, reply to the comment, and the person who made the comment will get a notification like this, and will likely give you more details. \nTo view the new comment, visit: ${url}"
+#: ../skins/plone_help_center/discussion_notify_template.pt
+msgid "discussion_notify_template_body"
+msgstr ""
+
+#. Default: "New comment on:"
+#: ./plone_help_center/discussion_notify_template.pt
+msgid "discussion_notify_template_subject"
+msgstr ""
+
+#. Default: "Someone has replied to your comment, ${title}. \nTo view the reply, visit: \n${url}"
+#: ../skins/plone_help_center/discussion_reply_notify_template.pt
+msgid "discussion_reply_notify_template_body"
+msgstr ""
+
+#. Default: "New reply to your comment on:"
+#: ./plone_help_center/discussion_reply_notify_template.pt
+msgid "discussion_reply_notify_template_subject"
+msgstr ""
+
+#. Default: "More details on the question, if not evident from the title."
+msgid "help_detailed_question"
+msgstr "Mehr Details zur Frage, wenn nicht im Titel offensichtlich."
+
+#. Default: "Return items marked for some or all of these audiences. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one audience selected."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_audiences"
+msgstr ""
+
+#. Default: "Return items that have comments."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_has_comments"
+msgstr ""
+
+#. Default: "Return items in some or all of these sections. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one section selected."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_sections"
+msgstr ""
+
+#. Default: "Return items in some or all of these versions. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one version selected."
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "help_search_versions"
+msgstr ""
+
+#. Default: "Answer"
+msgid "label_answer"
+msgstr "Antwort"
+
+#. Default: "Audiences"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_audiences"
+msgstr ""
+
+#. Default: "Click to enlarge"
+#: ../skins/plone_help_center/ivideofolder_view.pt
+msgid "label_click_to_enlarge"
+msgstr "Zum Vergrößern klicken"
+
+#. Default: "Detailed Question"
+msgid "label_detailed_question"
+msgstr "Ausführliche Frage"
+
+#. Default: "Has comments"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_has_comments"
+msgstr ""
+
+#. Default: "Sections"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_sections"
+msgstr ""
+
+#. Default: "Versions"
+#: ../skins/plone_help_center/phc_stats.cpt
+msgid "label_versions"
+msgstr ""
+
+#. Default: "Latest ${title}"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "latest_helptype"
+msgstr "Neueste ${title}"
+
+#. Default: "minutes"
+#: ../skins/plone_help_center/ivideofolder_view.pt
+msgid "minutes"
+msgstr ""
+
+#. Default: "You must publish this page before it becomes visible to the public."
+#: ../skins/plone_help_center/referencemanualsection_view.pt
+#: ../skins/plone_help_center/referencemanualpage_view.pt
+msgid "must_publish_before_visible_to_public"
+msgstr ""
+
+#. Default: "Nothing published in ${title}"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "nopublished_helptype"
+msgstr ""
+
+#. Default: "Any audience."
+#: ../skins/plone_help_center/errorreference_view.pt
+#: ../skins/plone_help_center/howto_view.pt
+#: ../skins/plone_help_center/tutorial_view.pt
+msgid "phc_any_audience"
+msgstr ""
+
+#. Default: "Any version."
+#: ../skins/plone_help_center/faqfolder_view.pt
+#: ../skins/plone_help_center/errorreference_view.pt
+#: ../skins/plone_help_center/definition_view.pt
+msgid "phc_any_version"
+msgstr "Alle Versionen"
+
+#. Default: "Body"
+msgid "phc_body"
+msgstr "Body (Hauptbereich)"
+
+#. Default: "Instructions on how to contribute to and use this resource."
+#: ../skins/plone_help_center/helpcenter_view.pt
+#, fuzzy
+msgid "phc_contrib_use"
+msgstr "Anleitung wie Sie zu diesen Ressourcen beitragen und sie benutzten können."
+
+#. Default: "Readers will be informed when content relates to versions not in this list, as it may be outdated."
+msgid "phc_current_versions_helpcenter"
+msgstr "Der Leser wird bei Inhalte dieser Version informiert, dass der Inhalt möglicherweise veraltet ist."
+
+#. Default: "Default importance rating for new content."
+msgid "phc_default_importance_helpcenter"
+msgstr "Vorgabewert für die Wichtigkeit von Inhalten."
+
+#. Default: "Glossary definitions"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_definition"
+msgstr "Wörterbuch-Definitionen"
+
+#. Default: "This Definition applies to:"
+#: ../skins/plone_help_center/definition_view.pt
+msgid "phc_definition_applies_to"
+msgstr "Diese Definition trifft zu auf:"
+
+#. Default: "Enter a brief description"
+msgid "phc_desc_ErrorReference"
+msgstr "Eine kurze Beschreibung eingeben"
+
+#. Default: "Explanation of the error."
+msgid "phc_desc_body_ErrorReference"
+msgstr "Erklärung des Fehlers."
+
+#. Default: "The body text."
+msgid "phc_desc_body_tutorial"
+msgstr "Der Haupttext."
+
+#. Default: "An explanation of the term."
+msgid "phc_desc_definition"
+msgstr "Eine Erklärung der Bezeichnung."
+
+#. Default: "Description of the FAQ Container."
+msgid "phc_desc_folder"
+msgstr "Beschreibung des FAQ Containers."
+
+#. Default: "Description of the Glossary."
+msgid "phc_desc_folder_glossary"
+msgstr "Beschreibung der Inhaltsangabe."
+
+#. Default: "Description for the Help Center."
+msgid "phc_desc_helpcenter"
+msgstr "Beschreibung des HelpCenters."
+
+#. Default: "The text of the Howto"
+msgid "phc_desc_howto_body"
+msgstr "Der Text der Kurzanleitung"
+
+#. Default: "Description for the How-to Container."
+msgid "phc_desc_howto_folder"
+msgstr "Beschreibung der Kurzanleitungs-Ordners."
+
+#. Default: "Web address"
+msgid "phc_desc_link_url"
+msgstr "Web Adresse"
+
+#. Default: "Enter a brief description"
+msgid "phc_desc_tutorial_page"
+msgstr "Eine kurze Beschreibung eingeben"
+
+#. Default: "Description for the Video section."
+msgid "phc_desc_video_folder"
+msgstr "Beschreibung des Videobereichs."
+
+#. Default: "Documentation search"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_doc_search"
+msgstr "Dokumentationssuche"
+
+#. Default: "This Error Reference is intended for:"
+#: ../skins/plone_help_center/errorreference_view.pt
+msgid "phc_error_audiences"
+msgstr ""
+
+#. Default: "Error references"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_errorreference"
+msgstr "Fehler-Hinweise"
+
+#. Default: "This Error Reference applies to:"
+#: ../skins/plone_help_center/errorreference_view.pt
+msgid "phc_errorreference_applies_to"
+msgstr "Diese Fehlerhinweis trifft zu auf:"
+
+#. Default: "Error reference section."
+msgid "phc_errorreference_description"
+msgstr "Bereich-Fehlerhinweise."
+
+#. Default: "Error References"
+msgid "phc_errorreference_title"
+msgstr "Fehlerhinweise"
+
+#. Default: "FAQs"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_faq"
+msgstr "Häufig gestellte Fragen (FAQ)"
+
+#. Default: "This FAQ applies to:"
+#: ../skins/plone_help_center/faqsection_view.pt
+#: ../skins/plone_help_center/faq_view.pt
+msgid "phc_faq_applies_to"
+msgstr "Diese FAQ betrifft:"
+
+#. Default: "Frequently Asked Questions"
+msgid "phc_faq_description"
+msgstr "Häufig gestellte Fragen (FAQs)"
+
+#. Default: "FAQs"
+msgid "phc_faq_title"
+msgstr "FAQs"
+
+#. Default: "Entire documentation area"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_full_area"
+msgstr "Vollständiger Dokumentationsbereich"
+
+#. Default: "Full Question"
+#: ../skins/plone_help_center/faqsection_view.pt
+#: ../skins/plone_help_center/faq_view.pt
+msgid "phc_full_question"
+msgstr "Ausführliche Frage"
+
+#. Default: "Glossary of terms."
+msgid "phc_glossary_description"
+msgstr "Wörterbuch der Bezeichnungen."
+
+#. Default: "Glossary Definitions"
+msgid "phc_glossary_title"
+msgstr "Wörterbuch-Definitionen"
+
+#. Default: "Brief explanation of the How To."
+msgid "phc_help_detailed_howto"
+msgstr "Kurzbeschreibung der Kurzanleitung."
+
+#. Default: "Brief explanation of the video's content."
+msgid "phc_help_detailed_video"
+msgstr "Kurze Inhaltsangabe des Videos."
+
+#. Default: "A summary of the reference manual -- subject and scope. Will be displayed on every page of the manual."
+msgid "phc_help_referencemanual_summary"
+msgstr "Eine Zusammenfassung des Handbuches - Ziele und Aussichten. Wird auf jeder Handbuchseite angezeigt."
+
+#. Default: "A summary of the tutorial--aims and scope. Will be displayed on every page of the tutorial."
+msgid "phc_help_tutorial_summary"
+msgstr "Eine Zusammenfassung des Tutorial - Ziele und Aussichten. Wird auf jeder Seite der Anleitung angezeigt."
+
+#. Default: "Length (in minutes) of the video"
+msgid "phc_help_video_duration"
+msgstr "Länge des Videos in Minuten"
+
+#. Default: "Height of the video"
+msgid "phc_help_video_height"
+msgstr "Höhe des Videos"
+
+#. Default: "Add a screenshot by clicking the 'Browse' button. Add a screenshot that highlights the content of the instructional video.""
+msgid "phc_help_video_screenshot"
+msgstr "Fügen Sie bitte durch Klicken des 'Durchsuchen' Knopfes einen Screenshot hinzu. Suchen Sie einen Screenshot aus, der den Inhalt des Videos hervorhebt."
+
+#. Default: "Width of the video"
+msgid "phc_help_video_width"
+msgstr "Breite des Videos"
+
+#. Default: "Click 'Browse' to upload a Flash .swf file."
+msgid "phc_help_videofile_description"
+msgstr "Klicken Sie bitte 'Durchsuchen' um ein Flash-Datei (.swf) hochzuladen."
+
+#. Default: "How-tos"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_howto"
+msgstr "Kurze Anleitung (HowTo)"
+
+#. Default: "This How-to applies to:"
+#: ../skins/plone_help_center/howto_view.pt
+msgid "phc_howto_applies_to"
+msgstr "Diese Kurzanleitung trifft zu auf:"
+
+#. Default: "This How-to is intended for:"
+#: ../skins/plone_help_center/howto_view.pt
+msgid "phc_howto_audiences"
+msgstr ""
+
+#. Default: "Step-by-step instructions."
+msgid "phc_howto_description"
+msgstr "Kurze Schritt-für-Schritt Anleitungen."
+
+#. Default: "How-tos"
+msgid "phc_howto_title"
+msgstr "Kurzanleitung"
+
+#. Default: "Importance of this item."
+msgid "phc_importance"
+msgstr "Wichtigkeit dieses Eintrages."
+
+#. Default: "Importance ratings content may have."
+msgid "phc_importance_helpcenter"
+msgstr "Liste der Wichtigkeitsbewertungen, die Inhalte verwendet werden sollen."
+
+#. Default: "Audiences"
+#: ../skins/plone_help_center/phcfolder_view.pt
+msgid "phc_index_audiences"
+msgstr ""
+
+#. Default: "Sections"
+#: ../skins/plone_help_center/faqfolder_view.pt
+#: ../skins/plone_help_center/phc_genericfolder_view.pt
+#: ../skins/plone_help_center/glossary_view.pt
+msgid "phc_index_sections"
+msgstr ""
+
+#. Default: "Description"
+msgid "phc_label_ErrorReference"
+msgstr "Beschreibung"
+
+#. Default: "Body text"
+msgid "phc_label_body_ErrorReference"
+msgstr "Haupttext"
+
+#. Default: "Body text"
+msgid "phc_label_body_tutorial"
+msgstr "Haupttext"
+
+#. Default: "Current versions"
+msgid "phc_label_current_versions_helpcenter"
+msgstr "Der Leser wird bei Versionen, die nicht in dieser Liste sind, darüber informiert, dass sie möglicherweise nicht mehr aktuell sind."
+
+#. Default: "Default importance"
+msgid "phc_label_default_importance_helpcenter"
+msgstr "Vorgabewert für die Wichtigkeit von Inhalten."
+
+#. Default: "Definition"
+msgid "phc_label_definition"
+msgstr "Beschreibung"
+
+#. Default: "Description"
+msgid "phc_label_desc_helpcenter"
+msgstr "Beschreibung"
+
+#. Default: "Summary"
+msgid "phc_label_detailed_howto"
+msgstr "Zusammenfassung"
+
+#. Default: "Summary"
+msgid "phc_label_detailed_video"
+msgstr "Zusammenfassung"
+
+#. Default: "Description"
+msgid "phc_label_folder"
+msgstr "Beschreibung"
+
+#. Default: "Description"
+msgid "phc_label_folder_glossary"
+msgstr "Beschreibung"
+
+#. Default: "Description"
+msgid "phc_label_folder_tutorial"
+msgstr "Beschreibung"
+
+#. Default: "Description"
+msgid "phc_label_howto_folder"
+msgstr "Beschreibung"
+
+#. Default: "Importance"
+msgid "phc_label_importance"
+msgstr "Bedeutung"
+
+#. Default: "Importance"
+msgid "phc_label_importance_helpcenter"
+msgstr "Wichtigkeiten"
+
+#. Default: "URL"
+msgid "phc_label_link_url"
+msgstr "URL"
+
+#. Default: "Referenced Items"
+msgid "phc_label_reference"
+msgstr "Referenzelement"
+
+#. Default: "Reference Manual Description"
+msgid "phc_label_referencemanual_description"
+msgstr "Beschreibung des Benutzerhandbuches"
+
+#. Default: "Related keywords"
+msgid "phc_label_related"
+msgstr "verwandte Schlüsselwörter"
+
+#. Default: "Sections"
+msgid "phc_label_sections"
+msgstr "Bereiche"
+
+#. Default: "Sections"
+msgid "phc_label_sections-vocab"
+msgstr "Abschnitt"
+
+#. Default: "Tutorial Description"
+msgid "phc_label_tutorial_description"
+msgstr "Tutorial Beschreibung"
+
+#. Default: "Description"
+msgid "phc_label_tutorial_page"
+msgstr "Beschreibung"
+
+#. Default: "Versions"
+msgid "phc_label_version_helpcenter"
+msgstr "Versionen"
+
+#. Default: "Versions"
+msgid "phc_label_versions"
+msgstr "Versionen"
+
+#. Default: "Duration"
+msgid "phc_label_video_duration"
+msgstr "Dauer"
+
+#. Default: "Description"
+msgid "phc_label_video_folder"
+msgstr "Beschreibung"
+
+#. Default: "Height"
+msgid "phc_label_video_height"
+msgstr "Höhe"
+
+#. Default: "Screenshot"
+msgid "phc_label_video_screenshot"
+msgstr "Screenshot (Bildschirmfoto)"
+
+#. Default: "Width"
+msgid "phc_label_video_width"
+msgstr "Breite"
+
+#. Default: "Flash File (.swf)"
+msgid "phc_label_videofile_description"
+msgstr "Flash-Datei (.swf)"
+
+#. Default: "Link:"
+#: ../skins/plone_help_center/helplink_view.pt
+msgid "phc_link"
+msgstr "Link:"
+
+#. Default: "This Link applies to:"
+#: ../skins/plone_help_center/helplink_view.pt
+msgid "phc_link_applies_to"
+msgstr "Dieser Link trifft zu auf:"
+
+#. Default: "Links"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_links"
+msgstr "Links"
+
+#. Default: "Links section."
+msgid "phc_links_description"
+msgstr "Bereich-Links."
+
+#. Default: "Links"
+msgid "phc_links_title"
+msgstr "Links"
+
+#. Default: "Next:"
+#: ../skins/plone_help_center/referencemanual_macros.pt
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "phc_next"
+msgstr "Weiter:"
+
+#. Default: "There are no contained help center object types."
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_nolist"
+msgstr "Es sind keine Objekte dieser Art enthalten."
+
+#. Default: "of"
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "phc_of"
+msgstr "von"
+
+#. Default: "Page"
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "phc_page"
+msgstr "Seite"
+
+#. Default: "Previous:"
+#: ../skins/plone_help_center/referencemanual_macros.pt
+#: ../skins/plone_help_center/tutorialpage_view.pt
+msgid "phc_previous"
+msgstr "Zurck:"
+
+#. Default: "Set one or more references to HelpCenter items."
+msgid "phc_reference"
+msgstr "Bitte geben Sie einen oder mehrere Hinweise zum HelpCenter an."
+
+#. Default: "Reference manuals"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_referencemanual"
+msgstr "Bedienungsanleitungen"
+
+#. Default: "This Reference Manual applies to:"
+#: ../skins/plone_help_center/referencemanual_view.pt
+msgid "phc_referencemanual_applies_to"
+msgstr "Diese Bedienungsanleitung betrifft:"
+
+#. Default: "This Reference Manual is intended for:"
+#: ../skins/plone_help_center/referencemanual_view.pt
+msgid "phc_referencemanual_audiences"
+msgstr ""
+
+#. Default: "Reference Manual description"
+msgid "phc_referencemanual_description"
+msgstr "Bedienungsanleitungen für größere Projekte."
+
+#. Default: "Reference Manual"
+msgid "phc_referencemanual_title"
+msgstr "Bedienungsanleitungen"
+
+#. Default: "A list of keywords that should be indexed along with the content (e.g. for a how-to on VerboseSecurity, you might include Verbose Security, Insufficient Privileges, Debugging security problems)"
+msgid "phc_related"
+msgstr "Eine Liste der Schlüsselwörter, die zusammen mit dem Inhalt registriert werden sollen (z.B. für ein HowTo zu VerboseSecurity, fügen Sie Verbose Security, ungengende Rechte oder Debugging Sicherheit ein)"
+
+#. Default: "Feed for all documentation."
+#: ../skins/plone_help_center/helpcenter_view.pt
+#, fuzzy
+msgid "phc_rss_all"
+msgstr "RSS-Feeds für alle Dokumentationsarten"
+
+#. Default: "Section(s) that this item should appear in."
+msgid "phc_sections"
+msgstr "Bereich(e) wo dieser Eintrag erscheinen soll."
+
+#. Default: "Define the available sections for classifying these items."
+msgid "phc_sections_vocab"
+msgstr "Definiere die vorhandenen Abschnitte um die Einträge einzustufen."
+
+#. Default: "Tutorials"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "phc_tutorial"
+msgstr "Anleitung (Tutorial)"
+
+#. Default: "This Tutorial applies to:"
+#: ../skins/plone_help_center/tutorial_view.pt
+msgid "phc_tutorial_applies_to"
+msgstr "Dieses Tutorial trifft zu auf:"
+
+#. Default: "This Tutorial is intended for:"
+#: ../skins/plone_help_center/tutorial_view.pt
+msgid "phc_tutorial_audiences"
+msgstr ""
+
+#. Default: "Detailed tutorials."
+msgid "phc_tutorial_description"
+msgstr "Detaillierte Anleitungen."
+
+#. Default: "Tutorials"
+msgid "phc_tutorial_title"
+msgstr "Tutorials"
+
+#. Default: "Up to Glossary"
+#: ../skins/plone_help_center/definition_view.pt
+msgid "phc_up_to_glossary"
+msgstr "Zum Wörterbuch"
+
+#. Default: "Up to Table of Contents"
+#: ../skins/plone_help_center/faqfolder_view.pt
+#: ../skins/plone_help_center/faqsection_view.pt
+#: ../skins/plone_help_center/faq_view.pt
+#, fuzzy
+msgid "phc_up_to_toc"
+msgstr "Zum Inhaltsverzeichnis"
+
+#. Default: "Versions that items in help can refer to."
+msgid "phc_version_helpcenter"
+msgstr "Versionen auf die Einträge im HelpCenter verweisen können."
+
+#. Default: "Versions of product that apply to this item (leave blank if not version-specific)"
+msgid "phc_versions"
+msgstr "Versionen des Produktes, die auf diesen Eintrag zutreffen (Frei lassen wenn nicht Versionsspezifisch)"
+
+#. Default: "This Video applies to:"
+#: ../skins/plone_help_center/ivideo_view.pt
+msgid "phc_video_applies_to"
+msgstr ""
+
+#. Default: "Instructional videos."
+msgid "phc_video_description"
+msgstr "Einführungsvideos."
+
+#. Default: "Videos"
+msgid "phc_video_title"
+msgstr "Videos"
+
+#. Default: "View entire FAQ in full"
+#: ../skins/plone_help_center/faqfolder_view.pt
+#: ../skins/plone_help_center/faqsection_view.pt
+msgid "phc_view_entire_faq"
+msgstr "Zeige die ganze FAQ"
+
+#. Default: "View section in full"
+#: ../skins/plone_help_center/faqfolder_view.pt
+msgid "phc_view_entire_section"
+msgstr "Zeige den ganzen Abschnitt"
+
+#. Default: "Warning: This item is marked as outdated."
+#: ../skins/plone_help_center/errorreference_view.pt
+#: ../skins/plone_help_center/definition_view.pt
+#: ../skins/plone_help_center/howto_view.pt
+msgid "phc_warning_outdated"
+msgstr ""
+
+#. Default: "Recent documentation"
+#: ../skins/plone_help_center/portlet_helpcenter.pt
+msgid "portlet_header_recent_docs"
+msgstr "Neueste Dokumentation"
+
+#. Default: "in"
+#: ../skins/plone_help_center/helpcenter_view.pt
+msgid "searchform_in"
+msgstr ""
+
+#. Default: "see also:"
+#: ../skins/plone_help_center/helpcenter_references.pt
+msgid "see_also"
+msgstr ""
+
+#. Default: "There are no pages or sections in this Reference Manual."
+#: ../skins/plone_help_center/referencemanualsection_view.pt
+#: ../skins/plone_help_center/referencemanual_view.pt
+msgid "view_no_reference_manual1"
+msgstr ""
+
+#. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
+#: ../skins/plone_help_center/referencemanualsection_view.pt
+#: ../skins/plone_help_center/referencemanual_view.pt
+msgid "view_no_reference_manual2"
+msgstr ""
+
+#. Default: "Note: This is the print view with all the tutorial pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
+#: ../skins/plone_help_center/tutorial-all-pages.pt
+msgid "view_paginated_pages"
+msgstr ""
+
+#. Default: "Note: This is the print view with all the Reference Manual pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
+#: ../skins/plone_help_center/referencemanual-all-pages.pt
+msgid "view_paginated_reference_manual"
+msgstr ""
