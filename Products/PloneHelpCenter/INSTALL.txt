@@ -16,7 +16,7 @@ See the `Installing an Add-on Product`_ tutorial for more detailed product insta
 Optional
 --------
 
-- AddRemoveWidget -- PLEASE NOTE: if AddRemoveWidget is installed
+AddRemoveWidget -- PLEASE NOTE: if AddRemoveWidget is installed
 as a Zope product, you *must* also install it in Plone. If it is
 present without being installed, errors will occur.
 

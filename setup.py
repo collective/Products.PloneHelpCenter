@@ -5,10 +5,9 @@ version = '1.5rc1'
 setup(name='Products.PloneHelpCenter',
       version=version,
       description="A simple help-desk style documentation product for Plone.",
-      long_description= open("Products/PloneHelpCenter/README.txt").read() + \
-                        open("Products/PloneHelpCenter//INSTALL.txt").read() + \
-                        open("Products/PloneHelpCenter//CREDITS.txt").read() + \
-                        open("Products/PloneHelpCenter//HISTORY.txt").read(),
+      long_description= open("Products/PloneHelpCenter/README.txt").read() + '\n' +
+                        open("Products/PloneHelpCenter/INSTALL.txt").read() + '\n' +
+                        open("Products/PloneHelpCenter/CREDITS.txt").read(),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
