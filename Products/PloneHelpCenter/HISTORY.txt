@@ -5,6 +5,16 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 1.5
     
+    RC 2
+    
+    - Expanded referenceable types to include all PHC leaf content types.
+      Fixes 114.
+      [stevem]
+      
+    RC 1
+    
+    - Eggified. [stevem]
+    
     Beta 7
     
     - Add link to api.plone.org in list of additional resources. This

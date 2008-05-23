@@ -48,6 +48,10 @@ REFERENCEABLE_TYPES = ('HelpCenterFAQ',
     'HelpCenterErrorReference',
     'HelpCenterHowTo',
     'HelpCenterLink',
+    'HelpCenterReferenceManual',
+    'HelpCenterReferenceManualSection',
+    'HelpCenterReferenceManualPage',
+    'HelpCenterInstructionalVideo',    
     #'Document'
 )
 
