@@ -5,7 +5,11 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 1.5
     
-    RC 2
+    RC 2 (svn/unreleased)
+    
+    - Unable to add attachments to how-tos. Fixed narrow issue; larger
+      problem of actions remains.
+      [stevem]
     
     - Expanded referenceable types to include all PHC leaf content types.
       Fixes 114.
