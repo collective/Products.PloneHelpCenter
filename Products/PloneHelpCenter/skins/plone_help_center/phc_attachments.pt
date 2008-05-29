@@ -290,8 +290,6 @@
             <div metal:use-macro="here/batch_macros/macros/navigation" />
         </metal:listing>
 
-<pre tal:content="actions/folder_buttons" />
-
         <metal:buttons define-macro="folder_buttons">
         <input type="hidden" name="orig_template"
                tal:attributes="value template_id"/>
