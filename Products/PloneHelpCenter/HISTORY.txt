@@ -5,7 +5,7 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 1.5
     
-    RC 2 (svn/unreleased)
+    RC 2
     
     - Fix issue #95 -- Order of items is not respected -- by adding back
       some of the interfaces masked when marker interfaces were added
