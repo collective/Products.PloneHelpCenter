@@ -16,7 +16,8 @@
       <tal:protect tal:condition="python: not checkPermission('List folder contents', here)" tal:replace="here/raiseUnauthorized" />
     <metal:main-macro define-macro="main">
     <metal:contentsmacro define-macro="contents"
-         tal:define="standalone python:1;
+         tal:define="view context/@@phc_attachments_view;
+                     standalone python:1;
                      contentTypes here/getAllowedTypes;
                      contentFilter contentFilter|request/contentFilter|nothing;
                      b_size b_size|request/b_size|python:100;
@@ -293,7 +294,8 @@
         <metal:buttons define-macro="folder_buttons">
         <input type="hidden" name="orig_template"
                tal:attributes="value template_id"/>
-        <tal:buttons tal:repeat="button actions/folder_buttons|nothing"
+        <input tal:replace="structure context/@@authenticator/authenticator | nothing" />
+        <tal:buttons tal:repeat="button view/folderButtons|nothing"
                      tal:define="contentFilter contentFilter|python:{'path':'/'};
                                  query_path python:path('contentFilter/path|nothing') or request.get('path',None) or context.portal_type == 'Topic';">
           <input class="context"
@@ -303,7 +305,7 @@
                  tabindex=""
                  tal:condition="python:(batch or here.cb_dataValid and button['id'] == 'paste') and not ( query_path and button['id'] in ['cut','copy','paste'])"
                  i18n:attributes="value"
-                 tal:attributes="value button/name;
+                 tal:attributes="value button/name | button/title;
                                  name button/url;
                                  tabindex tabindex/next;
                                  class python:test((button['id'] == 'paste'), 'standalone', 'context')" />

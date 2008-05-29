@@ -20,4 +20,12 @@
         getItemsByAudiencesAndSections getSectionsToList"
     />
 
+<page
+    name="phc_attachments_view"
+    for="..interfaces.IHelpCenterHowTo"
+    class=".phc_attachments.AttachmentsView"
+    permission="zope2.View"
+    allowed_attributes="folderButtons"
+    />
+
 </configure>

@@ -8,3 +8,7 @@ class IHelpCenterFolder(Interface):
     """ Marker interface for PHCFolder class that is
         the ancestory of the PHC containers.
     """
+
+class IHelpCenterHowTo(Interface):
+    """ Marker interface for HelpCenterHowTo class.
+    """

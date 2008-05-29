@@ -9,11 +9,13 @@ except ImportError:
     from Products.CMFCore import CMFCorePermissions
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterItemSchema
 from PHCContent import PHCContent
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 from zope import event
+from zope.interface import implements
 try:
     from zope.lifecycleevent import ObjectModifiedEvent
 except ImportError:
@@ -83,10 +85,13 @@ class HelpCenterHowTo(PHCContent,BaseFolder):
     """A How-to is a document describing how to address a single, common 
     use-case or issue. You may add images and files as attachments.
     """
+    
+    implements(IHelpCenterHowTo)
 
     __implements__ = (PHCContent.__implements__,
                       BaseFolder.__implements__,
-                      INonStructuralFolder)
+                      INonStructuralFolder
+                      )
 
     content_icon = 'howto_icon.gif'
 

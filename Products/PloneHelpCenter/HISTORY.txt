@@ -7,6 +7,11 @@ History of changes to PHC (name of developer listed in brackets)::
     
     RC 2 (svn/unreleased)
     
+    - Hacked up a solution to how-to attachment action buttons that works
+      with 2.5 and 3.x. The is just a patch to hold until 2.5 compatibility
+      is abandoned. Fixes issue 106.
+      [stevem]
+    
     - Unable to add attachments to how-tos. Fixed narrow issue; larger
       problem of actions remains.
       [stevem]
