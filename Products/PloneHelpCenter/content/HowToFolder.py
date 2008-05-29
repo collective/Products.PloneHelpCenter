@@ -42,6 +42,9 @@ HowToFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterHowToFolder(PHCFolder,OrderedBaseFolder):
     """A How-to Section can contain how-to documents."""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'topic_icon.gif'
 
     schema = HowToFolderSchema

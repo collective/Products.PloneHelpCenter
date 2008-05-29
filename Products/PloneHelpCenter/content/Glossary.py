@@ -43,6 +43,9 @@ class HelpCenterGlossary(PHCFolder,OrderedBaseFolder):
     in a dictionary-like manner.
     """
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'glossary_icon.gif'
 
     schema = GlossarySchema

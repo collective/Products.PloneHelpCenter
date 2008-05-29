@@ -42,6 +42,9 @@ TutorialFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterTutorialFolder(PHCFolder,OrderedBaseFolder):
     """A simple folderish archetype"""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'tutorial_icon.gif'
 
     schema = TutorialFolderSchema

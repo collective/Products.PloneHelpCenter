@@ -34,6 +34,8 @@ class PHCFolder(BrowserDefaultMixin):
     """A simple mixin for folderish archetype"""
 
     implements(IHelpCenterFolder)
+    
+    __implements__ = BrowserDefaultMixin.__implements__
 
     _at_rename_after_creation = True
 

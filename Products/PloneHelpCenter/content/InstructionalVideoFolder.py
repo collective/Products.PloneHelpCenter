@@ -40,6 +40,9 @@ InstructionalVideoFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterInstructionalVideoFolder(PHCFolder,OrderedBaseFolder):
     """A simple folderish archetype"""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'movie_icon.gif'
 
     schema = InstructionalVideoFolderSchema

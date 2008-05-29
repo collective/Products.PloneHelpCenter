@@ -43,6 +43,9 @@ ReferenceManualFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterReferenceManualFolder(PHCFolder,OrderedBaseFolder):
     """A simple folderish archetype"""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'referencemanual_icon.gif'
 
     schema = ReferenceManualFolderSchema

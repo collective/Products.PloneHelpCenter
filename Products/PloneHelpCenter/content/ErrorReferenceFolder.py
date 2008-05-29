@@ -43,6 +43,9 @@ class HelpCenterErrorReferenceFolder(PHCFolder,BaseFolder):
     common errors.
     """
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'errorref_icon.gif'
 
     schema = ErrorReferenceFolderSchema

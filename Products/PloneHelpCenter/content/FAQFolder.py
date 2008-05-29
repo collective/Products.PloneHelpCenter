@@ -39,6 +39,9 @@ FAQFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterFAQFolder(PHCFolder,OrderedBaseFolder):
     """An FAQ Section can hold frequently asked questions with answers."""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'faq_icon.gif'
 
     schema = FAQFolderSchema

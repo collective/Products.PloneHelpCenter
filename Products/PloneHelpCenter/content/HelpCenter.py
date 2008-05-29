@@ -165,6 +165,9 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
     
     implements(IHelpCenterContent)
     
+    __implements__ = (BrowserDefaultMixin.__implements__,
+        OrderedBaseFolder.__implements__)
+    
     schema = HCRootSchema
 
     content_icon = 'helpcenter_icon.gif'

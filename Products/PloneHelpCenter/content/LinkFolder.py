@@ -41,6 +41,9 @@ LinkFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
 class HelpCenterLinkFolder(PHCFolder,OrderedBaseFolder):
     """A simple folderish archetype"""
 
+    __implements__ = (PHCFolder.__implements__,
+        OrderedBaseFolder.__implements__)
+
     content_icon = 'link_icon.gif'
 
     schema = LinkFolderSchema
