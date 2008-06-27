@@ -267,7 +267,7 @@ class HelpCenterView(BrowserView):
         if not nonPHCTypes:
             return []
 
-        return self.context.getFolderContents(contentFilter = {'portal_type' : nonPHCTypes})
+        return self.context.getFolderContents(contentFilter = {'portal_type' : nonPHCTypes}, batch=True)
 
 
     def statsQueryCatalog(self):

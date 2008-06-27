@@ -4,6 +4,9 @@ HISTORY
 History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 1.5
+
+    - Corrected a problem in the helpcenter_view that would cause a batching 
+      error for non-PHC subcontent. [stevem]
     
     RC 2
     
