@@ -4,7 +4,25 @@ from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.PythonScripts.standard import url_quote_plus
 
-from Products.PloneHelpCenter.config import TOPIC_VIEW_TYPES
+from Products.PloneHelpCenter.config import TOPIC_VIEW_TYPES, CACHE_MINUTES
+
+from time import time
+from plone.memoize.ram import cache
+
+
+CACHE_SECONDS = 60 * CACHE_MINUTES
+def _cacheKey(method, self):
+    # Key on both current and last-modified times so
+    # that an update of the PHC object will invalidate
+    # the cache.
+    if CACHE_SECONDS:
+        return ( time() // CACHE_SECONDS, self.context.modified() )
+    else:
+        return time()
+
+# def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
+def _stcacheKey(method, self, topic):
+    return ( _cacheKey(method, self), topic )
 
 
 subtypes_tuples = (
@@ -79,6 +97,7 @@ class HelpCenterView(BrowserView):
         return section.getObject().getFolderContents(contentFilter=contentFilter);        
 
 
+    @cache(_cacheKey)
     def getTopics(self):
         """Returns list of major topics and subtopics; used in helpcenter_topicview"""
         
@@ -129,6 +148,7 @@ class HelpCenterView(BrowserView):
         return sections
 
 
+    @cache(_cacheKey)
     def getSectionMap(self):
         """
           returns a complex list of section dicts
@@ -189,6 +209,7 @@ class HelpCenterView(BrowserView):
         return sections
 
 
+    @cache(_cacheKey)
     def getStartHeres(self, startHereLimit=10):
         """
           returns a list of topic dicts
@@ -226,6 +247,7 @@ class HelpCenterView(BrowserView):
         return sections
 
 
+    @cache(_stcacheKey)
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
         
@@ -273,6 +295,7 @@ class HelpCenterView(BrowserView):
         return sorted_list
 
 
+    @cache(_cacheKey)
     def getMajorTopics(self):
         """Returns a sorted list of major sections"""
 

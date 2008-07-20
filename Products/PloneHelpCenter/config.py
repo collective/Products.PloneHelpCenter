@@ -22,6 +22,14 @@ SKINS_DIR = 'skins'
 
 GLOBALS = globals()
 
+# If plone.memoize is available, the minutes to cache
+# the results of expensive queries that help build
+# the PHC top page.
+# Set to zero for no caching.
+# Note that editing the PHC object will force cache 
+# invalidate.
+CACHE_MINUTES = 30
+
 DEFAULT_CONTENT_TYPES = {
     'default_output_type': 'text/html',
     'default_content_type': 'text/html',

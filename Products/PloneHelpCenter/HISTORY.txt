@@ -3,7 +3,14 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 1.5.1dev
+    PloneHelpCenter 1.6dev
+    
+    - Added time-based ram caching to several expensive view methods.
+      Default invalidation is 30 minutes, but may be changed in
+      config.py.
+      [stevem]
+    
+    - Plone 3.x is now required. PHC 1.5.x will be a maintenance branch. 
     
     - Add browser view support for a listing of start here docs by section.
       This is for Plone.Org, forthcoming documentation top page revision.
