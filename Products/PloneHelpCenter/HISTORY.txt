@@ -3,6 +3,17 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 1.5.1dev
+    
+    - Add browser view support for a listing of start here docs by section.
+      This is for Plone.Org, forthcoming documentation top page revision.
+      [stevem]
+    
+    - The compact topic view no longer blocks the left column. That just isn't
+      necessary for Plone 3.x.
+      [stevem]
+
+
     PloneHelpCenter 1.5
 
     - Corrected a problem in the helpcenter_view that would cause a batching 

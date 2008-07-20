@@ -1,0 +1,41 @@
+<html metal:use-macro="context/main_template/macros/master">
+<body>
+   
+  <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getStartHeres">
+
+    <div tal:define="length python: len(sections); splitat python: int(modules['math'].ceil(length/2.0)); left python: sections[:splitat]; right python: sections[splitat:]; sblocks python: (left, right)">
+        <dl tal:repeat="bsection sblocks" style="width:45%;;float:left">
+            <tal:block tal:repeat="section bsection">
+                <dt ><a href="[section-url]" tal:attributes="href section/url" tal:content="section/title">[Section Name]</a> (<span tal:content="section/count" />)</dt>
+                <dd>
+                    <span tal:repeat="item section/startheres">
+                        <a href="[item url]" 
+                            tal:attributes="href item/url;" 
+                            tal:content="python:item['title']" 
+                            >[Title of starthere]
+                        </a>
+                        <tal:separator condition="not:repeat/item/end">+</tal:separator>
+                    </span>
+                </dd>
+            </tal:block>
+        </dl>
+    </div>
+    <div class="visualClear"></div>
+
+
+    <dl class="portlet" tal:condition="nothing">
+      <dt class="portletHeader">Getting Started</dt>
+      <dd class="portletItem">
+        <ul>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+          <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+        </ul>
+      </dd>
+      <dd class="portletFooter">All End User Documentation</dd>
+    </dl>
+
+    <div class="visualClear"></div>
+
+</div>
+</body>
+</html>    

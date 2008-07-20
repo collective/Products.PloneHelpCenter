@@ -1,7 +1,4 @@
 <html metal:use-macro="context/main_template/macros/master">
-<head>
-  <metal:block fill-slot="column_one_slot" />
-</head>
 <body>
    
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getTopics">

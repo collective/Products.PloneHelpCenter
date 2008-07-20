@@ -189,6 +189,43 @@ class HelpCenterView(BrowserView):
         return sections
 
 
+    def getStartHeres(self, startHereLimit=10):
+        """
+          returns a list of topic dicts
+          [{title:topicTitle, startheres:listOfStartHeres, url:urlOfTopic, count:itemsInTopic}, ...]
+          startheres are dicts {title:titleOfStartHere,url:urlOfStartHere}
+          This is used in helpcenter_ploneorg3.pt.
+        """
+
+        context = self.context
+
+        here_url  = context.absolute_url()
+        phc = context.getPHCObject()
+
+        topics = phc.getSectionsVocab()
+        sections = []
+        for topic in topics:
+            if ':' not in topic:
+                items = self.catalog(portal_type=['HelpCenterReferenceManual','HelpCenterTutorial','HelpCenterHowTo'],
+                                               review_state='published',
+                                               getSections=[topic])
+                
+                startHeres = []
+                for item in items:
+                    if item.getStartHere:
+                        startHeres.append( {'title':item.Title, 'url':item.getURL()} )
+                
+                sections.append(
+                 {'title':topic,
+                  'startheres': startHeres[:startHereLimit],
+                  'url': here_url + '/phc_topic_area?topic=' + url_quote_plus(topic),
+                  'count':len(items),
+                  }
+                 )
+
+        return sections
+
+
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
         
