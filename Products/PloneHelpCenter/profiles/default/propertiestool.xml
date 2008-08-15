@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <object name="portal_properties">
  <object name="navtree_properties">
-  <property name="parentMetaTypesNotToQuery" type="lines">
+  <property name="parentMetaTypesNotToQuery" type="lines" purge="False">
    <element value="HelpCenterHowTo"/>
    <element value="HelpCenterTutorial"/>
    <element value="HelpCenterErrorReference"/>
@@ -13,7 +13,7 @@
    <element value="HelpCenterTutorialPage"/>
    <element value="HelpCenterReferenceManualPage"/>
   </property>
-  <property name="metaTypesNotToList" type="lines">
+  <property name="metaTypesNotToList" type="lines" purge="False">
    <element value="HelpCenterHowTo"/>
    <element value="HelpCenterTutorial"/>
    <element value="HelpCenterErrorReference"/>
@@ -27,7 +27,7 @@
   </property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
-  <property name="use_folder_tabs" type="lines">
+  <property name="use_folder_tabs" type="lines" purge="False">
    <element value="HelpCenterReferenceManualFolder"/>
    <element value="HelpCenterHowTo"/>
    <element value="HelpCenterInstructionalVideoFolder"/>
@@ -43,7 +43,7 @@
    <element value="HelpCenter"/>
    <element value="HelpCenterReferenceManual"/>
   </property>
-  <property name="typesLinkToFolderContentsInFC" type="lines">
+  <property name="typesLinkToFolderContentsInFC" type="lines" purge="False">
    <element value="HelpCenterReferenceManualFolder"/>
    <element value="HelpCenterHowTo"/>
    <element value="HelpCenterInstructionalVideoFolder"/>
