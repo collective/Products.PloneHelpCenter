@@ -126,12 +126,6 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
         else:
             return ()
 
-    security.declareProtected(CMFCorePermissions.View, 'getSubjectVocab')
-    def getSubjectVocab(self):
-        """Get subject (keywords) vocabulary"""
-        catalog = getToolByName(self, 'portal_catalog')
-        return catalog.uniqueValuesFor('Subject')
-
     security.declareProtected(CMFCorePermissions.View, 'Versions')
     def Versions(self):
         """method to display the versions in a nicer way
