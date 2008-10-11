@@ -1,0 +1,125 @@
+/* - helpcenter_dropdown.css - 
+     closely based on Plone's dropdown-menu.css 
+*/
+
+@media screen {
+/*  (do not remove this :) */
+/*  (not this either :) */
+
+#filtermenu {
+    position:relative;
+    z-index:3;
+}
+* html #filtermenu {
+    height:1%;
+}
+#filtermenu li {
+    float:left;
+    margin:0;
+    padding:0;
+}
+#filtermenu li a {
+    display:block;   
+    position:relative;
+}
+
+
+/*
+** SUBMENU STYLES 
+*/
+
+#filtermenu ul {
+    position: absolute;
+    width: 15em;
+    left:-999em;
+    background: #fff;
+    border-color: #8cacbb;
+    border-width: 1px;
+    border-style: none solid solid solid;
+    margin:0;
+}
+#filtermenu li.selected ul.submenu {
+    margin-top:-1px;
+    z-index:3;
+}
+#filtermenu ul.submenu li {
+    display:block;
+    width:100%;
+}
+#filtermenu ul.submenu a,
+#filtermenu ul.submenu a:hover {
+    margin:0;
+    display:block;
+    border-color: #8cacbb;
+    border-style: solid none none;
+    position:static !important;
+    white-space:normal;
+}
+#filtermenu li.selected ul.submenu a:hover {
+    background-color:#fff;
+}
+
+a.hasDropDown {
+    background-image:url('arrowRight.gif');
+    background-position:14em 50%;
+    background-repeat:no-repeat;
+}
+
+/* Below we have the same style defined differently 
+** These are for IE7 and IE6 respectively. There is no 
+** possibility to put styles for IE6 and IE7 in the same
+** definition. So we have 2 separate definitions
+*/
+*:first-child+html #filtermenu ul.submenu a {height:1%;} /* IE7 fix. */
+* html #filtermenu ul.submenu a {height:1%;} /* we all love IE6 ;) */
+
+
+/* side-dropdown menu styles */
+#filtermenu li ul ul {
+    z-index:10;
+    top:0.4em;
+    left:-999em;
+    left:0;
+    margin: 0 0 0 14em;
+}
+
+#filtermenu ul li:hover,
+#filtermenu ul li.sfhover {
+    position:relative;
+}
+
+#filtermenu li:hover ul ul, 
+#filtermenu li:hover ul ul ul, 
+#filtermenu li:hover ul ul ul ul,
+#filtermenu li.sfhover ul ul, 
+#filtermenu li.sfhover ul ul ul,
+#filtermenu li.sfhover ul ul ul ul {
+    left:-999em;
+}
+
+#filtermenu li:hover ul, 
+#filtermenu li li:hover ul, 
+#filtermenu li li li:hover ul,
+#filtermenu li li li li:hover ul, 
+#filtermenu li.sfhover ul, 
+#filtermenu li li.sfhover ul, 
+#filtermenu li li li.sfhover ul,
+#filtermenu li li li li.sfhover ul {
+    left:auto;
+}
+
+/* clearing global navigation styles */
+#post-sections-clear {
+    height:1px;
+    margin-bottom:-3px;
+}
+
+/* See above for explanation of the below mess styles */
+*:first-child+html #post-sections-clear {margin-bottom:-2px;}
+* html #post-sections-clear {
+    margin-bottom:-2px;
+}
+
+/*  */
+}
+

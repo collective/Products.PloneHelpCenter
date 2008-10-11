@@ -1,0 +1,3 @@
+Flat PNGs of all menu states are included.
+
+In case you're a Photoshop user, I've included the original layered file used to create the mockups.

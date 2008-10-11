@@ -3,6 +3,9 @@
   <stylesheet id="helpcenter.css" 
 	      media="all"
 	      />
+  <stylesheet id="helpcenter_dropdown.css" 
+	      media="all"
+	      />
   <stylesheet id="helpcenter_print.css" 
 	      media="print"
 	      />
