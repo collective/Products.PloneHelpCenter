@@ -21,8 +21,8 @@ def _cacheKey(method, self):
         return time()
 
 # def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
-def _stcacheKey(method, self, topic):
-    return ( _cacheKey(method, self), topic )
+def _stcacheKey(method, self, topic, version, audience,):
+    return ( _cacheKey(method, self), topic, version, audience,)
 
 
 subtypes_tuples = (
@@ -248,7 +248,7 @@ class HelpCenterView(BrowserView):
 
 
     @cache(_stcacheKey)
-    def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
+    def getSubTopics(self, topic="Visual Design", version="2.5", audience="Beginner", portal_types=TOPIC_VIEW_TYPES):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
         
         # Returns sorted list of dicts in the form:
@@ -257,7 +257,9 @@ class HelpCenterView(BrowserView):
 
         # get a list of brains for all items of matching type and topic
         items = self.catalog(portal_type=portal_types, 
-                             getSections=topic, 
+                             getSections=topic,
+                             getVersions=version,
+                             getAudiences=audience, 
                              path=self.context.getPHCPath())
         
         # construct a dict of subtopics under this topic
