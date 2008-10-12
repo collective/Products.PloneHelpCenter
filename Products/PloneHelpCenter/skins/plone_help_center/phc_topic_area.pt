@@ -2,12 +2,59 @@
 <body>
 
   <div metal:fill-slot="main"
-        tal:define="topic request/topic;
+       tal:define="topic request/topic;
+                    audience request/audience;
+                    version request/version;
                     view context/@@hc_view;
-                    subtopics python:view.getSubTopics(topic=topic)">
+                    subtopics python:view.getSubTopics(topic=topic,
+                                                       audience=audience,
+                                                       version=version
+                                                       )">
 
+      <!-- TOPIC -->
       <h1 tal:content="topic">Security and Permissions</h1>
+      
+      <tal:block define="content_audiences context/getAudiencesVocab;">
 
+        <h5 i18n:translate="heading_audiences">Audiences</h5>
+
+        <ul tal:condition="content_audiences" class="audienceItems">
+            <li tal:repeat="audience content_audiences"
+                tal:attributes="id string:contentaudience-${audience};">
+
+                <a class="" href=""
+                   tal:attributes="href string:audience=${audience};">
+
+                    <tal:action tal:content="audience" i18n:translate="">
+                        Audience name
+                    </tal:action>
+                </a>            
+
+            </li>
+        </ul>
+
+      </tal:block>
+      
+      <tal:block define="content_versions context/getVersionsVocab;">
+
+        <h5 i18n:translate="heading_versions">Versions</h5>
+
+        <ul tal:condition="content_versions" class="versionItems">
+            <li tal:repeat="version content_versions"
+                tal:attributes="id string:contentaudience-${version};">
+
+                <a class="" href=""
+                   tal:attributes="href string:version=${version};">
+
+                    <tal:action tal:content="version" i18n:translate="">
+                        Version name
+                    </tal:action>
+                </a>            
+
+            </li>
+        </ul>
+
+      </tal:block>
       <dl style="width: 30%; float: right; display: block; margin-left:1em"
        class="portlet" tal:condition="python:len(subtopics)>1">
       <dt class="portletHeader">In This Section...</dt>
@@ -17,11 +64,14 @@
         </ul>
       </dd>
       </dl>
-
+      
+      <!-- REPEAT over subtopics -->
       <div class="doclist" tal:repeat="subtopic subtopics">
         <h2><a name="workflow" tal:attributes="name subtopic/id; id subtopic/id" tal:content="subtopic/title">Workflow</a></h2>
+        <!-- NEW LIST subtopic/docs -->
         <dl>
           <tal:block tal:repeat="item subtopic/docs">
+            <div tal:define="all python:', '.join(item.getAudiences) + ', ' + ', '.join(item.getVersions)" tal:attributes="class all">
             <dt>
                 <a tal:attributes="href item/getURL" tal:condition="item/getStartHere | nothing" tal:content="structure here/phc_star.gif" href="/"><img src="phc_star.gif" align="middle" alt="Start Here" /></a>
                 <a tal:attributes="href item/getURL;
@@ -37,6 +87,7 @@
                   Description
                 </div>
             </dd>
+            </div>
           </tal:block>
         </dl>
       </div>
