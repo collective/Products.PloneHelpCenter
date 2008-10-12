@@ -1,0 +1,391 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE svg PUBLIC '-//W3C//DTD SVG 20001102//EN' 'http://www.w3.org/TR/2000/CR-SVG-20001102/DTD/svg-20001102.dtd'>
+<svg height="868" width="1452" xmlns="http://www.w3.org/2000/svg">
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="1375" x="14" y="110"/>
+<rect height="20" style="fill: none; stroke:#000000; stroke-width:1" width="1374" x="14" y="110"/>
+<text style="font-family:Dialog; font-size:10;" x="18" y="124">
+content</text>
+<rect height="724" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="1424" x="14" y="130"/>
+<rect height="723" style="fill: none; stroke:#000000; stroke-width:1" width="1423" x="14" y="130"/>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="671" x="334" y="150"/>
+<rect height="20" style="fill: none; stroke:#000000; stroke-width:1" width="670" x="334" y="150"/>
+<text style="font-family:Dialog; font-size:10;" x="338" y="164">
+schemata</text>
+<rect height="188" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="720" x="334" y="170"/>
+<rect height="187" style="fill: none; stroke:#000000; stroke-width:1" width="719" x="334" y="170"/>
+<rect height="168" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="184" x="814" y="182"/>
+<rect height="16" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="184" x="814" y="182"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="184" x="814" y="182"/>
+<rect height="14" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="182" x="815" y="183"/>
+<text style="font-family:Dialog; font-size:10;" x="881" y="197">
+&lt;&lt;mixin&gt;&gt;</text>
+<rect height="21" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="184" x="814" y="198"/>
+<text style="font-family:Dialog; font-size:10;" x="830" y="212">
+GenericHelpCenterItemSchema</text>
+<rect height="30" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="183" x="815" y="319"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="815" x2="998" y1="319" y2="319"/>
+<rect height="98" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="183" x="815" y="220"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="815" x2="998" y1="220" y2="220"/>
+<text style="font-family:Dialog; font-size:10;" x="818" y="235">
+versions : multiselection</text>
+<text style="font-family:Dialog; font-size:10;" x="818" y="249">
+sections : multiselection</text>
+<text style="font-family:Dialog; font-size:10;" x="818" y="263">
+audiences : multiselection</text>
+<text style="font-family:Dialog; font-size:10;" x="818" y="277">
+subject : lines</text>
+<text style="font-family:Dialog; font-size:10;" x="818" y="291">
+startHere : boolean</text>
+<text style="font-family:Dialog; font-size:10;" x="818" y="305">
+relatedItems : reference</text>
+<rect height="168" style="fill: none; stroke:#000000; stroke-width:1" width="184" x="814" y="182"/>
+<rect height="93" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="171" x="406" y="214"/>
+<rect height="16" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="171" x="406" y="214"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="171" x="406" y="214"/>
+<rect height="14" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="169" x="407" y="215"/>
+<text style="font-family:Dialog; font-size:10;" x="466" y="229">
+&lt;&lt;mixin&gt;&gt;</text>
+<rect height="21" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="171" x="406" y="230"/>
+<text style="font-family:Dialog; font-size:10;" x="422" y="244">
+HelpCenterContainerSchema</text>
+<rect height="27" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="170" x="407" y="279"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="407" x2="577" y1="279" y2="279"/>
+<rect height="26" style="fill:#ffc8ff; stroke:#ffc8ff; stroke-width:1" width="170" x="407" y="252"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="407" x2="577" y1="252" y2="252"/>
+<text style="font-family:Dialog; font-size:10;" x="410" y="267">
+sectionsVocab : lines</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="171" x="406" y="214"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="123" x="710" y="438"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="123" x="710" y="438"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="123" x="710" y="438"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="121" x="711" y="439"/>
+<text style="font-family:Dialog; font-size:10;" x="736" y="453">
+&lt;&lt;archetype&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="123" x="710" y="454"/>
+<text style="font-family:Dialog; font-size:10;" x="722" y="468">
+HelpCenterDefinition</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="122" x="711" y="503"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="711" x2="833" y1="503" y2="503"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="122" x="711" y="476"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="711" x2="833" y1="476" y2="476"/>
+<text style="font-family:Dialog; font-size:10;" x="714" y="491">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="123" x="710" y="438"/>
+<polyline points="814,438 814,350" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="814,350 821,362 807,362" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="814,350 821,362 807,362" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="109" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="155" x="742" y="550"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="155" x="742" y="550"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="155" x="742" y="550"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="153" x="743" y="551"/>
+<text style="font-family:Dialog; font-size:10;" x="789" y="565">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="155" x="742" y="566"/>
+<text style="font-family:Dialog; font-size:10;" x="757" y="580">
+HelpCenterErrorReference</text>
+<rect height="29" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="154" x="743" y="629"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="743" x2="897" y1="629" y2="629"/>
+<text style="font-family:Dialog; font-size:10;" x="746" y="644">
+action:attachments() : void</text>
+<rect height="40" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="154" x="743" y="588"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="743" x2="897" y1="588" y2="588"/>
+<text style="font-family:Dialog; font-size:10;" x="746" y="603">
+description : text</text>
+<text style="font-family:Dialog; font-size:10;" x="746" y="617">
+body : richtext</text>
+<rect height="109" style="fill: none; stroke:#000000; stroke-width:1" width="155" x="742" y="550"/>
+<polyline points="854,550 854,350" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="854,350 861,362 847,362" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="854,350 861,362 847,362" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="190" x="54" y="278"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="190" x="54" y="278"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="190" x="54" y="278"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="188" x="55" y="279"/>
+<text style="font-family:Dialog; font-size:10;" x="123" y="293">
+&lt;&lt;folder&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="190" x="54" y="294"/>
+<text style="font-family:Dialog; font-size:10;" x="72" y="308">
+HelpCenterErrorReferenceFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="189" x="55" y="343"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="55" x2="244" y1="343" y2="343"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="189" x="55" y="316"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="55" x2="244" y1="316" y2="316"/>
+<text style="font-family:Dialog; font-size:10;" x="58" y="331">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="190" x="54" y="278"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="129" x="350" y="454"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="129" x="350" y="454"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="129" x="350" y="454"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="127" x="351" y="455"/>
+<text style="font-family:Dialog; font-size:10;" x="384" y="469">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="129" x="350" y="470"/>
+<text style="font-family:Dialog; font-size:10;" x="362" y="484">
+HelpCenterFAQFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="128" x="351" y="519"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="351" x2="479" y1="519" y2="519"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="128" x="351" y="492"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="351" x2="479" y1="492" y2="492"/>
+<text style="font-family:Dialog; font-size:10;" x="354" y="507">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="129" x="350" y="454"/>
+<polyline points="422,454 422,307" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="422,307 429,319 415,319" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="422,307 429,319 415,319" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="107" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1110" y="214"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1110" y="214"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="95" x="1110" y="214"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="93" x="1111" y="215"/>
+<text style="font-family:Dialog; font-size:10;" x="1122" y="229">
+&lt;&lt;archetype&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1110" y="230"/>
+<text style="font-family:Dialog; font-size:10;" x="1120" y="244">
+HelpCenterFAQ</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="94" x="1111" y="293"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1111" x2="1205" y1="293" y2="293"/>
+<rect height="40" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="94" x="1111" y="252"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1111" x2="1205" y1="252" y2="252"/>
+<text style="font-family:Dialog; font-size:10;" x="1114" y="267">
+description : text</text>
+<text style="font-family:Dialog; font-size:10;" x="1114" y="281">
+answer : richtext</text>
+<rect height="107" style="fill: none; stroke:#000000; stroke-width:1" width="95" x="1110" y="214"/>
+<polyline points="1110,238 998,238" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="998,238 1010,231 1010,245" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="998,238 1010,231 1010,245" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polyline points="244,278 294,230 406,230" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="406,230 394,237 394,223" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="406,230 394,237 394,223" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="145" x="70" y="158"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="145" x="70" y="158"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="145" x="70" y="158"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="143" x="71" y="159"/>
+<text style="font-family:Dialog; font-size:10;" x="112" y="173">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="145" x="70" y="174"/>
+<text style="font-family:Dialog; font-size:10;" x="84" y="188">
+HelpCenterHowToFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="144" x="71" y="223"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="71" x2="215" y1="223" y2="223"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="144" x="71" y="196"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="71" x2="215" y1="196" y2="196"/>
+<text style="font-family:Dialog; font-size:10;" x="74" y="211">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="145" x="70" y="158"/>
+<polyline points="215,214 406,214" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="406,214 394,221 394,207" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="406,214 394,221 394,207" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="125" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="110" x="870" y="678"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="110" x="870" y="678"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="110" x="870" y="678"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="108" x="871" y="679"/>
+<text style="font-family:Dialog; font-size:10;" x="899" y="693">
+&lt;&lt;folder&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="110" x="870" y="694"/>
+<text style="font-family:Dialog; font-size:10;" x="882" y="708">
+HelpCenterHowTo</text>
+<rect height="44" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="109" x="871" y="758"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="871" x2="980" y1="758" y2="758"/>
+<text style="font-family:Dialog; font-size:10;" x="874" y="773">
+getText() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="874" y="787">
+setFormat() : void</text>
+<rect height="41" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="109" x="871" y="716"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="871" x2="980" y1="716" y2="716"/>
+<text style="font-family:Dialog; font-size:10;" x="874" y="731">
+description : text</text>
+<text style="font-family:Dialog; font-size:10;" x="874" y="745">
+body : richtext</text>
+<rect height="125" style="fill: none; stroke:#000000; stroke-width:1" width="110" x="870" y="678"/>
+<polyline points="908,678 908,350" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="908,350 915,362 901,362" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="908,350 915,362 901,362" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="147" x="526" y="438"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="147" x="526" y="438"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="147" x="526" y="438"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="145" x="527" y="439"/>
+<text style="font-family:Dialog; font-size:10;" x="569" y="453">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="147" x="526" y="454"/>
+<text style="font-family:Dialog; font-size:10;" x="539" y="468">
+HelpCenterTutorialFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="146" x="527" y="503"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="527" x2="673" y1="503" y2="503"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="146" x="527" y="476"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="527" x2="673" y1="476" y2="476"/>
+<text style="font-family:Dialog; font-size:10;" x="530" y="491">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="147" x="526" y="438"/>
+<polyline points="534,438 534,307" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="534,307 541,319 527,319" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="534,307 541,319 527,319" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="125" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="167" x="1078" y="406"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="167" x="1078" y="406"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="167" x="1078" y="406"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="165" x="1079" y="407"/>
+<text style="font-family:Dialog; font-size:10;" x="1131" y="421">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="167" x="1078" y="422"/>
+<text style="font-family:Dialog; font-size:10;" x="1116" y="436">
+HelpCenterTutorial</text>
+<rect height="58" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="166" x="1079" y="472"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1079" x2="1245" y1="472" y2="472"/>
+<text style="font-family:Dialog; font-size:10;" x="1082" y="487">
+getTutorialDescription() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="1082" y="501">
+getPages() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="1082" y="515">
+getPagePosition() : void</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="166" x="1079" y="444"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1079" x2="1245" y1="444" y2="444"/>
+<text style="font-family:Dialog; font-size:10;" x="1082" y="459">
+description : text</text>
+<rect height="125" style="fill: none; stroke:#000000; stroke-width:1" width="167" x="1078" y="406"/>
+<polyline points="1078,406 958,382 958,350" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="958,350 965,362 951,362" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="958,350 965,362 951,362" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="91" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="203" x="46" y="398"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="203" x="46" y="398"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="203" x="46" y="398"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="201" x="47" y="399"/>
+<text style="font-family:Dialog; font-size:10;" x="117" y="413">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="203" x="46" y="414"/>
+<text style="font-family:Dialog; font-size:10;" x="63" y="428">
+HelpCenterReferenceManualFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="202" x="47" y="461"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="47" x2="249" y1="461" y2="461"/>
+<rect height="24" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="202" x="47" y="436"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="47" x2="249" y1="436" y2="436"/>
+<rect height="91" style="fill: none; stroke:#000000; stroke-width:1" width="203" x="46" y="398"/>
+<polyline points="249,398 302,254 406,254" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="406,254 394,261 394,247" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="406,254 394,261 394,247" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="140" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="223" x="990" y="550"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="223" x="990" y="550"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="223" x="990" y="550"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="221" x="991" y="551"/>
+<text style="font-family:Dialog; font-size:10;" x="1071" y="565">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="223" x="990" y="566"/>
+<text style="font-family:Dialog; font-size:10;" x="1032" y="580">
+HelpCenterReferenceManual</text>
+<rect height="73" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="222" x="991" y="616"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="991" x2="1213" y1="616" y2="616"/>
+<text style="font-family:Dialog; font-size:10;" x="994" y="631">
+getReferenceManualDescription() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="994" y="645">
+getTOC() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="994" y="659">
+getTOCInfo() : void</text>
+<text style="font-family:Dialog; font-size:10;" x="994" y="673">
+addImagePaths() : void</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="222" x="991" y="588"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="991" x2="1213" y1="588" y2="588"/>
+<text style="font-family:Dialog; font-size:10;" x="994" y="603">
+description : text</text>
+<rect height="140" style="fill: none; stroke:#000000; stroke-width:1" width="223" x="990" y="550"/>
+<polyline points="990,550 942,438 942,350" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="942,350 949,362 935,362" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="942,350 949,362 935,362" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="107" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1230" y="150"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1230" y="150"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="95" x="1230" y="150"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="93" x="1231" y="151"/>
+<text style="font-family:Dialog; font-size:10;" x="1242" y="165">
+&lt;&lt;archetype&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="95" x="1230" y="166"/>
+<text style="font-family:Dialog; font-size:10;" x="1241" y="180">
+HelpCenterLink</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="94" x="1231" y="229"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1231" x2="1325" y1="229" y2="229"/>
+<rect height="40" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="94" x="1231" y="188"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1231" x2="1325" y1="188" y2="188"/>
+<text style="font-family:Dialog; font-size:10;" x="1234" y="203">
+description : text</text>
+<text style="font-family:Dialog; font-size:10;" x="1234" y="217">
+url : string</text>
+<rect height="107" style="fill: none; stroke:#000000; stroke-width:1" width="95" x="1230" y="150"/>
+<polyline points="1230,190 998,190" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="998,190 1010,183 1010,197" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="998,190 1010,183 1010,197" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="120" x="470" y="566"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="120" x="470" y="566"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="120" x="470" y="566"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="118" x="471" y="567"/>
+<text style="font-family:Dialog; font-size:10;" x="500" y="581">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="120" x="470" y="582"/>
+<text style="font-family:Dialog; font-size:10;" x="484" y="596">
+HelpCenterGlossary</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="119" x="471" y="631"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="471" x2="590" y1="631" y2="631"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="119" x="471" y="604"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="471" x2="590" y1="604" y2="604"/>
+<text style="font-family:Dialog; font-size:10;" x="474" y="619">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="120" x="470" y="566"/>
+<polyline points="486,566 486,307" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="486,307 493,319 479,319" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="486,307 493,319 479,319" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="93" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="204" x="94" y="526"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="204" x="94" y="526"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="204" x="94" y="526"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="202" x="95" y="527"/>
+<text style="font-family:Dialog; font-size:10;" x="166" y="541">
+&lt;&lt;ordered&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="204" x="94" y="542"/>
+<text style="font-family:Dialog; font-size:10;" x="111" y="556">
+HelpCenterInstructionalVideoFolder</text>
+<rect height="27" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="203" x="95" y="591"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="95" x2="298" y1="591" y2="591"/>
+<rect height="26" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="203" x="95" y="564"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="95" x2="298" y1="564" y2="564"/>
+<text style="font-family:Dialog; font-size:10;" x="98" y="579">
+description : text</text>
+<rect height="93" style="fill: none; stroke:#000000; stroke-width:1" width="204" x="94" y="526"/>
+<polyline points="298,526 310,278 406,278" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="406,278 394,285 394,271" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="406,278 394,285 394,271" style="fill:none; stroke:#000000; stroke-width:1"/>
+<rect height="168" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="169" x="1262" y="310"/>
+<rect height="16" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="169" x="1262" y="310"/>
+<rect height="16" style="fill: none; stroke:#000000; stroke-width:1" width="169" x="1262" y="310"/>
+<rect height="14" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="167" x="1263" y="311"/>
+<text style="font-family:Dialog; font-size:10;" x="1311" y="325">
+&lt;&lt;archetype&gt;&gt;</text>
+<rect height="21" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="169" x="1262" y="326"/>
+<text style="font-family:Dialog; font-size:10;" x="1277" y="340">
+HelpCenterInstructionalVideo</text>
+<rect height="30" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="168" x="1263" y="447"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1263" x2="1431" y1="447" y2="447"/>
+<rect height="98" style="fill:#ffffff; stroke:#ffffff; stroke-width:1" width="168" x="1263" y="348"/>
+<line style="fill:#000000; stroke:#000000; stroke-width:1" x1="1263" x2="1431" y1="348" y2="348"/>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="363">
+description : text</text>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="377">
+video_file : file</text>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="391">
+screenshot : image</text>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="405">
+duration : string</text>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="419">
+width : int</text>
+<text style="font-family:Dialog; font-size:10;" x="1266" y="433">
+height : int</text>
+<rect height="168" style="fill: none; stroke:#000000; stroke-width:1" width="169" x="1262" y="310"/>
+<polyline points="1262,326 998,326" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="998,326 1010,319 1010,333" style="fill:#ffffff; stroke:#ffffff; stroke-width:1"/>
+<polygon points="998,326 1010,319 1010,333" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="598,30 1046,30 1056,40 1056,87 598,87 598,30" style="fill:#ffffc8; stroke:#ffffc8; stroke-width:1"/>
+<polyline points="598,30 1046,30 1056,40 1056,87 598,87 598,30" style="fill:none; stroke:#000000; stroke-width:1"/>
+<polygon points="1046,30 1056,40 1046,40 1046,30" style="fill:#ffffc8; stroke:#ffffc8; stroke-width:1"/>
+<polyline points="1046,30 1056,40 1046,40 1046,30" style="fill:none; stroke:#000000; stroke-width:1"/>
+<text style="font-family:Dialog; font-size:10;" x="600" y="46">
+These Schema mixins are represented here as mixin classes.</text>
+<text style="font-family:Dialog; font-size:10;" x="600" y="60">
+Actually, they are just Schema instances defined in schemata.py.</text>
+<text style="font-family:Serif; font-size:24;" x="14" y="46">
+PloneFormGen</text>
+<text style="font-family:Serif; font-size:24;" x="14" y="78">
+Schemata Pseudo-Class Inheritance</text>
+</svg>
