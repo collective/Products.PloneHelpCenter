@@ -16,16 +16,28 @@
       
       <tal:block define="content_audiences context/getAudiencesVocab;">
 
-        <h5 i18n:translate="heading_audiences">Audiences</h5>
+        <h5 i18n:translate="heading_audiences">Audiences <span tal:condition="audience" class="small" tal:content="string::${audience}"></span></h5>
 
         <ul tal:condition="content_audiences" class="audienceItems">
             <li tal:repeat="audience content_audiences"
                 tal:attributes="id string:contentaudience-${audience};">
 
                 <a class="" href=""
-                   tal:attributes="href string:audience=${audience};">
+                   tal:attributes="href string:${context/absolute_url}/phc_topic_area?topic=${topic}&audience=${audience}&version=${version};">
 
                     <tal:action tal:content="audience" i18n:translate="">
+                        Audience name
+                    </tal:action>
+                </a>            
+
+            </li>
+            <li
+                tal:attributes="id string:contentaudience-all;">
+
+                <a class="" href=""
+                   tal:attributes="href string:${context/absolute_url}/phc_topic_area?topic=${topic}&audience=&version=${version};">
+
+                    <tal:action tal:content="string:all" i18n:translate="">
                         Audience name
                     </tal:action>
                 </a>            
@@ -37,16 +49,28 @@
       
       <tal:block define="content_versions context/getVersionsVocab;">
 
-        <h5 i18n:translate="heading_versions">Versions</h5>
+        <h5 i18n:translate="heading_versions">Versions <span tal:condition="version" class="small" tal:content="string::${version}"></span></h5>
 
         <ul tal:condition="content_versions" class="versionItems">
             <li tal:repeat="version content_versions"
                 tal:attributes="id string:contentaudience-${version};">
 
                 <a class="" href=""
-                   tal:attributes="href string:version=${version};">
+                   tal:attributes="href string:${context/absolute_url}/phc_topic_area?topic=${topic}&version=${version}&audience=${audience};">
 
                     <tal:action tal:content="version" i18n:translate="">
+                        Version name
+                    </tal:action>
+                </a>            
+
+            </li>
+            <li
+                tal:attributes="id string:contentversion-all;">
+
+                <a class="" href=""
+                   tal:attributes="href string:${context/absolute_url}/phc_topic_area?topic=${topic}&audience=${audience}&version=;">
+
+                    <tal:action tal:content="string:all" i18n:translate="">
                         Version name
                     </tal:action>
                 </a>            
