@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PloneHelpCenter\n"
 "POT-Creation-Date: 2006-09-20 09:11+0000\n"
-"PO-Revision-Date: 2006-01-27 00:55 +0000\n"
-"Last-Translator: Bobo RUML <bohous@bobonet.net>\n"
+"PO-Revision-Date: 2008-11-17 14:16+0100\n"
+"Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: Czech <www.surecase.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -20,12 +20,12 @@ msgstr ""
 #. Default: "Duration:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Duration:"
-msgstr ""
+msgstr "Délka trvání:"
 
 #. Default: "Find and modify content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Find and modify content"
-msgstr ""
+msgstr "Najít a upravit obsah"
 
 #. Default: "Go"
 #: ../skins/plone_help_center/referencemanual_macros.pt
@@ -36,17 +36,17 @@ msgstr "Jdi"
 #. Default: "Help Center Statistics and Maintenance"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Help Center Statistics and Maintenance"
-msgstr ""
+msgstr "Statistiky a údržba centra pomoci"
 
 #. Default: "RSS Feed"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "RSS Feed"
-msgstr ""
+msgstr "RSS"
 
 #. Default: "RSS feed of these search results"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "RSS feed of these search results"
-msgstr ""
+msgstr "RSS z těchto výsledků vyhledávání"
 
 #. Default: "Search"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -56,12 +56,12 @@ msgstr "Vyhledat"
 #. Default: "Search for content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Search for content"
-msgstr ""
+msgstr "Vyhledávání"
 
 #. Default: "Size:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Size:"
-msgstr ""
+msgstr "Velikost:"
 
 #. Default: "This FAQ applies to a previous version"
 #: ../skins/plone_help_center/faqfolder_view.pt
@@ -72,7 +72,7 @@ msgstr "FAQ se vztahuje k předchozí verzi"
 #. Default: "This form aids maintenance of help center content."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "This form aids maintenance of help center content."
-msgstr ""
+msgstr "Tento formulář vám pomůže s údržbou obsahu centra pomoci."
 
 #. Default: "This item applies to a previous version"
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
@@ -89,7 +89,7 @@ msgstr "Video se vztahuje k předchozí verzi"
 #. Default: "Using the criteria below, you can find content and then modify it from the search results page."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
-msgstr ""
+msgstr "Pomocí vyhledávacího formuláře můžete nejprve nalézt požadovaný obsah a upravovat jej ve stránky s výsledky vyhledávání."
 
 #. Default: "accesskeys-search"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -100,28 +100,27 @@ msgstr "Vyhledávání pomocí klíčových slov"
 #: ../skins/plone_help_center/tutorial_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "all_content_on_one_page"
-msgstr ""
+msgstr "Všechny části na jedné stránce (vhodné pro prezentaci nebo tisk)."
 
 #. Default: "All ${number} ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "all_helptype"
 msgstr "Všechny ${title}"
 
 #. Default: "More <tal:center replace=\"center/Title\">Documentation</tal:center> …"
 #: ../skins/plone_help_center/portlet_helpcenter.pt
 msgid "box_more_documentation"
-msgstr ""
+msgstr "Více <tal:center replace=\"center/Title\">Dokumentace</tal:center> …"
 
 #. Default: "No stale items found in the Help Center."
 #: ../skins/plone_help_center/portlet_stale_items.pt
 msgid "box_no_stale_items"
-msgstr ""
+msgstr "V centru pomoci nebyly nalezeny žádné zastaralé položky."
 
 #. Default: "Stale Help Center Items"
 #: ../skins/plone_help_center/portlet_stale_items.pt
 msgid "box_staleitems"
-msgstr ""
+msgstr "Zastaralé položky"
 
 #. Default: "Meaningful sentences that explains the answer."
 msgid "desc_answer"
@@ -130,17 +129,17 @@ msgstr "Zde napište výstižným způsobem v několika větách odpověď na ot
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_and"
-msgstr ""
+msgstr "Porovnat vše"
 
 #. Default: "Has more than one audience selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_multiple"
-msgstr ""
+msgstr "Je vybráno více cílových skupin."
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_or"
-msgstr ""
+msgstr "Porovnat alespoň jedno"
 
 #. Default: "Description for the Error Reference Container."
 msgid "description_edit_ErrorReference"
@@ -165,52 +164,58 @@ msgstr "Popis"
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_and"
-msgstr ""
+msgstr "Porovnat vše"
 
 #. Default: "Has more than one section selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_multiple"
-msgstr ""
+msgstr "Je vybráno více sekcí"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_or"
-msgstr ""
+msgstr "Porovnat aspoň jedno"
 
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_and"
-msgstr ""
+msgstr "Porovnat vše"
 
 #. Default: "Has more than one version selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_multiple"
-msgstr ""
+msgstr "Je vybráno více verzí"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_or"
-msgstr ""
+msgstr "Porovnat vše"
 
 #. Default: "Someone added a comment on your ${type}: ${title}. \nIf you are the author of this item, we recommend that you read the comment, and update the documentation accordingly if required - then remove the comment. \nIf further clarification is needed, reply to the comment, and the person who made the comment will get a notification like this, and will likely give you more details. \nTo view the new comment, visit: ${url}"
 #: ../skins/plone_help_center/discussion_notify_template.pt
 msgid "discussion_notify_template_body"
 msgstr ""
+"Někdo přidal poznámku k položce ${type}: ${title}. \n"
+"Jste-li autorem této položky, doporučujeme přečíst si poznámku, upravit příslušnou položku, je-li to vyžadováno a nakonec poznámku odstranit.\n"
+"Potřebujete-li další vysvětlení, odpovězte na tuto poznámku a uživatel dostane podobnou notifikaci jako je tato. Nová poznámka je k dispozici zde: ${url}"
 
 #. Default: "New comment on:"
 #: ./plone_help_center/discussion_notify_template.pt
 msgid "discussion_notify_template_subject"
-msgstr ""
+msgstr "Nová poznámka k položce:"
 
 #. Default: "Someone has replied to your comment, ${title}. \nTo view the reply, visit: \n${url}"
 #: ../skins/plone_help_center/discussion_reply_notify_template.pt
 msgid "discussion_reply_notify_template_body"
 msgstr ""
+"Někdo odpověděl na váši poznámku, ${title}. \n"
+" Odpověď je k dispozici zde: \n"
+" ${url}"
 
 #. Default: "New reply to your comment on:"
 #: ./plone_help_center/discussion_reply_notify_template.pt
 msgid "discussion_reply_notify_template_subject"
-msgstr ""
+msgstr "Nová odpověď na vaši poznámku:"
 
 #. Default: "More details on the question, if not evident from the title."
 msgid "help_detailed_question"
@@ -219,22 +224,22 @@ msgstr "Více podrobností k otázce, které nejsou patrné z nadpisu."
 #. Default: "Return items marked for some or all of these audiences. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one audience selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_audiences"
-msgstr ""
+msgstr "Vybrat položky označené pro některé nebo všechny cílové skupiny. "
 
 #. Default: "Return items that have comments."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_has_comments"
-msgstr ""
+msgstr "Vybrat položky s poznámkami."
 
 #. Default: "Return items in some or all of these sections. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one section selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_sections"
-msgstr ""
+msgstr "Vybrat položky v některých nebo všech sekcích."
 
 #. Default: "Return items in some or all of these versions. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one version selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_versions"
-msgstr ""
+msgstr "Vybrat položky v některých nebo všech verzích."
 
 #. Default: "Answer"
 msgid "label_answer"
@@ -243,7 +248,7 @@ msgstr "Odpověď"
 #. Default: "Audiences"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_audiences"
-msgstr ""
+msgstr "Cílové skupiny"
 
 #. Default: "Click to enlarge"
 #: ../skins/plone_help_center/ivideofolder_view.pt
@@ -257,17 +262,17 @@ msgstr "Podrobnosti otázky"
 #. Default: "Has comments"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_has_comments"
-msgstr ""
+msgstr "Obsahuje poznámky"
 
 #. Default: "Sections"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_sections"
-msgstr ""
+msgstr "Sekce"
 
 #. Default: "Versions"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_versions"
-msgstr ""
+msgstr "Verze"
 
 #. Default: "Latest ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -277,25 +282,25 @@ msgstr "Poslední ${title}"
 #. Default: "minutes"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "minutes"
-msgstr ""
+msgstr "minuty"
 
 #. Default: "You must publish this page before it becomes visible to the public."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
 msgid "must_publish_before_visible_to_public"
-msgstr ""
+msgstr "Musíte zveřejnit tuto položk. Po zveřejnění bude dostupná všem uživatelům."
 
 #. Default: "Nothing published in ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "nopublished_helptype"
-msgstr ""
+msgstr "V ${title} není zveřejněna žádná položka."
 
 #. Default: "Any audience."
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_any_audience"
-msgstr ""
+msgstr "Žádná cílová skupina."
 
 #. Default: "Any version."
 #: ../skins/plone_help_center/faqfolder_view.pt
@@ -310,7 +315,6 @@ msgstr "Tělo"
 
 #. Default: "Instructions on how to contribute to and use this resource."
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "phc_contrib_use"
 msgstr "Instrukce jak používat tento produkt a jak se stát přispěvatelem."
 
@@ -388,7 +392,7 @@ msgstr "Vyhledání dokumentace"
 #. Default: "This Error Reference is intended for:"
 #: ../skins/plone_help_center/errorreference_view.pt
 msgid "phc_error_audiences"
-msgstr ""
+msgstr "Tento popis chyby je určen pro:"
 
 #. Default: "Error references"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -495,7 +499,7 @@ msgstr "Jak-na-to se vztahuje k:"
 #. Default: "This How-to is intended for:"
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_howto_audiences"
-msgstr ""
+msgstr "Tato položka \"Jak na to\" je určena pro:"
 
 #. Default: "Step-by-step instructions."
 msgid "phc_howto_description"
@@ -516,7 +520,7 @@ msgstr "Možnosti důležitosti hodnocení obsahu."
 #. Default: "Audiences"
 #: ../skins/plone_help_center/phcfolder_view.pt
 msgid "phc_index_audiences"
-msgstr ""
+msgstr "Cílové skupiny"
 
 #. Default: "Sections"
 #: ../skins/plone_help_center/faqfolder_view.pt
@@ -716,7 +720,7 @@ msgstr "Příručka se vztahuje k:"
 #. Default: "This Reference Manual is intended for:"
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "phc_referencemanual_audiences"
-msgstr ""
+msgstr "Tato příručka je určena pro:"
 
 #. Default: "Reference Manual description"
 msgid "phc_referencemanual_description"
@@ -732,7 +736,6 @@ msgstr "Seznam klíčových slov může pomoci snažší orientaci mezi položka
 
 #. Default: "Feed for all documentation."
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "phc_rss_all"
 msgstr "Dávka RSS pro všechny dokumentační typy"
 
@@ -757,7 +760,7 @@ msgstr "Návod se vztahuje k:"
 #. Default: "This Tutorial is intended for:"
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_tutorial_audiences"
-msgstr ""
+msgstr "Tento návod je určen pro:"
 
 #. Default: "Detailed tutorials."
 msgid "phc_tutorial_description"
@@ -776,7 +779,6 @@ msgstr "Zpět do slovníku"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/faqsection_view.pt
 #: ../skins/plone_help_center/faq_view.pt
-#, fuzzy
 msgid "phc_up_to_toc"
 msgstr "Zpět na tabulku položek"
 
@@ -817,7 +819,7 @@ msgstr "Zobrazit celou sekci"
 #: ../skins/plone_help_center/definition_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_warning_outdated"
-msgstr ""
+msgstr "Varování: Tato položka je označena jako zastaralá."
 
 #. Default: "Recent documentation"
 #: ../skins/plone_help_center/portlet_helpcenter.pt
@@ -827,32 +829,32 @@ msgstr "Příbuzné dokumentace"
 #. Default: "in"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "searchform_in"
-msgstr ""
+msgstr "v"
 
 #. Default: "see also:"
 #: ../skins/plone_help_center/helpcenter_references.pt
 msgid "see_also"
-msgstr ""
+msgstr "viz také:"
 
 #. Default: "There are no pages or sections in this Reference Manual."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "view_no_reference_manual1"
-msgstr ""
+msgstr "V této příručce nejsou žádné stránky ani sekce."
 
 #. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "view_no_reference_manual2"
-msgstr ""
+msgstr "Pro přidání polože použijte odkaz pro vytvoření nové položky. Můžete přidat sekce, stránky, soubory a obrázky. Sekce mohou být vnořeny v libovolné hloubce, ale nedoporučujeme více jak 4 vnoření."
 
 #. Default: "Note: This is the print view with all the tutorial pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
 #: ../skins/plone_help_center/tutorial-all-pages.pt
 msgid "view_paginated_pages"
-msgstr ""
+msgstr "Poznámka: Je zobrazena tisková verze všech stránek na jedné straně. <a href=\"\" tal:attributes=\"href here/absolute_url\"> Můžete zobrazit stránkovanou verzi</a>, pokud pro vás vhodnější."
 
 #. Default: "Note: This is the print view with all the Reference Manual pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
 #: ../skins/plone_help_center/referencemanual-all-pages.pt
 msgid "view_paginated_reference_manual"
-msgstr ""
+msgstr "Poznámka: Je zobrazena tisková verze všech stránek na jedné straně. <a href=\"\" tal:attributes=\"href here/absolute_url\"> Můžete zobrazit stránkovanou verzi</a>, pokud pro vás vhodnější."
 

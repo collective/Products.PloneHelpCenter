@@ -5,8 +5,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PloneHelpCenter\n"
 "POT-Creation-Date: 2006-09-20 09:17+0000\n"
-"PO-Revision-Date: 2006-01-27 00:55 +0000\n"
-"Last-Translator: Bobo RUML <bohous@bobonet.net>\n"
+"PO-Revision-Date: 2008-11-17 13:38+0100\n"
+"Last-Translator: Radim Novotny <novotny.radim@gmail.com>\n"
 "Language-Team: Czech <www.surecase.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
@@ -149,7 +149,7 @@ msgstr "Sekce video"
 #: ../skins/plone_help_center/phc_search.pt
 #: ../skins/plone_help_center/phc_stats_search.cpt
 msgid "batch_x_items_matching_your_criteria"
-msgstr ""
+msgstr "Počet nalezených položek: ${number}"
 
 #. Default: "You can add a Definition to the Glossary, and it will be reviewed and approved by our documentation team."
 msgid "description_edit_definition"
@@ -187,69 +187,69 @@ msgstr "Návod může obsahovat jednotlivé stránky návodu, obrázky a soubory
 #: ../skins/plone_help_center/phc_search.pt
 #: ../skins/plone_help_center/phc_stats_search.cpt
 msgid "description_no_results_found"
-msgstr ""
+msgstr "Nebyly nalezeny žádné položky."
 
 #. Default: "This folder has no visible items. To add content, press the add button, or paste content from another location."
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "description_no_visible_items_add_paste"
-msgstr ""
+msgstr "V této složce nejsou žádné položky. Pokud chcete přidat nějaký obsah, klepněte na tlačítko pro přidání položky nebo vložte položky zkopírováním odjinud."
 
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_subject_and"
-msgstr ""
+msgstr "Porovnat vše"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_subject_or"
-msgstr ""
+msgstr "Porovnat aspoň jedno"
 
 #. Default: "Up one level"
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/phc_attachments.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
 msgid "go_to_parent_url"
-msgstr ""
+msgstr "Nahoru o jednu úroveň"
 
 #. Default: "Search results"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "heading_search_results"
-msgstr ""
+msgstr "Výsledky vyhledávání"
 
 #. Default: "Return items created by a particular person."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_author"
-msgstr ""
+msgstr "Vybrat položky vytvořené určitým uživatelem."
 
 #. Default: "Return items matching this description. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_description"
-msgstr ""
+msgstr "Vybrat položky, vyhovující zadanému popisu. Více slov může být vybráno pomocí operátorů <strong>AND</strong> a <strong>OR</strong>."
 
 #. Default: "Return items of a specific type."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_item_type"
-msgstr ""
+msgstr "Vybrat položky určitého typu."
 
 #. Default: "Return items matching some or all of these keywords. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_keywords"
-msgstr ""
+msgstr "Budou vyhledány položky obsažené v některé nebo ve všech těchto kategoriích. Více slov najednou lze vyhledávat pomocí stisknutí klávesy <strong>Ctrl</strong> (nebo <strong>Apple</strong> na Mac OS) spolu s kliknutím na požadovaná klíčová slova."
 
 #. Default: "Return items added since you were last logged on, the last week, etc."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_new_items_since"
-msgstr ""
+msgstr "Budou vyhledány položky, které byly přidány v určitém uplynulém období."
 
 #. Default: "As a reviewer, you may search for items based on their review state. If you wish to constrain results to items in certain states, select them from this list."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_review_status"
-msgstr ""
+msgstr "Můžete hledat položky i podle jejich stavu. Pokud si to přejete, vyberte stavy ze seznamu."
 
 #. Default: "For a simple text search, enter your search term here. Multiple words may be found by combining them with <strong>AND</strong> and <strong>OR</strong>. The text in this field will be matched with items' contents, title and description."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_text"
-msgstr ""
+msgstr "Pro jednoduché textové vyhledávání zadejte sem hledaný termín. Pomocí logických spojek <strong>AND</strong> a <strong>OR</strong> je možné hledat víceslovnou frázi. Text bude hledán v názvech, popisech a obsahu položek."
 
 #. Default: "Select an item to add"
 #: ../skins/plone_help_center/phc_attachments.pt
@@ -279,143 +279,143 @@ msgstr ""
 #. Default: "Keywords"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_keywords"
-msgstr ""
+msgstr "Kategorie"
 
 #. Default: "New items since"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_new_items_since"
-msgstr ""
+msgstr "Stáří položek"
 
 #. Default: "[ ${percentage} %]"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "label_relevance_percentage"
-msgstr ""
+msgstr "[ ${percentage} %]"
 
 #. Default: "Review status"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_review_status"
-msgstr ""
+msgstr "Stav"
 
 #. Default: "Search Text"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_search_text"
-msgstr ""
+msgstr "Hledaný text"
 
 #. Default: "Select"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "label_select"
-msgstr ""
+msgstr "Vybrat"
 
 #. Default: "Select all items"
 #: ../skins/plone_help_center/phc_attachments.pt
 #: ../skins/plone_help_center/phc_stats_search.cpt
 msgid "label_select_all_items"
-msgstr ""
+msgstr "Vybrat vše"
 
 #. Default: "Select All/None"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_toggle"
-msgstr ""
+msgstr "Vybrat vše/nic"
 
 #. Default: "Last log-in"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "last_login"
-msgstr ""
+msgstr "Poslední přihlášení"
 
 #. Default: "Modified"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "listingheader_modified"
-msgstr ""
+msgstr "Změna"
 
 #. Default: "Order"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "listingheader_order"
-msgstr ""
+msgstr "Pořadí"
 
 #. Default: "Size"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "listingheader_size"
-msgstr ""
+msgstr "Velikost"
 
 #. Default: "State"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "listingheader_status"
-msgstr ""
+msgstr "Stav"
 
 #. Default: "Title"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "listingheader_title"
-msgstr ""
+msgstr "Nadpis"
 
 #. Default: "This item does not have any body text, click the edit tab to change it."
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "no_body_text"
-msgstr ""
+msgstr "Tato položka nemá definovaný žádný text. Klepněte na záložku Úpravy a zadejte nějaký text."
 
 #. Default: "by ${author}, ${date}"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "results_by_author"
-msgstr ""
+msgstr "vytvořil ${author}, ${date}"
 
 #. Default: "Did you not find what you were looking for? Try the ${advanced_search} for more precise search options."
 #: ../skins/plone_help_center/phc_search.pt
 msgid "search_results_advanced"
-msgstr ""
+msgstr "Nenašli jste zde to, co hledáte? Zkuste použít ${advanced_search} pro upřesnění vašeho vyhledávání."
 
 #. Default: "Advanced Search"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "search_results_advanced_link"
-msgstr ""
+msgstr "Rozšířené vyhledávání"
 
 #. Default: "Content listing"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "summary_content_listing"
-msgstr ""
+msgstr "Výpis obsahu"
 
 #. Default: "Search"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "text_search"
-msgstr ""
+msgstr "Vyhledávání"
 
 #. Default: "Ever"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "time_ever"
-msgstr ""
+msgstr "Kdykoli"
 
 #. Default: "expired"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "time_expired"
-msgstr ""
+msgstr "vypršelo"
 
 #. Default: "Last month"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "time_last_month"
-msgstr ""
+msgstr "Poslední měsíc"
 
 #. Default: "Last week"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "time_last_week"
-msgstr ""
+msgstr "Poslední týden"
 
 #. Default: "Yesterday"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "time_yesterday"
-msgstr ""
+msgstr "Včera"
 
 #. Default: "Move item down"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "title_move_item_down"
-msgstr ""
+msgstr "Přesunout položku níže"
 
 #. Default: "Move item up"
 #: ../skins/plone_help_center/phc_attachments.pt
 msgid "title_move_item_up"
-msgstr ""
+msgstr "Přesunou položku výše"
 
 #. Default: "Relevance"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "title_relevance"
-msgstr ""
+msgstr "Relevance"
 
