@@ -44,7 +44,6 @@
         <dl>
             <tal:howto tal:repeat="item python:section['items']">
             <dt>
-                <img tal:replace="structure here/glossary_icon.gif" />
                 <a href="" tal:content="item/Title"
                    tal:attributes="href item/getURL;
                                    class string:state-${item/review_state}">Item</a>

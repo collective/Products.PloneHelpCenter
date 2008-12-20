@@ -63,8 +63,6 @@ dl.topicList dd {
       <dt class="portletHeader">Recommended Reading</dt>
       <dd class="portletItem">
 
-        <a href="books" id="books"><img tal:replace="structure here/books.jpg" /></a>
-        
         <div class="rc">
             <h3>Books</h3>
             <ul>

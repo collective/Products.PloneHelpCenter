@@ -14,7 +14,6 @@
                      pos      python:here.getPagePosition(here);">
       
         <h1 class="documentFirstHeading">
-            <img tal:replace="structure here/tutorial_icon.gif" />
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
     

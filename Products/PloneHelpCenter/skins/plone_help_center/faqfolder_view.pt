@@ -89,7 +89,6 @@
          <tal:faq define="faq faq/getObject">
           
           <h3>
-            <img tal:replace="structure here/faq_icon.gif" />
             <span tal:replace="faq/Title">Question</span>
             <img src="error_icon.gif" alt="!" class="outdatedMarker"
                  tal:condition="faq/isOutdated|nothing"

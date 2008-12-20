@@ -10,7 +10,6 @@
          tal:define="len_text python:len(here.body);">
       
         <h1 class="documentFirstHeading">
-            <img tal:replace="structure here/errorref_icon.gif" />
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
         

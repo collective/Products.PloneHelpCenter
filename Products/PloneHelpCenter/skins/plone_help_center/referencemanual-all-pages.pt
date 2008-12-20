@@ -11,7 +11,6 @@
          tal:define="toc python:here.getTOC(root = here);">
 
         <h1>
-            <img tal:replace="structure here/referencemanual_icon.gif" />
             <span tal:replace="here/Title" />
         </h1>
 

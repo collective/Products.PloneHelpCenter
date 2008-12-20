@@ -36,7 +36,6 @@
                         </span>
                     </a>
                 </div>
-                <img tal:replace="structure here/movie_icon.gif" />
                 <a href="" tal:content="video/Title"
                    tal:attributes="href video/getURL;
                                    class string:state-${video/review_state}">Video</a>

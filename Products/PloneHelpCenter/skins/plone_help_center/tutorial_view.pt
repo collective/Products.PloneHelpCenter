@@ -7,7 +7,6 @@
   <div metal:fill-slot="main">
 
     <h1 class="documentFirstHeading">
-        <img tal:replace="structure here/tutorial_icon.gif" />
         <span tal:replace="here/Title">Title</span>
     </h1>
     
@@ -67,7 +66,6 @@
     </div>
     
     <p class="visualNoPrint" tal:condition="nocall:here/getPages">
-      <img tal:replace="structure here/tutorial_icon.gif" />
       <a href="tutorial-all-pages"
          i18n:translate="all_content_on_one_page">
         All content on one page (useful for printing, presentation mode etc.)

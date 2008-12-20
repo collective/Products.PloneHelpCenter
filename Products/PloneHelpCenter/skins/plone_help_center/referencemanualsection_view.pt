@@ -10,7 +10,6 @@
                    toc     tocInfo/localTOC">
 
     <h1 class="documentFirstHeading">
-        <img tal:replace="structure here/referencemanual_icon.gif" />
         <span tal:replace="here/Title">Title</span>
     </h1>
     
@@ -37,7 +36,6 @@
     </div>
     
     <p class="visualNoPrint" tal:condition="nocall:toc">
-      <img tal:replace="structure here/referencemanual_icon.gif" />
       <a href="referencemanual-all-pages">
       All content on one page (useful for printing, presentation mode etc.)
       </a>

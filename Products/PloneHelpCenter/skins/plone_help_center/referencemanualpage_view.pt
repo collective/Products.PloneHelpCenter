@@ -14,7 +14,6 @@
                       numbering  current/numbering">
                    
     <h1 class="documentFirstHeading">
-        <img tal:replace="structure here/referencemanual_icon.gif" />
         <span tal:replace="numbering">1.2.</span>
         <span tal:replace="here/Title">Title</span>
     </h1>
