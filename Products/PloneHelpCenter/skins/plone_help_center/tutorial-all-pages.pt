@@ -36,10 +36,10 @@
                     <span tal:replace="page/title_or_id">Title or id</span>
                 </h1>
         
-                <div class="documentDescription"
+                <p class="documentDescription"
                      tal:content="page/Description">
                     description
-                </div>
+                </p>
             
                 <div id="bodyContent">
                     <div tal:replace="structure page/getBody" />
