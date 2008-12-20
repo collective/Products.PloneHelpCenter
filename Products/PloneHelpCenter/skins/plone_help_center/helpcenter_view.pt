@@ -76,10 +76,10 @@
             </fieldset>
         </form>
 
-        <div class="documentDescription"
+        <p class="documentDescription"
              tal:content="here/Description">
             description
-        </div>
+        </p>
     
         <p>
           <img tal:replace="structure here/rss.gif" />

@@ -28,10 +28,10 @@
         </span>
         </p>   
     
-        <div class="documentDescription"
+        <p class="documentDescription"
              tal:content="here/Description">
             description
-        </div>
+        </p>
   
         <p>
 	<b>

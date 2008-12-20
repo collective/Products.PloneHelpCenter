@@ -31,10 +31,10 @@
         </tbody>
     </table>
 
-    <div class="documentDescription"
+    <p class="documentDescription"
          tal:content="here/Description">
       Description.
-    </div>
+    </p>
 
     <tal:audience repeat="audience audiences">
 

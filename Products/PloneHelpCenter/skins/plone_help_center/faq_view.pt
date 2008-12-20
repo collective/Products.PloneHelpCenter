@@ -38,11 +38,11 @@
     </p>
     
     
-    <div class="documentDescription"
+    <p class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
 	<span i18n:translate="phc_full_question">Full Question</span>
-    </div>
+    </p>
 
     <div tal:content="structure here/getAnswer"/>
 

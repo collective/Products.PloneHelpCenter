@@ -40,11 +40,11 @@
             </span>
         </p>
 
-    <div class="documentDescription"
+    <p class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Description
-    </div>
+    </p>
 
     <div class="tutorialAbout"
          tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());"

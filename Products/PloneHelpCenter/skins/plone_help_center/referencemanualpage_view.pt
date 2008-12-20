@@ -35,11 +35,11 @@
 
     <div metal:use-macro="here/referencemanual_macros/macros/jump_box"/>
 
-    <div class="documentDescription"
+    <p class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Description
-    </div>
+    </p>
     
     <div class="portalMessage"
          tal:condition="python:here.portal_workflow.getInfoFor(here, 'review_state') != 'published'"

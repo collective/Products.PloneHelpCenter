@@ -34,10 +34,10 @@
       </tal:entirefaq>
 
 
-      <div class="documentDescription"
+      <p class="documentDescription"
         tal:content="here/Description">
         Description.
-      </div>
+      </p>
 
       <dl class="portlet visualNoPrint"
           style="float:right; margin: 0 0 1em 1em;"
