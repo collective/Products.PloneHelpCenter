@@ -6,10 +6,6 @@
 <body>
   <div metal:fill-slot="main">
 
-    <div metal:use-macro="here/document_actions/macros/document_actions">
-      Document actions (print, sendto etc)
-    </div>
-
     <h1 class="documentFirstHeading">
         <img tal:replace="structure here/tutorial_icon.gif" />
         <span tal:replace="here/Title">Title</span>

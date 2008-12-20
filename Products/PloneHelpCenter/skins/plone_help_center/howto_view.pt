@@ -8,17 +8,12 @@
 
     <div metal:define-macro="main"
          tal:define="len_text python:len(here.body);">
-      
-        <div metal:use-macro="here/document_actions/macros/document_actions">
-            Document actions (print, sendto etc)
-        </div>
-    
-        <h1 class="documentFirstHeading">
-            <img tal:replace="structure here/howto_icon.gif" />
-            <span tal:replace="here/title_or_id">Title or id</span>
+
+        <h1 class="documentFirstHeading" tal:content="here/title_or_id">
+        Title or id
         </h1>
         
-        <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+        <!-- <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
            Warning: This item is marked as outdated.
         </div>
         <p class="discreet">
@@ -42,7 +37,7 @@
            </span>
           </span>
          </span>
-       </p>
+       </p> -->
     
         <p class="documentDescription"
              tal:content="here/Description">
