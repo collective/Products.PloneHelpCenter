@@ -5,19 +5,19 @@
 <div metal:define-macro="portlet"
     tal:define="view context/@@hc_view;">
 
-    <p>
+    <p style="font-size:13px; text-align: center;">
       <img tal:replace="structure here/rss.gif" />
       <a tal:attributes="href view/getSyndicationURL" 
          i18n:translate="phc_rss_all">
-        Feed for all documentation.
+        Feed for all documentation
       </a>
     </p>
 
-    <p>
+    <!-- <p style="font-size:13px; text-align: center">
         <a href="helpcenter_view" tal:attributes="href string:${portal_url}/documentation/helpcenter_view">
-            Newest documentation.
+            Most recent documentation
         </a>
-    </p>
+    </p> -->
 
 </div>
 </body>

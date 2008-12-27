@@ -24,7 +24,7 @@
         </label>
         <input name="SearchableText"
                type="text"
-               size="14"
+               size="20"
                value=""
                alt="Search Documentation"
                title="Search Documentation"

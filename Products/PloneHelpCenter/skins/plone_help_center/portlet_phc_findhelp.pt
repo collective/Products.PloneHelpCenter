@@ -7,10 +7,10 @@
     <dl class="portlet">
       <dt class="portletHeader"><a href="/support">Support</a></dt>
       <dd class="portletItem">
-         <span>
-           <a href="/support"><img src="speakplone_sm.png" tal:replace="structure here/speakplone_sm.png" /></a>
-         </span>
-         <span><b class="supportlink"><a href="/support">Get Help</a></b></span>
+         <a href="/support" class="supportlink">
+             <img src="speakplone_sm.png" tal:replace="structure here/speakplone_sm.png" />
+             Get Help
+         </a>
       </dd>
       <dd class="portletItem">
          <p>Visit our 
