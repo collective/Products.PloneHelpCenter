@@ -1,0 +1,168 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+	xmlns:metal="http://xml.zope.org/namespaces/metal"
+	i18n:domain="plone">
+<body>
+<div metal:define-macro="portlet">
+
+<dl class="portlet">
+	<dt class="portletHeader">
+		<a href="/events/training">About</a>
+	</dt>
+
+	<dd class="portletItem">
+	<!-- Static version of how the portlet should ultimately look -->
+
+	<p>You are reading:</p>
+
+	<select style="width: 100%; margin-bottom: 1em">
+		<option value="tutorial-all-pages"
+			title="Useful for printing, presentation mode etc.">
+		All content on one page
+		</option>
+		<option>
+		1.Introduction
+		</option>
+		<option selected="selected" value="http://localhost:5000/doc/manual/plone-3-user-manual/introduction/conceptual-overview"> 
+		1.1. Conceptual Overview
+		</option>
+		<option>
+		1.2. Visual Design of Plone Web Sites
+		</option>
+		<option>
+		1.3. Plone User Accounts and Roles
+		</option>
+		<option>
+		1.4. Logging In
+		</option>
+		<option>
+		1.5. Setting Your Preferences
+		</option>
+		<option>
+		1.6. Your Dashboard
+		</option>
+		<option>
+		2. Adding Content
+		</option>
+		<option>
+		2.1. Adding Folders
+		</option>
+		<option>
+		2.2. What's in a Web Name?
+		</option>
+	</select>
+
+	<p>from <a href="">Plone 3.0 User Manual</a> &mdash;
+		A User Manual for Plone content creators and managers.
+	</p>
+	
+	<p><strong>Use with</strong>: Plone 3
+	<br/><strong>Relevant for</strong>: End users</p>
+	
+
+	<img src=""
+		alt=""
+		class="portraitPhoto"
+		width="75"
+		height="100"
+		style="float: left; margin: 0 1em 1em 0" />
+	
+	<p>This document was contributed by Steve McMahon, and last modified N days ago.</p>
+	<p><a href="">View author profile</a></p>
+	<p style="clear:both">
+		<a href="">Sidnei da Silva</a>, <a href="">Veda Williams</a> also contributed to this document.
+	</p>
+	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
+		<a href="">file a ticket</a> and let us know. Thanks!
+	</p>
+	<p>This content is copyrighted by the Plone Foundation and its contributors. 
+		Available under the 
+		<a href="">Creative Commons Non-commercial Share-alike</a>
+		license.
+	</p>
+
+<!-- 
+	<tal:portrait condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
+		define="portrait python: mtool.getPersonalPortrait(here.Creator());">
+		<div style="text-align: center;">
+			<img src=""
+				alt=""
+				class="portraitPhoto"
+				width="75"
+				height="100"
+				tal:attributes="src portrait/absolute_url" />
+	</tal:portrait>
+ -->
+
+<!-- 
+	<div metal:use-macro="here/document_byline/macros/byline">
+	Get the byline - contains details about author and modification date.
+	</div>
+ -->
+
+<!-- Commented out for now, should only be necessary in Manuals
+	<div class="jumpBox">
+		<form method="get" action="#" style="text-align:right; float: right;">
+			<label for="destination" class="hiddenStructure">Jump to:</label>
+			<select name=":action" tabindex="3"
+				onchange="window.location.href=this.options[this.selectedIndex].value"
+				tal:attributes="tabindex tabindex/next|nothing">
+				<option value="tutorial-all-pages"
+					title="Useful for printing, presentation mode etc.">
+				All content on one page
+				</option>
+				<option tal:repeat="s sibl"
+					tal:attributes="value s/getId;
+						selected python:s.getId == here.getId () and 'selected' or nothing;">
+				Part <tal:index replace="repeat/s/number" />:
+					<tal:page content="s/Title">Some Page</tal:page>
+				</option>
+			</select>
+			<noscript>
+				<input class="standalone"
+					type="submit"
+					value="Go"
+					i18n:attributes="value"
+					tabindex="4"
+					tal:attributes="tabindex tabindex/next|nothing" />
+			</noscript>
+		</form>
+	</div>
+ -->
+
+<!-- Commented out, should only be necessary in manuals
+	<div tal:content="here/getTutorialDescription">
+	Tutorial Description
+	</div>
+
+	<div>
+		<span i18n:translate="phc_page">Page</span>
+		<span tal:replace="python:pos+1">5</span>
+		<span i18n:translate="phc_of">
+		of </span>
+		<span tal:replace="python:num_sibl">10</span>.
+	</div>
+-->
+
+
+<!--
+<tal:name tal:condition="here/Creator"
+	tal:define="creator here/Creator;
+	author python:mtool.getMemberInfo(creator)">
+	<p>
+	<a href="#"
+	tal:attributes="href string:${portal_url}/author/${creator}"
+	tal:content="python:author and author['fullname'] or creator"
+	tal:omit-tag="not:author">
+	Bob Dobalina
+	</a>
+	</p>                    
+	</tal:name>
+ -->
+
+
+	</dd>
+</dl>
+
+</div>
+</body>
+</html>
