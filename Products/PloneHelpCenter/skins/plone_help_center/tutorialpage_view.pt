@@ -17,6 +17,7 @@
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
     
+<!-- 
         <div class="jumpBox">
           <form method="get" action="#" style="text-align:right; float: right;">
             <label for="destination" class="hiddenStructure">Jump to:</label>
@@ -44,6 +45,7 @@
             </noscript>
           </form>
         </div>
+-->
 
         <p class="documentDescription"
              tal:content="here/Description">
@@ -60,11 +62,11 @@
            i18n:translate="no_body_text">
             This item does not have any body text, click the edit tab to change it.
         </p>
-    
+<!--    
         <div class="tutorialAbout"
              tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());">
         
-	  <tal:byline
+	   <tal:byline
 	      tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon">
             <div style="text-align: center;">
                 <img src=""
@@ -87,13 +89,14 @@
               </a>
             </p>                    
             </tal:name>
-	  </tal:byline>
+	  </tal:byline> -->
             
-            <div tal:content="here/getTutorialDescription">
-            Tutorial Description
-            </div>
             
-            <div>
+            <!--
+	            <div tal:content="here/getTutorialDescription">
+	            Tutorial Description
+	            </div>
+          <div>
           <span i18n:translate="phc_page">
           Page </span>
           <span tal:replace="python:pos+1">5</span>
@@ -101,8 +104,10 @@
           of </span>
           <span tal:replace="python:num_sibl">10</span>.
             </div>
-        </div>
 
+
+        </div>
+-->
         <div id="bodyContent">
             <div tal:replace="structure python:here.getBody()" />
         </div>
@@ -117,18 +122,17 @@
                tabindex="1"
                href="">
            <span i18n:translate="phc_next">
-               Next: </span>
+               Next:</span>
            <span tal:replace="next/Title" /> 
-           <img tal:replace="structure here/arrowRight.gif" />
+           &#9658;
            </a>
             <a class="listingPrevious"
                tal:condition="python:prev"
                tal:attributes="href prev/getURL"
                tabindex="1"
                href="">
-               <img tal:replace="structure here/arrowLeft.gif" />
            <span i18n:translate="phc_previous">
-            Previous: </span>
+            &#9668; Previous: </span>
         <span tal:replace="prev/Title" />
         </a>
                &nbsp;
@@ -136,10 +140,10 @@
 
         <div class="visualClear">&nbsp;</div>
 
-        <div metal:use-macro="here/document_byline/macros/byline">
+<!--         <div metal:use-macro="here/document_byline/macros/byline">
           Get the byline - contains details about author and modification date.
         </div>    
-
+ -->
     </div>
 
 </div>

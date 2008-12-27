@@ -3,8 +3,7 @@
       i18n:domain="plone">
 <body>
 <div metal:define-macro="portlet"
-    tal:define="view context/@@hc_view;"
-    style="width:23em">
+    tal:define="view context/@@hc_view;">
 
     <p>
       <img tal:replace="structure here/rss.gif" />
