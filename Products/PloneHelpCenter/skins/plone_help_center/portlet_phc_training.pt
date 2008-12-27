@@ -11,9 +11,7 @@
       <dd class="portletItem">
         <p>Learn how to design, build, and deploy a website in Plone 
         through one of the numerous Plone training sessions around the world.</p>
-      </dd>
-      <dd class="portletFooter">
-         <a href="/events/training">Find Plone training&hellip;</a>
+        <p><a href="/events/training">Find Plone training&hellip;</a></p>
       </dd>
     </dl>
 
