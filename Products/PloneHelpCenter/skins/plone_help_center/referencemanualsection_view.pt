@@ -13,16 +13,6 @@
         <span tal:replace="here/Title">Title</span>
     </h1>
     
-    <a href=""
-           class="link-parent"
-           tal:define="parent_url python:here.navigationParent(here, template.getId())"
-           tal:condition="parent_url"
-           tal:attributes="href parent_url"
-           i18n:domain="plone"
-           i18n:translate="go_to_parent_url">
-        Up one level
-        </a>
-    
     <p class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
@@ -35,14 +25,14 @@
         You must publish this page before it becomes visible to the public.
     </div>
     
+    <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
+        
     <p class="visualNoPrint" tal:condition="nocall:toc">
       <a href="referencemanual-all-pages">
       All content on one page (useful for printing, presentation mode etc.)
       </a>
     </p>
 
-    <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
-        
     <p tal:condition="not:nocall:toc" class="discreet">
       <span i18n:translate="view_no_reference_manual1" tal:omit-tag="">There are no pages or sections in this Reference Manual.</span>
       <tal:block condition="python:user.has_permission('Modify portal content', here)"
@@ -56,9 +46,6 @@
     
     <div metal:use-macro="here/referencemanual_macros/macros/navigation_bar"/>
 
-    <div metal:use-macro="here/document_byline/macros/byline">
-      Get the byline - contains details about author and modification date.
-    </div>
   </div>
 </body>
 </html>

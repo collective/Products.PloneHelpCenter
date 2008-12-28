@@ -17,18 +17,6 @@
         <span tal:replace="numbering">1.2.</span>
         <span tal:replace="here/Title">Title</span>
     </h1>
-    
-    <a href=""
-           class="link-parent"
-           tal:define="parent_url python:here.navigationParent(here, template.getId())"
-           tal:condition="parent_url"
-           tal:attributes="href parent_url"
-           i18n:domain="plone"
-           i18n:translate="go_to_parent_url">
-        Up one level
-        </a>
-
-    <div metal:use-macro="here/referencemanual_macros/macros/jump_box"/>
 
     <p class="documentDescription"
       tal:condition="here/Description"

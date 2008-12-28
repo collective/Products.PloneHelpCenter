@@ -17,36 +17,6 @@
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
     
-<!-- 
-        <div class="jumpBox">
-          <form method="get" action="#" style="text-align:right; float: right;">
-            <label for="destination" class="hiddenStructure">Jump to:</label>
-            <select name=":action" tabindex="3"
-                    onchange="window.location.href=this.options[this.selectedIndex].value"
-                    tal:attributes="tabindex tabindex/next|nothing">
-	        <option value="tutorial-all-pages"
-			title="Useful for printing, presentation mode etc.">
-		  All content on one page
-		</option>
-                <option tal:repeat="s sibl"
-                        tal:attributes="value s/getId;
-                         selected python:s.getId == here.getId () and 'selected' or nothing;">
-                    Part <tal:index replace="repeat/s/number" />:
-                    <tal:page content="s/Title">Some Page</tal:page>
-                </option>
-            </select>
-            <noscript>
-                <input class="standalone"
-                       type="submit"
-                       value="Go"
-                       i18n:attributes="value"
-                       tabindex="4"
-                       tal:attributes="tabindex tabindex/next|nothing" />
-            </noscript>
-          </form>
-        </div>
--->
-
         <p class="documentDescription"
              tal:content="here/Description">
             description
@@ -62,88 +32,38 @@
            i18n:translate="no_body_text">
             This item does not have any body text, click the edit tab to change it.
         </p>
-<!--    
-        <div class="tutorialAbout"
-             tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());">
-        
-	   <tal:byline
-	      tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon">
-            <div style="text-align: center;">
-                <img src=""
-                     alt=""
-                     class="portraitPhoto"
-                     width="75"
-                     height="100"
-                     tal:attributes="src portrait/absolute_url" />
-            </div>
-
-            <tal:name tal:condition="here/Creator"
-                tal:define="creator here/Creator;
-                            author python:mtool.getMemberInfo(creator)">
-            <p>
-              <a href="#"
-                 tal:attributes="href string:${portal_url}/author/${creator}"
-                 tal:content="python:author and author['fullname'] or creator"
-                 tal:omit-tag="not:author">
-                Bob Dobalina
-              </a>
-            </p>                    
-            </tal:name>
-	  </tal:byline> -->
-            
-            
-            <!--
-	            <div tal:content="here/getTutorialDescription">
-	            Tutorial Description
-	            </div>
-          <div>
-          <span i18n:translate="phc_page">
-          Page </span>
-          <span tal:replace="python:pos+1">5</span>
-          <span i18n:translate="phc_of">
-          of </span>
-          <span tal:replace="python:num_sibl">10</span>.
-            </div>
-
-
-        </div>
--->
         <div id="bodyContent">
             <div tal:replace="structure python:here.getBody()" />
         </div>
     
-        <div class="listingBar" tal:condition="python: next or prev"
-          tal:define="next python:pos &lt; num_sibl-1 and sibl[pos+1];
-               prev python:pos != 0 and sibl[pos-1]"
-               >
-            <a class="listingNext"
-               tal:condition="python:next"
-               tal:attributes="href next/getURL"
-               tabindex="1"
-               href="">
-           <span i18n:translate="phc_next">
-               Next:</span>
-           <span tal:replace="next/Title" /> 
-           &#9658;
-           </a>
-            <a class="listingPrevious"
-               tal:condition="python:prev"
-               tal:attributes="href prev/getURL"
-               tabindex="1"
-               href="">
-           <span i18n:translate="phc_previous">
-            &#9668; Previous: </span>
-        <span tal:replace="prev/Title" />
-        </a>
-               &nbsp;
-        </div>
+	<div class="listingBar" 
+		tal:condition="python: next or prev"
+		tal:define="next python:pos &lt; num_sibl-1 and sibl[pos+1];
+			prev python:pos != 0 and sibl[pos-1]">
+
+			<a class="listingNext"
+				tal:condition="python:next"
+				tal:attributes="href next/getURL"
+				tabindex="1"
+				href="">
+				<span i18n:translate="phc_next">Next:</span>
+				<span tal:replace="next/Title" /> 
+				&#9658;
+			</a>
+
+			<a class="listingPrevious"
+				tal:condition="python:prev"
+				tal:attributes="href prev/getURL"
+				tabindex="1"
+				href="">
+				&#9668;
+				<span i18n:translate="phc_previous">Previous:</span>
+				<span tal:replace="prev/Title" />
+			</a>
+	</div>
 
         <div class="visualClear">&nbsp;</div>
 
-<!--         <div metal:use-macro="here/document_byline/macros/byline">
-          Get the byline - contains details about author and modification date.
-        </div>    
- -->
     </div>
 
 </div>

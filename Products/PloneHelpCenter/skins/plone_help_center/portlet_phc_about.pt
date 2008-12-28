@@ -74,6 +74,12 @@
 	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
 		<a href="">file a ticket</a> and let us know. Thanks!
 	</p>
+	<!-- Or this one on the community-edited content: -->
+	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
+		<a href="">file a ticket</a> and let us know. If you want to take an active role in helping improve
+		the documentation, you can also ask for editing rights, which we'll be happy to give you.
+	</p>
+	
 	<p>This content is copyrighted by the Plone Foundation and its contributors. 
 		Available under the 
 		<a href="">Creative Commons Non-commercial Share-alike</a>
