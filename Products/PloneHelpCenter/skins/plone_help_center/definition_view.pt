@@ -9,38 +9,24 @@
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Title
     </h1>
-    <a href=""
+
+    <p><a href=""
       class="link-parent visualNoPrint"
       tal:condition="not: request/full|nothing"
       tal:define="parent_url python:here.navigationParent(here, template.getId())"
       tal:attributes="href parent_url">
-      <span i18n:translate="phc_up_to_glossary">Up to Glossary</span>      
-    </a>
-    
-    <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-        </div>
-    <p class="discreet">
-       <span  tal:condition="here/getVersionsVocab" tal:define="versions here/Versions">
-	<span i18n:translate="phc_definition_applies_to">This Definition applies to:</span>         
-    <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
-    <span tal:condition="not: versions">
-	  <span i18n:translate="phc_any_version">
-	  Any version.
-	  </span>
-    </span>
- </span>
-    </p>
+      &laquo; <span i18n:translate="phc_up_to_glossary">Back to Glossary</span>      
+    </a></p>
 
-    
-    <p class="documentDescription"
-      tal:condition="here/Description"
-      tal:content="structure here/Description">
+    <p tal:condition="here/Description"
+       tal:content="structure here/Description">
       Definition
     </p>
 
-    
-    
+    <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+           Warning: This item is marked as outdated.
+    </p>
+
     <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
       see also - shows the references if this feature is switched on
     </div>

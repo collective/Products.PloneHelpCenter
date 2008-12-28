@@ -11,40 +11,23 @@
         <h1 class="documentFirstHeading">
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
-    
-        <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-        </div>
-        <p class="discreet">
-           <span tal:condition="here/getVersionsVocab" tal:define="versions here/Versions">
-           <span i18n:translate="phc_link_applies_to">This Link applies to:</span>         
-           <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
-           <span tal:condition="not: versions" i18n:translate="phc_any_version">Any version.</span>
-        </span>
-        </p>   
-    
+
         <p class="documentDescription"
              tal:content="here/Description">
             description
         </p>
-  
+
+        <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+           Warning: This item is marked as outdated.
+        </div>
+
         <p>
-	<b>
-	<span i18n:translate="phc_link">
-	Link:
-	</span>
-	</b>
         <a href="" tal:attributes="href here/url" tal:content="here/url">url</a>
         </p>
-    
-    
     
     <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
       see also - shows the references if this feature is switched on
     </div>
-    <div metal:use-macro="here/document_byline/macros/byline">
-      Get the byline - contains details about author and modification date.
-    </div>    
 
     </div>
 

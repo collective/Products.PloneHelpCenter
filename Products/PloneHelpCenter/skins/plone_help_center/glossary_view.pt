@@ -9,22 +9,23 @@
                      sections python:view.getItemsBySections(sort_on = 'sortable_title');
                      noSections python:len(sections) == 1">
 
+    <dl class="portlet" style="float: right" tal:condition="not:noSections">
+        <dt class="portletHeader"
+            i18n:translate="phc_index_sections">Sections</dt>
+        <dd class="portletItem">
+            <ul>
+            <li tal:repeat="section sections">
+            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+               tal:content="section/section" i18n:translate="">Section</a>
+            </li>
+            </ul>
+        </dd>
+    </dl>
+
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Folder Title
     </h1>
     
-    <table class="sectionIndex" tal:condition="not:noSections">
-        <thead>
-            <tr><th i18n:translate="phc_index_sections">Sections</th></tr>
-        </thead>
-        <tbody>
-            <tr tal:repeat="section sections">
-                <td><a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
-                       tal:content="section/section">Section</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
 
     <p class="documentDescription"
          tal:content="here/Description">
