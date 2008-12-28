@@ -12,6 +12,8 @@
 	<dd class="portletItem">
 	<!-- Static version of how the portlet should ultimately look -->
 
+
+	<!-- Start of navigation section — this only shows up on the manuals in the new-style PHC -->
 	<p>You are reading:</p>
 
 	<select style="width: 100%; margin-bottom: 1em">
@@ -54,6 +56,7 @@
 	<p>from <a href="">Plone 3.0 User Manual</a> &mdash;
 		A User Manual for Plone content creators and managers.
 	</p>
+	<!-- End navigation section -->
 	
 	<p><strong>Use with</strong>: Plone 3
 	<br/><strong>Relevant for</strong>: End users</p>
