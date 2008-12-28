@@ -10,6 +10,20 @@
                      sections view/getItemsBySections;
                      noSections python:len(sections) == 1">
 
+    <dl class="portlet" style="float: right" tal:condition="not:noSections">
+        <dt class="portletHeader"
+            i18n:translate="phc_index_sections">Sections</dt>
+        <dd class="portletItem">
+            <ul>
+            <li tal:repeat="section sections">
+            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+               tal:content="section/section" i18n:translate="">Section</a>
+            </li>
+            </ul>
+        </dd>
+    </dl>
+
+
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Folder Title
     </h1>
@@ -19,18 +33,6 @@
       Description.
     </p>
 
-    <dl class="portlet" style="float: right" tal:condition="not:noSections">
-        <dt class="portletHeader"
-            i18n:translate="phc_index_sections">Sections</dt>
-        <dd>
-            <ul>
-            <li tal:repeat="section sections">
-            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
-               tal:content="section/section" i18n:translate="">Section</a>
-            </li>
-            </ul>
-        </dd>
-    </dl>
 
     <div tal:repeat="section sections">
 
