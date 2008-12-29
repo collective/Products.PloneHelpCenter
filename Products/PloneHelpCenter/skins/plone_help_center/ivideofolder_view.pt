@@ -16,10 +16,10 @@
       Folder Title
     </h1>
 
-    <p class="documentDescription"
+    <div class="documentDescription"
          tal:content="here/Description">
       Description.
-    </p>
+    </div>
 
     <div tal:repeat="section view/getSectionsToList">
 

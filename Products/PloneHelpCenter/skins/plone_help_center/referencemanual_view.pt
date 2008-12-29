@@ -41,11 +41,11 @@
          </span>
     </p>
 
-    <p class="documentDescription"
+    <div class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Description
-    </p>
+    </div>
 
     
     <tal:block define="toc here/getTOC;">

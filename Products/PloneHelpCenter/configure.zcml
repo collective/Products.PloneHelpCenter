@@ -16,10 +16,6 @@
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
 
-  <class class=".types.HelpCenter.HelpCenter">
-      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
-  </class>
-
   <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
   <five:deprecatedManageAddDelete class=".content.FAQFolder.HelpCenterFAQFolder" />
   <five:deprecatedManageAddDelete class=".content.HowToFolder.HelpCenterHowToFolder" />

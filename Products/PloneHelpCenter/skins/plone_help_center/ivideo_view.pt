@@ -22,10 +22,10 @@
 	  <span tal:replace="here/title_or_id">Title or id</span>
 	</h1>
 	
-	<p class="documentDescription"
+	<div class="documentDescription"
 	     tal:content="here/Description">
 	  description
-	</p>
+	</div>
 	
 	<object id="flashMovie" 
 		style="margin: auto; display:block;"

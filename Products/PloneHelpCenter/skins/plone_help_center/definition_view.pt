@@ -37,11 +37,11 @@
     </p>
 
     
-    <p class="documentDescription"
+    <div class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Definition
-    </p>
+    </div>
 
     
     

@@ -50,10 +50,10 @@
           </form>
         </div>
 
-        <p class="documentDescription"
+        <div class="documentDescription"
              tal:content="here/Description">
             description
-        </p>
+        </div>
         
         <div class="portalMessage" tal:condition="python:here.portal_workflow.getInfoFor(here, 'review_state') != 'published'">
            You must publish this page before it becomes visible to the public.

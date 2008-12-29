@@ -43,10 +43,10 @@
          </span>
           </p>
         
-        <p class="documentDescription"
+        <div class="documentDescription"
              tal:content="here/Description">
             description
-        </p>
+        </div>
   
         <p tal:condition="not: len_text"
            i18n:domain="plone"

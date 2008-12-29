@@ -24,10 +24,10 @@
 	  Note: Return to <a href="" tal:attributes="href here/absolute_url">tutorial view</a>.
         </p>
 
-        <p class="documentDescription" 
+        <div class="documentDescription" 
              tal:content="here/getTutorialDescription">
         Tutorial Description
-        </p>
+        </div>
 
         <tal:pages repeat="page sibl">
             <tal:page define="page page/getObject">
@@ -36,10 +36,10 @@
                     <span tal:replace="page/title_or_id">Title or id</span>
                 </h1>
         
-                <p class="documentDescription"
+                <div class="documentDescription"
                      tal:content="page/Description">
                     description
-                </p>
+                </div>
             
                 <div id="bodyContent">
                     <div tal:replace="structure page/getBody" />

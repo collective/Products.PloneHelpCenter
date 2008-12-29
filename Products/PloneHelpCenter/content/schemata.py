@@ -99,6 +99,7 @@ HelpCenterItemSchema = Schema((
         'subject',
         accessor='Subject',
         searchable=1,
+        vocabulary='getSubjectVocab',
         enforceVocabulary=0,
         isMetadata=1,
         widget=PHCKeywordWidget(

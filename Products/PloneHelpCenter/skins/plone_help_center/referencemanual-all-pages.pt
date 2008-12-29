@@ -24,10 +24,10 @@
 	  Note: Return to <a href="" tal:attributes="href here/absolute_url">reference manual view</a>.
         </p>
 
-        <p class="documentDescription" 
+        <div class="documentDescription" 
              tal:content="here/getReferenceManualDescription">
             Reference Manual Description
-        </p>
+        </div>
         
         <metal:recursion use-macro="here/referencemanual_macros/macros/section_collation"/>
         

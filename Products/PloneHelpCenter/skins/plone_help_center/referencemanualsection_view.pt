@@ -28,11 +28,11 @@
         Up one level
         </a>
     
-    <p class="documentDescription"
+    <div class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Description
-    </p>
+    </div>
 
     <div class="portalMessage"
          tal:condition="python:here.portal_workflow.getInfoFor(here, 'review_state') != 'published'"

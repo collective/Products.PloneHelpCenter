@@ -30,10 +30,10 @@
 	  </a>
       </tal:toc>
 
-      <p class="documentDescription"
+      <div class="documentDescription"
         tal:content="here/Description">
         Description.
-      </p>
+      </div>
 
       <h2 tal:content="section">Section Heading</h2>
 

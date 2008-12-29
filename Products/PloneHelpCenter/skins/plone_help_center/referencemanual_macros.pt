@@ -39,9 +39,9 @@
                 <span tal:replace="item/Title">Section Title</span>
             </h1>
 
-            <p class="documentDescription" tal:content="item/Description">
+            <div class="documentDescription" tal:content="item/Description">
                 description
-            </p>
+            </div>
     
             <div id="bodyContent" tal:condition="nocall:body">
                 <tal:block condition="nocall:addImagePaths">
