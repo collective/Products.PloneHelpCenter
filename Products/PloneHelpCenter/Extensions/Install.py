@@ -21,6 +21,20 @@ def install(self):
         tool.runAllImportSteps(purge_old=False)
         tool.setImportContext(old_context)
 
+    # Add catalog metadata columns and indexes
+    catalog = getToolByName(self, 'portal_catalog')
+    addCatalogIndex(self, out, catalog, 'isOutdated', 'FieldIndex')
+    addCatalogMetadata(self, out, catalog, 'isOutdated')
+    addCatalogIndex(self, out, catalog, 'getAudiences', 'KeywordIndex')
+    addCatalogMetadata(self, out, catalog, 'getAudiences')
+    addCatalogIndex(self, out, catalog, 'getSections', 'KeywordIndex')
+    addCatalogMetadata(self, out, catalog, 'getSections')
+    addCatalogIndex(self, out, catalog, 'getStartHere', 'FieldIndex')
+    addCatalogMetadata(self, out, catalog, 'getStartHere')
+    addCatalogIndex(self, out, catalog, 'getVersions', 'KeywordIndex')
+    addCatalogMetadata(self, out, catalog, 'getVersions')
+    print >> out, "Added PHC items to catalog indexes and metadata"
+
     print >> out, "Successfully installed %s" % config.PROJECTNAME
 
     return out.getvalue()
@@ -244,8 +258,23 @@ def old_uninstall(self, reinstall=False):
     if not reinstall:
         # Remove catalog metadata columns and indexes
         catalog = getToolByName(self, 'portal_catalog')
+        removeCatalogIndex(self, out, catalog, 'isOutdated')
         removeCatalogMetadata(self, out, catalog, 'isOutdated')
-        print >> out, "Removed isOutdated to catalog metadata"
+        
+        removeCatalogIndex(self, out, catalog, 'getAudiences')
+        removeCatalogMetadata(self, out, catalog, 'getAudiences')
+        
+        removeCatalogIndex(self, out, catalog, 'getSections')
+        removeCatalogMetadata(self, out, catalog, 'getSections')
+        
+        removeCatalogIndex(self, out, catalog, 'getStartHere')
+        removeCatalogMetadata(self, out, catalog, 'getStartHere')
+        
+        removeCatalogIndex(self, out, catalog, 'isOutdated')
+        removeCatalogMetadata(self, out, catalog, 'isOutdated')
+        
+        print >> out, "Removed PHC items from catalog indexes and metadata"
+
 
     print >> out, "Successfully uninstalled %s." % PROJECTNAME
     return out.getvalue()

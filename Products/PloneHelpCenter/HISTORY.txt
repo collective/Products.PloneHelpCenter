@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 1.6.1dev
     
+    - Set up indices in Extensions/Install.py rather than via GS
+      so that they won't be cleared on reinstall. [stevem]
+    
     - Can't cache function results that have brains.
       [stevem]
 
