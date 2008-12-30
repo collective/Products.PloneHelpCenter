@@ -3,7 +3,7 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 1.6.1dev
+    PloneHelpCenter 1.6.1
     
     - Set up indices in Extensions/Install.py rather than via GS
       so that they won't be cleared on reinstall. [stevem]
