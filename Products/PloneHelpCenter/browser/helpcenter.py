@@ -20,11 +20,6 @@ def _cacheKey(method, self):
     else:
         return time()
 
-# def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
-def _stcacheKey(method, self, topic):
-    return ( _cacheKey(method, self), topic )
-
-
 subtypes_tuples = (
     ('HelpCenterFAQFolder','HelpCenterFAQ'),
     ('HelpCenterHowToFolder','HelpCenterHowTo'),
@@ -247,7 +242,6 @@ class HelpCenterView(BrowserView):
         return sections
 
 
-    @cache(_stcacheKey)
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
         

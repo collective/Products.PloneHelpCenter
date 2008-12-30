@@ -3,7 +3,13 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 1.6dev
+    PloneHelpCenter 1.6.1
+    
+    - Can't cache function results that have brains.
+      [stevem]
+
+
+    PloneHelpCenter 1.6
     
     - Added time-based ram caching to several expensive view methods.
       Default invalidation is 30 minutes, but may be changed in
