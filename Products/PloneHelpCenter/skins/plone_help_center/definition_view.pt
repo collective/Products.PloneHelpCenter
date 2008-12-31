@@ -5,10 +5,6 @@
 
 <body>
   <div metal:fill-slot="main">
-
-    <div metal:use-macro="here/document_actions/macros/document_actions">
-      Document actions (print, sendto etc)
-    </div>
     
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Title

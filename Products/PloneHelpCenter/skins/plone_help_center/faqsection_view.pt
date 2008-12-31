@@ -8,10 +8,6 @@
     <div metal:define-macro="body" 
                  tal:define="view here/@@hcf_view; section request/section;">
       
-      <div metal:use-macro="here/document_actions/macros/document_actions">
-        Document actions (print, sendto etc)
-      </div>
-
       <h1 tal:content="here/Title" class="documentFirstHeading">
         Folder Title
       </h1>
