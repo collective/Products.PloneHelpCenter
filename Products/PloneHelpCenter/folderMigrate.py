@@ -99,7 +99,7 @@ for source in [phc[s] for s in sources]:
                     transaction.commit()
                 else:
                     print "Duplicate id: %s" % id
-                    source.manage_deleteObjects(id)
+                    # source.manage_deleteObjects(id)
             else:
                 # target folder not present -- should be an odd case
                 print "No fid: %s %s" % (id, pSection,)

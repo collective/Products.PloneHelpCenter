@@ -19,6 +19,15 @@
   <class class=".types.HelpCenter.HelpCenter">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
   </class>
+  <class class=".types.ReferenceManualFolder.HelpCenterReferenceManualFolder">
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+  </class>
+  <class class=".types.ReferenceManual.HelpCenterReferenceManual">
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+  </class>
+  <class class=".types.PHCFolder.PHCFolder">
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+  </class>
 
   <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
   <five:deprecatedManageAddDelete class=".content.FAQFolder.HelpCenterFAQFolder" />
