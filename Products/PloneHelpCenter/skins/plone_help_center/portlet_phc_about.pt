@@ -44,9 +44,10 @@
 		
     	<p>from 
     	  <a href="#" tal:attributes="href rmo_url"
-    	   tal:content="rmo/title">Plone 3.0 User Manual</a>
-    	  &mdash;
-    		<span tal:replace="rmo/Description">Description</span>
+    	   tal:content="rmo/title">Plone 3.0 User Manual</a>.
+			</p>
+			<p tal:content="rmo/Description">
+    		Description
     	</p>
 
     	<p><strong>Use with</strong>:
