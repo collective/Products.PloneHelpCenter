@@ -30,10 +30,9 @@
         <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
             
         <p class="visualNoPrint" tal:condition="nocall:toc">
-          <a href="referencemanual-all-pages"
-             i18n:translate="all_content_on_one_page">
-            All content on one page (useful for printing, presentation mode etc.)
-          </a>
+            <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages">
+            All content on one page</a>
+            (useful for printing, presentation mode etc.)
         </p>
 
         <p tal:condition="not:nocall:toc" class="discreet">
