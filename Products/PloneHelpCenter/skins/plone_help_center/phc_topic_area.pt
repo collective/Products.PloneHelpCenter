@@ -6,7 +6,8 @@
                     view context/@@hc_view;
                     subtopics python:view.getSubTopics(topic=topic)">
 
-      <h1 tal:content="topic">Security and Permissions</h1>
+      <h1 class="documentFirstHeading"
+          tal:content="topic">Security and Permissions</h1>
 
       <dl style="width: 30%; float: right; display: block; margin-left:1em"
        class="portlet" tal:condition="python:len(subtopics)>1">
