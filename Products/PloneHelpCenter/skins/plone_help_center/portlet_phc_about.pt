@@ -22,9 +22,7 @@
     <div tal:define="rmo here/referenceManualObject;
                      rmo_url rmo/absolute_url;
                      rmo_title rmo/pretty_title_or_id">
-   		<form method="get" action="#">
-   			<label for="destination" class="hiddenStructure">Jump to:</label>
-    	<form>
+   		<form method="get" action="#" class="manualNavForm" style="display:none">
    			<select name=":action"
       	        style="width: 100%; margin-bottom: 1em"
                 onchange="location.href=this.options[this.selectedIndex].value">
@@ -41,14 +39,8 @@
         		</option>
       		</tal:block>
       	</select>
-  			<noscript>
-  			  <!-- TODO: this isn't working yet -->
-  				<input class="standalone"
-  					type="submit"
-  					value="Go"
-  					i18n:attributes="value" />
-  			</noscript>
     	</form>
+    	<script>jq(".manualNavForm").show();</script>
 		
     	<p>from 
     	  <a href="#" tal:attributes="href rmo_url"
@@ -62,7 +54,16 @@
     	<strong>Relevant for</strong>:
     	<span tal:replace="python:','.join(rmo.getAudiences())">End users</span>
     	</p>
+
+      <p>
+        <a href="referencemanual-all-pages"
+           tal:attributes="href string:${rmo_url}/referencemanual-all-pages"
+           i18n:translate="all_content_on_one_page">
+          All content on one page (useful for printing, presentation mode etc.)
+        </a>
+      </p>
     </div>
+    
 	</div>
 	<!-- End navigation section -->
 
