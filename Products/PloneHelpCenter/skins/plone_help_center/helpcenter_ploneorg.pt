@@ -65,8 +65,8 @@ dl.topicList dd {
    
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getSectionMap">
 
-    <dl id="reading" class="portlet">
-      <dt class="portletHeader" style="font-size: 16px">Recommended Reading</dt>
+    <dl id="reading" class="portlet" style="margin:0;">
+      <dt class="portletHeader" style="font-size: 16px; margin: 0; color: White; line-height: 2em">Recommended Reading</dt>
       <dd class="portletItem">
 
         <div class="rc">
