@@ -52,7 +52,7 @@
     	<p><strong>Use with</strong>:
     	<span tal:replace="python:', '.join(rmo.getVersions())">Plone 3</span><br/>
     	<strong>Relevant for</strong>:
-    	<span tal:replace="python:','.join(rmo.getAudiences())">End users</span>
+    	<span tal:replace="python:', '.join(rmo.getAudiences())">End users</span>
     	</p>
 
       <p>
