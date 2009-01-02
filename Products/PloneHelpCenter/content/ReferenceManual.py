@@ -132,6 +132,35 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
         buildNumbering(toc)
         return toc
 
+
+    security.declareProtected(CMFCorePermissions.View, 'getTOCSelectOptions')
+    def getTOCSelectOptions(self, current=None, root=None):
+        """
+        Calls getTOC then cooks the results into a sequence of dicts:
+            title: tile of section/page, including numbering
+            url:   URL of page
+            current: True if current section/page
+        This is a convenience for creating an option list.
+        """
+        
+        def doNodes(nodes):
+            res = []
+            for n in nodes:
+                item = n['item']
+                res.append( { 
+                    'title'   : "%s %s" % (n['numbering'], item.Title),
+                    'url'     : item.getURL(),
+                    'current' : n['currentItem'],
+                } )
+                if n['children']:
+                    childres = doNodes(n['children'])
+                    if childres:
+                        res = res + childres
+            return res
+        
+        return doNodes(self.getTOC(current, root))
+
+
     security.declareProtected(CMFCorePermissions.View, 'getTOCInfo')
     def getTOCInfo(self, toc):
         """Get information about a table-of-contents, as returned by getTOC.
@@ -228,6 +257,7 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
 
         return tocInfo
 
+
     security.declareProtected(CMFCorePermissions.View, 'addImagePaths')
     def addImagePaths(self, body, baseurl):
         """Fixup image paths in section body"""
@@ -240,6 +270,11 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
                 
         return IMG_PATTERN.sub(r"""\1src="%s/\2"\3""" % baseurl, body)
 
+
+    security.declareProtected(CMFCorePermissions.View, 'referenceManualObject')
+    def referenceManualObject(self):
+        """ find manual from sub-object """
+        return self
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)
 

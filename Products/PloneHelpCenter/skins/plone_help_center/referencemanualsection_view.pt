@@ -9,6 +9,8 @@
                    tocInfo python:here.getTOCInfo(fullToc);
                    toc     tocInfo/localTOC">
 
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
     <h1 class="documentFirstHeading">
         <span tal:replace="here/Title">Title</span>
     </h1>
@@ -25,6 +27,8 @@
         You must publish this page before it becomes visible to the public.
     </div>
     
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+
     <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
         
     <p class="visualNoPrint" tal:condition="nocall:toc">
@@ -43,9 +47,10 @@
       </tal:block>
     </p>
        
-    
     <div metal:use-macro="here/referencemanual_macros/macros/navigation_bar"/>
 
+    <div tal:replace="structure provider:plone.belowcontentbody" />
+    
   </div>
 </body>
 </html>
