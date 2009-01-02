@@ -30,10 +30,6 @@
                    tal:content="item/Title" href="/">This is the title.</a>
             </dt>
             <dd>
-                <div class="discreet">
-                  <span tal:content="item/Type" />
-                  <span tal:condition="item/getAudiences | nothing">for <span tal:replace="python:', '.join(item.getAudiences)" /></span><span tal:condition="item/getVersions | nothing">; Versions: <span tal:replace="python:', '.join(item.getVersions)" /></span>
-                </div>
                 <div tal:replace="item/Description | nothing">
                   Description
                 </div>
