@@ -92,51 +92,6 @@
 	</p>
 -->
 
-<!-- Commented out for now, should only be necessary in Manuals
-	<div class="jumpBox">
-		<form method="get" action="#" style="text-align:right; float: right;">
-			<label for="destination" class="hiddenStructure">Jump to:</label>
-			<select name=":action" tabindex="3"
-				onchange="window.location.href=this.options[this.selectedIndex].value"
-				tal:attributes="tabindex tabindex/next|nothing">
-				<option value="tutorial-all-pages"
-					title="Useful for printing, presentation mode etc.">
-				All content on one page
-				</option>
-				<option tal:repeat="s sibl"
-					tal:attributes="value s/getId;
-						selected python:s.getId == here.getId () and 'selected' or nothing;">
-				Part <tal:index replace="repeat/s/number" />:
-					<tal:page content="s/Title">Some Page</tal:page>
-				</option>
-			</select>
-			<noscript>
-				<input class="standalone"
-					type="submit"
-					value="Go"
-					i18n:attributes="value"
-					tabindex="4"
-					tal:attributes="tabindex tabindex/next|nothing" />
-			</noscript>
-		</form>
-	</div>
- -->
-
-<!-- Commented out, should only be necessary in manuals
-	<div tal:content="here/getTutorialDescription">
-	Tutorial Description
-	</div>
-
-	<div>
-		<span i18n:translate="phc_page">Page</span>
-		<span tal:replace="python:pos+1">5</span>
-		<span i18n:translate="phc_of">
-		of </span>
-		<span tal:replace="python:num_sibl">10</span>.
-	</div>
--->
-
-
 <!--
 <tal:name tal:condition="here/Creator"
 	tal:define="creator here/Creator;
