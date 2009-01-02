@@ -18,7 +18,7 @@ ul.quickLinks li {
 }
 
 dl.topicList {
-    width: 48%;
+    width: 47%;
     display: block;
     float: left;
     margin: 0 0 2em 0;
@@ -55,6 +55,10 @@ dl.topicList dd {
 #reading .rc {
     margin-left: 270px;
 }
+#sidebar {
+    padding: 0 !important;
+}
+
 </style>
 </head>
 <body>
