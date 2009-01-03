@@ -1,32 +1,25 @@
 from Testing import ZopeTestCase
+from Products.CMFPlone.tests import PloneTestCase
 
-# Make the boring stuff load quietly
-ZopeTestCase.installProduct('CMFCore', quiet=1)
-ZopeTestCase.installProduct('CMFDefault', quiet=1)
-ZopeTestCase.installProduct('CMFCalendar', quiet=1)
-ZopeTestCase.installProduct('CMFTopic', quiet=1)
-ZopeTestCase.installProduct('DCWorkflow', quiet=1)
-ZopeTestCase.installProduct('CMFActionIcons', quiet=1)
-ZopeTestCase.installProduct('CMFQuickInstallerTool', quiet=1)
-ZopeTestCase.installProduct('CMFFormController', quiet=1)
-ZopeTestCase.installProduct('GroupUserFolder', quiet=1)
-ZopeTestCase.installProduct('ZCTextIndex', quiet=1)
-ZopeTestCase.installProduct('TextIndexNG2', quiet=1)
-ZopeTestCase.installProduct('SecureMailHost', quiet=1)
-ZopeTestCase.installProduct('CMFPlone')
-
-ZopeTestCase.installProduct('Archetypes')
-ZopeTestCase.installProduct('PortalTransforms', quiet=1)
-ZopeTestCase.installProduct('MimetypesRegistry', quiet=1)
-ZopeTestCase.installProduct('PloneHelpCenter')
-
-from Products.PloneTestCase import PloneTestCase
+from Products.Five import fiveconfigure
+from Products.Five import zcml
+from Products.PloneTestCase.layer import onsetup
+import Products.PloneHelpCenter
 from Products.PloneHelpCenter.config import ADD_CENTER_PERMISSION, \
   ADD_HELP_AREA_PERMISSION
 
-PRODUCTS = ['Archetypes', 'PloneHelpCenter']
+# from Products.Five.testbrowser import Browser
 
-PloneTestCase.setupPloneSite(products=PRODUCTS)
+ZopeTestCase.installProduct('PloneHelpCenter')
+
+@onsetup
+def setup_product():
+    fiveconfigure.debug_mode = True
+    zcml.load_config('configure.zcml', Products.PloneHelpCenter)
+    fiveconfigure.debug_mode = False
+
+setup_product()
+PloneTestCase.setupPloneSite(products=['PloneHelpCenter'])
 
 
 class PHCTestCase(PloneTestCase.PloneTestCase):
