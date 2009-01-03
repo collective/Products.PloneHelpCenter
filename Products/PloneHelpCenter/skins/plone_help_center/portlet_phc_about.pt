@@ -22,8 +22,8 @@
     <div tal:define="rmo here/referenceManualObject;
                      rmo_url rmo/absolute_url;
                      rmo_title rmo/pretty_title_or_id">
-   		<form method="get" action="#" class="manualNavForm" style="display:none">
-   			<select name=":action"
+   		<form method="get" action="selectRedirect" class="manualNavForm">
+   			<select name="selectRedirect"
       	        style="width: 100%; margin-bottom: 1em"
                 onchange="location.href=this.options[this.selectedIndex].value">
       		<option tal:attributes="value rmo_url"
@@ -39,8 +39,13 @@
         		</option>
       		</tal:block>
       	</select>
+  			<noscript>
+  				<input class="standalone"
+  					type="submit"
+  					value="Go"
+  					i18n:attributes="value" />
+  			</noscript>
     	</form>
-    	<script>jq(".manualNavForm").show();</script>
 		
     	<p>from 
     	  <a href="#" tal:attributes="href rmo_url"

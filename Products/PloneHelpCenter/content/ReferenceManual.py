@@ -276,5 +276,17 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
         """ find manual from sub-object """
         return self
 
+
+    security.declareProtected(CMFCorePermissions.View, 'selectRedirect')
+    def selectRedirect(self):
+        """ redirect within manual """
+
+        target = self.REQUEST.form.get('selectRedirect')
+
+        if target and target.startswith(self.absolute_url()):
+            self.REQUEST.RESPONSE.redirect(target)
+
+
+
 registerType(HelpCenterReferenceManual, PROJECTNAME)
 
