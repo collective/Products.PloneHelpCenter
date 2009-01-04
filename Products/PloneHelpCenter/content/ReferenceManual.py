@@ -1,18 +1,21 @@
+from zope.interface import implements
+from AccessControl import ClassSecurityInfo
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
+
+import Products.CMFCore.permissions as CMFCorePermissions
+from Products.CMFCore.utils import getToolByName
+
+from Products.CMFPlone.browser.navtree import NavtreeStrategyBase, buildFolderTree
+
 from Products.PloneHelpCenter.config import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
 from schemata import HelpCenterBaseSchema, HelpCenterItemSchema
 from PHCContent import PHCContent
-from Products.CMFCore.utils import getToolByName
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
-from Products.CMFPlone.browser.navtree import NavtreeStrategyBase, buildFolderTree
+from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot
 
 import re
 IMG_PATTERN = re.compile(r"""(\<img .*?)src="([^/]+?)"(.*?\>)""", re.IGNORECASE | re.DOTALL)
@@ -51,6 +54,8 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
     ReferenceManualSections, Files and Images.
     """
 
+    implements(IHelpCenterNavRoot)
+
     __implements__ =(PHCContent.__implements__,
                       OrderedBaseFolder.__implements__,)
 
@@ -64,7 +69,6 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
     allowed_content_types =('HelpCenterReferenceManualPage', 
                              'HelpCenterReferenceManualSection', 
                              'Image', 'File')
-    # allow_discussion = IS_DISCUSSABLE
 
     security = ClassSecurityInfo()
 
@@ -134,7 +138,7 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
 
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCSelectOptions')
-    def getTOCSelectOptions(self, current=None, root=None):
+    def getTOCSelectOptions(self, current=None):
         """
         Calls getTOC then cooks the results into a sequence of dicts:
             title: tile of section/page, including numbering
@@ -158,7 +162,7 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
                         res = res + childres
             return res
         
-        return doNodes(self.getTOC(current, root))
+        return doNodes(self.getTOC(current))
 
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCInfo')
@@ -277,15 +281,11 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
         return self
 
 
-    security.declareProtected(CMFCorePermissions.View, 'selectRedirect')
-    def selectRedirect(self):
-        """ redirect within manual """
-
-        target = self.REQUEST.form.get('selectRedirect')
-
-        if target and target.startswith(self.absolute_url()):
-            self.REQUEST.RESPONSE.redirect(target)
-
+    security.declareProtected(CMFCorePermissions.View, 'getAllPagesURL')
+    def getAllPagesURL(self):
+        """ return URL for all pages view """
+        
+        return "%s/referencemanual-all-pages" % self.absolute_url()
 
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)

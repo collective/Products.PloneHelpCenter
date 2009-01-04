@@ -1,16 +1,17 @@
+from zope.interface import implements
+from AccessControl import ClassSecurityInfo
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
+import Products.CMFCore.permissions as CMFCorePermissions
+
 from Products.PloneHelpCenter.config import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
 from schemata import HelpCenterBaseSchema
 from PHCContent import PHCContent
-from AccessControl import ClassSecurityInfo
+from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 
 ReferenceManualSectionSchema = HelpCenterBaseSchema + Schema((
     TextField(
@@ -37,6 +38,8 @@ class HelpCenterReferenceManualSection(PHCContent,OrderedBaseFolder):
     """A section of a reference manual containing ReferenceManualPages and
     other ReferenceManualSections.
     """
+
+    implements(IHelpCenterMultiPage)
 
     __implements__ = (PHCContent.__implements__,
                       OrderedBaseFolder.__implements__,)

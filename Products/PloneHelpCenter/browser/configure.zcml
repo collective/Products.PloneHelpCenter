@@ -28,4 +28,12 @@
     allowed_attributes="folderButtons"
     />
 
+<page
+    name="phc_paged_view"
+    for="..interfaces.IHelpCenterMultiPage"
+    class=".phccontent.HelpCenterPagedView"
+    permission="zope2.View"
+    allowed_attributes="navRootObject"
+    />
+
 </configure>

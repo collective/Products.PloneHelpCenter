@@ -2,7 +2,9 @@
 	xmlns:metal="http://xml.zope.org/namespaces/metal"
 	i18n:domain="plone">
 <body>
-<div metal:define-macro="portlet">
+<div metal:define-macro="portlet"
+    tal:define="pview context/@@phc_paged_view | nothing;
+                navRoot pview/navRootObject | nothing;">
 
 <dl class="portlet">
 	<dt class="portletHeader">
@@ -10,27 +12,20 @@
 	</dt>
 
 	<dd class="portletItem">
-	<!-- Static version of how the portlet should ultimately look -->
 
+    <div tal:condition="navRoot">
+    	<p>You are reading:</p>
 
-	<!-- Start of navigation section — this only shows up on the manuals in the new-style PHC -->
-	<div tal:condition="python:here.portal_type in [
-                  'HelpCenterReferenceManual',
-                  'HelpCenterReferenceManualSection',
-                  'HelpCenterReferenceManualPage']">
-  	<p>You are reading:</p>
-    <div tal:define="rmo here/referenceManualObject;
-                     rmo_url rmo/absolute_url;
-                     rmo_title rmo/pretty_title_or_id">
    		<form method="get" action="selectRedirect" class="manualNavForm">
+        <label for="selectRedirect" class="hiddenStructure">Jump to:</label>
    			<select name="selectRedirect"
       	        style="width: 100%; margin-bottom: 1em"
                 onchange="location.href=this.options[this.selectedIndex].value">
-      		<option tal:attributes="value rmo_url"
-      		        tal:content="rmo_title">
+      		<option tal:attributes="value navRoot/absolute_url"
+      		        tal:content="navRoot/pretty_title_or_id">
       		  Table of Contents
       		</option>
-      		<tal:block tal:repeat="sec python:here.getTOCSelectOptions(here)">
+      		<tal:block tal:repeat="sec python:navRoot.getTOCSelectOptions(here)">
         		<option 
         		  tal:content="sec/title"
               tal:attributes="selected python:test(sec['current'],'selected',None);
@@ -46,32 +41,34 @@
   					i18n:attributes="value" />
   			</noscript>
     	</form>
-		
-    	<p>from 
-    	  <a href="#" tal:attributes="href rmo_url"
-    	   tal:content="rmo/title">Plone 3.0 User Manual</a>.
-			</p>
-			<p tal:content="rmo/Description">
-    		Description
-    	</p>
 
-    	<p><strong>Use with</strong>:
-    	<span tal:replace="python:', '.join(rmo.getVersions())">Plone 3</span><br/>
-    	<strong>Relevant for</strong>:
-    	<span tal:replace="python:', '.join(rmo.getAudiences())">End users</span>
+    	<p>from 
+    	  <a href="#" tal:attributes="href navRoot/absolute_url"
+    	   tal:content="navRoot/title">Plone 3.0 User Manual</a>.
+    	</p>
+    	<p tal:content="navRoot/Description">
+    		Description
     	</p>
 
       <p>
         <a href="referencemanual-all-pages"
-           tal:attributes="href string:${rmo_url}/referencemanual-all-pages"
+           tal:attributes="href navRoot/getAllPagesURL"
            i18n:translate="all_content_on_one_page">
           All content on one page</a>
         (useful for printing, presentation mode etc.)
       </p>
+
     </div>
-    
-	</div>
-	<!-- End navigation section -->
+
+  	<p><strong>Use with</strong>:
+  	<span tal:replace="python:', '.join(here.getVersions())">Plone 3</span><br/>
+  	<strong>Relevant for</strong>:
+  	<span tal:replace="python:', '.join(here.getAudiences())">End users</span>
+  	</p>
+
+	
+	
+	
 
 	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
 		<a href="http://dev.plone.org/plone.org">file a ticket</a> and let us know.

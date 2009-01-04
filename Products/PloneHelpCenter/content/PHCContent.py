@@ -1,17 +1,20 @@
+from zope.interface import implements
+from AccessControl import ClassSecurityInfo
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+
+import Products.CMFCore.permissions as CMFCorePermissions
 from Products.CMFCore.utils import getToolByName
-from AccessControl import ClassSecurityInfo
+
 from Products.PloneHelpCenter.config import *
 from Products.CMFPlone.utils import base_hasattr
-from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
+from Products.PloneHelpCenter.interfaces import IHelpCenterContent
 
 try:
     set
@@ -42,48 +45,13 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
     """A simple  mixin class to provide contentish functions
     archetype no schema defined"""
 
+    implements(IHelpCenterContent)
+
     security = ClassSecurityInfo()
     _at_rename_after_creation = True
 
     __implements__ = (HistoryAwareMixin.__implements__,)
 
-    # actions = ({
-    #     'id'          : 'view',
-    #     'name'        : 'View',
-    #     'action'      : 'string:${object_url}/view',
-    #     'permissions' : (CMFCorePermissions.View,)
-    #      },
-    #     {
-    #     'id'          : 'edit',
-    #     'name'        : 'Edit',
-    #     'action'      : 'string:${object_url}/edit',
-    #     'permissions' : (CMFCorePermissions.ModifyPortalContent,),
-    #      },
-    #     {
-    #     'id'          : 'metadata',
-    #     'name'        : 'Properties',
-    #     'action'      : 'string:${object_url}/properties',
-    #     'permissions' : (CMFCorePermissions.ModifyPortalContent,),
-    #      },
-    #      {
-    #     'id'          : 'local_roles',
-    #     'name'        : 'Sharing',
-    #     'action'      : 'string:${object_url}/sharing',
-    #     'permissions' : (CMFCorePermissions.ManageProperties,),
-    #      },
-    #     ) + HistoryAwareMixin.actions
-    # 
-    # aliases = {
-    #     # Set (Default) and view in each type
-    #     # '(Default)'  : '',
-    #     # 'view'       : '',
-    #     'index.html' : '',
-    #     'edit'       : 'base_edit',
-    #     'properties' : 'base_metadata',
-    #     'sharing'    : 'folder_localrole_form',
-    #     'gethtml'    : '',
-    #     'mkdir'      : '',
-    #     }
 
     security.declareProtected(CMFCorePermissions.View, 'getVersionsVocab')
     def getVersionsVocab(self):

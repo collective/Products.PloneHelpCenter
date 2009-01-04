@@ -29,7 +29,7 @@ try:
     import Products.CMFCore.permissions as CMFCorePermissions
 except ImportError:
     from Products.CMFCore import CMFCorePermissions
-    
+
 from zope.interface import implements
 from Products.PloneHelpCenter.interfaces import IHelpCenterContent
 
@@ -140,7 +140,7 @@ HCRootSchema = BaseFolderSchema + Schema((
                 i18n_domain="plonehelpcenter"
                 ),
         ),
-    
+
     BooleanField(
         'constrainSearches',
         default=1,
@@ -148,7 +148,7 @@ HCRootSchema = BaseFolderSchema + Schema((
         languageIndependent=1,
         widget=BooleanWidget(
                 label='Constrain Searches',
-                description="""Constrain the results of Help Center searches to this document area. 
+                description="""Constrain the results of Help Center searches to this document area.
                     Turn this off to search the entire site.
                     This affects only the Help Center's search facility, not the global search.
                 """,
@@ -162,12 +162,12 @@ HCRootSchema = BaseFolderSchema + Schema((
 
 class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
     """A simple folderish archetype"""
-    
+
     implements(IHelpCenterContent)
-    
+
     __implements__ = (BrowserDefaultMixin.__implements__,
         OrderedBaseFolder.__implements__)
-    
+
     schema = HCRootSchema
 
     content_icon = 'helpcenter_icon.gif'
@@ -194,7 +194,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                              'HelpCenterLinkFolder',
                              'HelpCenterErrorReferenceFolder',
                              'HelpCenterGlossary',
-                             
+
                              # XXX: Video type not yet finished
                              'HelpCenterInstructionalVideoFolder',
                              )
@@ -373,7 +373,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                 pass
             else:
                 # XXX: With the factory on, this causes an AttributeError
-    
+
                 self['how-to'].invokeFactory('HelpCenterHowTo', MANUAL_ID)
                 manual = getattr(self['how-to'], MANUAL_ID)
                 manual.setTitle(MANUAL_TITLE)
@@ -381,7 +381,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                 manual.setSections([MANUAL_SECTION])
                 manual.setBody(manualText, mimetype = MANUAL_MIMETYPE)
                 manual.reindexObject()
-    
+
                 # Publish it
                 wftool = getToolByName(self, 'portal_workflow')
                 try:
@@ -392,28 +392,37 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
 
     ##############
     # the following methods are meant to be used in an enclosed object
-    # that is invoking the method by aquisition.        
+    # that is invoking the method by aquisition.
 
     security.declareProtected(CMFCorePermissions.View, 'getPHCObject')
     def getPHCObject(self):
         """return the enclosing PHC object"""
-        
+
         return self
-        
+
 
     security.declareProtected(CMFCorePermissions.View, 'getPHCUrl')
     def getPHCUrl(self):
         """return the enclosing PHC object URL"""
-        
+
         return self.absolute_url()
-        
+
 
     security.declareProtected(CMFCorePermissions.View, 'getPHCPath')
     def getPHCPath(self):
         """return the enclosing PHC object path as a string"""
-        
+
         return '/'.join(self.getPhysicalPath())
 
+
+    security.declareProtected(CMFCorePermissions.View, 'selectRedirect')
+    def selectRedirect(self):
+        """ redirect within manual """
+
+        target = self.REQUEST.form.get('selectRedirect')
+
+        if target and target.startswith(self.absolute_url()):
+            self.REQUEST.RESPONSE.redirect(target)
 
 
 registerType(HelpCenter, PROJECTNAME)
