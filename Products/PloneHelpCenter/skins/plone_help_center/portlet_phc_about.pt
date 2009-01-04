@@ -18,7 +18,7 @@
 
    		<form method="get" action="selectRedirect" class="manualNavForm">
         <label for="selectRedirect" class="hiddenStructure">Jump to:</label>
-   			<select name="selectRedirect"
+   			<select name="target"
       	        style="width: 100%; margin-bottom: 1em"
                 onchange="location.href=this.options[this.selectedIndex].value">
       		<option tal:attributes="value navRoot/absolute_url"
