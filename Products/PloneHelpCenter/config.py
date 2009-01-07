@@ -60,7 +60,7 @@ REFERENCEABLE_TYPES = ('HelpCenterFAQ',
     'HelpCenterReferenceManualSection',
     'HelpCenterReferenceManualPage',
     'HelpCenterInstructionalVideo',    
-    #'Document'
+    'HelpCenterKnowledgeBase',
 )
 
 IMAGE_SIZES = {

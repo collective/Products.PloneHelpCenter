@@ -20,3 +20,5 @@ import LinkFolder, Link
 import ErrorReferenceFolder, ErrorReference
 
 import Glossary, Definition
+
+import KnowledgeBase

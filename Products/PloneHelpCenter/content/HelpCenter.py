@@ -194,9 +194,8 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                              'HelpCenterLinkFolder',
                              'HelpCenterErrorReferenceFolder',
                              'HelpCenterGlossary',
-
-                             # XXX: Video type not yet finished
                              'HelpCenterInstructionalVideoFolder',
+                             'HelpCenterKnowledgeBase',
                              )
 
     security = ClassSecurityInfo()

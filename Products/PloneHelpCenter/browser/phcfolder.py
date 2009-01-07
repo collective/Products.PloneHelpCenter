@@ -117,7 +117,9 @@ class HelpCenterFolderView(BrowserView):
         context = self.context
 
         plone_utils = getToolByName(context, 'plone_utils')
-        brains = context.getFolderContents(contentFilter = kwargs)
+        
+        contentFilter = {'object_provides':'Products.PloneHelpCenter.interfaces.IHelpCenterContent'}
+        brains = context.getFolderContents(contentFilter=contentFilter)
 
         charset = context.getCharset()
 

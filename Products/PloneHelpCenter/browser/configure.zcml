@@ -12,6 +12,16 @@
     />
 
 <page
+    name="hc_view"
+    for="..interfaces.IHelpCenterFolder"
+    class=".helpcenter.HelpCenterView"
+    permission="zope2.View"
+    allowed_attributes="subtypes rss_subtypes sections sectionContents
+        getTopics getSubTopics getMajorTopics getSyndicationURL
+        getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
+    />
+
+<page
     name="hcf_view"
     for="..interfaces.IHelpCenterFolder"
     class=".phcfolder.HelpCenterFolderView"

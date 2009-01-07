@@ -108,21 +108,6 @@ class HelpCenterHowTo(PHCContent,BaseFolder):
     allowed_content_types = ('Image', 'File',)
     default_view = 'howto_view'
 
-    # actions = PHCContent.actions + (
-    #     {
-    #         'id': 'attachments',
-    #         'name': 'Attachments',
-    #         'action': 'string:${object_url}/attachments',
-    #         'permissions': (CMFCorePermissions.ModifyPortalContent,)
-    #         },
-    # )
-    # 
-    # 
-    # aliases = PHCContent.aliases.copy()
-    # aliases.update({'(Default)'   : 'howto_view',
-    #                 'view'        : 'howto_view',
-    #                 'attachments' : 'phc_attachments'})
-
     security = ClassSecurityInfo()
 
     def getText(self):

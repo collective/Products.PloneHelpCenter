@@ -62,7 +62,8 @@ def initialize(context):
                                            'HelpCenterInstructionalVideoFolder',
                                            'HelpCenterLinkFolder',
                                            'HelpCenterHowToFolder',
-                                           'HelpCenterErrorReferenceFolder',):
+                                           'HelpCenterErrorReferenceFolder',
+                                           'HelpCenterKnowledgeBase'):
             areaConstructors[contentTypes[i].meta_type] = constructors[i]
         elif contentTypes[i].meta_type in ('HelpCenter',):
             rootConstructors[contentTypes[i].meta_type] = constructors[i]
@@ -87,7 +88,3 @@ def initialize(context):
             permission = ADD_CENTER_PERMISSION,
             )
 
-    # Force the loading of test data generation scripts that
-    # we're currently attaching to the portal_migration tool.
-    # XXX: Remove this hack when we final have a portal_test_script tool.
-    # import tests

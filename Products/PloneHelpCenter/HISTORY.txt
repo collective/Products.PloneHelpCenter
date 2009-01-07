@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 3.0dev
+    
+    - Add a "Knowledge Base" that's basically a large folder to
+      organize how-tos and tutorials. [stevem]
+
     PloneHelpCenter 1.6.1
     
     - Set up indices in Extensions/Install.py rather than via GS

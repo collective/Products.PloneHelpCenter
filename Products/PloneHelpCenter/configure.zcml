@@ -17,16 +17,20 @@
 	/>
 
   <class class=".types.HelpCenter.HelpCenter">
-      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+    <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+    <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
   <class class=".types.ReferenceManualFolder.HelpCenterReferenceManualFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
   <class class=".types.ReferenceManual.HelpCenterReferenceManual">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
   <class class=".types.PHCFolder.PHCFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
 
   <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
