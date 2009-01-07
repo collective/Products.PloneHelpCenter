@@ -4,11 +4,12 @@
 <body>
 <div metal:define-macro="portlet"
     tal:define="pview context/@@phc_paged_view | nothing;
-                navRoot pview/navRootObject | nothing;">
+                navRoot pview/navRootObject | nothing;
+                view context/@@plone">
 
 <dl class="portlet">
 	<dt class="portletHeader">
-		<a href="/events/training">About</a>
+		About
 	</dt>
 
 	<dd class="portletItem">
@@ -57,24 +58,45 @@
           All content on one page</a>
         (useful for printing, presentation mode etc.)
       </p>
-
     </div>
-
-  	<p><strong>Use with</strong>:
-  	<span tal:replace="python:', '.join(here.getVersions())">Plone 3</span><br/>
-  	<strong>Relevant for</strong>:
-  	<span tal:replace="python:', '.join(here.getAudiences())">End users</span>
-  	</p>
-
+    
+    <h5 tal:condition="not:navRoot" tal:content="here/title">Plone 3.0 User Manual</h5>
+    
+    <div id="phcMetadata" tal:condition="here/getVersions | nothing">
+      	<p><strong>Use with</strong>:
+      	<span tal:replace="python:', '.join(here.getVersions())">Plone 3</span><br/>
+      	<strong>Relevant for</strong>:
+      	<span tal:replace="python:', '.join(here.getAudiences())">End users</span>
+      	</p>
+    </div>
 	
-	
-	
+    <tal:name tal:condition="here/Creator"
+    	tal:define="creator here/Creator;
+    	author python:mtool.getMemberInfo(creator)">
+        <p>This document was contributed by
+           <span tal:replace="python:author and author['fullname'] or creator">Steve McMahon</span>,
+           and last modified
+           <span tal:replace="python:'%d' % (DateTime() - DateTime(here.ModificationDate()))">5</span>
+           days ago.
+        </p>
+        <p>
+            <a href="#"
+        	tal:attributes="href string:${portal_url}/author/${creator}">View author profile</a>
+        </p>
+        <p style="clear:both" tal:condition="here/Contributors">
+            Also contributing: <span tal:content="python: ', '.join(here.Contributors())">Mary</span>.
+        </p>
+    </tal:name>
 
+    <p tal:content="here/Rights" tal:condition="here/Rights">
+    Copyleft NiceCorp Inc.
+    </p>
+	
 	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
 		<a href="http://dev.plone.org/plone.org">file a ticket</a> and let us know.
 		Please specify the "Documentation" component. Thanks!
 	</p>
-	
+
 	<!-- Or this one on the community-edited content:
 	<p>If you find any errors or omissions &mdash; or simply want to suggest improvements &mdash; 
 		<a href="">file a ticket</a> and let us know. If you want to take an active role in helping improve
