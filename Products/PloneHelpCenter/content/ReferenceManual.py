@@ -12,68 +12,47 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.CMFPlone.browser.navtree import NavtreeStrategyBase, buildFolderTree
 
+from Products import ATContentTypes
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+
+from schemata import HelpCenterItemSchemaNarrow
 from Products.PloneHelpCenter.config import *
-from schemata import HelpCenterBaseSchema, HelpCenterItemSchema
-from PHCContent import PHCContent
-from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot
+from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot, IHelpCenterContent
 
 import re
 IMG_PATTERN = re.compile(r"""(\<img .*?)src="([^/]+?)"(.*?\>)""", re.IGNORECASE | re.DOTALL)
 
 
-ReferenceManualSchema = HelpCenterBaseSchema + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        primary=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-                description='A summary of the reference manual -- subject and scope. Will be displayed on every page of the manual.',
-                description_msgid="phc_help_referencemanual_summary",
-                label="Reference Manual Description",
-                label_msgid="phc_label_referencemanual_description",
-                rows=5,
-                i18n_domain="plonehelpcenter",
-                ),
-        ),
-    ),)  + HelpCenterItemSchema
+ReferenceManualSchema = ATContentTypes.content.folder.ATFolderSchema.copy() + HelpCenterItemSchemaNarrow
 
-# For some reason, we need to jump through these hoops to get the fields in the
-# the right order
-ReferenceManualSchema.moveField('subject', pos='bottom')
-ReferenceManualSchema.moveField('relatedItems', pos='bottom')
+finalizeATCTSchema(ReferenceManualSchema, folderish=True, moveDiscussion=False)
+ReferenceManualSchema.changeSchemataForField('contributors', 'default')
+if GLOBAL_RIGHTS:
+    del ReferenceManualSchema['rights']
+ReferenceManualSchema['nextPreviousEnabled'].defaultMethod = None  
+ReferenceManualSchema['nextPreviousEnabled'].default = True  
 
 
-class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
+# # For some reason, we need to jump through these hoops to get the fields in the
+# # the right order
+# ReferenceManualSchema.moveField('subject', pos='bottom')
+# ReferenceManualSchema.moveField('relatedItems', pos='bottom')
+
+
+class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder):
     """A reference manual containing ReferenceManualPages,
     ReferenceManualSections, Files and Images.
     """
 
-    implements(IHelpCenterNavRoot)
-
-    __implements__ =(PHCContent.__implements__,
-                      OrderedBaseFolder.__implements__,)
+    implements(IHelpCenterNavRoot, IHelpCenterContent)
 
     schema = ReferenceManualSchema
     archetype_name = 'Reference Manual'
-    meta_type='HelpCenterReferenceManual'
-    content_icon = 'referencemanual_icon.gif'
-
-    global_allow = 0
-    filter_content_types = 1
-    allowed_content_types =('HelpCenterReferenceManualPage', 
-                             'HelpCenterReferenceManualSection', 
-                             'Image', 'File')
-
     security = ClassSecurityInfo()
 
     typeDescription= 'A Reference Manual can contain Reference Manual Pages and Sections, Images and Files. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content.'
     typeDescMsgId  = 'description_edit_referencemanual'
+
 
     security.declareProtected(CMFCorePermissions.View,
                                 'getReferenceManualDescription')
@@ -287,6 +266,9 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
         
         return "%s/referencemanual-all-pages" % self.absolute_url()
 
+
+    def getNextPreviousParentValue(self):
+        return True
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)
 

@@ -8,52 +8,22 @@ except ImportError:
     from Products.Archetypes.public import *
 import Products.CMFCore.permissions as CMFCorePermissions
 
+from Products import ATContentTypes
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+
 from Products.PloneHelpCenter.config import *
-from schemata import HelpCenterBaseSchema
-from PHCContent import PHCContent
 from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 
-ReferenceManualSectionSchema = HelpCenterBaseSchema + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-                description = "Enter a brief description for this section of the manual.",
-                description_msgid = "phc_desc_referencemanual_section",
-                label = "Description",
-                label_msgid = "phc_label_referencemanual_section",
-                rows = 5,
-                i18n_domain = "plonehelpcenter",
-                )
-        ),
-    ),)
 
-class HelpCenterReferenceManualSection(PHCContent,OrderedBaseFolder):
+class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     """A section of a reference manual containing ReferenceManualPages and
     other ReferenceManualSections.
     """
 
     implements(IHelpCenterMultiPage)
 
-    __implements__ = (PHCContent.__implements__,
-                      OrderedBaseFolder.__implements__,)
-
-    schema = ReferenceManualSectionSchema
     archetype_name = 'Section'
     meta_type = 'HelpCenterReferenceManualSection'
-    content_icon = 'chapter_icon.gif'
-
-    global_allow = 0
-    filter_content_types = 1
-    allowed_content_types = ('HelpCenterReferenceManualPage', 'Image',
-                                'HelpCenterReferenceManualSection')
-    # allow_discussion = IS_DISCUSSABLE
 
     typeDescription= 'A Reference Manual Section can contain Reference Manual Pages, and other Reference Manual (Sub-)Sections. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content.'
     typeDescMsgId  = 'description_edit_referencemanualsection'

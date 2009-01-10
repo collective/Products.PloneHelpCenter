@@ -5,8 +5,7 @@ PloneHelpCenter ToDo
 Bugs
 --------
 
-    o Content type portlets ('latest faqs', 'latest how-tos', etc.) don't actually 
-      sort by most recent. 
+isOutdated support lost in eliminated PHCContent derivation.
 
 Questions
 --------
@@ -20,57 +19,6 @@ Process improvements
 Template improvements
 ---------------------
 
-    o In addition to appearing at the top level (helpcenter_view) the 
-      documentation search box should also appear in the sub level view
-      (howtofolder_view, etc) but not the document view (howto_view).
-
 New functionality
 -----------------
 
-    o Pre-defined values for existing content type fields.
-
-        - In-your-face guideline we want to encourage people to follow.
-
-        - Show up as text in the body of a newly created document.
-
-        - Vague example: http://www.openplans.org/projects/plone-documentation/an-example-of-a-pre-defined-structure/
-
-    o Rate-able doc types. 
-
-        - More than just a Y/N type thing but at the same time it needs to be short.
-
-        - Rates if the document is useful, correct, tells you what you thought it was going to, etc.
-
-        - Extends existing PHC stats tools to make it easier to search for 
-          "bad" documentation that is flagged up.
-
-        - Option to trace back who made what rating so we can contact that 
-          person and discuss. Facilities to link these traces together and show 
-          traces that a document belongs to.
-
-        - Official blessing indicator. For when there are two docs on the same 
-          subject, to indicate which one is preferred.
-
-    o Alerts.
-
-        - Notification sent via email when a document is submitted for review or
-          published.
-    
-        - Configurable, to be sent to either a mailing-list or individual.
-
-
-    o Automated Review Cycle
-        - Some sort of cycle that every, let say, 6 months, boots out an email to 
-            the author of a doc and says, hey review this!                                                                                  
-    o Trails. 
-
-        - Take some smaller pieces of documentation and link them together to
-          form something bigger.
-
-        - See initial idea here: http://www.openplans.org/projects/plone-documentation/map/ 
-
-        - Should be prioritized last in this TODO list because it needs to be
-          thought about carefully before implementing. There are already a lot of 
-          content types in the PHC. For now, possibly use the reference manual type for
-          this which should be more than adequate. We may call it a "trail", but to the reader
-          it's just another style of constructing a reference on some topic.
