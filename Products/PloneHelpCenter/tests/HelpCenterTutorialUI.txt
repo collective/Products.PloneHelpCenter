@@ -36,30 +36,18 @@ we head for testing.
     >>> browser.open(self.portal.absolute_url() + "/" + Data.Hc.Id + '/helpcenter_view')
     >>> browser.getLink('Test Tutorial 4').click()
 
-This is our table of contents view for the tutorial.  From here, we make sure 
-we can access ourlink to the presentation mode for this tutorial.
-
-    >>> browser.contents
-    '...All content on one page (useful for printing, presentation mode etc.)...'
-
-Now we click on this view of our tutorial and prove that it is not the default 
+Now we open the all=pages view of our tutorial and prove that it is not the default 
 template for this type (i.e. not aliased with view method) and shows the full 
 contents of our published subitems (but not our in "draft" subitems) in the 
 correct ordering.
 
-    >>> browser.getLink('All content on one page (useful for printing, presentation mode etc.)').click()
+    >>> browser.open("%s/tutorial-all-pages" % browser.url)
     >>> 'tutorial-all-pages' in browser.url
     True
     >>> browser.contents
     '...Sample Tutorial Page1...Section 1...The rest of the content...Sample Tutorial Page2...Initial Checkout...'
     >>> 'Sample Tutorial Page3' not in browser.contents
     True
-
-And finally, we can get back to our table of contents view
-
-    >>> browser.getLink('tutorial view').click()
-    >>> 'tutorial-all-pages' in browser.url
-    False
 
 
 Next time I'll tackle proving:
