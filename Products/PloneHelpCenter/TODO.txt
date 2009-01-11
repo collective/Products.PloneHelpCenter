@@ -7,6 +7,9 @@ Bugs
 
 isOutdated support lost in eliminated PHCContent derivation.
 
+ATContentTypes.py nextprevious.py excludes folderish items from navigation.
+I need to make a derived adapter for ref manual sections.
+
 Questions
 --------
 

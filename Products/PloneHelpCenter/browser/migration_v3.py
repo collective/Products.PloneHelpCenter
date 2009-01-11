@@ -15,7 +15,9 @@ class PHCv3migrate(BrowserView):
     
     def __call__(self):
         
-        res = self.migrateRefManPages()
+        res = self.migrateNextPrev()
+        res += '\n'
+        res += self.migrateRefManPages()
         return res
     
     def migrateRefManPages(self):
@@ -27,12 +29,30 @@ class PHCv3migrate(BrowserView):
             path='/'.join(context.getPhysicalPath())        
         )
         
-        res = []
+        res = ['Migrate Reference Manual Page Texts ...']
         for obj in [brain.getObject() for brain in brains]:
             body = getattr(obj, 'body', None)
             if body:
                 obj.setText(body)
                 delattr(obj, 'body')
+                res.append(obj.id)
+            
+        return "\n".join(res)
+
+
+    def migrateNextPrev(self):
+        context = self.context
+
+        catalog = getToolByName(context, 'portal_catalog')
+        brains = catalog(
+            portal_type=['HelpCenterReferenceManual','HelpCenterReferenceManualSection',],
+            path='/'.join(context.getPhysicalPath())        
+        )
+
+        res = ['Turn on next/prev navigation ...']
+        for obj in [brain.getObject() for brain in brains]:
+            if not obj.getNextPreviousEnabled():
+                obj.setNextPreviousEnabled(True)
                 res.append(obj.id)
             
         return "\n".join(res)

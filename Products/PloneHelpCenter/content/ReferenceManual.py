@@ -24,19 +24,11 @@ IMG_PATTERN = re.compile(r"""(\<img .*?)src="([^/]+?)"(.*?\>)""", re.IGNORECASE 
 
 
 ReferenceManualSchema = ATContentTypes.content.folder.ATFolderSchema.copy() + HelpCenterItemSchemaNarrow
-
-finalizeATCTSchema(ReferenceManualSchema, folderish=True, moveDiscussion=False)
-ReferenceManualSchema.changeSchemataForField('contributors', 'default')
 if GLOBAL_RIGHTS:
     del ReferenceManualSchema['rights']
+finalizeATCTSchema(ReferenceManualSchema, folderish=True, moveDiscussion=False)
 ReferenceManualSchema['nextPreviousEnabled'].defaultMethod = None  
 ReferenceManualSchema['nextPreviousEnabled'].default = True  
-
-
-# # For some reason, we need to jump through these hoops to get the fields in the
-# # the right order
-# ReferenceManualSchema.moveField('subject', pos='bottom')
-# ReferenceManualSchema.moveField('relatedItems', pos='bottom')
 
 
 class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder):
@@ -267,8 +259,17 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder):
         return "%s/referencemanual-all-pages" % self.absolute_url()
 
 
+    security.declareProtected(CMFCorePermissions.View, 'getNextPreviousParentValue')
     def getNextPreviousParentValue(self):
+        """ always true """
         return True
+
+
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get rights from parent if necessary """
+        return getattr(self, 'rights') or getattr(self.aq_parent, 'rights')
+
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)
 
