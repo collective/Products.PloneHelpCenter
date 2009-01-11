@@ -17,7 +17,8 @@
   <element value="Image"/>
   <element value="File"/>
  </property>
- <property name="allow_discussion">True</property>
+ <property name="allow_discussion">False</property>
+
  <property name="default_view">howto_view</property>
  <alias from="(Default)" to="howto_view"/>
  <alias from="attachments" to="phc_attachments"/>
