@@ -16,6 +16,7 @@ from Products import ATContentTypes
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from schemata import HelpCenterItemSchemaNarrow
+from PHCContent import PHCContentMixin
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot, IHelpCenterContent
 
@@ -31,12 +32,12 @@ ReferenceManualSchema['nextPreviousEnabled'].defaultMethod = None
 ReferenceManualSchema['nextPreviousEnabled'].default = True  
 
 
-class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder):
+class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCContentMixin):
     """A reference manual containing ReferenceManualPages,
     ReferenceManualSections, Files and Images.
     """
 
-    implements(IHelpCenterNavRoot, IHelpCenterContent)
+    implements(IHelpCenterNavRoot)
 
     schema = ReferenceManualSchema
     archetype_name = 'Reference Manual'
@@ -268,7 +269,19 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder):
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get rights from parent if necessary """
-        return getattr(self, 'rights') or getattr(self.aq_parent, 'rights')
+        if self.Schema().has_key('rights'):
+            return self.getRawRights()
+        else:
+            return self.aq_parent.Rights()
+
+
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get rights from parent if necessary """
+        if self.Schema().has_key('creators'):
+            return self.getRawCreators()
+        else:
+            return self.aq_parent.Creators()
 
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)

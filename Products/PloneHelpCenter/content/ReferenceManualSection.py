@@ -12,7 +12,12 @@ from Products import ATContentTypes
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
+from Products.PloneHelpCenter.content.PHCContent import HideOwnershipFields
 from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
+
+
+HelpCenterReferenceManualSectionSchema = ATContentTypes.content.folder.ATFolderSchema.copy()
+HideOwnershipFields(HelpCenterReferenceManualSectionSchema)
 
 
 class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
@@ -21,6 +26,8 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     """
 
     implements(IHelpCenterMultiPage)
+    
+    schema = HelpCenterReferenceManualSectionSchema
 
     archetype_name = 'Section'
     meta_type = 'HelpCenterReferenceManualSection'
@@ -36,6 +43,23 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
         convenience method for ReferenceManualPage
         """
         return self.Description()
+
+        
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get from parent """
+        return self.aq_parent.Rights()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get from parent """
+        return self.aq_parent.Creators()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Contributors')
+    def Contributors(self):
+        """ get from parent """
+        return self.aq_parent.Contributors()
+        
 
 registerType(HelpCenterReferenceManualSection, PROJECTNAME)
 

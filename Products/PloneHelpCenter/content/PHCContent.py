@@ -23,35 +23,25 @@ except NameError:
 
 # Get HistoryAwareMixin on all our types:
 
-# This is currently in ATContentTypes, which introduces a dependency we'd rather 
-# do without. It's slated to move to Archetypes itself, so try that first in the
-# hope that it's there. If both fail, fall back on a dummy HistoryAwareMixin
-# which will let us continue as normal. Yep, it's another optilude hack(tm).
-
 try:
     from Products.Archetypes.HistoryAware import HistoryAwareMixin
 except ImportError:
     try:
         from Products.ATContentTypes.HistoryAware import HistoryAwareMixin
     except ImportError:
-        
         class HistoryAwareMixin:
             """Dummy class when we can't find the real McCoy"""
             
             __implements__ =()
             actions        =()
 
-class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
-    """A simple  mixin class to provide contentish functions
-    archetype no schema defined"""
+
+class PHCContentMixin:
+    """ Provide vocabulary and default methods for HelpCenterItemSchemaNarrow """
 
     implements(IHelpCenterContent)
 
     security = ClassSecurityInfo()
-    _at_rename_after_creation = True
-
-    __implements__ = (HistoryAwareMixin.__implements__,)
-
 
     security.declareProtected(CMFCorePermissions.View, 'getVersionsVocab')
     def getVersionsVocab(self):
@@ -60,7 +50,7 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             return self.aq_parent.getVersionsVocab()
         else:
             return ()
-    
+
     security.declareProtected(CMFCorePermissions.View, 'getSectionsVocab')
     def getSectionsVocab(self):
         """Get sections vocabulary"""
@@ -68,11 +58,11 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             return self.aq_parent.getSectionsVocab()
         else:
             return ()
-    
+
     security.declareProtected(CMFCorePermissions.ModifyPortalContent, 'SetSections')
     def setSections(self, values):
         """set sections"""
-        
+
         # The sections field may be in use with a "topic : subtopic" pattern.
         # If so, make sure that the 'topic' is set as a separate item
         # so that we'll be able to look it up by topic as well as
@@ -84,7 +74,7 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             if pos >= 0:
                 valueSet.add( s[:pos].strip() )
         self.sections = tuple(valueSet)
-        
+
 
     security.declareProtected(CMFCorePermissions.View, 'getAudiencesVocab')
     def getAudiencesVocab(self):
@@ -109,7 +99,7 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             return ", ".join(field.get(self))
         else:
             return ''
-        
+
     security.declareProtected(CMFCorePermissions.View, 'Audiences')
     def Audiences(self):
         """method to display the audiences in a nicer way
@@ -119,7 +109,7 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             return ", ".join(field.get(self))
         else:
             return ''
-    
+
     security.declareProtected(CMFCorePermissions.View, 'isOutdated')
     def isOutdated(self):
         """Check the current versions of the PHC root container against the
@@ -127,26 +117,26 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
         of current versions, return 1, else return 0. As a shortcircuit, if
         no "currentVersions" is defined, always return 0.
         """
-                
+
         myVersions = self.getVersions()
-        
+
         if not myVersions:
             return 0
-                
+
         # Acquire current versions
         currentVersions = [x.decode('utf-8') for x in self.getCurrentVersions()]
-        
+
         if not currentVersions:
             return 0
-        
+
         for v in myVersions:
             if v in currentVersions:
                 # Not outdated - we match one of the current versions
                 return 0
-                
+
         # Outdated - we didn't match anything
         return 1
-        
+
     security.declareProtected(CMFCorePermissions.View, 'getRelatedItems') 
     def getRelatedItems(self):
         """method to fetch the referenced items in context of
@@ -158,3 +148,49 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin):
             return objs
         except:
             return []
+
+
+def HideOwnershipFields(schema):
+    """ Some PHC types should not have their own ownership metadata """
+    for fname in ('creators', 'contributors', 'rights'):
+        schema[fname].widget.visibility = {'view':'invisible','edit':'invisible'}
+
+
+class PHCContentMixin:
+    """ satisfy metadata requirements for items with deleted ownership """
+
+    security = ClassSecurityInfo()
+
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Rights()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Creators()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Contributors')
+    def Contributors(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Contributors()
+        
+    security.declareProtected(CMFCorePermissions.View, 'listCreators')
+    def listCreators(self):
+        """ List Dublin Core Creator elements - resource authors.
+        """
+        return self.Creators()
+
+
+class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
+    """A simple  mixin class to provide contentish functions
+    archetype no schema defined"""
+
+
+    security = ClassSecurityInfo()
+
+    _at_rename_after_creation = True
+
+    __implements__ = (HistoryAwareMixin.__implements__,)
+

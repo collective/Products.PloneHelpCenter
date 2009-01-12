@@ -10,6 +10,10 @@ isOutdated support lost in eliminated PHCContent derivation.
 ATContentTypes.py nextprevious.py excludes folderish items from navigation.
 I need to make a derived adapter for ref manual sections.
 
+manual pages must be linkable in Kupu
+
+manual view with section/page descriptions
+
 Questions
 --------
 
