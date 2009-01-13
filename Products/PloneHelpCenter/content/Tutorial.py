@@ -6,57 +6,33 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
+
 import Products.CMFCore.permissions as CMFCorePermissions
+from Products import ATContentTypes
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
-from schemata import HelpCenterBaseSchema, HelpCenterItemSchema
-from PHCContent import PHCContent
+from schemata import HelpCenterItemSchemaNarrow
+from PHCContent import PHCContentMixin
 from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot
 
-TutorialSchema = HelpCenterBaseSchema + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        primary=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-                 description = 'A summary of the tutorial--aims and scope. Will be displayed on every page of the tutorial.',
-                 description_msgid = "phc_help_tutorial_summary",
-                 label = "Tutorial Description",
-                 label_msgid = "phc_label_tutorial_description",
-                 rows = 5,
-                 i18n_domain = "plonehelpcenter",
-                )
-        ),
-    ),)  + HelpCenterItemSchema
+TutorialSchema = ATContentTypes.content.folder.ATFolderSchema.copy() + HelpCenterItemSchemaNarrow
+if GLOBAL_RIGHTS:
+    del TutorialSchema['rights']
+finalizeATCTSchema(TutorialSchema, folderish=True, moveDiscussion=False)
+TutorialSchema['nextPreviousEnabled'].defaultMethod = None  
+TutorialSchema['nextPreviousEnabled'].default = True  
 
-# For some reason, we need to jump through these hoops to get the fields in the
-# the right order
-TutorialSchema.moveField('subject', pos='bottom')
-TutorialSchema.moveField('relatedItems', pos='bottom')
 
-class HelpCenterTutorial(PHCContent,OrderedBaseFolder):
+class HelpCenterTutorial(ATContentTypes.content.folder.ATFolder, PHCContentMixin):
     """A tutorial containing TutorialPages, Files and Images."""
 
     implements(IHelpCenterNavRoot)
-
-    __implements__ = (PHCContent.__implements__,
-                      OrderedBaseFolder.__implements__,)
 
     schema = TutorialSchema
     archetype_name = 'Tutorial'
     meta_type = portal_type = 'HelpCenterTutorial'
     content_icon = 'tutorial_icon.gif'
-
-    global_allow = 0
-    filter_content_types = 1
-    allowed_content_types = ('HelpCenterTutorialPage', 'Image', 'File')
-    # allow_discussion = IS_DISCUSSABLE
 
     typeDescription= 'A Tutorial can contain Tutorial Pages, Images and Files. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content.'
     typeDescMsgId  = 'description_edit_tutorial'
@@ -111,6 +87,31 @@ class HelpCenterTutorial(PHCContent,OrderedBaseFolder):
         """ return URL for all pages view """
 
         return "%s/tutorial-all-pages" % self.absolute_url()
+
+
+        security.declareProtected(CMFCorePermissions.View, 'getNextPreviousParentValue')
+        def getNextPreviousParentValue(self):
+            """ always true """
+            return True
+
+
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get rights from parent if necessary """
+        if self.Schema().has_key('rights'):
+            return self.getRawRights()
+        else:
+            return self.aq_parent.Rights()
+
+
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get rights from parent if necessary """
+        if self.Schema().has_key('creators'):
+            return self.getRawCreators()
+        else:
+            return self.aq_parent.Creators()
+
 
 registerType(HelpCenterTutorial, PROJECTNAME)
 
