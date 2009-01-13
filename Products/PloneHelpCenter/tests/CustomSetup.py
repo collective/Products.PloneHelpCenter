@@ -58,7 +58,7 @@ def CreateTutorials( self, portal ):
             newPage = getattr( newTutorial, page.Id )
             newPage.setTitle(page.Title)
             newPage.setDescription(page.Summary)
-            newPage.setBody(page.Body)
+            newPage.setText(page.Body)
             portal.plone_utils.editMetadata( newPage, format=page.Format )
             # Each page should be owned by the same owner as the tutorial owner
             # portal.plone_utils.changeOwnershipOf( newPage, content.Owner.Id, 1 )

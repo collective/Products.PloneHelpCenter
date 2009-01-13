@@ -98,7 +98,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
             newPage = getattr(tutorial, id)
             newPage.setTitle('Test Tutorial Page %d' % pageNum)
             newPage.setDescription('A PHC Tutorial Page (%d) for unit tests.' % pageNum)
-            newPage.setBody(self.defaultBodyRst)
+            newPage.setText(self.defaultBodyRst)
             self.portal.plone_utils.editMetadata(newPage,format='text/x-rst')
         return tutorial
                                    

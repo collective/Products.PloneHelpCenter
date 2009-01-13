@@ -153,34 +153,7 @@ class PHCContentMixin:
 def HideOwnershipFields(schema):
     """ Some PHC types should not have their own ownership metadata """
     for fname in ('creators', 'contributors', 'rights'):
-        schema[fname].widget.visibility = {'view':'invisible','edit':'invisible'}
-
-
-class PHCContentMixin:
-    """ satisfy metadata requirements for items with deleted ownership """
-
-    security = ClassSecurityInfo()
-
-    security.declareProtected(CMFCorePermissions.View, 'Rights')
-    def Rights(self):
-        """ get from parent """
-        return aq_inner(self).aq_parent.Rights()
-    
-    security.declareProtected(CMFCorePermissions.View, 'Creators')
-    def Creators(self):
-        """ get from parent """
-        return aq_inner(self).aq_parent.Creators()
-    
-    security.declareProtected(CMFCorePermissions.View, 'Contributors')
-    def Contributors(self):
-        """ get from parent """
-        return aq_inner(self).aq_parent.Contributors()
-        
-    security.declareProtected(CMFCorePermissions.View, 'listCreators')
-    def listCreators(self):
-        """ List Dublin Core Creator elements - resource authors.
-        """
-        return self.Creators()
+        schema[fname].widget.visible = {'view':'invisible','edit':'invisible'}
 
 
 class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):

@@ -1,4 +1,6 @@
 from zope.interface import implements
+from AccessControl import ClassSecurityInfo
+from Acquisition import aq_inner
 
 try:
     from Products.LinguaPlone.public import *
@@ -7,66 +9,55 @@ except ImportError:
     from Products.Archetypes.public import *
 import Products.CMFCore.permissions as CMFCorePermissions
 
+import Products.CMFCore.permissions as CMFCorePermissions
+from Products import ATContentTypes
+
 from Products.PloneHelpCenter.config import *
-from schemata import HelpCenterBaseSchema
-from PHCContent import PHCContent
+from PHCContent import HideOwnershipFields
 from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 
-TutorialPageSchema = HelpCenterBaseSchema + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-                  description="Enter a brief description.",
-                  description_msgid="phc_desc_tutorial_page",
-                  label="Description",
-                  label_msgid="phc_label_tutorial_page",
-                  rows=5,
-                  i18n_domain="plonehelpcenter",
-                  ),
-        ),
+TutorialPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
+HideOwnershipFields(TutorialPageSchema)
 
-    TextField(
-        'body',
-        required=1,
-        searchable=1,
-        primary=1,
-        widget=RichWidget(
-                description="The body text.",
-                description_msgid="phc_desc_body_tutorial",
-                label="Body text",
-                label_msgid="phc_label_body_tutorial",
-                rows=25,
-                i18n_domain="plonehelpcenter"
-                ),
-        **DEFAULT_CONTENT_TYPES
-        ),
-    ),)
-
-class HelpCenterTutorialPage(PHCContent,BaseContent):
+class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocument):
     """Part of a tutorial."""
 
     implements(IHelpCenterMultiPage)
 
-    __implements__ = (PHCContent.__implements__,
-                      BaseContent.__implements__,)
-
     schema = TutorialPageSchema
+
     archetype_name = 'Page'
     meta_type='HelpCenterTutorialPage'
     content_icon = 'document_icon.gif'
 
-    global_allow = 0
-    # allow_discussion = 1
-
     typeDescription= 'A Tutorial Page contains the text of a single page of the tutorial.'
     typeDescMsgId  = 'description_edit_tutorialpage'
 
+    security = ClassSecurityInfo()
 
+    # Satisfy metadata requirements for items with deleted ownership.
+    # It would be great to do this in a mixin or adapter,
+    # but the structure of Archetypes prevents that.
+    
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Rights()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Creators()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Contributors')
+    def Contributors(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Contributors()
+        
+    security.declareProtected(CMFCorePermissions.View, 'listCreators')
+    def listCreators(self):
+        """ List Dublin Core Creator elements - resource authors.
+        """
+        return self.Creators()
+        
 registerType(HelpCenterTutorialPage, PROJECTNAME)

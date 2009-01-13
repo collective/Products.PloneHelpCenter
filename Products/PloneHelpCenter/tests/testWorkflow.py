@@ -66,7 +66,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         page = getattr(tutorial, 'newPage')
         page.setTitle('New Page')
         page.setDescription('A tutorial page added after tutorial was published')
-        page.setBody('')
+        page.setText('')
         self._publishContent(tutorial)
         tutorial.edit(description=newDescription)
         tutorial.newPage.edit(description=newDescription)

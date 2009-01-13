@@ -5,9 +5,6 @@ migration_v3.py
 Created by Steve McMahon on 2009-01-08.
 """
 
-# To do: set next/prev nav true in manuals, sections
-
-
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
@@ -17,19 +14,19 @@ class PHCv3migrate(BrowserView):
         
         res = self.migrateNextPrev()
         res += '\n'
-        res += self.migrateRefManPages()
+        res += self.migrateBodyTexts()
         return res
     
-    def migrateRefManPages(self):
+    def migrateBodyTexts(self):
         context = self.context
         
         catalog = getToolByName(context, 'portal_catalog')
         brains = catalog(
-            portal_type=['HelpCenterReferenceManualPage',],
+            portal_type=['HelpCenterReferenceManualPage','HelpCenterTutorialPage'],
             path='/'.join(context.getPhysicalPath())        
         )
         
-        res = ['Migrate Reference Manual Page Texts ...']
+        res = ['Migrate Page Texts ...']
         for obj in [brain.getObject() for brain in brains]:
             body = getattr(obj, 'body', None)
             if body:
