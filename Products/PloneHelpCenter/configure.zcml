@@ -12,7 +12,7 @@
 	name="default"
     title="PloneHelpCenter"
 	directory="profiles/default"
-	description="What's powering the documentation section on plone.org"
+	description="A KnowledgeBase facility developed for Plone.Org."
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
 
@@ -55,6 +55,55 @@
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
   <class class=".content.FAQ.HelpCenterFAQ">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+
+  <!--
+      Note the use of "types" below where you might expect "contents".
+      This is historical, as what's now in "contents" was once in "types"
+      and may still get unpickled that way. Sad but true :(
+  -->
+  <class class=".types.HelpCenter.HelpCenter">
+    <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+    <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
+  </class>
+  <class class=".types.ReferenceManualFolder.HelpCenterReferenceManualFolder">
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
+  </class>
+  <class class=".types.ReferenceManual.HelpCenterReferenceManual">
+      <implements interface="Products.ATContentTypes.interface.IATFolder" />
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
+      <implements interface=".interfaces.IHelpCenterNavRoot" />
+  </class>
+  <class class=".types.ReferenceManualSection.HelpCenterReferenceManualSection">
+      <implements interface="Products.ATContentTypes.interface.IATFolder" />
+      <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".types.ReferenceManualPage.HelpCenterReferenceManualPage">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".types.TutorialPage.HelpCenterTutorialPage">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".types.HowTo.HelpCenterHowTo">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface="Products.ATContentTypes.interface.IATFolder" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".types.PHCFolder.PHCFolder">
+      <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
+      <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
+  </class>
+  <class class=".types.FAQ.HelpCenterFAQ">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
     <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
     <implements interface=".interfaces.IHelpCenterMultiPage" />
