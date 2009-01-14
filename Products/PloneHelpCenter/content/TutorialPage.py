@@ -11,6 +11,7 @@ import Products.CMFCore.permissions as CMFCorePermissions
 
 import Products.CMFCore.permissions as CMFCorePermissions
 from Products import ATContentTypes
+from Products.ATContentTypes.interfaces import IATDocument
 
 from Products.PloneHelpCenter.config import *
 from PHCContent import HideOwnershipFields
@@ -19,10 +20,12 @@ from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 TutorialPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
 HideOwnershipFields(TutorialPageSchema)
 
-class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocument):
+class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocumentBase):
     """Part of a tutorial."""
 
     implements(IHelpCenterMultiPage)
+
+    __implements__ = ATContentTypes.content.document.ATDocumentBase.__implements__, IATDocument
 
     schema = TutorialPageSchema
 

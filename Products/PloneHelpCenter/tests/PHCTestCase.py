@@ -74,7 +74,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         howto = getattr(howtoFolder, id)
         howto.setTitle(title)
         howto.setDescription('A PHC Howto for unit tests.')
-        howto.setBody(self.defaultBodyRst) 
+        howto.setText(self.defaultBodyRst) 
         howto.setVersions( ('Version 2.0',) )
         howto.setSections( ('General',) )
         self.portal.plone_utils.editMetadata(howto, format='text/x-rst')

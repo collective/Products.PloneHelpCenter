@@ -378,7 +378,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                 manual.setTitle(MANUAL_TITLE)
                 manual.setDescription(MANUAL_DESCRIPTION)
                 manual.setSections([MANUAL_SECTION])
-                manual.setBody(manualText, mimetype = MANUAL_MIMETYPE)
+                manual.setText(manualText, mimetype = MANUAL_MIMETYPE)
                 manual.reindexObject()
 
                 # Publish it

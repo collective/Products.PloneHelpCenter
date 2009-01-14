@@ -1,97 +1,58 @@
+from zope import event
+from zope.interface import implements
+from zope.lifecycleevent import ObjectModifiedEvent
+
+from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+
+import Products.CMFCore.permissions as CMFCorePermissions
+
+
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
-from schemata import HelpCenterBaseSchemaFolderish, HelpCenterItemSchema
-from PHCContent import PHCContent
+from schemata import HelpCenterItemSchemaNarrow
+from PHCContent import PHCContentMixin, HideOwnershipFields
 from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
-from zope import event
-from zope.interface import implements
-try:
-    from zope.lifecycleevent import ObjectModifiedEvent
-except ImportError:
-    from zope.app.event.objectevent import ObjectModifiedEvent
+from Products.ATContentTypes.interfaces import IATFolder, IATDocument
+from Products.ATContentTypes.content.document import \
+    ATDocumentSchema, ATDocumentBase
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+from Products.ATContentTypes.lib.constraintypes import ConstrainTypesMixinSchema
+from Products.ATContentTypes.content.base import ATCTOrderedFolder
+from Products.ATContentTypes.lib.autosort import AutoOrderSupport
 
 
-HowToSchema = HelpCenterBaseSchemaFolderish + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-            description = 'Brief explanation of the How To.',
-            description_msgid = "phc_help_detailed_howto",
-            label = "Summary",
-            label_msgid = "phc_label_detailed_howto",
-            i18n_domain = "plonehelpcenter",
-            ),
-        ),
+# Create a Frankenstein's monster: a hybrid of ATCT
+# folder and document types.
+# Since the document type is more complex, we'll use it for the base.
 
-    TextField(
-        'body',
-        searchable=1,
-        required=1,
-        primary=1,
-        accessor='getBody',
-        widget=RichWidget(
-            description_msgid='phc_desc_howto_body',
-            description='The text of the Howto',
-            label_msgid='phc_body',
-            label='Body',
-            i18n_domain = "plonehelpcenter",
-            rows=25,
-            ),
+HowToSchema = ATDocumentSchema.copy() + ConstrainTypesMixinSchema + HelpCenterItemSchemaNarrow
+HideOwnershipFields(HowToSchema)
+finalizeATCTSchema(HowToSchema, folderish=True, moveDiscussion=False)
 
-        **DEFAULT_CONTENT_TYPES
-        ),
-    ),) + HelpCenterItemSchema
 
-# For some reason, we need to jump through these hoops to get the fields in the
-# the right order
-HowToSchema.moveField('subject', pos='bottom')
-HowToSchema.moveField('relatedItems', pos='bottom')
+class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, AutoOrderSupport, ATCTOrderedFolder):
 
-MAPPING = {'text_html' : 'text/html'}
-
-# TODO: Generalize and i18nize
-def addHelpCenterHowTo(self, id, **kwargs):
-    obj = HelpCenterHowTo(id)
-    self._setObject(id, obj)
-    obj = self._getOb(id)
-    obj.initializeArchetype(**kwargs)
-    event.notify(ObjectModifiedEvent(obj))
-    #setattr(obj, 'body', howto_template)
-    # we need to get the template from the skin, so that it's customizable
-    template = getattr(self, 'HowToTemplate', None)
-    if template is not None:
-        setattr(obj, 'body', template(self))
-    return obj.getId()
-
-class HelpCenterHowTo(PHCContent,BaseFolder):
     """A How-to is a document describing how to address a single, common 
     use-case or issue. You may add images and files as attachments.
     """
     
     implements(IHelpCenterHowTo)
 
-    __implements__ = (PHCContent.__implements__,
-                      BaseFolder.__implements__,
-                      INonStructuralFolder
+    __implements__ = (ATCTOrderedFolder.__implements__,
+                      IATFolder,
+                      AutoOrderSupport.__implements__,
+                      ATDocumentBase.__implements__, 
+                      IATDocument,
                       )
+    
+    isPrincipiaFolderish = True
 
     content_icon = 'howto_icon.gif'
 
@@ -102,20 +63,16 @@ class HelpCenterHowTo(PHCContent,BaseFolder):
     schema = HowToSchema
     archetype_name = 'How-to'
     meta_type = 'HelpCenterHowTo'
-    global_allow = 0
-    filter_content_types = 1
-    # allow_discussion = IS_DISCUSSABLE
-    allowed_content_types = ('Image', 'File',)
-    default_view = 'howto_view'
 
     security = ClassSecurityInfo()
 
-    def getText(self):
-        return 'nisse'
+    security.declarePublic('canSetDefaultPage')
+    def canSetDefaultPage(self):
+        """Check if the user has permission to select a default page on this
+        (folderish) item, and the item is folderish.
+        """
+        return False
 
-    security.declareProtected(CMFCorePermissions.ModifyPortalContent, 'setFormat')
-    def setFormat(self, value):
-        value = MAPPING.get(value, value)
-        BaseFolder.setFormat(self, value)
+
 
 registerType(HelpCenterHowTo, PROJECTNAME)

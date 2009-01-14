@@ -11,6 +11,7 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 
 from Products import ATContentTypes
+from Products.ATContentTypes.interfaces import IATDocument
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
@@ -22,10 +23,11 @@ HelpCenterReferenceManualPageSchema = ATContentTypes.content.document.ATDocument
 HideOwnershipFields(HelpCenterReferenceManualPageSchema)
 
 
-class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocument):
+class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBase):
     """Part of a reference manual."""
     
-    implements(IHelpCenterMultiPage)
+    __implements__ = (ATContentTypes.content.document.ATDocumentBase.__implements__,
+                      IATDocument)
 
     schema = HelpCenterReferenceManualPageSchema
 

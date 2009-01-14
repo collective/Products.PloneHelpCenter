@@ -42,8 +42,8 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         newBody = 'Changed to this content while published.'
         howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
         self._publishContent(howto)
-        howto.edit(text_format='plain', body=newBody)
-        self.assertEqual(howto.getRawBody(), newBody)
+        howto.edit(text_format='plain', text=newBody)
+        self.assertEqual(howto.getRawText(), newBody)
 
     def testEditPublishedTutorial(self):
         newDescription = 'New Description.'
@@ -55,7 +55,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         page = getattr(tutorial, 'newPage')
         page.setTitle('New Page')
         page.setDescription('A tutorial page added after tutorial was published')
-        page.setBody=('')
+        page.setText=('')
         self.assertEqual(tutorial.newPage.Title(), 'New Page')
         
     def testEditPublishedTutorialPage(self):
@@ -107,15 +107,15 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         newBody = 'Changed to this content while published.'
         howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
         self.portal.portal_workflow.doActionFor(howto, 'submit')
-        howto.edit(text_format='plain', body=newBody)
-        self.assertEqual(howto.getRawBody(), newBody)
+        howto.edit(text_format='plain', text=newBody)
+        self.assertEqual(howto.getRawText(), newBody)
 
     def testEditObsoleteHowto(self):
         newBody = 'Changed to this content while published.'
         howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
         self.portal.portal_workflow.doActionFor(howto, 'mark_obsolete')
-        howto.edit(text_format='plain', body=newBody)
-        self.assertEqual(howto.getRawBody(), newBody)
+        howto.edit(text_format='plain', text=newBody)
+        self.assertEqual(howto.getRawText(), newBody)
         
 
     # Next several tests: owners can obsolete their own content at any point

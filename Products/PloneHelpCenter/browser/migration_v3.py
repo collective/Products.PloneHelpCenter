@@ -22,7 +22,7 @@ class PHCv3migrate(BrowserView):
         
         catalog = getToolByName(context, 'portal_catalog')
         brains = catalog(
-            portal_type=['HelpCenterReferenceManualPage','HelpCenterTutorialPage'],
+            portal_type=['HelpCenterReferenceManualPage','HelpCenterTutorialPage','HelpCenterHowTo'],
             path='/'.join(context.getPhysicalPath())        
         )
         

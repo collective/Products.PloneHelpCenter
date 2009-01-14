@@ -16,19 +16,41 @@
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
 
-  <class class=".types.HelpCenter.HelpCenter">
+  <class class=".content.HelpCenter.HelpCenter">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
     <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
-  <class class=".types.ReferenceManualFolder.HelpCenterReferenceManualFolder">
+  <class class=".content.ReferenceManualFolder.HelpCenterReferenceManualFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
-  <class class=".types.ReferenceManual.HelpCenterReferenceManual">
+  <class class=".content.ReferenceManual.HelpCenterReferenceManual">
+      <implements interface="Products.ATContentTypes.interface.IATFolder" />
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
+      <implements interface=".interfaces.IHelpCenterNavRoot" />
   </class>
-  <class class=".types.PHCFolder.PHCFolder">
+  <class class=".content.ReferenceManualSection.HelpCenterReferenceManualSection">
+      <implements interface="Products.ATContentTypes.interface.IATFolder" />
+      <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".content.ReferenceManualPage.HelpCenterReferenceManualPage">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".content.TutorialPage.HelpCenterTutorialPage">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".content.HowTo.HelpCenterHowTo">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface="Products.ATContentTypes.interface.IATFolder" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
+  <class class=".content.PHCFolder.PHCFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>

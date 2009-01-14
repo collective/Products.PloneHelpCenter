@@ -81,7 +81,7 @@ def CreateHowtos( self, portal ):
         newHowto = getattr( helpCenter.howto, content.Id )
         newHowto.setTitle(content.Title)
         newHowto.setDescription(content.Summary)
-        newHowto.setBody(content.Body)
+        newHowto.setText(content.Body)
         newHowto.setVersions(content.Versions)
         newHowto.setSections(content.Sections)
         portal.plone_utils.editMetadata( newHowto, format=content.Format )
