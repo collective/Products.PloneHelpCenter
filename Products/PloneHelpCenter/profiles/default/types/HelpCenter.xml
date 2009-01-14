@@ -3,7 +3,7 @@
    meta_type="Factory-based Type Information with dynamic views"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Help Center</property>
- <property name="description">A simple folderish archetype</property>
+ <property name="description">A simple knowledge-base facility.</property>
  <property name="content_icon">helpcenter_icon.gif</property>
  <property name="content_meta_type">HelpCenter</property>
  <property name="product">PloneHelpCenter</property>
