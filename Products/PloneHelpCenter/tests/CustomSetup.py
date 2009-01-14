@@ -105,7 +105,7 @@ def CreateFaqs( self, portal, alt=False ):
         newFaq = getattr( helpCenter.faq, content.Id )
         newFaq.setTitle(content.Title)
         newFaq.setDescription(content.Question)
-        newFaq.setAnswer(content.Answer)
+        newFaq.setText(content.Answer)
         newFaq.setVersions(content.Versions)
         newFaq.setSections(content.Sections)
         newFaq.reindexObject()

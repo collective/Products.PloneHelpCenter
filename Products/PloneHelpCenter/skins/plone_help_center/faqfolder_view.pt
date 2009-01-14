@@ -101,7 +101,7 @@
             Full Question
           </p>
 
-          <div tal:content="structure faq/getAnswer"
+          <div tal:content="structure faq/getText"
                class="portletContent odd">
             Answer
           </div>

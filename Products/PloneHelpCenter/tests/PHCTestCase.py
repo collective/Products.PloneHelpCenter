@@ -110,7 +110,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         faq = getattr(faqFolder, id)
         faq.setTitle=(title)
         faq.setDescription('An FAQ for unit tests.  Did you know that this field is supposed to be the questionfaq.set?')
-        faq.setAnswer('No one knows; it is one of the great mysteries.')
+        faq.setText('No one knows; it is one of the great mysteries.')
         faq.setVersions( ('Version 2.0',) )
         faq.setSections( ('General',) )
         self.portal.plone_utils.editMetadata(faq, format='text/plain')

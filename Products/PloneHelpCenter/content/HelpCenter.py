@@ -172,16 +172,6 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
 
     content_icon = 'helpcenter_icon.gif'
 
-    # Not really needed any longer, and is causing
-    # problems when schema updates.
-    # _properties = OrderedBaseFolder._properties +  (
-    #     {'id'    : 'right_slots',
-    #      'type'  : 'lines',
-    #      'mode'  : 'rw',
-    #      'label' : 'Right slots'
-    #      },
-    #      )
-
     archetype_name = 'Help Center'
     meta_type = 'HelpCenter'
     filter_content_types = 1
