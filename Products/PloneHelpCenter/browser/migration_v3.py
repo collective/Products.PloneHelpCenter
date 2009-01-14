@@ -15,6 +15,8 @@ class PHCv3migrate(BrowserView):
         res = self.migrateNextPrev()
         res += '\n'
         res += self.migrateBodyTexts()
+        res += '\n'
+        res += self.migrateFAQs()
         return res
     
     def migrateBodyTexts(self):
@@ -34,6 +36,26 @@ class PHCv3migrate(BrowserView):
                 delattr(obj, 'body')
                 res.append(obj.id)
             
+        return "\n".join(res)
+
+
+    def migrateFAQs(self):
+        context = self.context
+
+        catalog = getToolByName(context, 'portal_catalog')
+        brains = catalog(
+            portal_type=['HelpCenterFAQ',],
+            path='/'.join(context.getPhysicalPath())        
+        )
+
+        res = ['Migrate FAQ Answers ...']
+        for obj in [brain.getObject() for brain in brains]:
+            body = getattr(obj, 'answer', None)
+            if body:
+                obj.setText(body)
+                delattr(obj, 'answer')
+                res.append(obj.id)
+
         return "\n".join(res)
 
 

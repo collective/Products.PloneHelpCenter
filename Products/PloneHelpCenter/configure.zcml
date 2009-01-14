@@ -54,6 +54,11 @@
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
   </class>
+  <class class=".content.FAQ.HelpCenterFAQ">
+    <implements interface="Products.ATContentTypes.interface.IATDocument" />
+    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <implements interface=".interfaces.IHelpCenterMultiPage" />
+  </class>
 
   <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
   <five:deprecatedManageAddDelete class=".content.FAQFolder.HelpCenterFAQFolder" />

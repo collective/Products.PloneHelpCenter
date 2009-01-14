@@ -19,6 +19,9 @@ from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 
 TutorialPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
 HideOwnershipFields(TutorialPageSchema)
+# Support specified content formats
+for key, attr in DEFAULT_CONTENT_TYPES.items():
+    setattr(TutorialPageSchema['text'], key, attr)
 
 class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocumentBase):
     """Part of a tutorial."""

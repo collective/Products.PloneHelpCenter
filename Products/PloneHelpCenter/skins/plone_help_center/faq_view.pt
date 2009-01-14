@@ -29,7 +29,7 @@
            Warning: This item is marked as outdated.
     </div>
 
-    <div tal:content="structure here/getAnswer"/>
+    <div tal:content="structure here/getText"/>
 
     <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
       see also - shows the references if this feature is switched on
