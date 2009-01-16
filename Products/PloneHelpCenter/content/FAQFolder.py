@@ -4,16 +4,18 @@
 #  versions.
 #
 
+import urllib
+
+from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from zope.component import getMultiAdapter
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+
+import Products.CMFCore.permissions as CMFCorePermissions
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from PHCFolder import PHCFolder
@@ -56,8 +58,25 @@ class HelpCenterFAQFolder(PHCFolder,OrderedBaseFolder):
     typeDescription= 'An FAQ Section can hold frequently asked questions with answers.'
     typeDescMsgId  = 'description_edit_faqfolder'
 
-    # aliases = PHCFolder.aliases.copy()
-    # aliases.update({'(Default)' : 'faqfolder_view',
-    #                 'view'      : 'faqfolder_view'})
+    # def getTOCSelectOptions(self, current=None):
+    #     """
+    #     Returns a sequence of dicts:
+    #         title: tile of section/page, including numbering
+    #         url:   URL of page
+    #         current: True if current section/page
+    #     This is a convenience for creating an option list.
+    #     """
+    # 
+    #     res = []
+    #     for section in getMultiAdapter((self, self.REQUEST,), name="hcf_view").getSectionsToList():
+    #         res.append( 
+    #             {'title':section, 
+    #              'url':'%s/faqsection_view?section=%s' % (self.absolute_url(), urllib.quote(section)), 
+    #              'current':False} )
+    #     
+    #     return res
+    #     
+    # def getAllPagesURL(self):
+    #     return '%s?full=1' % self.absolute_url()
 
 registerType(HelpCenterFAQFolder, PROJECTNAME)

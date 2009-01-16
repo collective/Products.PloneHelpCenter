@@ -20,20 +20,6 @@
         Description.
       </p>
 
-      <tal:entirefaq condition="full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s' % here.absolute_url()">
-          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
-        </a>
-      </tal:entirefaq>
-
-      <p tal:condition="not: full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s?full=1' % here.absolute_url()">
-          <span i18n:translate="phc_view_entire_faq">View entire FAQ expanded</span>
-        </a>
-      </p>
-
       <dl class="portlet visualNoPrint"
           style="float:right; margin: 0 0 1em 1em;"
           tal:condition="not:noSections">
@@ -48,6 +34,20 @@
           </ol>
         </dd>
       </dl>
+
+      <div tal:condition="full">
+        <a class="link-expand"
+          tal:attributes="href python:'%s' % here.absolute_url()">
+          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
+        </a>
+      </div>
+
+      <div tal:condition="not: full">
+        <a class="link-expand"
+          tal:attributes="href python:'%s?full=1' % here.absolute_url()">
+          <span i18n:translate="phc_view_entire_faq">View entire FAQ expanded</span>
+        </a>
+      </div>
 
       <div tal:repeat="section sections">
 
