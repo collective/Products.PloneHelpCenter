@@ -73,6 +73,15 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
 
     security.declareProtected(CMFCorePermissions.View,
                                 'getReferenceManualDescription')
+                                
+    
+    security.declareProtected(CMFCorePermissions.View, 'getNavRootObject')
+    def getNavRootObject(self):
+        """ return self as navigation aid """
+        return self
+
+    
+    security.declareProtected(CMFCorePermissions.View, 'getReferenceManualDescription')
     def getReferenceManualDescription(self):
         """ Returns the description of the ReferenceManual -- 
         convenience method for ReferenceManualPage
@@ -131,6 +140,34 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
                 
         buildNumbering(toc)
         return toc
+
+    security.declareProtected(CMFCorePermissions.View, 'getTOCSelectOptions')
+    def getTOCSelectOptions(self, current=None):
+        """
+        Calls getTOC then cooks the results into a sequence of dicts:
+            title: tile of section/page, including numbering
+            url:   URL of page
+            current: True if current section/page
+        This is a convenience for creating an option list.
+        """
+
+        def doNodes(nodes):
+            res = []
+            for n in nodes:
+                item = n['item']
+                res.append( { 
+                    'title'   : "%s %s" % (n['numbering'], item.Title),
+                    'url'     : item.getURL(),
+                    'current' : n['currentItem'],
+                } )
+                if n['children']:
+                    childres = doNodes(n['children'])
+                    if childres:
+                        res = res + childres
+            return res
+
+        return doNodes(self.getTOC(current))
+
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCInfo')
     def getTOCInfo(self, toc):
@@ -239,6 +276,13 @@ class HelpCenterReferenceManual(PHCContent,OrderedBaseFolder):
         # a view.
                 
         return IMG_PATTERN.sub(r"""\1src="%s/\2"\3""" % baseurl, body)
+
+
+    security.declareProtected(CMFCorePermissions.View, 'getAllPagesURL')
+    def getAllPagesURL(self):
+        """ return URL for all pages view """
+
+        return "%s/referencemanual-all-pages" % self.absolute_url()
 
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)

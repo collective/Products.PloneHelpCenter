@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 1.6.2
+    
+    - Add a static "about" portlet that will supply the metadata that's been
+      removed from the templates. [stevem]
+
     PloneHelpCenter 1.6.1
     
     - Set up indices in Extensions/Install.py rather than via GS

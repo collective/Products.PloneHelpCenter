@@ -82,5 +82,42 @@ class HelpCenterTutorial(PHCContent,OrderedBaseFolder):
                 return i
         return None
 
+
+    security.declareProtected(CMFCorePermissions.View, 'getNavRootObject')
+    def getNavRootObject(self):
+        """ return self as navigation aid """
+        return self
+
+
+    security.declareProtected(CMFCorePermissions.View, 'getTOCSelectOptions')
+    def getTOCSelectOptions(self, current=None):
+        """
+        Calls getTOC then cooks the results into a sequence of dicts:
+            title: tile of section/page, including numbering
+            url:   URL of page
+            current: True if current section/page
+        This is a convenience for creating an option list.
+        """
+
+        res = []
+        cid = current.getId()
+        for page in self.getPages():
+            res.append( {'title':page.Title, 'url':page.getURL, 'current':cid==page.id  } )
+        return res
+
+
+    security.declareProtected(CMFCorePermissions.View, 'getAllPagesURL')
+    def getAllPagesURL(self):
+        """ return URL for all pages view """
+
+        return "%s/tutorial-all-pages" % self.absolute_url()
+
+
+        security.declareProtected(CMFCorePermissions.View, 'getNextPreviousParentValue')
+        def getNextPreviousParentValue(self):
+            """ always true """
+            return True
+
+
 registerType(HelpCenterTutorial, PROJECTNAME)
 
