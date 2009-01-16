@@ -8,8 +8,9 @@
 
 <div metal:fill-slot="main"
        tal:define="view context/@@hc_view;
+                   pview context/@@plone;
                    wanted_types view/searchTypes;
-                   searchPath python:test(getattr(here,'constrainSearches',True), here.getPHCPath(), '/'.join(portal.getPhysicalPath()));
+                   searchPath python:test(getattr(here,'constrainSearches',True), here.absolute_url(), '/'.join(portal.getPhysicalPath()));
                    results python:here.queryCatalog({
                                 'portal_type':wanted_types,
                                 'SearchableText':request.form.get('SearchableText',''),
@@ -94,7 +95,7 @@
 
             </dt>
             
-            <dd tal:content="python:here.cropText(result.Description, desc_length, desc_ellipsis)"> Description </dd>
+            <dd tal:content="python:pview.cropText(result.Description, desc_length, desc_ellipsis)"> Description </dd>
 
         </tal:entry>
         </tal:results>
