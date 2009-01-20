@@ -17,7 +17,6 @@ from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
 from schemata import HelpCenterItemSchemaNarrow
 from PHCContent import PHCContentMixin, HideOwnershipFields
-from Products.CMFPlone.interfaces.NonStructuralFolder import INonStructuralFolder
 
 from Products.ATContentTypes.interfaces import IATFolder, IATDocument
 from Products.ATContentTypes.content.document import \
