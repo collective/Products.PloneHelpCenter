@@ -7,53 +7,34 @@
 
   <div metal:fill-slot="main">
 
+    <div tal:replace="structure provider:plone.abovecontenttitle" />
+
     <h1 class="documentFirstHeading">
-        <img tal:replace="structure here/referencemanual_icon.gif" />
         <span tal:replace="here/Title">Title</span>
     </h1>
     
-    <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-        </div>
-    <p class="discreet">
-       <span tal:condition="here/getVersionsVocab | nothing" tal:define="versions here/Versions" >
-    <span i18n:translate="phc_referencemanual_applies_to">This Reference Manual applies to:</span>         
-    <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
-    <span tal:condition="not: versions">
-      <span i18n:translate="phc_any_version">
-      Any version.
-      </span>
-    </span>
- </span>
-    <span tal:condition="here/getAudiencesVocab | nothing" tal:define="audiences here/Audiences">
-          <br/>
-         <span i18n:translate="phc_referencemanual_audiences">This Reference Manual is intended for:</span>         
-          <span tal:condition="audiences" tal:replace="audiences">1.0, 2.0</span>
-          <span tal:condition="not: audiences">
-           <span i18n:translate="phc_any_audience">
-           Any audience.
-           </span>
-          </span>
-         </span>
-    </p>
-
     <p class="documentDescription"
       tal:condition="here/Description"
       tal:content="structure here/Description">
       Description
     </p>
 
-    
+    <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+           Warning: This item is marked as outdated.
+    </p>
+
+    <div tal:replace="structure provider:plone.abovecontentbody" />
+
     <tal:block define="toc here/getTOC;">
-    
+        
+        <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
+            
         <p class="visualNoPrint" tal:condition="nocall:toc">
             <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages">
             All content on one page</a>
             (useful for printing, presentation mode etc.)
         </p>
-    
-        <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
-            
+
         <p tal:condition="not:nocall:toc" class="discreet">
           <span i18n:translate="view_no_reference_manual1"
                 tal:omit-tag="">There are no pages or sections in this Reference Manual.</span>
@@ -96,9 +77,8 @@
     <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
       see also - shows the references if this feature is switched on
     </div>
-    <div metal:use-macro="here/document_byline/macros/byline">
-      Get the byline - contains details about author and modification date.
-    </div>
+
+    <div tal:replace="structure provider:plone.belowcontentbody" />
   </div>
 </body>
 </html>
