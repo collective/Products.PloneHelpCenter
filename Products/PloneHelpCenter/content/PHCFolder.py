@@ -33,9 +33,7 @@ def _sectionCmp(a, b):
 class PHCFolder(BrowserDefaultMixin):
     """A simple mixin for folderish archetype"""
 
-    implements(IHelpCenterFolder)
-    
-    __implements__ = BrowserDefaultMixin.__implements__
+    __implements__ = (BrowserDefaultMixin.__implements__, IHelpCenterFolder)
 
     _at_rename_after_creation = True
 
