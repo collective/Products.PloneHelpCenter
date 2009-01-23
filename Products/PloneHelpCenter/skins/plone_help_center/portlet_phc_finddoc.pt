@@ -4,52 +4,40 @@
 <body>
 <div metal:define-macro="portlet" id="finddoc_portlet">
 
-    <dl class="portlet" style="width: 23em;">
-        <dd class="portletFooter" style="text-align:left;border-top:1px solid #8CACBB;">
-            <h3 style="margin-bottom:1em">Find Documentation by Topic</h3>
-            <dl>
-                <dt>For Content Editors and Authors</dt>
-                <dd style="margin-left: 0">
-                    <ul style="list-style-type:none;list-style-image: none;margin-left: 0">
-                        <li><a href="/documentation/phc_topic_area?topic=Basic+Use">Basic Use for Content Editors</a></li>
-                    </ul>
-                </dd>
+    <dl class="portlet">
+        <dt class="portletHeader">Find documentation by topic</dt>
+        <dd class="portletItem">
+            <h3>For Content Editors and Authors</h3>
+            <ul>
+                <li><a href="/documentation/phc_topic_area?topic=Basic+Use">Basic Use for Content Editors</a></li>
+            </ul>
 
-                <dt>Installation and Setup</dt>
-                <dd style="margin-left: 0">
-                    <ul style="list-style-type:none;list-style-image: none;margin-left: 0">
-                        <li><a href="/documentation/phc_topic_area?topic=Installation">Installation</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Configuration+and+Set-Up">Configuration and Set-Up</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Upgrading+and+Moving">Upgrading and Moving</a></li>
-                    </ul>
-                </dd>
-
-                <dt>Customizing Plone</dt>
-                <dd style="margin-left: 0">
-                    <ul style="list-style-type:none;list-style-image: none;margin-left: 0">
-                        <li><a href="/documentation/phc_topic_area?topic=Visual+Design">Visual Design</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Navigation">Navigation</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Managing+Content">Managing Content</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Users%2C+Authentication%2C+and+Permissions">Users, Authentication, and Permissions</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Internationalization+and+Localization">Internationalization and Localization</a></li>
-                    </ul>
-                </dd>
-
-                <dt>Extending Plone</dt>
-                <dd style="margin-left: 0">
-                    <ul style="list-style-type:none;list-style-image: none;margin-left: 0">
-                        <li><a href="/documentation/phc_topic_area?topic=Developing+for+Plone">Developing for Plone</a></li>
-                    </ul>
-                </dd>
-
-                <dt>Contributing to Plone.Org</dt>
-                <dd style="margin-left: 0">
-                    <ul style="list-style-type:none;list-style-image: none;margin-left: 0">
-                        <li><a href="/documentation/phc_topic_area?topic=Contributing+to+plone.org#adding-a-software-project.">Adding a Software Project to plone.org</a></li>
-                        <li><a href="/documentation/phc_topic_area?topic=Contributing+to+plone.org#writing-documentation-for-plone.org">Writing Documentation for plone.org</a></li>
-                    </ul>
-                </dd>
-            </dl>
+            <h3>Installation and Setup</h3>
+            <ul>
+                <li><a href="/documentation/phc_topic_area?topic=Installation">Installation</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Configuration+and+Set-Up">Configuration and Set-Up</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Upgrading+and+Moving">Upgrading and Moving</a></li>
+            </ul>
+    
+            <h3>Customizing Plone</h3>
+            <ul>
+                <li><a href="/documentation/phc_topic_area?topic=Visual+Design">Visual Design</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Navigation">Navigation</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Managing+Content">Managing Content</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Users%2C+Authentication%2C+and+Permissions">Users, Authentication, and Permissions</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Internationalization+and+Localization">Internationalization and Localization</a></li>
+            </ul>
+    
+            <h3>Extending Plone</h3>
+            <ul>
+                <li><a href="/documentation/phc_topic_area?topic=Developing+for+Plone">Developing for Plone</a></li>
+            </ul>
+    
+            <h3>Contributing to plone.org</h3>
+            <ul>
+                <li><a href="/documentation/phc_topic_area?topic=Contributing+to+plone.org#adding-a-software-project.">Adding a Software Project to plone.org</a></li>
+                <li><a href="/documentation/phc_topic_area?topic=Contributing+to+plone.org#writing-documentation-for-plone.org">Writing Documentation for plone.org</a></li>
+            </ul>
         </dd>
     </dl>
 
