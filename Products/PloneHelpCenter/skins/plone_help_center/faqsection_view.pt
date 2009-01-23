@@ -8,43 +8,28 @@
     <div metal:define-macro="body" 
                  tal:define="view here/@@hcf_view; section request/section;">
       
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Folder Title
-      </h1>
+      <h1 tal:content="section">Section Heading</h1>
 
-      <tal:entirefaq>
-        <a class="link-expand"
-          tal:attributes="href python:'%s?full=1' % here_url">
-	  <span i18n:translate="phc_view_entire_faq">View entire FAQ in full</span>
-	  </a>
-      </tal:entirefaq>
-
-      <tal:toc>
+      <p>
         <a class="link-parent"
           tal:attributes="href here_url">
-	  <span i18n:translate="phc_up_to_toc">Up to Table of Contents</span>
-	  </a>
-      </tal:toc>
-
-      <p class="documentDescription"
-        tal:content="here/Description">
-        Description.
+          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
+        </a>
       </p>
 
-      <h2 tal:content="section">Section Heading</h2>
+
 
       <div class="faqMarker" tal:repeat="faq python: view.getItemsBySection(section=section)">
 
       <tal:faq define="faq faq/getObject">
 
-        <h3>
-          <img tal:replace="structure here/faq_icon.gif" />
+        <h2>
           <span tal:replace="faq/Title">Question</span>
           <img src="error_icon.gif" alt="!" class="outdatedMarker"
                      tal:condition="faq/isOutdated"
                      title="This FAQ applies to a previous version" 
                      i18n:attributes="title"/>
-        </h3>
+        </h2>
 
         <p tal:condition="faq/Description"
         tal:content="structure faq/Description"

@@ -10,27 +10,29 @@
                      sections view/getItemsBySections;
                      noSections python:len(sections) == 1">
 
+    <dl class="portlet" style="float: right" tal:condition="not:noSections">
+        <dt class="portletHeader"
+            i18n:translate="phc_index_sections">Sections</dt>
+        <dd class="portletItem">
+            <ul>
+            <li tal:repeat="section sections">
+            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+               tal:content="section/section" i18n:translate="">Section</a>
+            </li>
+            </ul>
+        </dd>
+    </dl>
+
+
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Folder Title
     </h1>
     
-    <table class="sectionIndex" tal:condition="not:noSections">
-        <thead>
-            <tr><th i18n:translate="phc_index_sections">Sections</th></tr>
-        </thead>
-        <tbody>
-            <tr tal:repeat="section sections">
-                <td><a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
-                       tal:content="section/section" i18n:translate="">Section</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-
     <p class="documentDescription"
          tal:content="here/Description">
       Description.
     </p>
+
 
     <div tal:repeat="section sections">
 
@@ -48,8 +50,6 @@
             <tal:item tal:repeat="item python:section['items']">
               
             <dt>
-                <img metal:define-slot="item_icon"
-                     tal:replace="structure here/howto_icon.gif" />
                 <a href="" tal:content="item/Title"
                    tal:attributes="href item/getURL;
                                    class string:state-${item/review_state}">Item</a>

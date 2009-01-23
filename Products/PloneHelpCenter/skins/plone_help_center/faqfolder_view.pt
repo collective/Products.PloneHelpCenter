@@ -15,24 +15,23 @@
         Folder Title
       </h1>
 
-      <tal:entirefaq condition="full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s' % here.absolute_url()">
-          <span i18n:translate="phc_up_to_toc">Up to Table of Contents</span>
-        </a>
-      </tal:entirefaq>
-
-      <tal:entirefaq condition="not: full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s?full=1' % here.absolute_url()">
-          <span i18n:translate="phc_view_entire_faq">View entire FAQ in full</span>
-        </a>
-      </tal:entirefaq>
-
-
       <p class="documentDescription"
         tal:content="here/Description">
         Description.
+      </p>
+
+      <tal:entirefaq condition="full">
+        <a class="link-expand"
+          tal:attributes="href python:'%s' % here.absolute_url()">
+          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
+        </a>
+      </tal:entirefaq>
+
+      <p tal:condition="not: full">
+        <a class="link-expand"
+          tal:attributes="href python:'%s?full=1' % here.absolute_url()">
+          <span i18n:translate="phc_view_entire_faq">View entire FAQ expanded</span>
+        </a>
       </p>
 
       <dl class="portlet visualNoPrint"
@@ -62,12 +61,12 @@
         </h2>
 
         <tal:section condition="not:full">
-          <a class="link-expand"
+          <p><a class="link-expand"
             tal:attributes="href python:'%s/faqsection_view?section=%s' % (here.absolute_url(), pss.url_quote(section['section']) )">
             <span i18n:translate="phc_view_entire_section">
-            View section in full
+            Expand section
             </span>
-          </a> 
+          </a></p>
 
           <ol>
             <li tal:repeat="faq python:section['items']">
@@ -89,7 +88,6 @@
          <tal:faq define="faq faq/getObject">
           
           <h3>
-            <img tal:replace="structure here/faq_icon.gif" />
             <span tal:replace="faq/Title">Question</span>
             <img src="error_icon.gif" alt="!" class="outdatedMarker"
                  tal:condition="faq/isOutdated|nothing"
