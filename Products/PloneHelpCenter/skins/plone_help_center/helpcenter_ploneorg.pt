@@ -17,7 +17,7 @@ ul.quickLinks li {
 }
 
 dl.topicList {
-    width: 45%;
+    width: 47%;
     display: block;
     float: left;
     margin: 0 2em 2em 0;
@@ -53,14 +53,18 @@ dl.topicList dd {
 #reading .rc {
     margin-left: 270px;
 }
+#sidebar {
+    padding: 0 !important;
+}
+
 </style>
 </head>
 <body>
    
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getSectionMap">
 
-    <dl id="reading" class="portlet">
-      <dt class="portletHeader">Recommended Reading</dt>
+    <dl id="reading" class="portlet" style="margin:0;">
+      <dt class="portletHeader" style="font-size: 16px; margin: 0; color: White; line-height: 2em">Recommended Reading</dt>
       <dd class="portletItem">
 
         <a href="books" id="books"><img tal:replace="structure here/books.png" /></a>

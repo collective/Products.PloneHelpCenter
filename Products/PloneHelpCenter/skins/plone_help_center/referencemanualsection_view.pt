@@ -37,10 +37,9 @@
     </div>
     
     <p class="visualNoPrint" tal:condition="nocall:toc">
-      <img tal:replace="structure here/referencemanual_icon.gif" />
-      <a href="referencemanual-all-pages">
-      All content on one page (useful for printing, presentation mode etc.)
-      </a>
+      <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages">
+      All content on one page</a>
+      (useful for printing, presentation mode etc.)
     </p>
 
     <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>

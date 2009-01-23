@@ -17,7 +17,7 @@
 
         <p class="discreet visualNoPrint"
            i18n:translate="view_paginated_pages">
-	  Note: Return to <a href="" tal:attributes="href here/absolute_url">tutorial view</a>.
+            <a href="" tal:attributes="href here/absolute_url">&laquo; Return to page index</a>
         </p>
 
         <p class="documentDescription" 
