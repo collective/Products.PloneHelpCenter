@@ -6,7 +6,7 @@
     tal:define="view context/@@hc_view;"
     >
 
-<div id="phcsearch_portlet" style="width:23em">
+<div id="phcsearch_portlet">
 
 <form name="searchform"
       action="phc_search"
@@ -24,7 +24,7 @@
         </label>
         <input name="SearchableText"
                type="text"
-               size="14"
+               size="20"
                value=""
                alt="Search Documentation"
                title="Search Documentation"
