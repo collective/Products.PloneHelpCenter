@@ -4,16 +4,16 @@
 <body>
 <div metal:define-macro="portlet">
 
-    <dl class="portlet" style="width:100%">
+    <dl class="portlet">
       <dt class="portletHeader"><a href="/support">Support</a></dt>
       <dd class="portletItem">
-         <span>
-           <a href="/support"><img src="speakplone_sm.png" tal:replace="structure here/speakplone_sm.png" /></a>
-         </span>
-         <span><b class="supportlink"><a href="/support">Get Help</a></b></span>
+         <a href="/support" class="supportlink">
+             <img src="speakplone_sm.png" tal:replace="structure here/speakplone_sm.png" />
+             Get Help
+         </a>
       </dd>
       <dd class="portletItem">
-         <p>Join our 
+         <p>Visit our 
            <a href="/support/irc">chat rooms</a> or <a href="http://www.nabble.com/Plone-f6741.html">support forums</a> if you have more specific questions.
          </p>
       </dd>
