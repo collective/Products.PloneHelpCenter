@@ -163,8 +163,9 @@ HCRootSchema = BaseFolderSchema + Schema((
 class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
     """A simple folderish archetype"""
     
+    implements(IHelpCenterContent)
     __implements__ = (BrowserDefaultMixin.__implements__,
-        OrderedBaseFolder.__implements__, IHelpCenterContent)
+        OrderedBaseFolder.__implements__)
     
     schema = HCRootSchema
 
