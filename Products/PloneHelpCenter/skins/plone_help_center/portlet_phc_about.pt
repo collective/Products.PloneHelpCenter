@@ -93,22 +93,18 @@
     Copyleft NiceCorp Inc.
     </p>
 	
-	</dd>
+    <p>
+    <img src="speakplone_sm.png" width="80" height="28" style="float: left" />
+      Visit our 
+      <a href="/support/chat">chat rooms</a> or 
+      <a href="/support/forums">support forums</a> 
+      if you have more specific questions.
+    </p>
 
-  <dd class="portletItem">
-     <p>
-     <img src="speakplone_sm.png" width="80" height="28" style="float: left" />
-       Visit our 
-       <a href="/support/chat">chat rooms</a> or 
-       <a href="/support/forums">support forums</a> 
-       if you have more specific questions.
-     </p>
-  </dd>
-
-  <dd class="portletItem">
     <p>You can also learn how to design, build, and deploy a website in Plone 
-    through one of the numerous Plone training sessions around the world.</p>
-    <p><a href="/events/training">Find Plone training&hellip;</a></p>
+    through one of the numerous Plone training sessions around the world.
+    <a href="/events/training">Find Plone training&hellip;</a></p>
+
   </dd>
 
 </dl>
