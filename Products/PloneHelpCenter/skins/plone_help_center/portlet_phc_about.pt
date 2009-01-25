@@ -84,7 +84,7 @@
                  class="portraitPhoto"
                  width="75"
                  height="100"
-                 style="float: left"
+                 style="float: left; margin: 0 1em 0.5em 0"
                  tal:attributes="src portrait/absolute_url" />
 
             <p>This document was contributed by
