@@ -8,6 +8,7 @@
 <div metal:fill-slot="main">
 
     <div metal:define-macro="main"
+         id="content"
          tal:define="toc python:here.getTOC(root = here);">
 
         <h1>
