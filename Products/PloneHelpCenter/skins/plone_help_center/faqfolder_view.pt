@@ -61,12 +61,6 @@
         </h2>
 
         <tal:section condition="not:full">
-          <p><a class="link-expand"
-            tal:attributes="href python:'%s/faqsection_view?section=%s' % (here.absolute_url(), pss.url_quote(section['section']) )">
-            <span i18n:translate="phc_view_entire_section">
-            Expand section
-            </span>
-          </a></p>
 
           <ol>
             <li tal:repeat="faq python:section['items']">
