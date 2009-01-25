@@ -7,7 +7,8 @@
 
 <div metal:fill-slot="main">
 
-    <div metal:define-macro="main"
+    <div id="content"
+         metal:define-macro="main"
          tal:define="sibl here/getPages;">
 
         <h1>
