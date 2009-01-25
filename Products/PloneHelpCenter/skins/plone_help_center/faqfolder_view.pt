@@ -83,10 +83,6 @@
           
           <h3>
             <span tal:replace="faq/Title">Question</span>
-            <img src="error_icon.gif" alt="!" class="outdatedMarker"
-                 tal:condition="faq/isOutdated|nothing"
-                 title="This FAQ applies to a previous version" 
-                 i18n:attributes="title"/>
           </h3>
 
           <p tal:condition="faq/Description"
