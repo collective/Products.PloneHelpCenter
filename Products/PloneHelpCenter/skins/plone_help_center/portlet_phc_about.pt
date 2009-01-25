@@ -76,7 +76,7 @@
         <p>This document was contributed by
            <a href=""
               tal:attributes="href string:${portal_url}/author/${creator}" 
-              tal:replace="python:author and author['fullname'] or creator">Steve McMahon</a>,
+              tal:content="python:author and author['fullname'] or creator">Steve McMahon</a>,
            and last modified
            <span tal:replace="python:'%d' % (DateTime() - DateTime(here.ModificationDate()))">5</span>
            days ago.
