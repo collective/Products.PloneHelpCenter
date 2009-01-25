@@ -78,16 +78,14 @@
         	tal:define="creator here/Creator;
         	author python:mtool.getMemberInfo(creator)">
 
-           <div tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());">
-               <div style="text-align: center;">
-                   <img src=""
-                        alt=""
-                        class="portraitPhoto"
-                        width="75"
-                        height="100"
-                        tal:attributes="src portrait/absolute_url" />
-               </div>
-           </div>
+            <img tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());"
+                 src=""
+                 alt=""
+                 class="portraitPhoto"
+                 width="75"
+                 height="100"
+                 style="float: left"
+                 tal:attributes="src portrait/absolute_url" />
 
             <p>This document was contributed by
                <a href=""
