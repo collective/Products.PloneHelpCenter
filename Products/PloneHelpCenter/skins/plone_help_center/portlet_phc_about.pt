@@ -75,16 +75,14 @@
     	tal:define="creator here/Creator;
     	author python:mtool.getMemberInfo(creator)">
         <p>This document was contributed by
-           <span tal:replace="python:author and author['fullname'] or creator">Steve McMahon</span>,
+           <a href=""
+              tal:attributes="href string:${portal_url}/author/${creator}" 
+              tal:replace="python:author and author['fullname'] or creator">Steve McMahon</span>,
            and last modified
            <span tal:replace="python:'%d' % (DateTime() - DateTime(here.ModificationDate()))">5</span>
            days ago.
         </p>
-        <p>
-            <a href="#"
-        	tal:attributes="href string:${portal_url}/author/${creator}">View author profile</a>
-        </p>
-        <p style="clear:both" tal:condition="here/Contributors">
+        <p tal:condition="here/Contributors">
             Also contributing: <span tal:content="python: ', '.join(here.Contributors())">Mary</span>.
         </p>
     </tal:name>
@@ -102,8 +100,9 @@
     </p>
 
     <p>You can also learn how to design, build, and deploy a website in Plone 
-    through one of the numerous Plone training sessions around the world.
-    <a href="/events/training">Find Plone training&hellip;</a></p>
+    through one of the numerous 
+    <a href="/events/training">Plone training sessions</a> around the world.
+    </p>
 
   </dd>
 
