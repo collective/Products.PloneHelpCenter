@@ -90,8 +90,8 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         newBody = 'Changed!'
         errorRef = self._createErrorReference(self.folder.hc.error, 'er')
         self._publishContent(errorRef)
-        errorRef.edit(body=newBody)
-        self.assertEqual(errorRef.getRawBody(), newBody)
+        errorRef.edit(text=newBody)
+        self.assertEqual(errorRef.getRawText(), newBody)
 
     def testEditPublishedDef(self):
         newDefinition = 'Explicit is better than implicit'

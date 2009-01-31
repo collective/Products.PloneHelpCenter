@@ -13,10 +13,10 @@ from HowTo import HowToSchema, HelpCenterHowTo
 
 
 ErrorReferenceSchema = HowToSchema.copy()
-del ErrorReferenceSchema['versions']
-del ErrorReferenceSchema['sections']
-del ErrorReferenceSchema['audiences']
-del ErrorReferenceSchema['startHere']
+# del ErrorReferenceSchema['versions']
+# del ErrorReferenceSchema['sections']
+# del ErrorReferenceSchema['audiences']
+# del ErrorReferenceSchema['startHere']
 ErrorReferenceSchema['text'].widget.description='Explanation of the error.'
 ErrorReferenceSchema['text'].widget.description_msgid='phc_help_body_ErrorReference'
 ErrorReferenceSchema['text'].widget.i18n_domain = "plonehelpcenter"

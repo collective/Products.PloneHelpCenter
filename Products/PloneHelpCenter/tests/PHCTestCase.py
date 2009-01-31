@@ -131,7 +131,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         errorRef = getattr(errorRefFolder, id)
         errorRef.setTitle( title )
         errorRef.setDescription( 'An error reference for unit tests.' )
-        errorRef.setBody( self.defaultBodyRst )
+        errorRef.setText( self.defaultBodyRst )
         errorRef.setVersions( ('Version 2.0',) )
         errorRef.setSections( ('General',) )
         self.portal.plone_utils.editMetadata(errorRef, format='text/x-rst')
