@@ -5,6 +5,9 @@ PloneHelpCenter ToDo
 Bugs
 --------
 
+Derive section folders from ATCT folder. Add sections.
+Ones that don't need order should be derived from large folder.
+
 isOutdated support lost in eliminated PHCContent derivation.
 
 ATContentTypes.py nextprevious.py excludes folderish items from navigation.
