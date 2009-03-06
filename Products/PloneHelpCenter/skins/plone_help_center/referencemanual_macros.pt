@@ -74,7 +74,7 @@
     i18n:domain="plonehelpcenter">
 
     <tal:next condition="nextIdx">
-        <a class="listingNext"
+        <a class="next"
            tal:define="next python:tocList[nextIdx]['item']" 
            tal:attributes="href next/getURL"
            tabindex="1"
@@ -88,7 +88,7 @@
     </tal:next>
        
     <tal:prev condition="prevIdx">
-        <a class="listingPrevious"
+        <a class="previous"
            tal:define="prev python:tocList[prevIdx]['item']" 
            tal:attributes="href prev/getURL"
            tabindex="1"
