@@ -2,11 +2,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Plone Help Center 0.0.1\n"
 "POT-Creation-Date: 2006-09-20 09:11+0000\n"
-"PO-Revision-Date: 2004-11-26 19:23+0100\n"
-"Last-Translator: Tim Hoebeek <tim.hoebeek@vub.ac.be>\n"
+"PO-Revision-Date: 2009-04-04 02:08+0100\n"
+"Last-Translator: Rob Gietema <rob@fourdigits.nl>\n"
 "Language-Team: Belgian Language Team <gotcha@bubblenet.be>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: nl\n"
@@ -21,33 +21,33 @@ msgstr ""
 #. Default: "Duration:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Duration:"
-msgstr ""
+msgstr "Tijdsduur:"
 
 #. Default: "Find and modify content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Find and modify content"
-msgstr ""
+msgstr "Zoek content en pas deze aan"
 
 #. Default: "Go"
 #: ../skins/plone_help_center/referencemanual_macros.pt
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "Go"
-msgstr ""
+msgstr "Ga"
 
 #. Default: "Help Center Statistics and Maintenance"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Help Center Statistics and Maintenance"
-msgstr ""
+msgstr "Help Center statistieken en onderhoud"
 
 #. Default: "RSS Feed"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "RSS Feed"
-msgstr ""
+msgstr "RSS Feed"
 
 #. Default: "RSS feed of these search results"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "RSS feed of these search results"
-msgstr ""
+msgstr "RSS feed van deze zoekresultaten"
 
 #. Default: "Search"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -57,40 +57,40 @@ msgstr "Zoeken"
 #. Default: "Search for content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Search for content"
-msgstr ""
+msgstr "Zoek naar content"
 
 #. Default: "Size:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Size:"
-msgstr ""
+msgstr "Grootte:"
 
 #. Default: "This FAQ applies to a previous version"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/faqsection_view.pt
 msgid "This FAQ applies to a previous version"
-msgstr ""
+msgstr "Deze FAQ is van toepassing op een vorige versie"
 
 #. Default: "This form aids maintenance of help center content."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "This form aids maintenance of help center content."
-msgstr ""
+msgstr "Dit formulier helpt bij het onderhouden van help center content"
 
 #. Default: "This item applies to a previous version"
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
 #: ../skins/plone_help_center/glossary_view.pt
 #: ../skins/plone_help_center/phcfolder_view.pt
 msgid "This item applies to a previous version"
-msgstr ""
+msgstr "Dit item is van toepassing op een vorige versie"
 
 #. Default: "This video applies to a previous version"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "This video applies to a previous version"
-msgstr ""
+msgstr "Deze video is van toepassing op een vorige versie"
 
 #. Default: "Using the criteria below, you can find content and then modify it from the search results page."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
-msgstr ""
+msgstr "Gebruik makende van de onderstaande criteria kan je content zoeken en het vervolgens bewerken vanuit de zoekresultaten pagina."
 
 #. Default: "accesskeys-search"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -101,755 +101,762 @@ msgstr "z"
 #: ../skins/plone_help_center/tutorial_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "all_content_on_one_page"
-msgstr ""
+msgstr "Alle content op één pagina (handig voor printen, presentatiemode etc.)"
 
 #. Default: "All ${number} ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "all_helptype"
-msgstr ""
+msgstr "Alle ${number} ${title}"
 
-#. Default: "More <tal:center replace=\"center/Title\">Documentation</tal:center> …"
+#. Default: "More <tal:center replace=\"center/Title\">Documentation</tal:center> â¦"
 #: ../skins/plone_help_center/portlet_helpcenter.pt
 msgid "box_more_documentation"
-msgstr ""
+msgstr "Meer <tal:center replace=\"center/Title\">Documentatie</tal:center> …"
 
 #. Default: "No stale items found in the Help Center."
 #: ../skins/plone_help_center/portlet_stale_items.pt
 msgid "box_no_stale_items"
-msgstr ""
+msgstr "Geen verlopen items gevonden in het Help Center"
 
 #. Default: "Stale Help Center Items"
 #: ../skins/plone_help_center/portlet_stale_items.pt
 msgid "box_staleitems"
-msgstr ""
+msgstr "Verlopen Help Center items"
 
 #. Default: "Meaningful sentences that explains the answer."
 msgid "desc_answer"
-msgstr ""
+msgstr "Betekenisvolle zinnen welke het antwoord uitleggen."
 
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_and"
-msgstr ""
+msgstr "Alle doelgroepen"
 
 #. Default: "Has more than one audience selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_multiple"
-msgstr ""
+msgstr "Heeft meer dan één doelgroep geselecteerd"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_audiences_or"
-msgstr ""
+msgstr "Eén van de doelgroepen"
 
 #. Default: "Description for the Error Reference Container."
 msgid "description_edit_ErrorReference"
-msgstr ""
+msgstr "Omschrijving voor de Foutmeldingen Naslag container"
 
 #. Default: "Description for the Link."
 msgid "description_edit_Link"
-msgstr ""
+msgstr "Omschrijving voor de link."
 
 #. Default: "Description for the Link Container."
 msgid "description_edit_Link_Container"
-msgstr ""
+msgstr "Omschrijving voor de link container."
 
 #. Default: "Description"
 msgid "description_label_ErrorReference"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Description"
 msgid "description_label_Link"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_and"
-msgstr ""
+msgstr "Alle secties"
 
 #. Default: "Has more than one section selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_multiple"
-msgstr ""
+msgstr "Heeft meer dan één sectie geselecteerd"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_sections_or"
-msgstr ""
+msgstr "Eén van de secties"
 
 #. Default: "Match all"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_and"
-msgstr ""
+msgstr "Alle versies"
 
 #. Default: "Has more than one version selected"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_multiple"
-msgstr ""
+msgstr "Heeft meer dan één versie geselecteerd"
 
 #. Default: "Match any"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "description_versions_or"
-msgstr ""
+msgstr "Eén van de versies"
 
 #. Default: "Someone added a comment on your ${type}: ${title}. \nIf you are the author of this item, we recommend that you read the comment, and update the documentation accordingly if required - then remove the comment. \nIf further clarification is needed, reply to the comment, and the person who made the comment will get a notification like this, and will likely give you more details. \nTo view the new comment, visit: ${url}"
 #: ../skins/plone_help_center/discussion_notify_template.pt
 msgid "discussion_notify_template_body"
 msgstr ""
+"Iemand heeft commentaar op jouw ${type}: ${title} toegevoegd. \n"
+"Wanneer jij de auteur bent van dit item adviseren wij dat je dit commentaar leest, de documentatie hierop aanpast en het commentaar verwijderd indien noodzakelijk. \n"
+"Wanneer meer uitleg noodzakelijk is, reageer op het commentaar zodat de persoon die het commentaar heeft toegevoegd een notificatie krijgt zoals deze en zeer waarschijnlijk meer details zal toevoegen. \n"
+"Om het nieuwe commentaar te bekijken, bezoek: ${url}"
 
 #. Default: "New comment on:"
 #: ./plone_help_center/discussion_notify_template.pt
 msgid "discussion_notify_template_subject"
-msgstr ""
+msgstr "Nieuwe reacties op:"
 
 #. Default: "Someone has replied to your comment, ${title}. \nTo view the reply, visit: \n${url}"
 #: ../skins/plone_help_center/discussion_reply_notify_template.pt
 msgid "discussion_reply_notify_template_body"
 msgstr ""
+"Iemand heeft een reactie gegeven op jouw commentaar, ${title}. \n"
+"Om deze reactie te bekijken bezoek: \n"
+"${url}"
 
 #. Default: "New reply to your comment on:"
 #: ./plone_help_center/discussion_reply_notify_template.pt
 msgid "discussion_reply_notify_template_subject"
-msgstr ""
+msgstr "Nieuwe reactie op jouw commentaar op:"
 
 #. Default: "More details on the question, if not evident from the title."
 msgid "help_detailed_question"
-msgstr ""
+msgstr "Meer detail op de vraag indien niet duidelijk op te maken uit de titel."
 
 #. Default: "Return items marked for some or all of these audiences. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one audience selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_audiences"
-msgstr ""
+msgstr "Toont items welke deels of geheel overeen komen met deze doelgroepen. Meerdere woorden kunnen worden geselecteerd door de toets <strong>Ctrl</strong> (of <strong>Apple</strong> toets op de Mac) in te drukken terwijl u kernwoorden aanklikt. Je kan ook de zoekresultaten beperken door alleen de items te tonen waar meer dan één doelgroep voor aangegeven is."
 
 #. Default: "Return items that have comments."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_has_comments"
-msgstr ""
+msgstr "Toon items die commentaar hebben."
 
 #. Default: "Return items in some or all of these sections. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one section selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_sections"
-msgstr ""
+msgstr "Toont items welke deels of geheel overeen komen met deze secties. Meerdere woorden kunnen worden geselecteerd door de toets <strong>Ctrl</strong> (of <strong>Apple</strong> toets op de Mac) in te drukken terwijl u kernwoorden aanklikt. Je kan ook de zoekresultaten beperken door alleen de items te tonen waar meer dan één sectie voor aangegeven is."
 
 #. Default: "Return items in some or all of these versions. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one version selected."
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "help_search_versions"
-msgstr ""
+msgstr "Toont items welke deels of geheel overeen komen met deze versies. Meerdere woorden kunnen worden geselecteerd door de toets <strong>Ctrl</strong> (of <strong>Apple</strong> toets op de Mac) in te drukken terwijl u kernwoorden aanklikt. Je kan ook de zoekresultaten beperken door alleen de items te tonen waar meer dan één versie voor aangegeven is."
 
 #. Default: "Answer"
 msgid "label_answer"
-msgstr ""
+msgstr "Antwoord"
 
 #. Default: "Audiences"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_audiences"
-msgstr ""
+msgstr "Doelgroepen"
 
 #. Default: "Click to enlarge"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "label_click_to_enlarge"
-msgstr ""
+msgstr "Klik om te vergroten"
 
 #. Default: "Detailed Question"
 msgid "label_detailed_question"
-msgstr ""
+msgstr "Gedetailleerde vraag"
 
 #. Default: "Has comments"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_has_comments"
-msgstr ""
+msgstr "Heeft commentaar"
 
 #. Default: "Sections"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_sections"
-msgstr ""
+msgstr "Secties"
 
 #. Default: "Versions"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "label_versions"
-msgstr ""
+msgstr "Versies"
 
 #. Default: "Latest ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "latest_helptype"
-msgstr ""
+msgstr "Laatste ${title}"
 
 #. Default: "minutes"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "minutes"
-msgstr ""
+msgstr "minuten"
 
 #. Default: "You must publish this page before it becomes visible to the public."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
 msgid "must_publish_before_visible_to_public"
-msgstr ""
+msgstr "Je moet deze pagina publiceren voordat deze publiek zichtbaar is."
 
 #. Default: "Nothing published in ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "nopublished_helptype"
-msgstr ""
+msgstr "Niets gepubliceerd in ${title}"
 
 #. Default: "Any audience."
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_any_audience"
-msgstr ""
+msgstr "Elke doelgroep"
 
 #. Default: "Any version."
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/definition_view.pt
 msgid "phc_any_version"
-msgstr ""
+msgstr "Elke versie"
 
 #. Default: "Body"
 msgid "phc_body"
-msgstr ""
+msgstr "Inhoud"
 
 #. Default: "Instructions on how to contribute to and use this resource."
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_contrib_use"
-msgstr ""
+msgstr "Instructies over hoe deze bron te gebruiken en eraan bij te dragen."
 
 #. Default: "Readers will be informed when content relates to versions not in this list, as it may be outdated."
 msgid "phc_current_versions_helpcenter"
-msgstr ""
+msgstr "Lezers zullen geïnformeerd worden wanneer content is gerelateerd aan versies in deze lijst, aangezien het gedateerd kan zijn."
 
 #. Default: "Default importance rating for new content."
 msgid "phc_default_importance_helpcenter"
-msgstr ""
+msgstr "Standaard prioriteit waardering voor nieuwe content."
 
 #. Default: "Glossary definitions"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_definition"
-msgstr ""
+msgstr "Woordenboekdefinities"
 
 #. Default: "This Definition applies to:"
 #: ../skins/plone_help_center/definition_view.pt
 msgid "phc_definition_applies_to"
-msgstr ""
+msgstr "Deze definitie is van toepassing op:"
 
 #. Default: "Enter a brief description"
 msgid "phc_desc_ErrorReference"
-msgstr ""
+msgstr "Voer een korte beschrijving in"
 
 #. Default: "Explanation of the error."
 msgid "phc_desc_body_ErrorReference"
-msgstr ""
+msgstr "Uitleg van de foutmelding."
 
 #. Default: "The body text."
 msgid "phc_desc_body_tutorial"
-msgstr ""
+msgstr "De hoofdtekst."
 
 #. Default: "An explanation of the term."
 msgid "phc_desc_definition"
-msgstr ""
+msgstr "Een uitleg van de term."
 
 #. Default: "Description of the FAQ Container."
 msgid "phc_desc_folder"
-msgstr ""
+msgstr "Omschrijving van de FAQ map"
 
 #. Default: "Description of the Glossary."
 msgid "phc_desc_folder_glossary"
-msgstr ""
+msgstr "Omschrijving van het woordenboek."
 
 #. Default: "Description for the Help Center."
 msgid "phc_desc_helpcenter"
-msgstr ""
+msgstr "Omschrijving van de Help Center"
 
 #. Default: "The text of the Howto"
 msgid "phc_desc_howto_body"
-msgstr ""
+msgstr "De tekst van de Howto"
 
 #. Default: "Description for the How-to Container."
 msgid "phc_desc_howto_folder"
-msgstr ""
+msgstr "Omschrijving van de Howto map."
 
 #. Default: "Web address"
 msgid "phc_desc_link_url"
-msgstr ""
+msgstr "Webadres"
 
 #. Default: "Enter a brief description"
 msgid "phc_desc_tutorial_page"
-msgstr ""
+msgstr "Voeg een korte omschrijving toe"
 
 #. Default: "Description for the Video section."
 msgid "phc_desc_video_folder"
-msgstr ""
+msgstr "Omschrijving voor de video sectie."
 
 #. Default: "Documentation search"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_doc_search"
-msgstr ""
+msgstr "Zoeken in de documentatie"
 
 #. Default: "This Error Reference is intended for:"
 #: ../skins/plone_help_center/errorreference_view.pt
 msgid "phc_error_audiences"
-msgstr ""
+msgstr "Deze foutmeldingnaslag is bedoeld voor:"
 
 #. Default: "Error references"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_errorreference"
-msgstr ""
+msgstr "Foutmeldingnaslagen"
 
 #. Default: "This Error Reference applies to:"
 #: ../skins/plone_help_center/errorreference_view.pt
 msgid "phc_errorreference_applies_to"
-msgstr ""
+msgstr "Deze foutmeldingnaslag is van toepassing op:"
 
 #. Default: "Error reference section."
 msgid "phc_errorreference_description"
-msgstr ""
+msgstr "Foutmeldingnaslag sectie."
 
 #. Default: "Error References"
 msgid "phc_errorreference_title"
-msgstr ""
+msgstr "Foutmeldingnaslagen"
 
 #. Default: "FAQs"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_faq"
-msgstr ""
+msgstr "FAQs"
 
 #. Default: "This FAQ applies to:"
 #: ../skins/plone_help_center/faqsection_view.pt
 #: ../skins/plone_help_center/faq_view.pt
 msgid "phc_faq_applies_to"
-msgstr ""
+msgstr "Deze FAQ is van toepassing op:"
 
 #. Default: "Frequently Asked Questions"
 msgid "phc_faq_description"
-msgstr ""
+msgstr "Veel gestelde vragen"
 
 #. Default: "FAQs"
 msgid "phc_faq_title"
-msgstr ""
+msgstr "FAQs"
 
 #. Default: "Entire documentation area"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_full_area"
-msgstr ""
+msgstr "Volledige documentatie sectie"
 
 #. Default: "Full Question"
 #: ../skins/plone_help_center/faqsection_view.pt
 #: ../skins/plone_help_center/faq_view.pt
 msgid "phc_full_question"
-msgstr ""
+msgstr "Volledige vraag"
 
 #. Default: "Glossary of terms."
 msgid "phc_glossary_description"
-msgstr ""
+msgstr "Woordenboek van termen."
 
 #. Default: "Glossary Definitions"
 msgid "phc_glossary_title"
-msgstr ""
+msgstr "Woordenboek definities"
 
 #. Default: "Brief explanation of the How To."
 msgid "phc_help_detailed_howto"
-msgstr ""
+msgstr "Korte uitleg van de Howto"
 
 #. Default: "Brief explanation of the video's content."
 msgid "phc_help_detailed_video"
-msgstr ""
+msgstr "Korte uitleg van de content van de video"
 
 #. Default: "A summary of the reference manual -- subject and scope. Will be displayed on every page of the manual."
 msgid "phc_help_referencemanual_summary"
-msgstr ""
+msgstr "Een samenvatting van het naslag handboek -- onderwerp en scope. Zal getoond worden op elke pagina van de handleiding."
 
 #. Default: "A summary of the tutorial--aims and scope. Will be displayed on every page of the tutorial."
 msgid "phc_help_tutorial_summary"
-msgstr ""
+msgstr "Een samenvatting van de tutorial -- doel en scope. Zal getoond worden op elke pagina van de tutorial."
 
 #. Default: "Length (in minutes) of the video"
 msgid "phc_help_video_duration"
-msgstr ""
+msgstr "Lengte (in minuten) van de video"
 
 #. Default: "Height of the video"
 msgid "phc_help_video_height"
-msgstr ""
+msgstr "Hoogte van de video"
 
 #. Default: "Add a screenshot by clicking the \'Browse\' button. Add a screenshot that highlights the content of the instructional video.""
 msgid "phc_help_video_screenshot"
-msgstr ""
+msgstr "Voeg een screenshot toe door te klikken op de \'Browse\' knop. Voeg een screenshot toe welke het hoogtepunt van de content van de instructie video toont."
 
 #. Default: "Width of the video"
 msgid "phc_help_video_width"
-msgstr ""
+msgstr "Breedte van de video"
 
 #. Default: "Click 'Browse' to upload a Flash .swf file."
 msgid "phc_help_videofile_description"
-msgstr ""
+msgstr "Klik op 'Browse' om een Flash .swf bestand te uploaden."
 
 #. Default: "How-tos"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_howto"
-msgstr ""
+msgstr "Howto's"
 
 #. Default: "This How-to applies to:"
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_howto_applies_to"
-msgstr ""
+msgstr "Deze howto is van toepassing op:"
 
 #. Default: "This How-to is intended for:"
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_howto_audiences"
-msgstr ""
+msgstr "Deze howto is bedoeld voor:"
 
 #. Default: "Step-by-step instructions."
 msgid "phc_howto_description"
-msgstr ""
+msgstr "Stap voor stap instructies."
 
 #. Default: "How-tos"
 msgid "phc_howto_title"
-msgstr ""
+msgstr "Howto's"
 
 #. Default: "Importance of this item."
 msgid "phc_importance"
-msgstr ""
+msgstr "Prioriteits waardering van dit item."
 
 #. Default: "Importance ratings content may have."
 msgid "phc_importance_helpcenter"
-msgstr ""
+msgstr "Prioriteits waardering welke de content kan hebben."
 
 #. Default: "Audiences"
 #: ../skins/plone_help_center/phcfolder_view.pt
 msgid "phc_index_audiences"
-msgstr ""
+msgstr "Doelgroepen"
 
 #. Default: "Sections"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
 #: ../skins/plone_help_center/glossary_view.pt
 msgid "phc_index_sections"
-msgstr ""
+msgstr "Secties"
 
 #. Default: "Description"
 msgid "phc_label_ErrorReference"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Body text"
 msgid "phc_label_body_ErrorReference"
-msgstr ""
+msgstr "Hoofdtekst"
 
 #. Default: "Body text"
 msgid "phc_label_body_tutorial"
-msgstr ""
+msgstr "Hoofdtekst"
 
 #. Default: "Current versions"
 msgid "phc_label_current_versions_helpcenter"
-msgstr ""
+msgstr "Huidige versies"
 
 #. Default: "Default importance"
 msgid "phc_label_default_importance_helpcenter"
-msgstr ""
+msgstr "Standaard prioriteit"
 
 #. Default: "Definition"
 msgid "phc_label_definition"
-msgstr ""
+msgstr "Definitie"
 
 #. Default: "Description"
 msgid "phc_label_desc_helpcenter"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Summary"
 msgid "phc_label_detailed_howto"
-msgstr ""
+msgstr "Samenvatting"
 
 #. Default: "Summary"
 msgid "phc_label_detailed_video"
-msgstr ""
+msgstr "Samenvatting"
 
 #. Default: "Description"
 msgid "phc_label_folder"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Description"
 msgid "phc_label_folder_glossary"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Description"
 msgid "phc_label_folder_tutorial"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Description"
 msgid "phc_label_howto_folder"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Importance"
 msgid "phc_label_importance"
-msgstr ""
+msgstr "Prioriteit"
 
 #. Default: "Importance"
 msgid "phc_label_importance_helpcenter"
-msgstr ""
+msgstr "Prioriteit"
 
 #. Default: "URL"
 msgid "phc_label_link_url"
-msgstr ""
+msgstr "Internetadres"
 
 #. Default: "Referenced Items"
 msgid "phc_label_reference"
-msgstr ""
+msgstr "Gerelateerde items"
 
 #. Default: "Reference Manual Description"
 msgid "phc_label_referencemanual_description"
-msgstr ""
+msgstr "Omschrijving van het naslagwerk"
 
 #. Default: "Related keywords"
 msgid "phc_label_related"
-msgstr ""
+msgstr "Gerelateerde trefwoorden"
 
 #. Default: "Sections"
 msgid "phc_label_sections"
-msgstr ""
+msgstr "Secties"
 
 #. Default: "Sections"
 msgid "phc_label_sections-vocab"
-msgstr ""
+msgstr "Secties"
 
 #. Default: "Tutorial Description"
 msgid "phc_label_tutorial_description"
-msgstr ""
+msgstr "Tutorial omschrijving"
 
 #. Default: "Description"
 msgid "phc_label_tutorial_page"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Versions"
 msgid "phc_label_version_helpcenter"
-msgstr ""
+msgstr "Versies"
 
 #. Default: "Versions"
 msgid "phc_label_versions"
-msgstr ""
+msgstr "Versies"
 
 #. Default: "Duration"
 msgid "phc_label_video_duration"
-msgstr ""
+msgstr "Duur"
 
 #. Default: "Description"
 msgid "phc_label_video_folder"
-msgstr ""
+msgstr "Omschrijving"
 
 #. Default: "Height"
 msgid "phc_label_video_height"
-msgstr ""
+msgstr "Hoogte"
 
 #. Default: "Screenshot"
 msgid "phc_label_video_screenshot"
-msgstr ""
+msgstr "Screenshot"
 
 #. Default: "Width"
 msgid "phc_label_video_width"
-msgstr ""
+msgstr "Breedte"
 
 #. Default: "Flash File (.swf)"
 msgid "phc_label_videofile_description"
-msgstr ""
+msgstr "Flash bestand (.swf)"
 
 #. Default: "Link:"
 #: ../skins/plone_help_center/helplink_view.pt
 msgid "phc_link"
-msgstr ""
+msgstr "Link:"
 
 #. Default: "This Link applies to:"
 #: ../skins/plone_help_center/helplink_view.pt
 msgid "phc_link_applies_to"
-msgstr ""
+msgstr "Deze link is van toepassing op:"
 
 #. Default: "Links"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_links"
-msgstr ""
+msgstr "Links"
 
 #. Default: "Links section."
 msgid "phc_links_description"
-msgstr ""
+msgstr "Links sectie"
 
 #. Default: "Links"
 msgid "phc_links_title"
-msgstr ""
+msgstr "Links"
 
 #. Default: "Next:"
 #: ../skins/plone_help_center/referencemanual_macros.pt
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "phc_next"
-msgstr ""
+msgstr "Volgende:"
 
 #. Default: "There are no contained help center object types."
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_nolist"
-msgstr ""
+msgstr "Geen help center contenttypen gevonden."
 
 #. Default: "of"
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "phc_of"
-msgstr ""
+msgstr "van"
 
 #. Default: "Page"
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "phc_page"
-msgstr ""
+msgstr "Pagina"
 
 #. Default: "Previous:"
 #: ../skins/plone_help_center/referencemanual_macros.pt
 #: ../skins/plone_help_center/tutorialpage_view.pt
 msgid "phc_previous"
-msgstr ""
+msgstr "Vorige:"
 
 #. Default: "Set one or more references to HelpCenter items."
 msgid "phc_reference"
-msgstr ""
+msgstr "Selecteer één of meerdere referenties naar Help Center items."
 
 #. Default: "Reference manuals"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_referencemanual"
-msgstr ""
+msgstr "Naslagwerk handboek"
 
 #. Default: "This Reference Manual applies to:"
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "phc_referencemanual_applies_to"
-msgstr ""
+msgstr "Dit naslagwerk handboek heeft betrekking op:"
 
 #. Default: "This Reference Manual is intended for:"
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "phc_referencemanual_audiences"
-msgstr ""
+msgstr "Dit naslagwerk handboek heeft betrekking op:"
 
 #. Default: "Reference Manual description"
 msgid "phc_referencemanual_description"
-msgstr ""
+msgstr "Naslagwerk handboek omschrijving"
 
 #. Default: "Reference Manual"
 msgid "phc_referencemanual_title"
-msgstr ""
+msgstr "Naslagwerk handleiding"
 
 #. Default: "A list of keywords that should be indexed along with the content (e.g. for a how-to on VerboseSecurity, you might include Verbose Security, Insufficient Privileges, Debugging security problems)"
 msgid "phc_related"
-msgstr ""
+msgstr "Een lijst met trefwoorden die geindexeerd moeten worden samen met de content (b.v. voor een howto over \"VerboseSecurity\" voeg je wellicht \"Verbose Security\", \"Insufficient Privileges\", \"Debugging security problems\" toe)"
 
 #. Default: "Feed for all documentation."
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_rss_all"
-msgstr ""
+msgstr "Feed voor alle documentatie."
 
 #. Default: "Section(s) that this item should appear in."
 msgid "phc_sections"
-msgstr ""
+msgstr "Sectie(s) waarin dit item getoond moet worden."
 
 #. Default: "Define the available sections for classifying these items."
 msgid "phc_sections_vocab"
-msgstr ""
+msgstr "Definieer de beschikbare secties welke gebruikt worden voor het classificeren van deze items."
 
 #. Default: "Tutorials"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "phc_tutorial"
-msgstr ""
+msgstr "Tutorials"
 
 #. Default: "This Tutorial applies to:"
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_tutorial_applies_to"
-msgstr ""
+msgstr "Deze tutorial is van toepassing op:"
 
 #. Default: "This Tutorial is intended for:"
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_tutorial_audiences"
-msgstr ""
+msgstr "Deze tutorial is bedoeld voor:"
 
 #. Default: "Detailed tutorials."
 msgid "phc_tutorial_description"
-msgstr ""
+msgstr "Gedetaileerde tutorials."
 
 #. Default: "Tutorials"
 msgid "phc_tutorial_title"
-msgstr ""
+msgstr "Tutorials"
 
 #. Default: "Up to Glossary"
 #: ../skins/plone_help_center/definition_view.pt
 msgid "phc_up_to_glossary"
-msgstr ""
+msgstr "Omhoog naar het woordenboek"
 
 #. Default: "Up to Table of Contents"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/faqsection_view.pt
 #: ../skins/plone_help_center/faq_view.pt
 msgid "phc_up_to_toc"
-msgstr ""
+msgstr "Omhoog naar de inhoudsopgave"
 
 #. Default: "Versions that items in help can refer to."
 msgid "phc_version_helpcenter"
-msgstr ""
+msgstr "Versies waar items in help naartoe kunnen refereren."
 
 #. Default: "Versions of product that apply to this item (leave blank if not version-specific)"
 msgid "phc_versions"
-msgstr ""
+msgstr "Versies van het product die toepassing hebben op dit item (laat leeg indien niet versie-specifiek)"
 
 #. Default: "This Video applies to:"
 #: ../skins/plone_help_center/ivideo_view.pt
 msgid "phc_video_applies_to"
-msgstr ""
+msgstr "Deze video is van toepassing op:"
 
 #. Default: "Instructional videos."
 msgid "phc_video_description"
-msgstr ""
+msgstr "Instructie video's"
 
 #. Default: "Videos"
 msgid "phc_video_title"
-msgstr ""
+msgstr "Video's"
 
 #. Default: "View entire FAQ in full"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/faqsection_view.pt
 msgid "phc_view_entire_faq"
-msgstr ""
+msgstr "Bekijk de gehele FAQ"
 
 #. Default: "View section in full"
 #: ../skins/plone_help_center/faqfolder_view.pt
 msgid "phc_view_entire_section"
-msgstr ""
+msgstr "Bekijk de gehele sectie"
 
 #. Default: "Warning: This item is marked as outdated."
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/definition_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_warning_outdated"
-msgstr ""
+msgstr "Waarschuwing: Dit item is gemarkeerd als verlopen."
 
 #. Default: "Recent documentation"
 #: ../skins/plone_help_center/portlet_helpcenter.pt
 msgid "portlet_header_recent_docs"
-msgstr ""
+msgstr "Recente documentatie"
 
 #. Default: "in"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "searchform_in"
-msgstr ""
+msgstr "in"
 
 #. Default: "see also:"
 #: ../skins/plone_help_center/helpcenter_references.pt
 msgid "see_also"
-msgstr ""
+msgstr "zie ook:"
 
 #. Default: "There are no pages or sections in this Reference Manual."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "view_no_reference_manual1"
-msgstr ""
+msgstr "Er zijn geen pagina's of secties in dit naslagwerk handboek."
 
 #. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "view_no_reference_manual2"
-msgstr ""
+msgstr "Gebruik het 'nieuw item toevoegen' menu om secties, pagina's, bestanden of afbeeldingen toe te voegen. Secties kunnen genest worden in een willekeurige diepte, maar wij raden aan niet meer dan drie à vier niveau's te gebruiken."
 
 #. Default: "Note: This is the print view with all the tutorial pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
 #: ../skins/plone_help_center/tutorial-all-pages.pt
 msgid "view_paginated_pages"
-msgstr ""
+msgstr "Noot: Dit is de print weergave met alle tutorial pagina's op één pagina. <a href=\"\" tal:attributes=\"href here/absolute_url\"> De gepagineerde versie is hier beschikbaar</a>, wanneer dat je voorkeur heeft."
 
 #. Default: "Note: This is the print view with all the Reference Manual pages on one page. <a href=\"\" tal:attributes=\"href here/absolute_url\"> The paginated version is available here</a>, if you prefer that."
 #: ../skins/plone_help_center/referencemanual-all-pages.pt
 msgid "view_paginated_reference_manual"
-msgstr ""
+msgstr "Noot: Dit is de print weergave met alle naslagwerk pagina's op één pagina. <a href=\"\" tal:attributes=\"href here/absolute_url\"> De gepagineerde versie is hier beschikbaar</a>, wanneer dat je voorkeur heeft."
 
