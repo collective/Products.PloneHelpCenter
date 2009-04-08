@@ -60,13 +60,6 @@
       </p>
     </div>
 
-    <tal:block tal:condition="python:not navRoot">
-      <h5 tal:content="here/Title">Plone 3.0 User Manual</h5>
-    	<p tal:content="here/Description">
-    		Description
-    	</p>
-    </tal:block>
-
     <div id="phcMetadata" tal:condition="nocall:here/getVersions | nothing">
       	<p tal:condition="here/getVersions | nothing"><strong>Use with</strong>:
       	<span tal:replace="python:', '.join(here.getVersions())">Plone 3</span><br/>
