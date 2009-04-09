@@ -43,7 +43,7 @@
                 description
             </p>
     
-            <div id="bodyContent" tal:condition="nocall:body">
+            <div tal:condition="nocall:body">
                 <tal:block condition="nocall:addImagePaths">
                     <div tal:replace="structure python:addImagePaths(body, itemUrl)" />
                 </tal:block>
