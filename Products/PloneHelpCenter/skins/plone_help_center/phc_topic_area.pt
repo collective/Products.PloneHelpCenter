@@ -1,8 +1,7 @@
 <html metal:use-macro="context/main_template/macros/master">
 <body>
 
-  <div id="content"
-       metal:fill-slot="main"
+  <div metal:fill-slot="main"
         tal:define="topic request/topic;
                     view context/@@hc_view;
                     subtopics python:view.getSubTopics(topic=topic)">
