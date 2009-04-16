@@ -37,7 +37,7 @@
                 </p>
             
                 <div id="bodyContent">
-                    <div tal:replace="structure page/getBody" />
+                    <div tal:replace="structure page/getText" />
                 </div>
             </tal:page>
         </tal:pages>

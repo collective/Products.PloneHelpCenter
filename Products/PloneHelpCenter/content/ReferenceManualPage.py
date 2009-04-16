@@ -1,4 +1,6 @@
 from zope.interface import implements
+from AccessControl import ClassSecurityInfo
+from Acquisition import aq_inner
 
 try:
     from Products.LinguaPlone.public import *
@@ -8,68 +10,61 @@ except ImportError:
 
 import Products.CMFCore.permissions as CMFCorePermissions
 
+from Products import ATContentTypes
+from Products.ATContentTypes.interfaces import IATDocument
+from Products.ATContentTypes.content.schemata import finalizeATCTSchema
+
 from Products.PloneHelpCenter.config import *
-from schemata import HelpCenterBaseSchema
-from PHCContent import PHCContent
-from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
+from Products.PloneHelpCenter.content.PHCContent import HideOwnershipFields
+from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage, IHelpCenterContent
 
 
-ReferenceManualPageSchema = HelpCenterBaseSchema + Schema((
-    TextField(
-        'description',
-        default='',
-        searchable=1,
-        required=1,
-        accessor="Description",
-        default_content_type = 'text/plain',
-        allowable_content_types = ('text/plain',),
-        storage=MetadataStorage(),
-        widget=TextAreaWidget(
-                description="Enter a brief description.",
-                description_msgid="phc_desc_referencemanual_page",
-                label="Description",
-                label_msgid="phc_label_referencemanual_page",
-                rows=5,
-                i18n_domain="plonehelpcenter",
-                )
-        ),
+HelpCenterReferenceManualPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
+HideOwnershipFields(HelpCenterReferenceManualPageSchema)
+# Support specified content formats
+for key, attr in DEFAULT_CONTENT_TYPES.items():
+    setattr(HelpCenterReferenceManualPageSchema['text'], key, attr)
 
-    TextField(
-        'body',
-        required=1,
-        searchable=1,
-        primary=1,
-        widget=RichWidget(
-                description = "The body text.",
-                description_msgid = "phc_desc_body_referencemanual",
-                label = "Body text",
-                label_msgid = "phc_label_body_referencemanual",
-                rows = 25,
-                i18n_domain = "plonehelpcenter"
-                ),
-        **DEFAULT_CONTENT_TYPES
-        )
-    ),)
 
-class HelpCenterReferenceManualPage(PHCContent,BaseContent):
+class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBase):
     """Part of a reference manual."""
+    
+    __implements__ = (ATContentTypes.content.document.ATDocumentBase.__implements__,
+                      IATDocument)
 
-    implements(IHelpCenterMultiPage)
+    schema = HelpCenterReferenceManualPageSchema
 
-    __implements__ = (PHCContent.__implements__,
-                      BaseContent.__implements__,)
+    portal_type = meta_type = 'HelpCenterReferenceManualPage'
+    archetype_name = 'Manual Page'
 
-    schema = ReferenceManualPageSchema
-    archetype_name = 'Page'
-    meta_type='HelpCenterReferenceManualPage'
-    content_icon = 'document_icon.gif'
+    security = ClassSecurityInfo()
 
-    global_allow = 0
-    # allow_discussion = 1
 
-    typeDescription= 'A Reference Manual Page contains the text of one of the pages of the the reference manual, usually confined to a single topic.'
-    typeDescMsgId  = 'description_edit_referencemanualpage'
-
+    # Satisfy metadata requirements for items with deleted ownership.
+    # It would be great to do this in a mixin or adapter,
+    # but the structure of Archetypes prevents that.
+    
+    security.declareProtected(CMFCorePermissions.View, 'Rights')
+    def Rights(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Rights()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Creators')
+    def Creators(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Creators()
+    
+    security.declareProtected(CMFCorePermissions.View, 'Contributors')
+    def Contributors(self):
+        """ get from parent """
+        return aq_inner(self).aq_parent.Contributors()
+        
+    security.declareProtected(CMFCorePermissions.View, 'listCreators')
+    def listCreators(self):
+        """ List Dublin Core Creator elements - resource authors.
+        """
+        return self.Creators()
+        
 
 registerType(HelpCenterReferenceManualPage, PROJECTNAME)
 

@@ -19,7 +19,7 @@
       Description
     </p>
 
-    <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+    <p tal:condition="here/isOutdated | nothing" i18n:translate="phc_warning_outdated" class="portalMessage">
            Warning: This item is marked as outdated.
     </p>
 
