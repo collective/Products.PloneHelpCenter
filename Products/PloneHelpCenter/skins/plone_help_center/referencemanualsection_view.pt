@@ -47,8 +47,6 @@
       </tal:block>
     </p>
        
-    <div metal:use-macro="here/referencemanual_macros/macros/navigation_bar"/>
-
     <div tal:replace="structure provider:plone.belowcontentbody" />
     
   </div>

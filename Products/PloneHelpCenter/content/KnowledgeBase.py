@@ -15,16 +15,9 @@ from Products.ATContentTypes.content import folder, schemata
 
 from Products.PloneHelpCenter.config import PROJECTNAME
 from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
+from schemata import HelpCenterContainerSchema
 
-KnowledgeBaseSchema = folder.ATBTreeFolderSchema.copy() + atapi.Schema((
-
-))
-    
-# # Set storage on fields copied from ATContentTypeSchema, making sure
-# # they work well with the python bridge properties.
-# ExampleTypeSchema['title'].storage = atapi.AnnotationStorage()
-# ExampleTypeSchema['description'].storage = atapi.AnnotationStorage()
-
+KnowledgeBaseSchema = folder.ATBTreeFolderSchema.copy() + HelpCenterContainerSchema    
 schemata.finalizeATCTSchema(KnowledgeBaseSchema, moveDiscussion=False, folderish=True)
 
 class HelpCenterKnowledgeBase(folder.ATBTreeFolder):

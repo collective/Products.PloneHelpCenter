@@ -32,7 +32,7 @@ HelpCenterItemSchema = Schema((
     LinesField(
         'versions',
         languageIndependent=1,
-        index='KeywordIndex:brains',
+        index='KeywordIndex',
         vocabulary='getVersionsVocab',
         condition='object/getVersionsVocab',
         multiValued=1,
@@ -136,6 +136,77 @@ HelpCenterItemSchema = Schema((
                 label_msgid = "phc_label_reference",
                 i18n_domain="plonehelpcenter"
                 ),
+    ),
+    
+))
+
+# a version that doesn't duplicate any
+# extensibleMetadata fields.
+HelpCenterItemSchemaNarrow = Schema((
+    LinesField(
+        'versions',
+        languageIndependent=1,
+        index='KeywordIndex',
+        vocabulary='getVersionsVocab',
+        condition='object/getVersionsVocab',
+        multiValued=1,
+        required=0,
+        widget=MultiSelectionWidget(
+                label_msgid='phc_label_versions',
+                label= "Versions",
+                condition='object/getVersionsVocab',
+                description='Versions of product that apply to this item ' \
+                            '(leave blank if not version-specific).',
+                description_msgid = "phc_versions",
+                i18n_domain = "plonehelpcenter"
+                ),
+        ),
+    
+    LinesField(
+        'sections',
+        multiValued=1,
+        required=0,
+        vocabulary='getSectionsVocab',
+        condition='object/getSectionsVocab',
+        index='KeywordIndex:schema',
+        widget=MultiSelectionWidget(
+                label='Sections',
+                condition='object/getSectionsVocab',
+                description='Section(s) that this item should appear in.',
+                description_msgid = "phc_sections",
+                label_msgid = "phc_label_sections",
+                i18n_domain = "plonehelpcenter",
+                ),
+        ),
+    
+    LinesField(
+        'audiences',
+        multiValued=1,
+        required=0,
+        vocabulary='getAudiencesVocab',
+        condition="object/getAudiencesVocab",
+        index='KeywordIndex',
+        widget=MultiSelectionWidget(
+                label='Audiences',
+                description='Audience(s) this item is targetted at.',
+                description_msgid = "phc_audiences",
+                condition="object/getAudiencesVocab",
+                label_msgid = "phc_label_audiences",
+                i18n_domain = "plonehelpcenter",
+                ),
+        ),
+    
+    BooleanField(
+        'startHere',
+        index='FieldIndex',
+        permission = CMFCorePermissions.ReviewPortalContent,
+        widget=BooleanWidget(
+                label='Start Here',
+                description="Marks this as a good starting point for its section. Only key documents should have this property.",
+                description_msgid = "phc_starthere",
+                label_msgid = "phc_label_starthere",
+                i18n_domain="plonehelpcenter"
+        ),
     ),
     
 ))

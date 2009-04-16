@@ -1,6 +1,21 @@
 <configure  xmlns="http://namespaces.zope.org/browser"
             i18n_domain="plonehelpcenter">
 
+<!-- page
+    name="phc_v3_migrate"
+    for="..interfaces.IHelpCenterFolder"
+    class=".migration_v3.PHCv3migrate"
+    permission="zope2.View"
+    allowed_attributes="test"
+    / -->
+
+<page
+    name="phc_v3migrate"
+    for="..interfaces.IHelpCenterContent"
+    class=".migration_v3.PHCv3migrate"
+    permission="cmf.ManagePortal"
+    />
+
 <page
     name="hc_view"
     for="..interfaces.IHelpCenterContent"

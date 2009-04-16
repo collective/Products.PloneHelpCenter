@@ -1,5 +1,7 @@
 """ support for HelpCenter container templates """
 
+from plone.memoize.view import memoize
+
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.PythonScripts.standard import url_quote_plus
@@ -192,6 +194,7 @@ class HelpCenterFolderView(BrowserView):
         return audiences
 
 
+    @memoize
     def getSectionsToList(self, **kwargs):
         """Sections that have at least one listable item. Note that this does 
         not take account of audiences.

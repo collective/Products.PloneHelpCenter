@@ -37,7 +37,7 @@
 	<span i18n:translate="phc_full_question">Full Question</span>
         </p>
 
-        <div tal:content="structure faq/getAnswer"
+        <div tal:content="structure faq/getText"
 	class="portletContent odd">
           Answer
         </div>

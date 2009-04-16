@@ -64,6 +64,9 @@ class TestPortalTypes(PHCTestCase.PHCTestCase):
     def testHelpCenterHowToFolderType(self):
         self.failUnless('HelpCenterHowToFolder' in self.types)
 
+    def testHelpCenterKnowledgeBase(self):
+        self.failUnless('HelpCenterKnowledgeBase' in self.types)
+
 
 class TestGlobalAllow(PHCTestCase.PHCTestCase):
 
@@ -82,6 +85,12 @@ class TestGlobalAllow(PHCTestCase.PHCTestCase):
             return True
         else:
             return False
+
+    def testCreateHelpCenterReferenceManual(self):
+        self.failIf(self.typeNotGloballyAllowed('HelpCenterReferenceManual'))
+
+    def testHelpCenterKnowledgeBase(self):
+        self.failIf(self.typeNotGloballyAllowed('HelpCenterKnowledgeBase'))        
 
     def testCreateHelpCenterHowto(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterHowTo'))
@@ -151,6 +160,8 @@ class TestHelpCenterContainment(_TestFolderishContainmentBase):
             'HelpCenterLinkFolder',
             'HelpCenterErrorReferenceFolder',
             'HelpCenterGlossary',
+            'HelpCenterKnowledgeBase',
+            'Folder',
         ]
         self.checkAllowedContentTypes(self.hc, allowed)
 
