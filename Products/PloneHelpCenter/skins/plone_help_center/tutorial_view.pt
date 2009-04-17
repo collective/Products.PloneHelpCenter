@@ -30,7 +30,7 @@
     </ol>
     
     <p class="visualNoPrint" tal:condition="nocall:here/getPages">
-      <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages">
+      <a href="" tal:attributes="href string:${context/absolute_url}/tutorial-all-pages">
         All content on one page</a>
       (useful for printing, presentation mode etc.)
     </p>

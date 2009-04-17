@@ -27,7 +27,6 @@
         <tal:pages repeat="page sibl">
             <tal:page define="page page/getObject">
                 <h1>
-                    <img tal:replace="structure here/tutorial_icon.gif" />
                     <span tal:replace="page/title_or_id">Title or id</span>
                 </h1>
         

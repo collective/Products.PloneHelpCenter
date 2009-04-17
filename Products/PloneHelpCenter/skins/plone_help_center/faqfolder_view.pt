@@ -61,12 +61,6 @@
         </h2>
 
         <tal:section condition="not:full">
-          <p><a class="link-expand"
-            tal:attributes="href python:'%s/faqsection_view?section=%s' % (here.absolute_url(), pss.url_quote(section['section']) )">
-            <span i18n:translate="phc_view_entire_section">
-            Expand section
-            </span>
-          </a></p>
 
           <ol>
             <li tal:repeat="faq python:section['items']">
@@ -89,10 +83,6 @@
           
           <h3>
             <span tal:replace="faq/Title">Question</span>
-            <img src="error_icon.gif" alt="!" class="outdatedMarker"
-                 tal:condition="faq/isOutdated|nothing"
-                 title="This FAQ applies to a previous version" 
-                 i18n:attributes="title"/>
           </h3>
 
           <p tal:condition="faq/Description"
@@ -124,9 +114,6 @@
         </tal:faq>
         </div>
       </div>
-    </div>
-    <div metal:use-macro="here/document_byline/macros/byline">
-      Get the byline - contains details about author and modification date.
     </div>
   </div>
 </body>
