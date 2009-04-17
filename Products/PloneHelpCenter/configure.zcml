@@ -1,6 +1,6 @@
 <configure  xmlns="http://namespaces.zope.org/zope"
             xmlns:five="http://namespaces.zope.org/five"
-	        xmlns:gs="http://namespaces.zope.org/genericsetup"
+	          xmlns:gs="http://namespaces.zope.org/genericsetup"
             xmlns:i18n="http://namespaces.zope.org/i18n"
             i18n_domain="plonehelpcenter">
 
@@ -15,6 +15,21 @@
 	description="A KnowledgeBase facility developed for Plone.Org."
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
+
+  <gs:upgradeSteps
+     source="0.0"
+     destination="3.0"
+     profile="Products.PloneHelpCenter:default">
+
+    <gs:upgradeStep
+       title="Upgrading the types"
+       description="Upgrade PHC types to derive from ATCT"
+       handler=".upgrades.runTypesMigration"
+       />
+
+  </gs:upgradeSteps>
+
+
 
   <class class=".content.HelpCenter.HelpCenter">
     <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
