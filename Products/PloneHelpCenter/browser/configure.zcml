@@ -10,13 +10,6 @@
     / -->
 
 <page
-    name="phc_v3migrate"
-    for="..interfaces.IHelpCenterContent"
-    class=".migration_v3.PHCv3migrate"
-    permission="cmf.ManagePortal"
-    />
-
-<page
     name="hc_view"
     for="..interfaces.IHelpCenterContent"
     class=".helpcenter.HelpCenterView"
