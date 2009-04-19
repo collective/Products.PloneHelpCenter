@@ -16,12 +16,14 @@ from Products.ATContentTypes.content import folder, schemata
 from Products.PloneHelpCenter.config import PROJECTNAME
 from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 from schemata import HelpCenterContainerSchema
+from PHCFolder import PHCFolder
 
 KnowledgeBaseSchema = folder.ATBTreeFolderSchema.copy() + HelpCenterContainerSchema    
 schemata.finalizeATCTSchema(KnowledgeBaseSchema, moveDiscussion=False, folderish=True)
 
-class HelpCenterKnowledgeBase(folder.ATBTreeFolder):
-    """Description of the Example Type
+class HelpCenterKnowledgeBase(PHCFolder, folder.ATBTreeFolder):
+    """
+        A Single-Folder KnowledgeBase that can organize a large number of how-tos and tutorials by topic and audience.
     """
 
     implements(IHelpCenterFolder)
