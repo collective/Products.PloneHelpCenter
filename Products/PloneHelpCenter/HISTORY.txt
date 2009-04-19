@@ -5,6 +5,12 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 3.0dev
     
+    - Added Upgrade profile to manage type transition. [stevem]
+    
+    - Updated all types to be derived from ATCT types, thus inheriting
+      all the standard Plone behavior that PHC used to have to do on
+      its own. [stevem]
+    
     - Add a "Knowledge Base" that's basically a large folder to
       organize how-tos and tutorials. [stevem]
 

@@ -19,6 +19,9 @@ manual pages must be linkable in Kupu
 
 manual view with section/page descriptions
 
+upgrade routine needs to reindex PHC content to get the new
+marker interfaces into object_provides index.
+
 Questions
 --------
 
