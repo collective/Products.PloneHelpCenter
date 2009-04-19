@@ -12,6 +12,9 @@ from zope.component import getUtility
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 
+from Products.Archetypes.public import process_types, listTypes
+
+
 # getPortal and IfInstalled stolen from Collage.
 # Thanks, Giles!
 
@@ -57,7 +60,6 @@ def migrateBodyTexts(self):
                      'HelpCenterHowTo',
                      'HelpCenterErrorReference',
                      ],
-        path='/'.join(self.getPhysicalPath())        
     )
 
     res = ['Migrate Page Texts ...']
@@ -99,7 +101,6 @@ def migrateNextPrev(self):
             'HelpCenterReferenceManualSection',
             'HelpCenterTutorial',
             ],
-        path='/'.join(self.getPhysicalPath())        
     )
 
     res = ['Turn on next/prev navigation ...']
@@ -110,15 +111,50 @@ def migrateNextPrev(self):
 
     return "\n".join(res)
 
+
+def runTypesUpdate(setuptool):
+    """Upgrade types from profile"""
+
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'typeinfo',
+                                       run_dependencies=True)
+
+
+def reindexNearlyAll(portal):
+    """
+        We need the object_provides index to reflect
+        some of our new interfaces.
+    """
+    
+    # no need to redo what's already done
+    already_done = [ 'HelpCenterReferenceManualPage',
+                     'HelpCenterTutorialPage',
+                     'HelpCenterHowTo',
+                     'HelpCenterErrorReference',
+                     ]
+    
+    mytypes = [ t['portal_type'] for t in listTypes(PROJECTNAME) ]
+    
+    for t in already_done:
+        mytypes.remove(t)
+    
+    catalog = getToolByName(portal, 'portal_catalog')
+    for brain in catalog(portal_type=mytypes):
+        brain.getObject().reindexObject('object_provides')
+
+
 @IfInstalled()        
 def runTypesMigration(setuptool):
     """
         Migrate to 3+ types
     """
     
+    runTypesUpdate(setuptool)
+    
     portal = getPortal()
     print migrateNextPrev(portal)
     print migrateBodyTexts(portal)
     print migrateFAQs(portal)
+    
+    reindexNearlyAll(setuptool)
 
     return

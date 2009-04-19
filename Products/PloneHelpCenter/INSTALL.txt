@@ -3,7 +3,7 @@ Requirements
 
 PloneHelpCenter requires:
 
-* Plone 2.5 or later
+* Plone 3.0 or later
 
 
 Installation
@@ -12,6 +12,13 @@ Installation
 See the `Installing an Add-on Product`_ tutorial for more detailed product installation instructions.
 
 .. _Installing an Add-on Product: http://plone.org/documentation/tutorial/third-party-products/installing
+
+Upgrades
+--------
+
+If you are upgrading a Plone site with an existing help center from a
+version prior to 3.0, you *must* run the upgrade profile. In the ZMI,
+go to portal_setup and use the upgrades tab.
 
 Optional
 --------
