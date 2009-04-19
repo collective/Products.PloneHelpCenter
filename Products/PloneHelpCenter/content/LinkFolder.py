@@ -4,19 +4,23 @@
 #  versions.
 #
 
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+
+import Products.CMFCore.permissions as CMFCorePermissions
+
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
+
+from Products import ATContentTypes
 from PHCFolder import PHCFolder
+from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 LinkFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
     TextField(
@@ -38,11 +42,10 @@ LinkFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
-class HelpCenterLinkFolder(PHCFolder,OrderedBaseFolder):
+class HelpCenterLinkFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A simple folderish archetype"""
 
-    __implements__ = (PHCFolder.__implements__,
-        OrderedBaseFolder.__implements__)
+    implements(IHelpCenterFolder)
 
     content_icon = 'link_icon.gif'
 

@@ -6,19 +6,21 @@
 #
 
 
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+import Products.CMFCore.permissions as CMFCorePermissions
+
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
+from Products import ATContentTypes
 from PHCFolder import PHCFolder
+from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 ErrorReferenceFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
     TextField('description',
@@ -38,13 +40,12 @@ ErrorReferenceFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
-class HelpCenterErrorReferenceFolder(PHCFolder,BaseFolder):
+class HelpCenterErrorReferenceFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """An Error Reference Section can contain references to and explanations of 
     common errors.
     """
 
-    __implements__ = (PHCFolder.__implements__,
-        OrderedBaseFolder.__implements__)
+    implements(IHelpCenterFolder)
 
     content_icon = 'errorref_icon.gif'
 

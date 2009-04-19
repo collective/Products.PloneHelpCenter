@@ -3,19 +3,21 @@
 #  is a simple container that has Definitions.
 #
 
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+import Products.CMFCore.permissions as CMFCorePermissions
+
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
+from Products import ATContentTypes
 from PHCFolder import PHCFolder
+from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 GlossarySchema = HelpCenterBaseSchemaFolderish + Schema((
     TextField(
@@ -38,13 +40,12 @@ GlossarySchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
-class HelpCenterGlossary(PHCFolder,OrderedBaseFolder):
+class HelpCenterGlossary(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A Glossary can be used to hold definitions of common terms, listing them 
     in a dictionary-like manner.
     """
 
-    __implements__ = (PHCFolder.__implements__,
-        OrderedBaseFolder.__implements__)
+    implements(IHelpCenterFolder)
 
     content_icon = 'glossary_icon.gif'
 

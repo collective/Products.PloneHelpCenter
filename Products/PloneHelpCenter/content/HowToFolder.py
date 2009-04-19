@@ -5,19 +5,21 @@
 # provide a sensible default view out-of-the-box, like the FAQ view.
 #
 
+from zope.interface import implements
+
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+import Products.CMFCore.permissions as CMFCorePermissions
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
+
+from Products import ATContentTypes
 from PHCFolder import PHCFolder
+from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 HowToFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
     TextField(
@@ -39,11 +41,10 @@ HowToFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     )) + HelpCenterContainerSchema
 
-class HelpCenterHowToFolder(PHCFolder,OrderedBaseFolder):
+class HelpCenterHowToFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A How-to Section can contain how-to documents."""
 
-    __implements__ = (PHCFolder.__implements__,
-        OrderedBaseFolder.__implements__)
+    implements(IHelpCenterFolder)
 
     content_icon = 'topic_icon.gif'
 
