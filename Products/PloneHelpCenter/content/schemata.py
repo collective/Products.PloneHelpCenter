@@ -10,6 +10,8 @@ except ImportError:
 from Products.Archetypes.Marshall import PrimaryFieldMarshaller
 from Products.PloneHelpCenter.config import *
 
+from Products import ATContentTypes as atct
+
 try:
     from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
     PHCReferenceWidget = ReferenceBrowserWidget
@@ -237,13 +239,10 @@ HelpCenterContainerSchema = Schema((
 HelpCenterBaseSchema = BaseSchema.copy()
 
 # folderish Help Center Base schemata
-HelpCenterBaseSchemaFolderish = BaseFolderSchema.copy()
+HelpCenterBaseSchemaFolderish = atct.content.folder.ATFolderSchema.copy()
 
 
 # Remove "contributors" from metadata, so that we can add it later
 if GLOBAL_RIGHTS:
     del HelpCenterBaseSchema['contributors']
-    del HelpCenterBaseSchemaFolderish['contributors']
-
     del HelpCenterBaseSchema['rights']
-    del HelpCenterBaseSchemaFolderish['rights']

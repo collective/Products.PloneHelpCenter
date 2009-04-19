@@ -6,6 +6,8 @@
 
 import urllib
 
+from zope.interface import implements
+
 from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from zope.component import getMultiAdapter
 
@@ -18,7 +20,10 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
+
+from Products import ATContentTypes
 from PHCFolder import PHCFolder
+from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 FAQFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
     TextField('description',
@@ -38,11 +43,10 @@ FAQFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
-class HelpCenterFAQFolder(PHCFolder,OrderedBaseFolder):
+class HelpCenterFAQFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """An FAQ Section can hold frequently asked questions with answers."""
 
-    __implements__ = (PHCFolder.__implements__,
-        OrderedBaseFolder.__implements__)
+    implements(IHelpCenterFolder)
 
     content_icon = 'faq_icon.gif'
 
