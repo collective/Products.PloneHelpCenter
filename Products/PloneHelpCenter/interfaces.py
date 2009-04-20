@@ -1,7 +1,7 @@
 from zope.interface import Interface
 
-class IHelpCenterContent(Interface):
-    """ The HelpCenter
+class IHelpCenter(Interface):
+    """ The Help Center itself 
     """
 
 class IHelpCenterFolder(Interface):

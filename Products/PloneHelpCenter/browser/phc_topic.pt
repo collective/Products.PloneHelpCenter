@@ -1,0 +1,43 @@
+<html metal:use-macro="context/main_template/macros/master">
+<body>
+  <div metal:fill-slot="main"
+        tal:define="topic request/topic;
+                    view context/@@hc_view;
+                    subtopics python:view.getSubTopics(topic=topic)">
+
+      <h1 class="documentFirstHeading"
+          tal:content="topic">Security and Permissions</h1>
+
+      <dl style="width: 30%; float: right; display: block; margin-left:1em"
+       class="portlet" tal:condition="python:len(subtopics)>1">
+      <dt class="portletHeader">In This Section...</dt>
+      <dd class="portletItem">
+        <ul>
+          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:$current_page_url#${subtopic/id}" tal:content="subtopic/title">Workflow</a></li>
+        </ul>
+      </dd>
+      </dl>
+
+      <div class="doclist" tal:repeat="subtopic subtopics">
+        <h2><a name="workflow" tal:attributes="name subtopic/id; id subtopic/id" tal:content="subtopic/title">Workflow</a></h2>
+        <dl>
+          <tal:block tal:repeat="item subtopic/docs">
+            <dt>
+                <a tal:attributes="href item/getURL" tal:condition="item/getStartHere | nothing" tal:content="structure here/phc_star.gif" href="/"><img src="phc_star.gif" align="middle" alt="Start Here" /></a>
+                <a tal:attributes="href item/getURL;
+                                   class string:state-${item/review_state}"
+                   tal:content="item/Title" href="/">This is the title.</a>
+            </dt>
+            <dd>
+                <div tal:replace="item/Description | nothing">
+                  Description
+                </div>
+            </dd>
+          </tal:block>
+        </dl>
+      </div>
+  </div>
+
+</body>
+</html>
+

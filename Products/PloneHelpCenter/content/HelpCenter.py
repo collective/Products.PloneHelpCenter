@@ -25,13 +25,10 @@ except ImportError:
 
 import transaction
 
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
+import Products.CMFCore.permissions as CMFCorePermissions
 
 from zope.interface import implements
-from Products.PloneHelpCenter.interfaces import IHelpCenterContent
+from Products.PloneHelpCenter.interfaces import IHelpCenter
 
 from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFCore.utils import getToolByName
@@ -161,12 +158,14 @@ HCRootSchema = BaseFolderSchema + Schema((
 
 
 class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
-    """A simple folderish archetype"""
-
-    implements(IHelpCenterContent)
+    """
+        Help Center Top Container
+    """
 
     __implements__ = (BrowserDefaultMixin.__implements__,
         OrderedBaseFolder.__implements__)
+
+    implements(IHelpCenter)
 
     schema = HCRootSchema
 
