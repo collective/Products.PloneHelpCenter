@@ -1,17 +1,9 @@
 <configure  xmlns="http://namespaces.zope.org/browser"
             i18n_domain="plonehelpcenter">
 
-<!-- page
-    name="phc_v3_migrate"
-    for="..interfaces.IHelpCenterFolder"
-    class=".migration_v3.PHCv3migrate"
-    permission="zope2.View"
-    allowed_attributes="test"
-    / -->
-
 <page
     name="hc_view"
-    for="..interfaces.IHelpCenterContent"
+    for="..interfaces.IHelpCenter"
     class=".helpcenter.HelpCenterView"
     permission="zope2.View"
     allowed_attributes="subtypes rss_subtypes sections sectionContents
@@ -36,6 +28,20 @@
     permission="zope2.View"
     allowed_attributes="Versions getItemsBySection getItemsBySections
         getItemsByAudiencesAndSections getSectionsToList"
+    />
+
+<page
+    name="phc_topic"
+    for="..interfaces.IHelpCenterFolder"
+    permission="zope2.View"
+    template="phc_topic.pt"
+    />
+
+<page
+    name="phc_topic"
+    for="..interfaces.IHelpCenter"
+    permission="zope2.View"
+    template="phc_topic.pt"
     />
 
 <page

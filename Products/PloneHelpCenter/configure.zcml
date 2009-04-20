@@ -26,9 +26,21 @@
        description="Upgrade PHC types to derive from ATCT"
        handler=".upgrades.runTypesMigration"
        />
-
   </gs:upgradeSteps>
 
+
+  <adapter
+      for="Products.PloneHelpCenter.interfaces.IHelpCenterFolder
+           zope.publisher.interfaces.http.IHTTPRequest"
+      provides="zope.publisher.interfaces.IPublishTraverse"
+      factory="Products.PloneHelpCenter.traversal.PHCFolderTraverser"
+      />
+  <adapter
+      for="Products.PloneHelpCenter.interfaces.IHelpCenter
+           zope.publisher.interfaces.http.IHTTPRequest"
+      provides="zope.publisher.interfaces.IPublishTraverse"
+      factory="Products.PloneHelpCenter.traversal.PHCTraverser"
+      />
 
 
   <class class=".content.HelpCenter.HelpCenter">
