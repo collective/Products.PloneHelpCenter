@@ -75,7 +75,6 @@
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
     <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
     <implements interface="Products.ATContentTypes.interface.IATFolder" />
-    <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".content.PHCFolder.PHCFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
@@ -123,7 +122,6 @@
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
     <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
     <implements interface="Products.ATContentTypes.interface.IATFolder" />
-    <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".types.PHCFolder.PHCFolder">
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
