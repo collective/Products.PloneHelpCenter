@@ -25,14 +25,20 @@ class PHCBaseTraverser(DefaultPublishTraverse):
         if name == 'topic':
             furtherPath = request['TraversalRequestNameStack']
             if furtherPath:
+                # put argument in request
                 request['topic'] = urllib.unquote_plus(furtherPath[0])
-            while furtherPath:
-                furtherPath.pop()
-            view = getMultiAdapter((self.context, request), name='phc_topic')
-            # return view wrapped in context
-            return view.__of__(self.context)            
+                # clean stack
+                while furtherPath:
+                    furtherPath.pop()
+                # use the topic view
+                view = getMultiAdapter((self.context, request), name='phc_topic')
+                # return view wrapped in context
+                return view.__of__(self.context)
+            else:
+                # bounce back
+                return self.context
 
-        return super(PHCTraverser, self).publishTraverse(request, name)
+        return super(PHCBaseTraverser, self).publishTraverse(request, name)
 
 
 class PHCTraverser(PHCBaseTraverser):
