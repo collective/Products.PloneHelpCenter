@@ -127,7 +127,7 @@ class HelpCenterView(BrowserView):
                     sections.append(
                      {'title':currTitle,
                       'subtopics':currSubSections, 
-                      'url': here_url + '/phc_topic_area?topic=' + url_quote_plus(currTitle),
+                      'url': here_url + '/topic/' + url_quote_plus(currTitle),
                       }
                      )
                 if sub:
@@ -135,7 +135,7 @@ class HelpCenterView(BrowserView):
                     id = sub.lower().replace(' ','-')  # make HTML anchor ID
                     currSubSections.append(
                      {'title':sub,
-                      'url': "%s/phc_topic_area?topic=%s#%s" % (here_url, url_quote_plus(currTitle), id)
+                      'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
                       }
                      )
 
@@ -188,7 +188,7 @@ class HelpCenterView(BrowserView):
                     sections.append(
                      {'title':currTitle,
                       'subtopics':currSubSections,
-                      'url': here_url + '/phc_topic_area?topic=' + url_quote_plus(currTitle),
+                      'url': here_url + '/topic/' + url_quote_plus(currTitle),
                       'count':count
                       }
                      )
@@ -197,7 +197,7 @@ class HelpCenterView(BrowserView):
                     id = sub.lower().replace(' ','-')  # make HTML anchor ID
                     currSubSections.append(
                      {'title':sub,
-                      'url': "%s/phc_topic_area?topic=%s#%s" % (here_url, url_quote_plus(currTitle), id)
+                      'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
                       }
                      )
             
@@ -234,7 +234,7 @@ class HelpCenterView(BrowserView):
                 sections.append(
                  {'title':topic,
                   'startheres': startHeres[:startHereLimit],
-                  'url': here_url + '/phc_topic_area?topic=' + url_quote_plus(topic),
+                  'url': here_url + '/topic/' + url_quote_plus(topic),
                   'count':len(items),
                   }
                  )
