@@ -31,7 +31,7 @@ Setting up a test instance with Plone.Org data
 
 In a test buildout of Plone 3.x, add the following to eggs:
 
-    Products.PloneHelpCenter>=3.0a1
+    Products.PloneHelpCenter==1.6.1
     Products.AddRemoveWidget
     Products.PloneFormGen
 
