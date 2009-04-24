@@ -125,17 +125,7 @@ def reindexNearlyAll(portal):
         some of our new interfaces.
     """
     
-    # no need to redo what's already done
-    already_done = [ 'HelpCenterReferenceManualPage',
-                     'HelpCenterTutorialPage',
-                     'HelpCenterHowTo',
-                     'HelpCenterErrorReference',
-                     ]
-    
     mytypes = [ t['portal_type'] for t in listTypes(PROJECTNAME) ]
-    
-    for t in already_done:
-        mytypes.remove(t)
     
     catalog = getToolByName(portal, 'portal_catalog')
     for brain in catalog(portal_type=mytypes):

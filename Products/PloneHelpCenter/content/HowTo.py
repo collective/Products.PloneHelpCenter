@@ -16,7 +16,7 @@ import Products.CMFCore.permissions as CMFCorePermissions
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
 from schemata import HelpCenterItemSchemaNarrow
-from PHCContent import PHCContentMixin, HideOwnershipFields
+from PHCContent import PHCContentMixin, HideOwnershipFields, IHelpCenterContent
 
 from Products.ATContentTypes.interfaces import IATFolder, IATDocument
 from Products.ATContentTypes.content.document import \
@@ -49,7 +49,7 @@ class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
                       IATDocument,
                       )
     
-    implements(IHelpCenterHowTo)
+    implements( (IHelpCenterHowTo, IHelpCenterContent,) )
 
     isPrincipiaFolderish = True
 
