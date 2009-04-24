@@ -25,3 +25,44 @@ Need templating work for all folderish types
 
 Tests to cover new features
 
+
+Setting up a test instance with Plone.Org data
+----------------------------------------------
+
+In a test buildout of Plone 3.x, add the following to eggs:
+
+    Products.PloneHelpCenter>=3.0a1
+    Products.AddRemoveWidget
+    Products.PloneFormGen
+
+run buildout
+
+Download the Plone.Org doc export from:
+
+http://dist.plone.org/.x/documentation.zexp
+
+Copy it into your client instance's import folder. For me that was:
+
+cp ~/Downloads/documentation.zexp parts/client1/import/
+
+Install a Plone site if necessary. QuickInstall AddRemoveWidgets (first),
+PFG and PHC.
+
+Import documentation.zexp -- this will take a while. You may wish to
+save a copy of your Data.fs after this if you think you'll be retesting
+the data migration.
+
+If you're going to be developing, check out the PHC trunk into src. You
+know the drill from here.
+
+If just testing, change the PHC line in your buildout to
+
+Products.PloneHelpCenter>=3.0a1
+
+Rerun buildout.
+
+In either case, restart Zope. Go to portal_setup in the ZMI, choose
+the "Upgrades" tab and run the "Upgrading the types (0.0 → 3.0)" upgrade
+step. This will also take a while.
+
+Go for it!
