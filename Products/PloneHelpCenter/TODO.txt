@@ -2,8 +2,7 @@
 PloneHelpCenter ToDo
 ========================
 
-Bugs
---------
+
 
 Derive section folders from ATCT folder. Add sections.
 Ones that don't need order should be derived from large folder.
@@ -11,7 +10,7 @@ Since those will have rights, make sure rights search works.
 [Mostly Done]
 
 
-Finish traversal adapter and adapt TOC templates.
+Finish traversal adapterd and adapt TOC templates.
 
 isOutdated support lost in eliminated PHCContent derivation.
 
@@ -22,18 +21,7 @@ manual pages must be linkable in Kupu
 
 manual view with section/page descriptions
 
-Questions
---------
+Need templating work for all folderish types
 
-Clean-up
---------
-
-Process improvements
---------------------
-
-Template improvements
----------------------
-
-New functionality
------------------
+Tests to cover new features
 
