@@ -1,5 +1,7 @@
 """ support for HelpCenter container templates """
 
+import Acquisition
+
 from plone.memoize.view import memoize
 
 from Products.Five.browser import BrowserView
@@ -30,13 +32,14 @@ class HelpCenterFolderView(BrowserView):
 
     def Versions(self):
         """Method to display the versions in a nicer way."""
-        return ", ".join(getattr(self.context, 'versions', []))
+        context = Acquisition.aq_inner(self.context)
+        return ", ".join(getattr(context, 'versions', []))
 
 
     def getItemsBySection(self, section, **kwargs):
         """Get items in this section"""
         
-        context = self.context
+        context = Acquisition.aq_inner(self.context)
         
         criteria = {}
         if section == 'No section':
@@ -60,7 +63,7 @@ class HelpCenterFolderView(BrowserView):
         all items with no section selected.
         """
         
-        context = self.context
+        context = Acquisition.aq_inner(self.context)
         
         plone_utils = getToolByName(context, 'plone_utils')
         brains = context.getFolderContents(contentFilter = kwargs)
@@ -116,8 +119,8 @@ class HelpCenterFolderView(BrowserView):
         contain all items with no audience selected.
         """
 
-        context = self.context
-
+        context = Acquisition.aq_inner(self.context)
+        
         plone_utils = getToolByName(context, 'plone_utils')
         
         contentFilter = {'object_provides':'Products.PloneHelpCenter.interfaces.IHelpCenterContent'}
@@ -202,7 +205,7 @@ class HelpCenterFolderView(BrowserView):
         May return [] if there are no sections in the vocabulary
         """
 
-        context = self.context
+        context = Acquisition.aq_inner(self.context)
 
         sections = {}
         allSections = context.getSectionsVocab()
