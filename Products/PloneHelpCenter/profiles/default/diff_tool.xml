@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<object>
+ <difftypes>
+  <type portal_type="HelpCenterHowTo">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+  <type portal_type="HelpCenterTutorialPage">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+  <type portal_type="HelpCenterManualPage">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+  <type portal_type="HelpCenterFAQ">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+  <type portal_type="HelpCenterDefinition">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+  <type portal_type="HelpCenterHErrorReference">
+   <field name="any" difftype="Compound Diff for AT types"/>
+  </type>
+ </difftypes>
+</object>

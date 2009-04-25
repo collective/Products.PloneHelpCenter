@@ -9,19 +9,21 @@ Ones that don't need order should be derived from large folder.
 Since those will have rights, make sure rights search works.
 [Mostly Done]
 
-
-Finish traversal adapterd and adapt TOC templates.
+Finish traversal adapters and adapt TOC templates.
 
 isOutdated support lost in eliminated PHCContent derivation.
 
 ATContentTypes.py nextprevious.py excludes folderish items from navigation.
 I need to make a derived adapter for ref manual sections.
+[dbfrombrc working on this]
 
 manual pages must be linkable in Kupu
 
 manual view with section/page descriptions
 
 Need templating work for all folderish types
+
+Replace Extensions/Install.py with a GS step
 
 Tests to cover new features
 

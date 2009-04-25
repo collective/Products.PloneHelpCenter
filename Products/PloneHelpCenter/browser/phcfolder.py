@@ -145,7 +145,8 @@ class HelpCenterFolderView(BrowserView):
 
         # Then insert each how-to in the appropriate audience/section
         for b in brains:
-            itemSections = [s for s in b.getSections if s]
+            secs = b.getSections or []
+            itemSections = [s for s in secs if s]
             if not itemSections:
                 itemSections = ['No section']
             else:
