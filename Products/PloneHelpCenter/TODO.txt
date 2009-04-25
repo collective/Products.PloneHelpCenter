@@ -2,8 +2,6 @@
 PloneHelpCenter ToDo
 ========================
 
-
-
 Derive section folders from ATCT folder. Add sections.
 Ones that don't need order should be derived from large folder.
 Since those will have rights, make sure rights search works.
@@ -24,6 +22,8 @@ manual view with section/page descriptions
 Need templating work for all folderish types
 
 Replace Extensions/Install.py with a GS step
+
+Migration must include repository_tool update
 
 Tests to cover new features
 
