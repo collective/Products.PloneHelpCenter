@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<import-steps>
+ <import-step id="plonehelpcenter" version="20090425-01"
+              handler="Products.PloneHelpCenter.setuphandlers.importVarious"
+              title="PloneHelpCenter">
+  <dependency step="typeinfo"/>
+  Import PloneHelpCenter settings
+ </import-step>
+</import-steps>
