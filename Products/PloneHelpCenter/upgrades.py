@@ -115,8 +115,12 @@ def migrateNextPrev(self):
 def runTypesUpdate(setuptool):
     """Upgrade types from profile"""
 
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'rolemap',
+                                      run_dependencies=True)
     setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'typeinfo',
                                        run_dependencies=True)
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'diff_tool',
+                                      run_dependencies=True)
 
 
 def reindexNearlyAll(portal):

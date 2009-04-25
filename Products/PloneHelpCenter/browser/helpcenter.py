@@ -1,5 +1,6 @@
 """ support for HelpCenter templates """
 
+import Acquisition
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 from Products.PythonScripts.standard import url_quote_plus
@@ -15,8 +16,9 @@ def _cacheKey(method, self):
     # Key on both current and last-modified times so
     # that an update of the PHC object will invalidate
     # the cache.
+    context = Acquisition.aq_inner(self.context)
     if CACHE_SECONDS:
-        return ( time() // CACHE_SECONDS, self.context.modified() )
+        return ( time() // CACHE_SECONDS, context.modified() )
     else:
         return time()
 
@@ -81,8 +83,10 @@ class HelpCenterView(BrowserView):
     def sections(self):
         """ subtype sections in current folder """
 
+        context = Acquisition.aq_inner(self.context)
+        
         contentFilter = {'review_state':('published', 'visible',), 'portal_type' : self.subtypes()}
-        return self.context.getFolderContents(contentFilter=contentFilter)
+        return context.getFolderContents(contentFilter=contentFilter)
 
 
     def sectionContents(self, section, limit=5):
@@ -101,11 +105,13 @@ class HelpCenterView(BrowserView):
         # [{title, url, subtopics}, ...]
         # subtopics are [{title, url}, ...]
         
-        here_url  = self.context.absolute_url()
+        context = Acquisition.aq_inner(self.context)
+        
+        here_url  = context.absolute_url()
 
         # get a set of the major topics
         try:
-            majorTopics = self.context.getSectionsVocab()
+            majorTopics = context.getSectionsVocab()
         except KeyError:
             return []
         liveSections = set( self.catalog.uniqueValuesFor('getSections') )
@@ -152,7 +158,7 @@ class HelpCenterView(BrowserView):
           This is used in helpcenter_ploneorg.pt.
         """
         
-        context = self.context
+        context = Acquisition.aq_inner(self.context)
         
         here_url  = context.absolute_url()
         phc = context.getPHCObject()
@@ -213,7 +219,7 @@ class HelpCenterView(BrowserView):
           This is used in helpcenter_ploneorg3.pt.
         """
 
-        context = self.context
+        context = Acquisition.aq_inner(self.context)
 
         here_url  = context.absolute_url()
         phc = context.getPHCObject()
@@ -245,6 +251,8 @@ class HelpCenterView(BrowserView):
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
         
+        context = Acquisition.aq_inner(self.context)
+
         # Returns sorted list of dicts in the form:
         # { 'title': title, 'id':id, 'docs': docs, }
         # docs are a sorted list of document brains
@@ -252,7 +260,7 @@ class HelpCenterView(BrowserView):
         # get a list of brains for all items of matching type and topic
         items = self.catalog(portal_type=portal_types, 
                              getSections=topic, 
-                             path=self.context.getPHCPath())
+                             path=context.getPHCPath())
         
         # construct a dict of subtopics under this topic
         # with a list of matching items as value
@@ -293,8 +301,10 @@ class HelpCenterView(BrowserView):
     def getMajorTopics(self):
         """Returns a sorted list of major sections"""
 
+        context = Acquisition.aq_inner(self.context)
+
         topics = {}
-        for topic in self.context.getSectionsVocab():
+        for topic in context.getSectionsVocab():
             pos = topic.find(':')
             if pos > 0:
                 topics.setdefault(topic[:pos].strip(), 1)
@@ -312,7 +322,9 @@ class HelpCenterView(BrowserView):
         center product which have been placed in this help center.
         """
         
-        phcTypes = self.context.allowed_content_types
+        context = Acquisition.aq_inner(self.context)
+
+        phcTypes = context.allowed_content_types
         allTypes = self.catalog.uniqueValuesFor('portal_type')
 
         nonPHCTypes = [t for t in allTypes if t not in phcTypes]
@@ -321,7 +333,7 @@ class HelpCenterView(BrowserView):
         if not nonPHCTypes:
             return []
 
-        return self.context.getFolderContents(contentFilter = {'portal_type' : nonPHCTypes}, batch=True)
+        return context.getFolderContents(contentFilter = {'portal_type' : nonPHCTypes}, batch=True)
 
 
     def statsQueryCatalog(self):
@@ -330,9 +342,11 @@ class HelpCenterView(BrowserView):
             Used in phc_stats_search.cpt
         """
         
-        REQUEST = self.context.REQUEST
+        context = Acquisition.aq_inner(self.context)
+
+        REQUEST = context.REQUEST
         
-        catalogMatches = self.context.queryCatalog(REQUEST=REQUEST, use_types_blacklist=False)
+        catalogMatches = context.queryCatalog(REQUEST=REQUEST, use_types_blacklist=False)
         matches = [m for m in catalogMatches]
         
         # Now do checks for comments, multiple sections/audiences/versions
@@ -381,8 +395,10 @@ class HelpCenterView(BrowserView):
          based on the request and our type list.
         """
         
+        context = Acquisition.aq_inner(self.context)
+
         # get our choice from the form request
-        request = self.context.REQUEST
+        request = context.REQUEST
         choice = request.form.get("phc_selection",None)
         
         # map our sections to our eligible choices
