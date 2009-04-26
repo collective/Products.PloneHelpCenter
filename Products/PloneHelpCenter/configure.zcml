@@ -16,11 +16,20 @@
 	provides="Products.GenericSetup.interfaces.EXTENSION"
 	/>
 
+
+  <gs:importStep
+      name="plonehelpcenter_various"
+      handler="Products.PloneHelpCenter.setuphandlers.importVarious"
+      title="Various PloneHelpCenter Settings"
+      description="PloneHelpCenter specific settings">
+      <depends name="typeinfo" />
+  </gs:importStep>
+
+
   <gs:upgradeSteps
      source="0.0"
      destination="3.0"
      profile="Products.PloneHelpCenter:default">
-
     <gs:upgradeStep
        title="Upgrading the types"
        description="Upgrade PHC types to derive from ATCT"
@@ -131,22 +140,5 @@
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
     <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
   </class>
-
-  <five:deprecatedManageAddDelete class=".content.HelpCenter.HelpCenter" />
-  <five:deprecatedManageAddDelete class=".content.FAQFolder.HelpCenterFAQFolder" />
-  <five:deprecatedManageAddDelete class=".content.HowToFolder.HelpCenterHowToFolder" />
-  <five:deprecatedManageAddDelete class=".content.TutorialFolder.HelpCenterTutorialFolder" />
-  <five:deprecatedManageAddDelete class=".content.ReferenceManualFolder.HelpCenterReferenceManualFolder" />
-  <five:deprecatedManageAddDelete class=".content.ErrorReferenceFolder.HelpCenterErrorReferenceFolder" />
-  <five:deprecatedManageAddDelete class=".content.LinkFolder.HelpCenterLinkFolder" />
-  <five:deprecatedManageAddDelete class=".content.Glossary.HelpCenterGlossary" />
-  <five:deprecatedManageAddDelete class=".content.HowTo.HelpCenterHowTo" />
-  <five:deprecatedManageAddDelete class=".content.Tutorial.HelpCenterTutorial" />
-  <five:deprecatedManageAddDelete class=".content.TutorialPage.HelpCenterTutorialPage" />
-  <five:deprecatedManageAddDelete class=".content.ErrorReference.HelpCenterErrorReference" />
-  <five:deprecatedManageAddDelete class=".content.FAQ.HelpCenterFAQ" />
-  <five:deprecatedManageAddDelete class=".content.Definition.HelpCenterDefinition" />
-  <five:deprecatedManageAddDelete class=".content.Link.HelpCenterLink" />
-
 
 </configure>

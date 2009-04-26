@@ -119,7 +119,7 @@ def runTypesUpdate(setuptool):
                                       run_dependencies=True)
     setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'typeinfo',
                                        run_dependencies=True)
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'diff_tool',
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'difftool',
                                       run_dependencies=True)
 
 

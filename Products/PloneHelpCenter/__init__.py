@@ -50,6 +50,8 @@ def initialize(context):
                                          'HelpCenterFAQ', 
                                          'HelpCenterTutorial',
                                          'HelpCenterReferenceManual',
+                                         'HelpCenterReferenceManualSection',
+                                         'HelpCenterReferenceManualPage',
                                          'HelpCenterInstructionalVideo',
                                          'HelpCenterLink',
                                          'HelpCenterHowTo',
