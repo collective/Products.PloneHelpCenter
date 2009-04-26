@@ -16,17 +16,6 @@ from Products.PloneHelpCenter import config
 def install(self):
     out = StringIO()
 
-    # tool=getToolByName(self, "portal_setup")
-    # 
-    # try:
-    #     tool.runAllImportStepsFromProfile(EXTENSION_PROFILE,
-    #         purge_old=False)
-    # except AttributeError:   # before plone 3
-    #     old_context = tool.getImportContextID()
-    #     tool.setImportContext(EXTENSION_PROFILE)
-    #     tool.runAllImportSteps(purge_old=False)
-    #     tool.setImportContext(old_context)
-
     # Add catalog metadata columns and indexes
     catalog = getToolByName(self, 'portal_catalog')
     addCatalogIndex(self, out, catalog, 'isOutdated', 'FieldIndex')
@@ -119,9 +108,6 @@ def importVarious(context):
     """
     Final plonehelpcenter import steps.
     """
-    # Only run step if a flag file is present (e.g. not an extension profile)
-    if context.readDataFile('plonehelpcenter-various.txt') is None:
-        return
     site = context.getSite()
     print install(site)
     
