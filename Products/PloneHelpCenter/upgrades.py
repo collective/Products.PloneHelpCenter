@@ -14,6 +14,10 @@ from Products.CMFCore.utils import getToolByName
 
 from Products.Archetypes.public import process_types, listTypes
 
+from StringIO import StringIO
+from Products.contentmigration import walker
+from Products.contentmigration.archetypes import InplaceATItemMigrator
+
 
 # getPortal and IfInstalled stolen from Collage.
 # Thanks, Giles!
@@ -115,10 +119,12 @@ def migrateNextPrev(self):
 def runTypesUpdate(setuptool):
     """Upgrade types from profile"""
 
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'rolemap',
-                                      run_dependencies=True)
     setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'typeinfo',
                                        run_dependencies=True)
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'workflow',
+                                      run_dependencies=True)
+    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'rolemap',
+                                      run_dependencies=True)
     setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'difftool',
                                       run_dependencies=True)
 
@@ -136,6 +142,33 @@ def reindexNearlyAll(portal):
         brain.getObject().reindexObject('object_provides')
 
 
+class RMPageMigrator(InplaceATItemMigrator):
+
+    walkerClass = walker.CatalogWalker
+
+    src_meta_type = 'HelpCenterReferenceManualPage'
+
+    src_portal_type = 'HelpCenterReferenceManualPage'
+
+    dst_meta_type = 'HelpCenterLeafPage'
+
+    dst_portal_type = 'HelpCenterLeafPage'
+
+
+class TPageMigrator(InplaceATItemMigrator):
+
+    walkerClass = walker.CatalogWalker
+
+    src_meta_type = 'HelpCenterTutorialPage'
+
+    src_portal_type = 'HelpCenterTutorialPage'
+
+    dst_meta_type = 'HelpCenterLeafPage'
+
+    dst_portal_type = 'HelpCenterLeafPage'
+
+
+
 @IfInstalled()        
 def runTypesMigration(setuptool):
     """
@@ -145,10 +178,24 @@ def runTypesMigration(setuptool):
     runTypesUpdate(setuptool)
     
     portal = getPortal()
+    
+    # add next/previous flags to multi-page types
     print migrateNextPrev(portal)
+    # move body texts
     print migrateBodyTexts(portal)
     print migrateFAQs(portal)
-    
+
+    # real type migration: convert manual and
+    # tutorial pages to the new, generic leaf
+    # content type.
+    out = StringIO()
+    for migrator in (RMPageMigrator, TPageMigrator):
+        walker = migrator.walkerClass(portal, migrator)
+        walker.go(out=out)
+        print out
+        print walker.getOutput()
+
+    # object_provides catalog entries need updating
     reindexNearlyAll(setuptool)
 
     return

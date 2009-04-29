@@ -21,10 +21,6 @@ manual view with section/page descriptions
 
 Need templating work for all folderish types
 
-Replace Extensions/Install.py with a GS step
-
-Migration must include repository_tool update
-
 Tests to cover new features
 
 

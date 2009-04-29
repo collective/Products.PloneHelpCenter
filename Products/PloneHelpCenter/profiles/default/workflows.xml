@@ -49,6 +49,9 @@
   <type type_id="HelpCenterReferenceManualPage">
    <bound-workflow workflow_id="helpcentersubitem_workflow"/>
   </type>
+  <type type_id="HelpCenterLeafPage">
+   <bound-workflow workflow_id="helpcentersubitem_workflow"/>
+  </type>
   <type type_id="HelpCenterReferenceManualSection">
    <bound-workflow workflow_id="helpcentersubitem_workflow"/>
   </type>

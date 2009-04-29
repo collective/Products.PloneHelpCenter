@@ -49,7 +49,9 @@ class HelpCenterTutorial(ATContentTypes.content.folder.ATFolder, PHCContentMixin
     security.declareProtected(CMFCorePermissions.View, 'getPages')
     def getPages(self, states=[]):
         """Get items"""
-        criteria = contentFilter = {'portal_type' : 'HelpCenterTutorialPage'}
+        criteria = contentFilter = \
+            {'object_provides' : 
+             'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',}
         if states:
             criteria['review_state'] = states
         return self.getFolderContents(contentFilter = criteria)

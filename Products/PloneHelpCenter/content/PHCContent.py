@@ -156,9 +156,16 @@ def HideOwnershipFields(schema):
         schema[fname].widget.visible = {'view':'invisible','edit':'invisible'}
 
 
+def HideMetadataFields(schema):
+    """ Some PHC types should have very little visible metadata """
+    for field in ('creators', 'contributors', 'rights', 'location', 'subject', 'language'):
+        schema[field].widget.visible = {'view':'invisible','edit':'invisible'}
+
+
 class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
-    """A simple  mixin class to provide contentish functions
-    archetype no schema defined"""
+    """A simple  mixin class to provide contentish functions 
+       archetype with no schema defined.
+    """
 
 
     security = ClassSecurityInfo()
@@ -166,4 +173,5 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
     _at_rename_after_creation = True
 
     __implements__ = (HistoryAwareMixin.__implements__,)
+
 

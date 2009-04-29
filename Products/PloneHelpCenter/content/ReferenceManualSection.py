@@ -12,12 +12,12 @@ from Products import ATContentTypes
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
-from Products.PloneHelpCenter.content.PHCContent import HideOwnershipFields
+from Products.PloneHelpCenter.content.PHCContent import HideMetadataFields
 from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
 
 
 HelpCenterReferenceManualSectionSchema = ATContentTypes.content.folder.ATFolderSchema.copy()
-HideOwnershipFields(HelpCenterReferenceManualSectionSchema)
+HideMetadataFields(HelpCenterReferenceManualSectionSchema)
 
 
 class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
