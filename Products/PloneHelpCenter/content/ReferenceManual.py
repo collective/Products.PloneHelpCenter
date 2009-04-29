@@ -91,8 +91,7 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                 
         strategy = Strategy()
         query=  {'path'        : '/'.join(root.getPhysicalPath()),
-                 'portal_type' : ('HelpCenterReferenceManualSection',
-                                   'HelpCenterReferenceManualPage',),
+                 'object_provides' : 'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',
                  'sort_on'     : 'getObjPositionInParent'}
                 
         toc = buildFolderTree(self, current, query, strategy)['children']

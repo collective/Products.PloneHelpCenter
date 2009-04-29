@@ -21,4 +21,4 @@ import ErrorReferenceFolder, ErrorReference
 
 import Glossary, Definition
 
-import KnowledgeBase
+import KnowledgeBase, LeafPage

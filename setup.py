@@ -28,5 +28,6 @@ setup(name='Products.PloneHelpCenter',
       install_requires=[
         'setuptools',
         'plone.i18n',
+        'Products.contentmigration',
       ],
 )
