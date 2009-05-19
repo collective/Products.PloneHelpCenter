@@ -1,7 +1,9 @@
-<configure  xmlns="http://namespaces.zope.org/browser"
-            i18n_domain="plonehelpcenter">
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    i18n_domain="plonehelpcenter">
 
-<page
+<browser:page
     name="hc_view"
     for="..interfaces.IHelpCenter"
     class=".helpcenter.HelpCenterView"
@@ -11,7 +13,7 @@
         getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
     />
 
-<page
+<browser:page
     name="hc_view"
     for="..interfaces.IHelpCenterFolder"
     class=".helpcenter.HelpCenterView"
@@ -21,7 +23,7 @@
         getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
     />
 
-<page
+<browser:page
     name="hcf_view"
     for="..interfaces.IHelpCenterFolder"
     class=".phcfolder.HelpCenterFolderView"
@@ -30,21 +32,21 @@
         getItemsByAudiencesAndSections getSectionsToList"
     />
 
-<page
+<browser:page
     name="phc_topic"
     for="..interfaces.IHelpCenterFolder"
     permission="zope2.View"
     template="phc_topic.pt"
     />
 
-<page
+<browser:page
     name="phc_topic"
     for="..interfaces.IHelpCenter"
     permission="zope2.View"
     template="phc_topic.pt"
     />
 
-<page
+<browser:page
     name="phc_attachments_view"
     for="..interfaces.IHelpCenterHowTo"
     class=".phc_attachments.AttachmentsView"
@@ -52,12 +54,15 @@
     allowed_attributes="folderButtons"
     />
 
-<page
+<browser:page
     name="phc_paged_view"
     for="..interfaces.IHelpCenterMultiPage"
     class=".phccontent.HelpCenterPagedView"
     permission="zope2.View"
     allowed_attributes="navRootObject"
     />
+
+<!-- Enable next/previous links for folders -->
+<adapter factory=".nextprevious.HelpCenterFolderNextPrevious" />
 
 </configure>
