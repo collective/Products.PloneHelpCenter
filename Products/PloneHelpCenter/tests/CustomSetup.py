@@ -54,7 +54,7 @@ def CreateTutorials( self, portal ):
         # portal.plone_utils.changeOwnershipOf( newTutorial, content.Owner.Id, 1 )
         # Attach pages to the tutorial.
         for page in content.Pages:
-            newTutorial.invokeFactory( 'HelpCenterTutorialPage', page.Id)
+            newTutorial.invokeFactory( 'HelpCenterLeafPage', page.Id)
             newPage = getattr( newTutorial, page.Id )
             newPage.setTitle(page.Title)
             newPage.setDescription(page.Summary)

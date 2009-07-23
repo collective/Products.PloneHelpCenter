@@ -406,7 +406,7 @@ class HelpCenterView(BrowserView):
             "faq":('HelpCenterFAQ','HelpCenterFAQFolder'),
             "howto":("HelpCenterHowTo","HelpCenterHowtoFolder"),
             "tutorial":("HelpCenterTutorial","HelpCenterTutorialFolder", \
-                        "HelpCenterTutorialPage"),
+                        "HelpCenterLeafPage"),
             "link":("HelpCenterLink","HelpCenterLinkFolder"),
             "error":("HelpCenterErrorReference","HelpCenterErrorReferenceFolder"),
             "glossary":("HelpCenterDefinition","HelpCenterGlossary"),

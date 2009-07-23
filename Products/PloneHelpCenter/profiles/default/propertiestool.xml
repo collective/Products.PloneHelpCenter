@@ -10,8 +10,8 @@
    <element value="HelpCenterLink"/>
    <element value="HelpCenterInstructionalVideo"/>
    <element value="HelpCenterReferenceManual"/>
-   <element value="HelpCenterTutorialPage"/>
-   <element value="HelpCenterReferenceManualPage"/>
+   <element value="HelpCenterLeafPage"/>
+   <element value="HelpCenterKnowledgeBase"/>
   </property>
   <property name="metaTypesNotToList" type="lines" purge="False">
    <element value="HelpCenterHowTo"/>
@@ -22,8 +22,8 @@
    <element value="HelpCenterLink"/>
    <element value="HelpCenterInstructionalVideo"/>
    <element value="HelpCenterReferenceManual"/>
-   <element value="HelpCenterTutorialPage"/>
-   <element value="HelpCenterReferenceManualPage"/>
+   <element value="HelpCenterLeafPage"/>
+   <element value="HelpCenterKnowledgeBase"/>
   </property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
@@ -42,6 +42,7 @@
    <element value="HelpCenterLinkFolder"/>
    <element value="HelpCenter"/>
    <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterKnowledgeBase"/>
   </property>
   <property name="typesLinkToFolderContentsInFC" type="lines" purge="False">
    <element value="HelpCenterReferenceManualFolder"/>
@@ -58,6 +59,7 @@
    <element value="HelpCenterLinkFolder"/>
    <element value="HelpCenter"/>
    <element value="HelpCenterReferenceManual"/>
+   <element value="HelpCenterKnowledgeBase"/>
   </property>
  </object>
 </object>
