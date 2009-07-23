@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 3.0dev
     
+    - Reduce test noise if LinguaPlone, i18ndude or i18ntestcase are
+      missing. [stevem, thanks dukebody]
+    
     - setuphandlers.py wasn't protecting importVarious from running in
       non-install contexts. Showed up as unable to find portal_registry
       when creating a new plone site. [stevem]
