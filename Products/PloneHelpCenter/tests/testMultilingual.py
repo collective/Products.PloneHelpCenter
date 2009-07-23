@@ -9,7 +9,13 @@ if __name__ == '__main__':
 from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
-from Products import LinguaPlone
+try:
+    from Products import LinguaPlone
+    LINGUAPLONE = True
+except ImportError:
+    LINGUAPLONE = False
+    print "LinguaPlone not found... skipping multilingual tests."
+    
 
 class TestMultilingual(PHCTestCase.PHCTestCase):
     """General tests for multilingual objects."""
@@ -38,7 +44,8 @@ class TestMultilingual(PHCTestCase.PHCTestCase):
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    suite.addTest(makeSuite(TestMultilingual))
+    if LINGUAPLONE:
+        suite.addTest(makeSuite(TestMultilingual))
     return suite
 
 if __name__ == '__main__':
