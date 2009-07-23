@@ -25,9 +25,9 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         self.tf = self.folder.hc.tutorial # tutorial folder
         self.tf.invokeFactory('HelpCenterTutorial', id='t')
         self.tutorial = self.tf.t
-        self.tutorial.invokeFactory('HelpCenterTutorialPage', 'page1')
-        self.tutorial.invokeFactory('HelpCenterTutorialPage', 'page2')
-        self.tutorial.invokeFactory('HelpCenterTutorialPage', 'page3')
+        self.tutorial.invokeFactory('HelpCenterLeafPage', 'page1')
+        self.tutorial.invokeFactory('HelpCenterLeafPage', 'page2')
+        self.tutorial.invokeFactory('HelpCenterLeafPage', 'page3')
         
     def testCommentOnTutorialPage(self):
         title = 'Test comment'
@@ -81,7 +81,7 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
         self.tf = self.folder.hc.tutorial # tutorial folder
         self.tf.invokeFactory('HelpCenterTutorial', id='t')
         self.tutorial = self.tf.t
-        self.tutorial.invokeFactory('HelpCenterTutorialPage', 'page1')
+        self.tutorial.invokeFactory('HelpCenterLeafPage', 'page1')
 
     def beforeTearDown(self):
         self.portal.MailHost = self.portal._original_MailHost
@@ -108,7 +108,7 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
         payload = msg.message.get_payload().decode('base64')
         self.failUnlessEqual( msg.mto[0], 'testuser@testme.com' )
         self.failUnlessEqual( msg.message['subject'], '=?utf-8?q?New_comment_on_page1?=' )
-        self.failUnless( payload.find('Someone added a comment on your HelpCenterTutorialPage:\npage1.') > 0 )
+        self.failUnless( payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0 )
 
 
 def test_suite():

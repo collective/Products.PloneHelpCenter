@@ -13,7 +13,6 @@
   <property name="filter_content_types">True</property>
   <property name="allowed_content_types">
       <element value="HelpCenterLeafPage"/>
-      <element value="HelpCenterTutorialPage"/>
       <element value="Image"/>
       <element value="File"/>
   </property>

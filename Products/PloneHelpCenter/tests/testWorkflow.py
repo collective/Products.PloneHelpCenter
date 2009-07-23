@@ -51,7 +51,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self._publishContent(tutorial)
         tutorial.edit(description=newDescription)
         self.assertEqual(tutorial.Description(), newDescription)
-        tutorial.invokeFactory('HelpCenterTutorialPage', 'newPage')
+        tutorial.invokeFactory('HelpCenterLeafPage', 'newPage')
         page = getattr(tutorial, 'newPage')
         page.setTitle('New Page')
         page.setDescription('A tutorial page added after tutorial was published')
@@ -62,7 +62,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         # Edit a page on a tutorial that has been published.
         newDescription = 'New Description.'
         tutorial = self._createTutorial(self.folder.hc.tutorial, 'tut1')
-        tutorial.invokeFactory('HelpCenterTutorialPage', 'newPage')
+        tutorial.invokeFactory('HelpCenterLeafPage', 'newPage')
         page = getattr(tutorial, 'newPage')
         page.setTitle('New Page')
         page.setDescription('A tutorial page added after tutorial was published')

@@ -40,6 +40,12 @@ class TestPortalTypes(PHCTestCase.PHCTestCase):
     def testHelpCenterTutorialPageType(self):
         self.failUnless('HelpCenterTutorialPage' in self.types)
 
+    def testHelpCenterLeafPageType(self):
+        self.failUnless('HelpCenterLeafPage' in self.types)
+
+    def testHelpCenterKnowledgeBase(self):
+        self.failUnless('HelpCenterKnowledgeBase' in self.types)
+
     def testHelpCenterLinkFolderType(self):
         self.failUnless('HelpCenterLinkFolder' in self.types)
 
@@ -304,15 +310,15 @@ class TestHelpCenterTutorialContainment(_TestFolderishContainmentBase):
         
     def testTutorialFolderAllowedContentTypes(self):
         allowed = [
-            'HelpCenterTutorialPage',
             'Image',
             'File',
+            'HelpCenterLeafPage',
         ]
         self.checkAllowedContentTypes(self.tf, allowed)
 
-    def testCreateTutorialPageInTutorial(self):
+    def testCreateLeafPageInTutorial(self):
         # Allowed
-        self.tf.invokeFactory('HelpCenterTutorialPage', id='h')
+        self.tf.invokeFactory('HelpCenterLeafPage', id='h')
         self.assertEqual(self.tf.objectIds(), ['h'])
 
 #    XXX Should we test that we can actually add an Image and a File?

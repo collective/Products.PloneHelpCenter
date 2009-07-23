@@ -94,7 +94,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         for i in range(numPages):
             pageNum = i + 1
             id='page%d' % pageNum
-            tutorial.invokeFactory('HelpCenterTutorialPage', id)
+            tutorial.invokeFactory('HelpCenterLeafPage', id)
             newPage = getattr(tutorial, id)
             newPage.setTitle('Test Tutorial Page %d' % pageNum)
             newPage.setDescription('A PHC Tutorial Page (%d) for unit tests.' % pageNum)
