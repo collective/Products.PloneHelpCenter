@@ -108,6 +108,11 @@ def importVarious(context):
     """
     Final plonehelpcenter import steps.
     """
+
+    # Only run step if a flag file is present (e.g. not an extension profile)
+    if context.readDataFile('plonehelpcenter-various.txt') is None:
+        return
+
     site = context.getSite()
     print install(site)
     
