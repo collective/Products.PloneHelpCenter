@@ -25,3 +25,4 @@ Plone.Org view skin by vedawms.
   
 Numerous 1.0 presentation fixes: Servilio Afre Puentes.
 
+Version 3.0 refactoring: Steve McMahon
