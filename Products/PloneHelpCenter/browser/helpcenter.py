@@ -22,7 +22,10 @@ def _cacheKey(method, self):
     else:
         return time()
 
+# note that KnowledgeBases are not included; they don't really
+# fit the type-folder scheme.
 subtypes_tuples = (
+    ('HelpCenterKnowledgeBase','HelpCenterHowTo'),
     ('HelpCenterFAQFolder','HelpCenterFAQ'),
     ('HelpCenterHowToFolder','HelpCenterHowTo'),
     ('HelpCenterTutorialFolder','HelpCenterTutorial'),
