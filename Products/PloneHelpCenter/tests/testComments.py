@@ -28,11 +28,18 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         self.tutorial.invokeFactory('HelpCenterLeafPage', 'page1')
         self.tutorial.invokeFactory('HelpCenterLeafPage', 'page2')
         self.tutorial.invokeFactory('HelpCenterLeafPage', 'page3')
+        # turn on discussion
+        self.tutorial.allowDiscussion(allowDiscussion=True)
+        self.tutorial.page1.allowDiscussion(allowDiscussion=True)
+        self.tutorial.page2.allowDiscussion(allowDiscussion=True)
+        self.tutorial.page3.allowDiscussion(allowDiscussion=True)
         
     def testCommentOnTutorialPage(self):
         title = 'Test comment'
         body = 'head\nbody\nlegs\n'
         discussionTool = self.portal.portal_discussion
+        # turn on discussion
+        self.tutorial.page2.allowDiscussion(allowDiscussion=True)
         # set up the talkback subobject
         discussionTool.getDiscussionFor(self.tutorial.page2)
         # create a comment on the tutorial page
