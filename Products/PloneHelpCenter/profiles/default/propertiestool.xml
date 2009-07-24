@@ -23,7 +23,6 @@
    <element value="HelpCenterInstructionalVideo"/>
    <element value="HelpCenterReferenceManual"/>
    <element value="HelpCenterLeafPage"/>
-   <element value="HelpCenterKnowledgeBase"/>
   </property>
  </object>
  <object name="site_properties" meta_type="Plone Property Sheet">
