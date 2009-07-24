@@ -23,6 +23,8 @@
   <element value="folder_summary_view"/>
   <element value="folder_tabular_view"/>
   <element value="folder_listing"/>
+  <element value="helpcenter_topicview"/>
+  <element value="helpcenter_topicview_main"/>
  </property>
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
