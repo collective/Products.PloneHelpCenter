@@ -14,6 +14,7 @@
 
 <div metal:fill-slot="main"
      tal:define="view context/@@hc_view;
+                 pview context/@@plone;
                  use_types_blacklist request/use_types_blacklist | python:True;
                  dummy python:request.set('portal_type',view.searchTypes());
                  dummy python:request.set('path', test(getattr(here,'constrainSearches', True), here.getPHCPath(), '/'.join(portal.getPhysicalPath())));
@@ -89,7 +90,7 @@
                   <span tal:content="result/Type" />
                   <span tal:condition="result/getAudiences | nothing">for <span tal:replace="python:', '.join(result.getAudiences)" /></span><span tal:condition="result/getVersions | nothing">; Versions: <span tal:replace="python:', '.join(result.getVersions)" /></span>
                 </div>
-                <div tal:content="python:here.cropText(result.Description, desc_length, desc_ellipsis)"> Description </div>
+                <div tal:content="python:pview.cropText(result.Description, desc_length, desc_ellipsis)"> Description </div>
             </dd>
 
         </tal:entry>
