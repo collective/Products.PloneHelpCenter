@@ -2,6 +2,9 @@
 Products.PloneHelpCenter
 ========================
 
+If you are upgrading an existing PHC installation, you *must* read
+INSTALL.txt.
+
 Overview
 ========
 
