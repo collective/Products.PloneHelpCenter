@@ -72,17 +72,17 @@
   </class>
   <class class=".content.ReferenceManualPage.HelpCenterReferenceManualPage">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".content.TutorialPage.HelpCenterTutorialPage">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".content.HowTo.HelpCenterHowTo">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface="Products.ATContentTypes.interface.IATFolder" />
   </class>
   <class class=".content.PHCFolder.PHCFolder">
@@ -91,7 +91,7 @@
   </class>
   <class class=".content.FAQ.HelpCenterFAQ">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
   </class>
 
   <!--
@@ -119,17 +119,17 @@
   </class>
   <class class=".types.ReferenceManualPage.HelpCenterReferenceManualPage">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".types.TutorialPage.HelpCenterTutorialPage">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".types.HowTo.HelpCenterHowTo">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
     <implements interface="Products.ATContentTypes.interface.IATFolder" />
   </class>
   <class class=".types.PHCFolder.PHCFolder">
@@ -138,7 +138,7 @@
   </class>
   <class class=".types.FAQ.HelpCenterFAQ">
     <implements interface="Products.ATContentTypes.interface.IATDocument" />
-    <implements interface="Products.ATContentTypes.interface.archive.IArchivable" />
+    <!-- <implements interface="Products.ATContentTypes.interface.archive.IArchivable" /> -->
   </class>
 
 </configure>

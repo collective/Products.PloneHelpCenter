@@ -56,8 +56,7 @@ LinkSchema.moveField('relatedItems', pos='bottom')
 class HelpCenterLink(PHCContent,BaseContent):
     """A simple archetype"""
 
-    __implements__ = (PHCContent.__implements__,
-                      BaseContent.__implements__,)
+
 
     content_icon = 'helplink_icon.gif'
 

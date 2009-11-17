@@ -13,7 +13,13 @@
 <body>
 
 <metal:main fill-slot="main">
-    <tal:main-macro metal:define-macro="main" tal:define="view context/@@hc_view;">
+    <tal:main-macro 
+			metal:define-macro="main" 
+			tal:define="view context/@@hc_view;
+               			here_url context/@@plone_context_state/object_url;
+                  		toLocalizedTime nocall:context/@@plone/toLocalizedTime;
+            			Iterator python:modules['Products.CMFPlone'].IndexIterator;    
+						tabindex python:Iterator(pos=10000, mainSlot=False);">
                     
         <h1 tal:content="here/title_or_id" class="documentFirstHeading">
           Title or id

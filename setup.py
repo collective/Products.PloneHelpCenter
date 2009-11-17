@@ -29,5 +29,6 @@ setup(name='Products.PloneHelpCenter',
         'setuptools',
         'plone.i18n',
         'Products.contentmigration',
+        'Plone>=4.0dev',
       ],
 )

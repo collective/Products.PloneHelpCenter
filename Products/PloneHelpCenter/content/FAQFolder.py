@@ -62,25 +62,6 @@ class HelpCenterFAQFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     typeDescription= 'An FAQ Section can hold frequently asked questions with answers.'
     typeDescMsgId  = 'description_edit_faqfolder'
 
-    # def getTOCSelectOptions(self, current=None):
-    #     """
-    #     Returns a sequence of dicts:
-    #         title: tile of section/page, including numbering
-    #         url:   URL of page
-    #         current: True if current section/page
-    #     This is a convenience for creating an option list.
-    #     """
-    # 
-    #     res = []
-    #     for section in getMultiAdapter((self, self.REQUEST,), name="hcf_view").getSectionsToList():
-    #         res.append( 
-    #             {'title':section, 
-    #              'url':'%s/faqsection_view?section=%s' % (self.absolute_url(), urllib.quote(section)), 
-    #              'current':False} )
-    #     
-    #     return res
-    #     
-    # def getAllPagesURL(self):
-    #     return '%s?full=1' % self.absolute_url()
+
 
 registerType(HelpCenterFAQFolder, PROJECTNAME)

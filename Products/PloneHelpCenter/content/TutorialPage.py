@@ -28,8 +28,6 @@ class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocumentBase):
 
     implements(IHelpCenterMultiPage)
 
-    __implements__ = ATContentTypes.content.document.ATDocumentBase.__implements__, IATDocument
-
     schema = TutorialPageSchema
 
     archetype_name = 'Page'

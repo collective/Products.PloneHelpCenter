@@ -162,9 +162,6 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         Help Center Top Container
     """
 
-    __implements__ = (BrowserDefaultMixin.__implements__,
-        OrderedBaseFolder.__implements__)
-
     implements(IHelpCenter)
 
     schema = HCRootSchema

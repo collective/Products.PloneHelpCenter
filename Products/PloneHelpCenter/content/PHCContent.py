@@ -172,6 +172,6 @@ class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
 
     _at_rename_after_creation = True
 
-    __implements__ = (HistoryAwareMixin.__implements__,)
+
 
 

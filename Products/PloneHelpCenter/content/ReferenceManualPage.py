@@ -29,8 +29,6 @@ for key, attr in DEFAULT_CONTENT_TYPES.items():
 class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBase):
     """Part of a reference manual."""
     
-    __implements__ = (ATContentTypes.content.document.ATDocumentBase.__implements__,
-                      IATDocument)
 
     schema = HelpCenterReferenceManualPageSchema
 
