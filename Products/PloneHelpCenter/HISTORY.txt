@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+
+    PloneHelpCenter 4.0a1
+    
+    - Make compatible with Plone 4 [fabiorizzo]
+
     PloneHelpCenter 3.0b1
     
     - View cleanups.
