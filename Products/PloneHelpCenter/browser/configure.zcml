@@ -1,6 +1,8 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
     xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="plonehelpcenter">
 
 <browser:page
@@ -22,6 +24,18 @@
         getTopics getSubTopics getMajorTopics getSyndicationURL
         getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
     />
+
+<zope:configure zcml:condition="installed Products.PloneSoftwareCenter">
+    <browser:page
+        name="hc_view"
+        for="Products.PloneSoftwareCenter.interfaces.IDocumentationFolderContent"
+        class=".helpcenter.HelpCenterView"
+        permission="zope2.View"
+        allowed_attributes="subtypes rss_subtypes sections sectionContents
+            getTopics getSubTopics getMajorTopics getSyndicationURL
+            getSectionMap getNonPHCContents statsQueryCatalog searchTypes"
+        />
+</zope:configure>
 
 <browser:page
     name="hcf_view"

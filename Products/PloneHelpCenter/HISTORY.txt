@@ -3,6 +3,10 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 3.0b2
+
+    - Make hc_view available in PSC.    
+
     PloneHelpCenter 3.0b1
     
     - View cleanups.
