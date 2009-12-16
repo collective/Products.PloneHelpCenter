@@ -65,6 +65,7 @@
       <implements interface="plone.portlets.interfaces.ILocalPortletAssignable" />
       <implements interface="plone.contentrules.engine.interfaces.IRuleAssignable" />
       <implements interface=".interfaces.IHelpCenterNavRoot" />
+      <implements interface=".interfaces.IHelpCenterMultiPage" />
   </class>
   <class class=".content.ReferenceManualSection.HelpCenterReferenceManualSection">
       <implements interface="Products.ATContentTypes.interface.IATFolder" />
