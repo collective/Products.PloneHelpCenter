@@ -9,12 +9,18 @@ from Acquisition import aq_parent, aq_inner
 
 from Products.CMFCore.utils import getToolByName
 
-from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage
+from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage, \
+    IHelpCenterNavRoot
 from Products.ATContentTypes.browser.nextprevious import ATFolderNextPrevious
 
 class HelpCenterFolderNextPrevious(ATFolderNextPrevious):
-    """Let a HelpCenter Section act as a next/previous provider. This will be 
-    automatically found by the @@plone_nextprevious_view and viewlet.
+    """Let a HelpCenter Section act as a next/previous provider. This
+    will be automatically found by the @@plone_nextprevious_view and
+    viewlet. 
+
+    Work recursively, so the next item of the last page of a given
+    section will be the next section, and the previous item of the
+    first page will be the previous section.
     """
     
     implements(INextPreviousProvider)
@@ -22,11 +28,13 @@ class HelpCenterFolderNextPrevious(ATFolderNextPrevious):
 
     def getNextItem(self, obj):
         next = super(HelpCenterFolderNextPrevious, self).getNextItem(obj)
-        if next is not None: 
-            return next
-        else: # no next item in this folder
+
+        if next is None and not IHelpCenterNavRoot.providedBy(self.context):
+            # no next item in this section and we're not at a root element
             parent = aq_parent(aq_inner(self.context))
             return INextPreviousProvider(parent).getNextItem(self.context)
+        else: # normal behaviour
+            return next
         
     def getPreviousItem(self, obj):
         previous = super(HelpCenterFolderNextPrevious, self).getPreviousItem(obj)
