@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 3.0b3 (UNRELEASED)
+
+    - Fix next/previous custom adapter to work correctly with manual
+      sections. [dukebody]
+
     PloneHelpCenter 3.0b2
 
     - Make hc_view available in PSC.    
