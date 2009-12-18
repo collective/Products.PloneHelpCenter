@@ -26,23 +26,6 @@ class TestNextPrevious(PHCTestCase):
                                       'page%d' % leaf_page_counter)
         self.setRoles(['Member'])
  
-    def testNextPreviousViewEnabled(self):
-        #set the parent folder "getNextPreviousEnabled" to true
-        case = self.hc.manual_folder.manual.section2
-        case.setNextPreviousEnabled(True)
-        
-        # clear request memos
-        view = case.page2.restrictedTraverse('@@plone_nextprevious_view', None)
-        self.failUnless(view.enabled())
-
-        # test the next method
-        next = view.next()
-        self.assertEquals(next['url'], case.page3.absolute_url())
-        
-        # test the previous method
-        previous = view.previous()
-        self.assertEquals(previous['url'], case.page1.absolute_url())
-
     def testNextPreviousItems(self):
         manual = self.hc.manual_folder.manual
         section1  = manual.section1
