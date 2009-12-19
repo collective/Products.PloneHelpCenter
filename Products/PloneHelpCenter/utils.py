@@ -10,7 +10,7 @@ def discussion_notify(comment_on_object, variables = {}):
     envelope_from = send_from_address
     
     mt = portal.portal_membership
-    if IDiscussionResponse.isImplementedBy(comment_on_object):
+    if IDiscussionResponse.providedBy(comment_on_object):
         owner = comment_on_object.Creator()
         if owner:
             member = mt.getMemberById(owner)
