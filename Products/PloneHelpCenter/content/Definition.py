@@ -43,9 +43,6 @@ class HelpCenterDefinition(PHCContent,BaseContent):
     """A Definition defines a special term, and will be listed in the glossary.
     """
 
-    __implements__ = (PHCContent.__implements__,
-                      BaseContent.__implements__,)
-
     content_icon = 'glossary_icon.gif'
 
     schema = DefinitionSchema

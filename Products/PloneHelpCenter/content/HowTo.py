@@ -43,13 +43,7 @@ class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
     use-case or issue. You may add images and files as attachments.
     """
     
-    __implements__ = (ATCTOrderedFolder.__implements__,
-                      IATFolder,
-                      ATDocumentBase.__implements__, 
-                      IATDocument,
-                      )
-    
-    implements( (IHelpCenterHowTo, IHelpCenterContent,) )
+    implements(IATFolder, IATDocument, IHelpCenterHowTo, IHelpCenterContent)
 
     isPrincipiaFolderish = True
 
