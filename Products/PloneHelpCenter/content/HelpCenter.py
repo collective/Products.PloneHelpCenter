@@ -38,7 +38,7 @@ from Products.PloneHelpCenter.config import *
 from Products.CMFPlone.utils import _createObjectByType
 
 import os
-from Globals import package_home
+from App.Common import package_home
 
 try:
     set
