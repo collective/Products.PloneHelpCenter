@@ -1,4 +1,4 @@
-from Products.CMFCore.interfaces.Discussions import DiscussionResponse as IDiscussionResponse
+from Products.CMFCore.interfaces._content import IDiscussionResponse
 
 def discussion_notify(comment_on_object, variables = {}):
     portal = comment_on_object.portal_url.getPortalObject()
