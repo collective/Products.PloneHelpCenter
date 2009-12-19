@@ -4,7 +4,7 @@ from DateTime import DateTime
 from Acquisition import aq_inner, aq_parent, aq_base, aq_chain
 from Products.Archetypes.utils import shasattr
 from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.interfaces.Discussions import DiscussionResponse as IDiscussionResponse
+from Products.CMFCore.interfaces._content import IDiscussionResponse
 try:
     from Products.CMFCore.permissions import ReplyToItem
 except ImportError:
