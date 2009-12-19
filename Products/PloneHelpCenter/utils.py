@@ -22,7 +22,8 @@ def discussion_notify(comment_on_object, variables = {}):
                     subject = "New comment on " + comment_on_object.title_or_id()
 
                     # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
-                    result = host.send(mail_text, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=envelope_from)
+                    mail_text = 'From: %s\n%s' % (envelope_from, mail_text)
+                    result = host.send(mail_text, send_to_address, envelope_from, subject=subject, charset=encoding)
 
         parents = comment_on_object.parentsInThread()
         if not parents:
@@ -41,4 +42,5 @@ def discussion_notify(comment_on_object, variables = {}):
                 subject = "New comment on " + comment_on_object.title_or_id()
 
                 # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
-                result = host.send(mail_text, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=envelope_from)
+                mail_text = 'From: %s\n%s' % (envelope_from, mail_text)
+                result = host.send(mail_text, send_to_address, envelope_from, subject=subject, charset=encoding)
