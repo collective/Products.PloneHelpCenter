@@ -1,5 +1,8 @@
 from Products.CMFCore.interfaces._content import IDiscussionResponse
 
+from email.message import Message
+from email.Header import Header
+
 def discussion_notify(comment_on_object, variables = {}):
     portal = comment_on_object.portal_url.getPortalObject()
 
@@ -18,12 +21,14 @@ def discussion_notify(comment_on_object, variables = {}):
                 send_to_address = member.getProperty('email')
 
                 if send_to_address:
-                    mail_text = portal.discussion_reply_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
+                    message_body = portal.discussion_reply_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
                     subject = "New comment on " + comment_on_object.title_or_id()
+                    message = Message()
+                    message.set_payload(message_body) 
+                    message['From'] = Header(envelope_from)
 
                     # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
-                    mail_text = 'From: %s\n%s' % (envelope_from, mail_text)
-                    result = host.send(mail_text, send_to_address, envelope_from, subject=subject, charset=encoding)
+                    result = host.send(message, send_to_address, envelope_from, subject=subject, charset=encoding, msg_type='text/plain')
 
         parents = comment_on_object.parentsInThread()
         if not parents:
@@ -38,9 +43,11 @@ def discussion_notify(comment_on_object, variables = {}):
 
             if send_to_address:
 
-                mail_text = portal.discussion_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
+                message_body = portal.discussion_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
                 subject = "New comment on " + comment_on_object.title_or_id()
 
+                message = Message()
+                message.set_payload(message_body) 
+                message['From'] = Header(envelope_from)
                 # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
-                mail_text = 'From: %s\n%s' % (envelope_from, mail_text)
-                result = host.send(mail_text, send_to_address, envelope_from, subject=subject, charset=encoding)
+                result = host.send(message, send_to_address, envelope_from, subject=subject, charset=encoding, msg_type='text/plain')
