@@ -12,7 +12,8 @@
 
       <p>
         <a class="link-parent"
-          tal:attributes="href here_url">
+           tal:define="here_url context/@@plone_context_state/object_url"
+           tal:attributes="href here_url">
           &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
         </a>
       </p>
