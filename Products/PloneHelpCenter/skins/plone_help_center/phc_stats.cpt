@@ -79,6 +79,7 @@
             </div>
             
             <div class="field"
+                 tal:define="isAnon context/@@plone_portal_state/anonymous"
 		 tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon">
                 <label for="Creator"
                        i18n:domain="plone"
@@ -388,6 +389,7 @@
                                     lastmonth python:(today-31).Date();
                                     ever string:1970/02/01;">
                     <option value="#"
+                            tal:define="isAnon context/@@plone_portal_state/anonymous"
                             tal:condition="not: isAnon"
                             tal:attributes="value python:member.getProperty('last_login_time')"
                             i18n:translate="last_login">
