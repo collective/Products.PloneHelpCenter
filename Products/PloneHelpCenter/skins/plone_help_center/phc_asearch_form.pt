@@ -39,8 +39,6 @@
                        id="SearchableText"
                        name="SearchableText"
                        size="25"
-                       tabindex=""
-                       tal:attributes="tabindex tabindex/next;"
                        />
             </div>
 
@@ -51,15 +49,14 @@
                 Return only documents matching at least one of the selected topics. Select no topics for widest search.
                 </div>
 
-                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                <span class="optionsToggle" tal:condition="nothing">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'getSections:list', true);"
                            name="pt_toggle"
                            value="#"
                            id="t_toggle"
                            class="noborder"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex;"/>
+                           />
                     <label for="t_toggle"
                            i18n:translate="label_toggle"
                            >Select All/None
@@ -71,14 +68,11 @@
                              typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
                      tal:repeat="sublist typeLists">
                     <tal:items repeat="type sublist">
-                    <tal:tabindex define="tabindex tabindex/next">
                     <input type="checkbox"
                            name="getSections:list"
                            value="#"
                            class="noborder"
-                           tabindex=""
                            tal:attributes="value type;
-                                           tabindex tabindex;
                                            id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
                     <label for=""
                            i18n:translate=""
@@ -86,7 +80,6 @@
                            tal:content="type"
                            />
                     <br />
-                    </tal:tabindex>
                     </tal:items>
                 </div>
             </div>
@@ -101,15 +94,14 @@
                 Return only documents matching at least one of the selected versions. Select no versions for widest search.
                 </div>
 
-                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                <span class="optionsToggle" tal:condition="nothing">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'getVersions:list', true);"
                            name="v_toggle"
                            value="#"
                            id="v_toggle"
                            class="noborder"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex;"/>
+                           />
                     <label for="v_toggle"
                            i18n:translate="label_toggle"
                            >Select All/None
@@ -121,14 +113,11 @@
                              typeLists python:here.createMultiColumnList(list(allTypes), numCols=2, sort_on='self');"
                      tal:repeat="sublist typeLists">
                     <tal:items repeat="type sublist">
-                    <tal:tabindex define="tabindex tabindex/next">
                     <input type="checkbox"
                            name="getVersions:list"
                            value="#"
                            class="noborder"
-                           tabindex=""
                            tal:attributes="value type;
-                                           tabindex tabindex;
                                            id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
                     <label for=""
                            i18n:translate=""
@@ -136,7 +125,6 @@
                            tal:content="type"
                            />
                     <br />
-                    </tal:tabindex>
                     </tal:items>
                 </div>
             </div>
@@ -151,15 +139,14 @@
                 Return only documents for at least one of the selected audiences. Select no audiences for widest search.
                 </div>
 
-                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                <span class="optionsToggle" tal:condition="nothing">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'getAudiences:list', true);"
                            name="a_toggle"
                            value="#"
                            id="a_toggle"
                            class="noborder"
-                           tabindex=""
-                           tal:attributes="tabindex tabindex;"/>
+                           />
                     <label for="a_toggle"
                            i18n:translate="label_toggle"
                            >Select All/None
@@ -171,14 +158,11 @@
                              typeLists python:here.createMultiColumnList(list(allTypes), numCols=2, sort_on='self');"
                      tal:repeat="sublist typeLists">
                     <tal:items repeat="type sublist">
-                    <tal:tabindex define="tabindex tabindex/next">
                     <input type="checkbox"
                            name="getAudiences:list"
                            value="#"
                            class="noborder"
-                           tabindex=""
                            tal:attributes="value type;
-                                           tabindex tabindex;
                                            id string:portal_type_${repeat/sublist/number}_${repeat/type/number}"/>
                     <label for=""
                            i18n:translate=""
@@ -186,7 +170,6 @@
                            tal:content="type"
                            />
                     <br />
-                    </tal:tabindex>
                     </tal:items>
                 </div>
             </div>
@@ -202,16 +185,15 @@
                 Return items of a specific type.
                 </div>
     
-                <span class="optionsToggle" tal:define="tabindex tabindex/next" tal:condition="nothing">
+                <span class="optionsToggle" tal:condition="nothing">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'phc_selection:list', true);"
                            name="pt_toggle"
                            value="#"
                            id="pt_toggle"
                            class="noborder"
-                           tabindex=""
                            checked="checked"
-                           tal:attributes="tabindex tabindex;"/>
+                           />
                     <label for="pt_toggle"
                            i18n:translate="label_toggle"
                            >Select All/None
@@ -241,12 +223,10 @@
 
             <div class="formControls">
                 <input class="context"
-                       tabindex=""
                        type="submit"
                        name="submit"
                        value="Search"
                        i18n:attributes="value label_search;"
-                       tal:attributes="tabindex tabindex/next;"
                        />
             </div>
 
