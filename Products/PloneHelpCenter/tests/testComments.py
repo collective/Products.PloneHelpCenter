@@ -3,6 +3,7 @@
 #
 
 import os, sys
+from email.parser import Parser
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
@@ -111,10 +112,12 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
         discussion_notify(self.tutorial.page1)
         self.assertEqual( len(mailhost.messages), 1 )
         
-        msg = mailhost.messages[0]
-        payload = msg.message.get_payload().decode('base64')
-        self.failUnlessEqual( msg.mto[0], 'testuser@testme.com' )
-        self.failUnlessEqual( msg.message['subject'], '=?utf-8?q?New_comment_on_page1?=' )
+        msg_text = mailhost.messages[0]
+        parser = Parser()
+        msg = parser.parsestr(msg_text)
+        payload = msg.get_payload()
+        self.failUnlessEqual( msg['To'], 'testuser@testme.com' )
+        self.failUnlessEqual( msg['subject'], '=?utf-8?q?New_comment_on_page1?=' )
         self.failUnless( payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0 )
 
 
