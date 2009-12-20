@@ -3,6 +3,10 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0a1 (UNRELEASED)
+
+    - Update the whole product to work with Plone 4.0a2. [dukebody]
+
     PloneHelpCenter 3.0b2
 
     - Make hc_view available in PSC.    
