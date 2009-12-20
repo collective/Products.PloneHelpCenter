@@ -10,6 +10,7 @@
        tal:define="view context/@@hc_view;
                    pview context/@@plone;
                    wanted_types view/searchTypes;
+                   portal context/@@plone_portal_state/portal;
                    searchPath python:test(getattr(here,'constrainSearches',True), here.getPHCPath(), '/'.join(portal.getPhysicalPath()));
                    results python:here.queryCatalog({
                                 'portal_type':wanted_types,
@@ -88,6 +89,7 @@
                </span>
 
                 <span class="discreet"
+                      tal:define="isAnon context/@@plone_portal_state/anonymous"
 		      tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                       i18n:domain="plone"
                       i18n:translate="results_by_author">

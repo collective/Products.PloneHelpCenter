@@ -68,7 +68,9 @@
         </tal:if>
       	</p>
 
-        <tal:name tal:condition="python:(site_properties.allowAnonymousViewAbout or not isAnon) and getattr(here,'Creator',nothing)"
+        <tal:name 
+           tal:define="isAnon context/@@plone_portal_state/anonymous"
+           tal:condition="python:(site_properties.allowAnonymousViewAbout or not isAnon) and getattr(here,'Creator',nothing)"
         	tal:define="creator here/Creator;
         	author python:mtool.getMemberInfo(creator)">
 
