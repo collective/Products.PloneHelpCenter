@@ -88,7 +88,6 @@
                      id="Subject"
                      size="7"
                      multiple="multiple"
-                     tabindex=""
                      tal:define="usedSubjects python:here.portal_catalog.uniqueValuesFor('Subject');"
                      >
                  <option value="#"
@@ -117,7 +116,6 @@
                      id="Subject_replace"
                      value="replace"
                      class="noborder"
-                     tabindex=""
                      />
              <label for="Subject_replace">
                  Replace existing keywords
@@ -137,7 +135,6 @@
                      id="audiences"
                      size="7"
                      multiple="multiple"
-                     tabindex=""
                      tal:define="usedAudiences here/getAudiencesVocab"
                      >
                  <option value="#"
@@ -186,7 +183,6 @@
                      id="sections"
                      size="7"
                      multiple="multiple"
-                     tabindex=""
                      >
                  <option value="#"
                          tal:repeat="section usedSections"
@@ -214,7 +210,6 @@
                      id="sections_replace"
                      value="replace"
                      class="noborder"
-                     tabindex=""
                      />
              <label for="sections_replace">
                  Replace existing sections
@@ -234,7 +229,6 @@
                      id="versions"
                      size="7"
                      multiple="multiple"
-                     tabindex=""
                      tal:define="usedVersions here/getVersionsVocab"
                      >
                  <option value="#"
