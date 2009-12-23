@@ -1,6 +1,6 @@
 from Products.CMFCore.interfaces._content import IDiscussionResponse
 
-from email.message import Message
+from email import message_from_string
 from email.Header import Header
 
 def discussion_notify(comment_on_object, variables = {}):
@@ -23,8 +23,8 @@ def discussion_notify(comment_on_object, variables = {}):
                 if send_to_address:
                     message_body = portal.discussion_reply_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
                     subject = "New comment on " + comment_on_object.title_or_id()
-                    message = Message()
-                    message.set_payload(message_body) 
+                    message = message_from_string(message_body.encode(encoding))
+                    message.set_charset(encoding)
                     message['From'] = Header(envelope_from)
 
                     # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
@@ -46,8 +46,8 @@ def discussion_notify(comment_on_object, variables = {}):
                 message_body = portal.discussion_notify_template(portal, comment_on_object=comment_on_object, send_from_address=send_from_address, send_from_name=send_from_name, send_to_address=send_to_address, **variables)
                 subject = "New comment on " + comment_on_object.title_or_id()
 
-                message = Message()
-                message.set_payload(message_body) 
+                message = message_from_string(message_body.encode(encoding))
+                message.set_charset(encoding)
                 message['From'] = Header(envelope_from)
                 # result = host.send(mail_text, send_to_address, envelope_from, subject=subject)
                 result = host.send(message, send_to_address, envelope_from, subject=subject, charset=encoding, msg_type='text/plain')
