@@ -5,6 +5,11 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 3.0b3 (UNRELEASED)
 
+    - Mark search results elements with their workflow state to make
+      possible to grey-out outdated elements. 
+      This closes http://dev.plone.org/plone/ticket/8880.
+      [dukebody]
+
     - Fix next/previous custom adapter to work correctly with manual
       sections. [dukebody]
 
