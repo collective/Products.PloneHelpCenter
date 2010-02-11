@@ -3,7 +3,7 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 3.0b3 (UNRELEASED)
+    PloneHelpCenter 3.0b3
 
     - Mark search results elements with their workflow state to make
       possible to grey-out outdated elements. 
