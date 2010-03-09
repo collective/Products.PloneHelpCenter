@@ -383,7 +383,8 @@
                 <select name="created:list:date"
                         id="created"
                         i18n:domain="plone"
-                        tal:define="yesterday python:(today-1).Date();
+                        tal:define="member context/@@plone_portal_state/member;
+                                    yesterday python:(today-1).Date();
                                     lastweek python:(today-7).Date();
                                     lastmonth python:(today-31).Date();
                                     ever string:1970/02/01;">
