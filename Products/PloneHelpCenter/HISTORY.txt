@@ -3,10 +3,24 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-
     PloneHelpCenter 4.0a1
-    
+
     - Make compatible with Plone 4 [fabiorizzo]
+    - Merged changes the made in the trunk between 3.0b1 and 3.0b3 [jcbrand]
+
+    PloneHelpCenter 3.0b3
+
+    - Mark search results elements with their workflow state to make
+      possible to grey-out outdated elements. 
+      This closes http://dev.plone.org/plone/ticket/8880.
+      [dukebody]
+
+    - Fix next/previous custom adapter to work correctly with manual
+      sections. [dukebody]
+
+    PloneHelpCenter 3.0b2
+
+    - Make hc_view available in PSC.    
 
     PloneHelpCenter 3.0b1
     
