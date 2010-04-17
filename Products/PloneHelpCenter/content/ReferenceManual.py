@@ -88,6 +88,17 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             
             rootPath = '/'.join(root.getPhysicalPath())
             showAllParents = False
+            
+            def nodeFilter(self, node):
+                """ Don't show items marked as exclude from nav tree.
+                
+                Copied from Products.CMFPlone.broser.navtree.
+                """
+                item = node['item']
+                if getattr(item, 'exclude_from_nav', False):
+                    return False
+                else:
+                    return True
                 
         strategy = Strategy()
         query=  {'path'        : '/'.join(root.getPhysicalPath()),
