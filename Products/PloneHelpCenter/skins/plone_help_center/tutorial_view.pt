@@ -37,7 +37,8 @@
 
     <p tal:condition="not:here/getPages" class="discreet">
       There are no pages in this Tutorial. 
-      <span tal:condition="python:member.has_permission('Modify portal contents', here)">
+      <span tal:define="member context/@@plone_portal_state/member;"
+            tal:condition="python:member.has_permission('Modify portal contents', here)">
         Use the 'add new item' menu to add Tutorial Pages, Files, or Images.
       </span>
     </p>
