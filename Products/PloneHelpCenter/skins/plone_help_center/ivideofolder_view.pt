@@ -46,7 +46,7 @@
             </dt>
             
             <dd tal:content="video/Description">Description</dd>
-            <div class="discreet" tal:define="getObjSize nocall:portal/getObjSize">
+            <div class="discreet" tal:define="getObjSize nocall:here/getObjSize">
                 <strong i18n:translate="">Duration:</strong>
                 <span tal:content="video/duration" tal:condition="video/duration | nothing">
                       Duration
