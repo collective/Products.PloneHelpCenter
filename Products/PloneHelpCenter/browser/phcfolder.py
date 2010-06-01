@@ -49,6 +49,8 @@ class HelpCenterFolderView(BrowserView):
                     items.append(item)
             return items
         else:
+            if isinstance(section, basestring):
+                section = [section]
             criteria['getSections'] = section
             return context.getFolderContents(contentFilter = criteria)
 
