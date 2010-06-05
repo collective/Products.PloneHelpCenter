@@ -5,7 +5,7 @@
 
 <body>
 
-  <div metal:fill-slot="main">
+  <div metal:fill-slot="main" tal:define="view context/@@hc_view; putils context/plone_utils">
 
     <div tal:replace="structure provider:plone.abovecontenttitle" />
 
