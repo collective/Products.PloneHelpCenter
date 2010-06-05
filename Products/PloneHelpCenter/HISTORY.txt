@@ -4,6 +4,13 @@ HISTORY
 History of changes to PHC (name of developer listed in brackets)::
 
     UNRELEASED
+
+    - Fix next/previous custom adapter to ignore types not
+      implementing IHelpCenterMultiPage, effectively removing images
+      and files from the next/previous links.
+      This fixes
+      http://plone.org/products/plonehelpcenter/issues/152/.
+      [dukebody]
     
     - Respect exclude_from_nav setting in the reference manual
       table of contents generation [miohtama]
