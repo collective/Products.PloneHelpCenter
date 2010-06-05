@@ -17,8 +17,65 @@ Upgrades
 --------
 
 If you are upgrading a Plone site with an existing help center from a
-version prior to 3.0, you *must* run the upgrade profile. In the ZMI,
-go to portal_setup and use the upgrades tab.
+version prior to 3.0, you *must* run the upgrade profile. 
+
+Step by step follow this order
+................................
+
+Do not upgrade from PHC 1.6.x on Plone 3.x to PHC 4.x in Plone 4.x in one step.
+
+Update first to Plone 3.3.5+ with::
+
+    Products.PloneHelpCenter = 1.6.2 
+    Products.AddRemoveWidget = 1.4.2
+
+Check if example content is present!
+Then update buildout to::
+
+    Products.PloneHelpCenter = 3.0b3
+
+run::
+    
+    bin/buildout -v 
+
+    * restart instance and 
+
+    * deinstall Products.PloneHelpCenter 3.0b3
+
+    * install Products.PloneHelpCenter 3.0b3
+
+    * in the ZMI go to:  Generic Setup Tool at  /acsr/portal_setup  Tab "Upgrades"
+    
+    * after selecting: "Products.PloneHelpCenter:default" and clicking "Choose Profile" you get first::
+    
+        Upgrades
+
+        The profile "Products.PloneHelpCenter:default" is currently upgraded to version 3.0b3.
+
+        The filesystem version for the "Products.PloneHelpCenter:default" profile is currently 3.0b3.
+        
+        No upgrade available.
+
+    * Now click at -> Show old upgrades: "show" an see::
+        
+        Available upgrades:
+        Upgrade Step Group
+        -> 		Upgrading the types 	
+        (0.0 → 3.0)
+    
+    * select the item and run the upgrade
+    
+    * you get::
+    
+        Upgrades
+
+        The profile "Products.PloneHelpCenter:default" is currently upgraded to version 3.0.
+        
+        The filesystem version for the "Products.PloneHelpCenter:default" profile is currently 3.0b3.
+        
+        No upgrade available.
+
+Content should be back again!
 
 Optional
 --------
