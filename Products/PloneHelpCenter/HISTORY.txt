@@ -3,6 +3,10 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0a2 (UNRELEASED)
+
+    - fixed an issue with failure to display referencemanual_view when files are present in the reference manual. [acsr] with help from [dukebody]
+
     PloneHelpCenter 4.0a1 (UNRELEASED)
 
     - Update the whole product to work with Plone 4.0a2. [dukebody]
