@@ -24,6 +24,12 @@ class TestNextPrevious(PHCTestCase):
             for leaf_page_counter in range(1, 4):
                 section.invokeFactory('HelpCenterLeafPage', 
                                       'page%d' % leaf_page_counter)
+
+        # place an image and a file inside sec 2
+        # these types mustn't show up in the next/previous links
+        manual.section2.invokeFactory('Image', 'image')
+        manual.section2.invokeFactory('File', 'file')
+                
         self.setRoles(['Member'])
  
     def testNextPreviousItems(self):
@@ -47,7 +53,8 @@ class TestNextPrevious(PHCTestCase):
         previous = adapter.getPreviousItem(section2.page1)
         self.failUnlessEqual(previous["id"], 'section1')
 
-        # page 3 of sec 2 should have the 3rd section as next item
+        # page 3 of sec 2 should have the 3rd section as next item,
+        # not the created image nor the file
         next = adapter.getNextItem(section2.page3)
         self.failUnlessEqual(next["id"], 'section3')
 

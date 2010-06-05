@@ -62,6 +62,7 @@ class HelpCenterFolderNextPrevious(ATFolderNextPrevious):
 
         # Filters on content
         query['is_default_page'] = False
+        query['object_provides'] = IHelpCenterMultiPage.__identifier__
         # note we've deleted here the ATCT original:
         # query['is_folderish'] = False
 
