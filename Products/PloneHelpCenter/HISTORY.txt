@@ -7,7 +7,7 @@ History of changes to PHC (name of developer listed in brackets)::
     
     - updated INSTALL.txt with step by step upgrade guide related to 
       issue #142 "upgrade steps order unclear" and issue #132 "errata 
-      mentioning Ploneboard".
+      mentioning Ploneboard". [acsr]
 
     - Fix next/previous custom adapter to ignore types not
       implementing IHelpCenterMultiPage, effectively removing images
