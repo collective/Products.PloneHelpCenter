@@ -19,6 +19,9 @@ History of changes to PHC (name of developer listed in brackets)::
     - Respect exclude_from_nav setting in the reference manual
       table of contents generation [miohtama]
 
+    - Removed "global allow" for Reference Manual (this close #150)
+      [keul]
+
     PloneHelpCenter 3.0b3
 
     - Mark search results elements with their workflow state to make
