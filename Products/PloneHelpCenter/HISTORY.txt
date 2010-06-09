@@ -4,6 +4,10 @@ HISTORY
 History of changes to PHC (name of developer listed in brackets)::
 
     UNRELEASED
+
+    - Removed "global allow" for Reference Manual. This closes 
+      http://plone.org/products/plonehelpcenter/issues/150.
+      [keul]
     
     - updated INSTALL.txt with step by step upgrade guide related to 
       issue #142 "upgrade steps order unclear" and issue #132 "errata 
@@ -18,9 +22,6 @@ History of changes to PHC (name of developer listed in brackets)::
     
     - Respect exclude_from_nav setting in the reference manual
       table of contents generation [miohtama]
-
-    - Removed "global allow" for Reference Manual (this close #150)
-      [keul]
 
     PloneHelpCenter 3.0b3
 
