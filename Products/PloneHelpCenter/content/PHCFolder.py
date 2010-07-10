@@ -61,23 +61,3 @@ class PHCFolder(object):
             return self.aq_parent.sectionsVocab
         else:
             return ()
-
-
-    # security.declareProtected(CMFCorePermissions.View, 'Rights')
-    # def Rights(self):
-    #     """ get rights from parent if necessary """
-    #     if self.Schema().has_key('rights'):
-    #         return self.getRawRights()
-    #     else:
-    #         return self.aq_parent.Rights()
-    # 
-    # 
-    # security.declareProtected(CMFCorePermissions.View, 'Contributors')
-    # def Contributors(self):
-    #     """ get rights from parent if necessary """
-    #     if self.Schema().has_key('contributors'):
-    #         return self.getContributors()
-    #     else:
-    #         return self.aq_parent.Contributors()
-    # 
-    # 

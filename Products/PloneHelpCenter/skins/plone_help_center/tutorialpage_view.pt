@@ -44,7 +44,6 @@
 			<a class="next"
 				tal:condition="python:next"
 				tal:attributes="href next/getURL"
-				tabindex="1"
 				href="">
 				<span i18n:translate="phc_next">Next:</span>
 				<span tal:replace="next/Title" /> 
@@ -54,7 +53,6 @@
 			<a class="previous"
 				tal:condition="python:prev"
 				tal:attributes="href prev/getURL"
-				tabindex="1"
 				href="">
 				&#9668;
 				<span i18n:translate="phc_previous">Previous:</span>

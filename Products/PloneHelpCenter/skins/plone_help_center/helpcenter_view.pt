@@ -42,16 +42,14 @@
                        style="margin-bottom: 0.5em;"
                        accesskey="accesskeys-search"
                        i18n:attributes="alt; accesskey; title"
-                       tal:attributes="value request/SearchableText|nothing;
-                                       tabindex tabindex/next" 
-                />
+                       tal:attributes="value request/SearchableText|nothing"
+                       />
 
                 <input class="searchButton"
                        name="Search"
                        type="submit"
                        value="Search"
                        accesskey="accesskeys-search"
-                       tal:attributes="tabindex tabindex/next"
                        i18n:attributes="value; accesskey" />
                        
                 <br />
@@ -87,7 +85,8 @@
 
         <p tal:condition="exists:here/how-to/use-help-center">
           <img tal:replace="structure here/helpcenter_icon.gif" />
-          <a tal:attributes="href string:${here_url}/how-to/use-help-center"
+          <a tal:define="here_url context/@@plone_context_state/object_url"
+             tal:attributes="href string:${here_url}/how-to/use-help-center"
              i18n:translate="phc_contrib_use">
             Instructions on how to contribute to and use this resource.
           </a>
@@ -119,6 +118,7 @@
                         <img src="" alt="" tal:attributes="src obj/getIcon" />
                         <span tal:replace="obj/Title">Title</span>
                         <span class="portletItemDetails"
+                              tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime"
                               tal:content="python:toLocalizedTime(obj.modified)">May 5</span>
                     </a>
                   </dd>

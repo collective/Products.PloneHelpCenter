@@ -29,6 +29,7 @@
       <form name="folderContentsForm"
             method="post"
             action="folder_object"
+            tal:define="here_url context/@@plone_context_state/object_url"
             tal:attributes="action here_url">
 
         <h1>
@@ -90,9 +91,7 @@
 
                 <select id="select_add_item"
                         name="type_name"
-                        tabindex=""
-                        tal:condition="python: num_types > 1"
-                        tal:attributes="tabindex tabindex/next|nothing">
+                        tal:condition="python: num_types > 1">
 
                     <option value="Select"
                             i18n:domain="plone"
@@ -118,11 +117,9 @@
                        type="submit"
                        name="createObject:method"
                        value="Add New Item"
-                       tabindex=""
                        tal:define="ttype python: num_types==1 and here.utranslate(contentTypes[0].Title())"
                        tal:condition="python: num_types"
-                       tal:attributes="tabindex tabindex/next|nothing;
-                                       value python:ttype and here.utranslate('Add ${type}', {'type': ttype}) or
+                       tal:attributes="value python:ttype and here.utranslate('Add ${type}', {'type': ttype}) or
                                                               here.utranslate('label_add_new_item', default='Add New Item')" />
             </div>
           </metal:add_button>
@@ -248,7 +245,9 @@
                             tal:content="item_size"
                             tal:attributes="class item_wf_state_class"> size </span>
                     </td>
-                    <td tal:content="python:here.toLocalizedTime(item_modified, long_format=1)"
+                    <td 
+                       tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime"
+                       tal:content="python:here.toLocalizedTime(item_modified, long_format=1)"
                         tal:attributes="class item_wf_state_class">
                         08/19/2001 03:01 AM
                     </td>
@@ -299,12 +298,10 @@
                  type="submit"
                  name=""
                  value=""
-                 tabindex=""
                  tal:condition="python:(batch or here.cb_dataValid and button['id'] == 'paste') and not ( query_path and button['id'] in ['cut','copy','paste'])"
                  i18n:attributes="value"
                  tal:attributes="value button/name | button/title;
                                  name button/url;
-                                 tabindex tabindex/next;
                                  class python:test((button['id'] == 'paste'), 'standalone', 'context')" />
         </tal:buttons>
         </metal:buttons>

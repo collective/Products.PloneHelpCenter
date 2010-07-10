@@ -10,7 +10,7 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 from Products.CMFCore.utils import getToolByName
 
-from Products.CMFPlone.browser.navtree import NavtreeStrategyBase, buildFolderTree
+from plone.app.layout.navigation.navtree import NavtreeStrategyBase, buildFolderTree
 
 from Products import ATContentTypes
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
