@@ -15,7 +15,7 @@ except ImportError:
     print "i18ntestcase not found... skipping i18n tests."
 
 from Testing import ZopeTestCase
-from Globals import package_home
+from App.Common import package_home
 
 GLOBALS = globals()
 PACKAGE_HOME = os.path.normpath(os.path.join(package_home(GLOBALS), '..'))

@@ -3,7 +3,20 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    UNRELEASED
+
+    PloneHelpCenter 4.0a1 (UNRELEASED)
+
+    - Merge relevant changes from the Plone 4 migration branch from
+      Fabio Rizzo. [dukebody]
+
+    - Reverted obsolete code from the referencemanual_view.pt fix. [acsr]
+
+    - Updated INSTALL.txt with step by step upgrade guide related to issue #142 "upgrade steps order unclear" and issue #132 "errata mentioning Ploneboard". [acsr]
+
+    - Fixed an issue with failure to display referencemanual_view when
+      files are present in the reference manual. [acsr, thanks dukebody]
+
+    - Update the whole product to work with Plone 4.0a2. [dukebody]
 
     - Removed "global allow" for Reference Manual. This closes 
       http://plone.org/products/plonehelpcenter/issues/150.
@@ -22,6 +35,7 @@ History of changes to PHC (name of developer listed in brackets)::
     
     - Respect exclude_from_nav setting in the reference manual
       table of contents generation [miohtama]
+
 
     PloneHelpCenter 3.0b3
 

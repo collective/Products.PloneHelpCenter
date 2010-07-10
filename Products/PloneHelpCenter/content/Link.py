@@ -12,6 +12,7 @@ from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
 
+
 LinkSchema = HelpCenterBaseSchema + Schema((
     TextField(
         'description',
@@ -55,9 +56,6 @@ LinkSchema.moveField('relatedItems', pos='bottom')
 
 class HelpCenterLink(PHCContent,BaseContent):
     """A simple archetype"""
-
-    __implements__ = (PHCContent.__implements__,
-                      BaseContent.__implements__,)
 
     content_icon = 'helplink_icon.gif'
 

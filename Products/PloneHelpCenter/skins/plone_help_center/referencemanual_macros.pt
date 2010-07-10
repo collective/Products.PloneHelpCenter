@@ -77,7 +77,6 @@
         <a class="next"
            tal:define="next python:tocList[nextIdx]['item']" 
            tal:attributes="href next/getURL"
-           tabindex="1"
            href="">
             <span i18n:translate="phc_next">
                Next:
@@ -91,7 +90,6 @@
         <a class="previous"
            tal:define="prev python:tocList[prevIdx]['item']" 
            tal:attributes="href prev/getURL"
-           tabindex="1"
            href="">
             &#9668;
             <span i18n:translate="phc_previous">
@@ -114,9 +112,8 @@
     <form method="get" action="#"
           tal:attributes="action context/absolute_url">
         <label for="destination" class="hiddenStructure">Jump to: </label>
-        <select name=":action" tabindex="3"
-                onchange="window.location.href=this.options[this.selectedIndex].value"
-                tal:attributes="tabindex tabindex/next|nothing">
+        <select name=":action" 
+                onchange="window.location.href=this.options[this.selectedIndex].value">
 	    <option value="referencemanual-all-pages"
 		    title="Useful for printing, presentation mode etc.">
 	      All content on one page
@@ -132,9 +129,7 @@
             <input class="standalone"
                    type="submit"
                    value="Go"
-                   i18n:attributes="value"
-                   tabindex="4"
-                   tal:attributes="tabindex tabindex/next|nothing" />
+                   i18n:attributes="value" />
         </noscript>
     </form>
 </div>

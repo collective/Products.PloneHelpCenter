@@ -13,7 +13,7 @@ from Products.PloneHelpCenter.config import *
 from Products import ATContentTypes as atct
 
 try:
-    from Products.ATReferenceBrowserWidget.ATReferenceBrowserWidget import ReferenceBrowserWidget
+    from archetypes.referencebrowserwidget.widget import ReferenceBrowserWidget
     PHCReferenceWidget = ReferenceBrowserWidget
 except ImportError:
     PHCReferenceWidget = ReferenceWidget

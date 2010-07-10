@@ -41,8 +41,6 @@ class HelpCenterFAQ(ATDocumentBase,PHCContentMixin):
     this is a place to document answers to common questions, not ask them.
     """
 
-    __implements__ = (ATDocumentBase.__implements__,)
-
     content_icon = 'faq_icon.gif'
 
     schema = FAQSchema

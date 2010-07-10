@@ -92,9 +92,6 @@ class TestGlobalAllow(PHCTestCase.PHCTestCase):
         else:
             return False
 
-    def testCreateHelpCenterReferenceManual(self):
-        self.failIf(self.typeNotGloballyAllowed('HelpCenterReferenceManual'))
-
     def testHelpCenterKnowledgeBase(self):
         self.failIf(self.typeNotGloballyAllowed('HelpCenterKnowledgeBase'))        
 

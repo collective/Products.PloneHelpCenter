@@ -79,6 +79,7 @@
             </div>
             
             <div class="field"
+                 tal:define="isAnon context/@@plone_portal_state/anonymous"
 		 tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon">
                 <label for="Creator"
                        i18n:domain="plone"
@@ -383,11 +384,13 @@
                 <select name="created:list:date"
                         id="created"
                         i18n:domain="plone"
-                        tal:define="yesterday python:(today-1).Date();
+                        tal:define="member context/@@plone_portal_state/member;
+                                    yesterday python:(today-1).Date();
                                     lastweek python:(today-7).Date();
                                     lastmonth python:(today-31).Date();
                                     ever string:1970/02/01;">
                     <option value="#"
+                            tal:define="isAnon context/@@plone_portal_state/anonymous"
                             tal:condition="not: isAnon"
                             tal:attributes="value python:member.getProperty('last_login_time')"
                             i18n:translate="last_login">
@@ -454,22 +457,20 @@
                              typeLists python:here.createMultiColumnList(allTypes, numCols=2, sort_on='self');"
                      tal:repeat="sublist typeLists">
                     <tal:items repeat="type sublist">
-                    <tal:tabindex define="tabindex tabindex/next">
                     <input type="checkbox"
                            name="portal_type:list"
                            value="#"
                            class="noborder"
                            checked="checked"
                            tal:attributes="value type;
-                                           id string:portal_type_${tabindex}"/>
+                                           id string:portal_type_${repeat/type/number}"/>
                     <label for=""
                            i18n:domain="plone"
                            i18n:translate=""
-                           tal:attributes="for string:portal_type_${tabindex}"
+                           tal:attributes="for string:portal_type_${repeat/type/number}"
                            tal:content="python: type"
                            />
                     <br />
-                    </tal:tabindex>
                     </tal:items>
                 </div>
             </div>
@@ -493,7 +494,7 @@
                     certain states, select them from this list.
                 </div>
     
-                <span class="optionsToggle" tal:define="tabindex tabindex/next">
+                <span class="optionsToggle">
                 <input type="checkbox"
                        onclick="javascript:toggleSelect(this, 'review_state:list', true);"
                        name="rs_toggle"

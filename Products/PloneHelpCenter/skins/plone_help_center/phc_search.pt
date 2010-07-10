@@ -10,6 +10,7 @@
        tal:define="view context/@@hc_view;
                    pview context/@@plone;
                    wanted_types view/searchTypes;
+                   portal context/@@plone_portal_state/portal;
                    searchPath python:test(getattr(here,'constrainSearches',True), here.getPHCPath(), '/'.join(portal.getPhysicalPath()));
                    results python:here.queryCatalog({
                                 'portal_type':wanted_types,
@@ -21,7 +22,9 @@
                  b_size python:30;b_start python:0;b_start request/b_start | b_start;
                  desc_length site_properties/search_results_description_length;
                  desc_ellipsis site_properties/ellipsis;
-                 searchterm request/SearchableText|nothing">
+                 searchterm request/SearchableText|nothing;
+                 normalizeString nocall:pview/normalizeString;"
+     >
 
     <h1 i18n:translate="heading_search_results"
         i18n:domain="plone">
@@ -50,7 +53,9 @@
         <span i18n:domain="plone" i18n:translate="batch_x_items_matching_your_criteria"><span i18n:name="number" tal:content="python:len(results)">234</span> items matching your criteria.</span>
         </strong>
 
-        <a href="" tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}">
+        <a href=""
+           tal:define="here_url context/@@plone_context_state/object_url"
+           tal:attributes="href string:$here_url/search_rss?${request/QUERY_STRING}">
         <img i18n:attributes="title alt"
              tal:attributes="src string:$portal_url/rss.gif"
              src="rss.gif"
@@ -93,11 +98,14 @@
                </span>
 
                 <span class="discreet"
+                      tal:define="isAnon context/@@plone_portal_state/anonymous"
 		      tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon"
                       i18n:domain="plone"
                       i18n:translate="results_by_author">
                     by <span tal:replace="result/Creator" i18n:name="author">Author</span>,
-                    <span tal:replace="python:here.toLocalizedTime(result.ModificationDate, long_format=1)" i18n:name="date">Modification Date</span>
+                    <span 
+                       tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime"
+                       tal:replace="python:here.toLocalizedTime(result.ModificationDate, long_format=1)" i18n:name="date">Modification Date</span>
                 </span>
 
             </dt>
