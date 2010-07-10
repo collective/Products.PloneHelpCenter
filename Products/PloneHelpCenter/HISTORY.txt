@@ -3,17 +3,18 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 4.0a3 (UNRELEASED)
-    
-    - reverted obsolete code from the referencemanual_view.pt fix
-
-    - updated INSTALL.txt with step by step upgrade guide related to issue #142 "upgrade steps order unclear" and issue #132 "errata mentioning Ploneboard". [acsr]
-
-    PloneHelpCenter 4.0a2 (UNRELEASED)
-
-    - fixed an issue with failure to display referencemanual_view when files are present in the reference manual. [acsr] with help from [dukebody]
 
     PloneHelpCenter 4.0a1 (UNRELEASED)
+
+    - Merge relevant changes from the Plone 4 migration branch from
+      Fabio Rizzo. [dukebody]
+
+    - Reverted obsolete code from the referencemanual_view.pt fix. [acsr]
+
+    - Updated INSTALL.txt with step by step upgrade guide related to issue #142 "upgrade steps order unclear" and issue #132 "errata mentioning Ploneboard". [acsr]
+
+    - Fixed an issue with failure to display referencemanual_view when
+      files are present in the reference manual. [acsr, thanks dukebody]
 
     - Update the whole product to work with Plone 4.0a2. [dukebody]
 
