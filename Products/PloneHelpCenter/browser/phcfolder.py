@@ -77,16 +77,21 @@ class HelpCenterFolderView(BrowserView):
         # in the order the vocab specifies them.
 
         sections = []
+        # When changing anything here, be aware that below is an assumption
+        # that the first item is "No section"
         for s in ['No section'] + list(context.getSectionsVocab()):
             t = s.encode(charset)
             sections.append({'id'      : plone_utils.normalizeString(t),
                              'section' : t,
                              'items'   : []})
+        no_section = sections[0]
 
         # Then insert each how-to in the appropriate audience/section
         for b in brains:
-            itemSections = b.getSections or ['No section']
+            itemSections = b.getSections
             matchedSections = [s for s in sections if s['section'] in itemSections]
+            if not matchedSections:
+                matchedSections = [no_section]
             for s in matchedSections:
                 s['items'].append(b)
 
