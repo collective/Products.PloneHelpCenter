@@ -18,7 +18,7 @@ from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
 from schemata import HelpCenterItemSchemaNarrow
 from PHCContent import PHCContentMixin, HideOwnershipFields, IHelpCenterContent
 
-from Products.ATContentTypes.interfaces import IATFolder, IATDocument
+from Products.ATContentTypes.interface import IATFolder, IATDocument
 from Products.ATContentTypes.content.document import \
     ATDocumentSchema, ATDocumentBase
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
