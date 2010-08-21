@@ -11,7 +11,7 @@ import Products.CMFCore.permissions as CMFCorePermissions
 
 import Products.CMFCore.permissions as CMFCorePermissions
 from Products import ATContentTypes
-from Products.ATContentTypes.interfaces import IATDocument
+from Products.ATContentTypes.interface import IATDocument
 
 from Products.PloneHelpCenter.config import *
 from PHCContent import HideOwnershipFields

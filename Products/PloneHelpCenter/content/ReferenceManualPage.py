@@ -11,7 +11,7 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 
 from Products import ATContentTypes
-from Products.ATContentTypes.interfaces import IATDocument
+from Products.ATContentTypes.interface import IATDocument
 from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
