@@ -6,6 +6,10 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a1 (UNRELEASED)
 
+    - Fix the imports to use always Zope 3 style interfaces, making
+      the code work both in Plone 3 and 4 simultaneuslly.
+      [dukebody, thanks davisagli]
+
     - Merge relevant changes from the Plone 4 migration branch from
       Fabio Rizzo. [dukebody]
 
