@@ -123,6 +123,9 @@ class PHCContentMixin:
         if not myVersions:
             return 0
 
+        if not hasattr(self, 'getCurrentVersions'):
+            return 0
+
         # Acquire current versions
         currentVersions = [x.decode('utf-8') for x in self.getCurrentVersions()]
 
