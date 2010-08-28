@@ -5,7 +5,10 @@
 if not versions:
     return 0
     
-if not currentVersions:        
+if not currentVersions:
+    if not hasattr(context, 'getCurrentVersions'):
+        return 0
+    
     # Acquire current versions if not given
     currentVersions = context.getCurrentVersions()
         

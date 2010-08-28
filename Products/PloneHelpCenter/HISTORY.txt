@@ -6,6 +6,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a1 (UNRELEASED)
 
+    - Don't fail when trying to acquire getCurrentVersions if not in
+      a container that includes currentVersions in its schema. [davisagli]
+
     - Fix the imports to use always Zope 3 style interfaces, making
       the code work both in Plone 3 and 4 simultaneuslly.
       [dukebody, thanks davisagli]
