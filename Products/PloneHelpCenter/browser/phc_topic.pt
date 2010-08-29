@@ -13,7 +13,7 @@
       <dt class="portletHeader">In This Section...</dt>
       <dd class="portletItem">
         <ul>
-          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:$current_page_url#${subtopic/id}" tal:content="subtopic/title">Workflow</a></li>
+          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:#${subtopic/id}" tal:content="subtopic/title">Workflow</a></li>
         </ul>
       </dd>
       </dl>
@@ -23,7 +23,7 @@
         <dl>
           <tal:block tal:repeat="item subtopic/docs">
             <dt>
-                <a tal:attributes="href item/getURL" tal:condition="item/getStartHere | nothing" tal:content="structure here/phc_star.gif" href="/"><img src="phc_star.gif" align="middle" alt="Start Here" /></a>
+                <a tal:attributes="href item/getURL" tal:condition="item/getStartHere | nothing" tal:content="structure context/phc_star.gif" href="/"><img src="phc_star.gif" align="middle" alt="Start Here" /></a>
                 <a tal:attributes="href item/getURL;
                                    class string:state-${item/review_state}"
                    tal:content="item/Title" href="/">This is the title.</a>
