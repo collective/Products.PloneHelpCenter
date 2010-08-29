@@ -55,34 +55,53 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
     
         parent = aq_inner(self).aq_parent
         while parent and not IHelpCenterNavRoot.providedBy(parent):
-            parent = parent.aq_parent
+            try:
+                parent = parent.aq_parent
+            except AttributeError:
+                break
         return parent
     
     
     security.declareProtected(CMFCorePermissions.View, 'Subject')
     def Subject(self):
         """ get from parent """
-        return self.navRootObject().Subject()
+        try:
+            return self.navRootObject().Subject()
+        except AttributeError:
+            return
     
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get from parent """
-        return self.navRootObject().Rights()
+        try:
+            return self.navRootObject().Rights()
+        except AttributeError:
+            return
     
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
-        return self.navRootObject().Creators()
+        try:
+            return self.navRootObject().Creators()
+        except AttributeError:
+            return
     
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
         """ get from parent """
-        return self.navRootObject().Contributors()
+        try:
+            return self.navRootObject().Contributors()
+        except AttributeError:
+            return
     
     security.declareProtected(CMFCorePermissions.View, 'listCreators')
     def listCreators(self):
         """ List Dublin Core Creator elements - resource authors.
         """
-        return self.navRootObject().Creators()
+        try:
+            return self.navRootObject().Creators()
+        except AttributeError:
+            return
+
         
 registerType(HelpCenterLeafPage, PROJECTNAME)
