@@ -69,10 +69,11 @@
       	</p>
 
         <tal:name 
-           tal:define="isAnon context/@@plone_portal_state/anonymous"
-           tal:condition="python:(site_properties.allowAnonymousViewAbout or not isAnon) and getattr(here,'Creator',nothing)"
-        	tal:define="creator here/Creator;
-        	author python:mtool.getMemberInfo(creator)">
+           tal:define="isAnon context/@@plone_portal_state/anonymous;
+                       creator here/Creator;
+                       mtool context/portal_membership;
+                       author python:mtool.getMemberInfo(creator)"
+           tal:condition="python:(context.portal_properties.site_properties.allowAnonymousViewAbout or not isAnon) and getattr(here,'Creator',nothing)">
 
             <img tal:define="portrait python: mtool.getPersonalPortrait(here.Creator());"
                  src=""
@@ -85,7 +86,7 @@
 
             <p>This document was contributed by
                <a href=""
-                  tal:attributes="href string:${portal_url}/author/${creator}" 
+                  tal:attributes="href string:${context/portal_url}/author/${creator}" 
                   tal:content="python:author and author['fullname'] or creator">Steve McMahon</a>,
                and last modified
                <span tal:replace="python:'%d' % (DateTime() - DateTime(here.ModificationDate()))">5</span>
@@ -97,7 +98,7 @@
         </tal:name>
     </div>	
 
-    <p tal:content="here/Rights" tal:condition="here/Rights">
+    <p tal:content="here/Rights" tal:condition="here/Rights|nothing" tal:on-error="nothing">
     Copyleft NiceCorp Inc.
     </p>
 	
