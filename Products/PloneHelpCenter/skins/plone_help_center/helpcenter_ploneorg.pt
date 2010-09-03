@@ -72,13 +72,14 @@ dl.topicList dd {
         <div class="rc">
             <h3>Books</h3>
             <ul>
-              <li tal:repeat="book python:context.books.getFolderContents()[:5]">
+              <li tal:repeat="book python:context.books.getFolderContents()[:8]">
                 <a href="[book-url]"
                     tal:attributes="href book/getURL"
                     tal:content="book/Title">[Book Title]
                 </a>
               </li>
             </ul>
+           <a href="books">More books...</a>
         </div>
         
         <br style="clear:both" />
@@ -176,4 +177,4 @@ dl.topicList dd {
 
 </div>
 </body>
-</html>    
+</html>
