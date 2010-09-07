@@ -4,11 +4,11 @@
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getTopics">
 
     <ul class="quickLinks">
-        <li><img tal:replace="structure here/faq_icon.gif" /><a href="faq">FAQ</a></li>
-        <li><img tal:replace="structure here/link_icon.gif" /><a href="link">Links</a></li>
-        <li><img tal:replace="structure here/error_icon.gif" /><a href="error">Error Reference</a></li>
-        <li><img tal:replace="structure here/glossary_icon.gif" /><a href="glossary">Glossary</a></li>
-        <li><img tal:replace="structure here/book_icon.gif" /><a href="manual">Manuals</a></li>
+        <li><img tal:replace="structure here/faq_icon.gif" /><a tal:attributes="href context/faq/absolute_url" href="faq">FAQ</a></li>
+        <li><img tal:replace="structure here/link_icon.gif" /><a tal:attributes="href context/links/absolute_url" href="link">Links</a></li>
+        <li><img tal:replace="structure here/error_icon.gif" /><a tal:attributes="href context/errors/absolute_url" href="error">Error Reference</a></li>
+        <li><img tal:replace="structure here/glossary_icon.gif" /><a tal:attributes="href context/glossary/absolute_url" href="glossary">Glossary</a></li>
+        <li><img tal:replace="structure here/book_icon.gif" /><a tal:attributes="href context/manuals/absolute_url" href="manual">Manuals</a></li>
     </ul>
 
 
