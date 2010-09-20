@@ -173,7 +173,7 @@ class HelpCenterView(BrowserView):
         
         for topic in topics:
             if ':' not in topic:
-                items = self.catalog(portal_type=['HelpCenterReferenceManual','HelpCenterTutorial','HelpCenterHowTo'],
+                items = self.catalog(portal_type=TOPIC_VIEW_TYPES,
                                                review_state='published',
                                                getSections=[topic])
                 for item in items:
