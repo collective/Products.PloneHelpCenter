@@ -285,3 +285,22 @@ msgstr "Esta carpeta contiene documentación."
 msgid "description_edit_tutorial"
 msgstr "Un Tutorial contiene Páginas de tutorial, Imágenes y Archivos. El órden del índice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
 
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Error references"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Links"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Manuals"
+msgstr ""

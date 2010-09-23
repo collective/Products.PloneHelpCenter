@@ -23,15 +23,15 @@ msgstr "Définition"
 
 #. Default: "Error Reference"
 msgid "Error Reference"
-msgstr "Référence d'Erreur"
+msgstr "Référence d'erreur"
 
 #. Default: "Error Reference Section"
 msgid "Error Reference Section"
-msgstr "Section Référence d'Erreur"
+msgstr "Section Référence d'erreur"
 
 #. Default: "FAQ"
 msgid "FAQ"
-msgstr "FAQ"
+msgstr "Question fréquente"
 
 #. Default: "FAQ Section"
 msgid "FAQ Section"
@@ -51,63 +51,63 @@ msgstr "Centre de Documentation"
 
 #. Default: "Help Center Definition"
 msgid "HelpCenterDefinition"
-msgstr "Définition du Centre de Documentation"
+msgstr "Définition"
 
 #. Default: "Help Center Error Reference"
 msgid "HelpCenterErrorReference"
-msgstr "Référence d'Erreur du Centre de Documentation"
+msgstr "Référence d'erreur"
 
 #. Default: "Help Center Error Reference Folder"
 msgid "HelpCenterErrorReferenceFolder"
-msgstr "Dossier Référence d'Erreur du Centre de Documentation"
+msgstr "Dossier Références d'erreur"
 
 #. Default: "HelpCenter FAQ"
 msgid "HelpCenterFAQ"
-msgstr "FAQ du Centre de Documentation"
+msgstr "Question fréquente"
 
 #. Default: "FAQ Folder"
 msgid "HelpCenterFAQFolder"
-msgstr "Dossier FAQ"
+msgstr "Dossier Questions fréquentes"
 
 #. Default: "Help Center Glossary"
 msgid "HelpCenterGlossary"
-msgstr "Glossaire du Centre de Documentation"
+msgstr "Glossaire"
 
 #. Default: "Help Center How-To"
 msgid "HelpCenterHowTo"
-msgstr "How-To du Centre de Documentation"
+msgstr "How-To"
 
 #. Default: "HelpCenter How To Folder"
 msgid "HelpCenterHowToFolder"
-msgstr "Dossier How To du Centre de Documentation"
+msgstr "Dossier How-To"
 
 #. Default: "Help Center Instructional Video"
 msgid "HelpCenterInstructionalVideo"
-msgstr "Vidéo pédagogique du Centre de Documentation"
+msgstr "Vidéo pédagogique"
 
 #. Default: "Help Center Instructional Video Folder"
 msgid "HelpCenterInstructionalVideoFolder"
-msgstr "Vidéo pédagogique du Centre de Documentation"
+msgstr "Dossier Vidéos pédagogiques"
 
 #. Default: "Help Center Link"
 msgid "HelpCenterLink"
-msgstr "Lien du Centre de Documentation"
+msgstr "Lien"
 
 #. Default: "Help Center Link Folder"
 msgid "HelpCenterLinkFolder"
-msgstr "Dossier Lien du Centre de Documentation"
+msgstr "Dossier Liens"
 
 #. Default: "Help Center Tutorial"
 msgid "HelpCenterTutorial"
-msgstr "Centre de Documentation Tutoriel"
+msgstr "Tutoriel"
 
 #. Default: "Help Center Tutorial Folder"
 msgid "HelpCenterTutorialFolder"
-msgstr "Dossier Tutoriel du Centre de Documentation"
+msgstr "Dossier Tutoriels"
 
 #. Default: "Help Center Tutorial Page"
 msgid "HelpCenterTutorialPage"
-msgstr "Page de Tutoriel du Centre de Documentation"
+msgstr "Page de Tutoriel"
 
 #. Default: "How-to"
 msgid "How-to"
@@ -418,4 +418,24 @@ msgstr "Déplacer l'élément vers le haut"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "title_relevance"
 msgstr "Pertinence"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Frequently Asked Questions"
+msgstr "Questions fréquentes"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Error references"
+msgstr "Références d'erreur"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Links"
+msgstr "Liens"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Manuals"
+msgstr "Manuels"
 

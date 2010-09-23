@@ -1060,7 +1060,7 @@ msgid "phc_label_constrainSearches_helpcenter"
 msgstr ""
 
 #. Default: "Constrain the results of Help Center searches to this document area. Turn this off to search the entire site. This affects only the Help Center's search facility, not the global search."
-msgid "phc_copyrights_helpcenter"
+msgid "phc_constrainSearches_helpcenter"
 msgstr ""
 
 #. Default: All documentation
@@ -1068,4 +1068,47 @@ msgstr ""
 #: ../skins/plone_help_center/helpcenter_topicview.pt
 #: ../skins/plone_help_center/phc_topic_area.pt
 msgid "phc_all_docs"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "General"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Quick Links: Find documentation by topic"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Read More&hellip;"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Click hereafter on a section or subsection to access documentation !"
+msgstr ""
+
+#: ../browser/phc_topic.pt
+msgid "In This Section..."
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Recommended Reading"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Books"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "More books..."
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Additional Resources"
+msgstr ""
+
+#. Default: "Search by topic, version, audience&hellip;"
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "phc_asearch_link"
 msgstr ""

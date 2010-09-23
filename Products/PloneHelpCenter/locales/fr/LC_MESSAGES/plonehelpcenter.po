@@ -1053,3 +1053,62 @@ msgstr "Une FAQ est une question fréquemment posée avec une réponse - ce n'es
 #: ../content/FAQFolder.py
 msgid "description_edit_faqfolder"
 msgstr "Une section FAQ présente les questions fréquemment posées avec leur réponse."
+
+#. Default: "Constrain Searches"
+msgid "phc_label_constrainSearches_helpcenter"
+msgstr "Restreindre la recherche"
+
+#. Default: "Constrain the results of Help Center searches to this document area. Turn this off to search the entire site. This affects only the Help Center's search facility, not the global search."
+msgid "phc_constrainSearches_helpcenter"
+msgstr "Restreint les résultats de recherche au centre de documentation. Décocher pour chercher dans tout le site. Ceci affecte uniquement la recherche présente dans le centre de documentation."
+
+#. Default: All documentation
+#: ../skins/plone_help_center/helpcenter_view.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/phc_topic_area.pt
+msgid "phc_all_docs"
+msgstr "Tout le site !"
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "General"
+msgstr "Général"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Quick Links: Find documentation by topic"
+msgstr "Liens rapides vers les sections"
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Read More&hellip;"
+msgstr "Vers la documentation&hellip;"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Click hereafter on a section or subsection to access documentation !"
+msgstr "Cliquez ci-dessous sur une section ou sous-section pour accéder à la documentation !"
+
+#: ../browser/phc_topic.pt
+msgid "In This Section..."
+msgstr "Dans cette section..."
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Recommended Reading"
+msgstr "Lecture recommandée"
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Books"
+msgstr "Livres"
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "More books..."
+msgstr "Plus de livres"
+
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "Additional Resources"
+msgstr "Ressources additionnelles"
+
+#. Default: "Search by topic, version, audience&hellip;"
+#: ../skins/plone_help_center/helpcenter_ploneorg.pt
+msgid "phc_asearch_link"
+msgstr "Chercher par section, version, audience&hellip;"
+
