@@ -6,7 +6,22 @@
   <body>
     <div metal:fill-slot="main"
          tal:define="view here/@@hcf_view;
-                     global getInfoFor nocall:here/portal_workflow/getInfoFor">
+                     sections view/getSectionsToList;
+                     noSections python:len(sections) <= 1;
+                     global getInfoFor nocall:here/portal_workflow/getInfoFor;">
+
+    <dl class="portlet" style="float: right" tal:condition="not:noSections">
+        <dt class="portletHeader"
+            i18n:translate="phc_index_sections">Sections</dt>
+        <dd class="portletItem">
+            <ul>
+            <li tal:repeat="section sections">
+            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section,)"
+               tal:content="section" i18n:translate="">Section</a>
+            </li>
+            </ul>
+        </dd>
+    </dl>
 
     <h1 tal:content="here/Title" class="documentFirstHeading">
       Folder Title
@@ -17,9 +32,17 @@
       Description.
     </p>
 
-    <div tal:repeat="section view/getSectionsToList">
+    <div tal:repeat="section sections">
 
-        <h2 tal:content="section">Section Heading</h2>
+        <h2>
+          <a class="link-anchor" 
+              tal:content="section"
+              i18n:translate=""
+              tal:attributes="name section;
+                              href string:${here/absolute_url}#${section};">
+              Section Heading
+            </a>
+        </h2>
 
         <dl>
             <tal:video tal:repeat="video python:view.getItemsBySection(section=section)">

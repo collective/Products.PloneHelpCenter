@@ -1,4 +1,6 @@
-<html metal:use-macro="context/main_template/macros/master">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" 
+      metal:use-macro="context/main_template/macros/master" 
+      i18n:domain="plonehelpcenter">
 <body>
   <div metal:fill-slot="main"
         tal:define="topic request/topic;
@@ -6,20 +8,20 @@
                     subtopics python:view.getSubTopics(topic=topic)">
 
       <h1 class="documentFirstHeading"
-          tal:content="topic">Security and Permissions</h1>
+          tal:content="topic" i18n:translate="">Security and Permissions</h1>
 
       <dl style="width: 30%; float: right; display: block; margin-left:1em"
        class="portlet" tal:condition="python:len(subtopics)>1">
-      <dt class="portletHeader">In This Section...</dt>
+      <dt class="portletHeader" i18n:translate="">In This Section...</dt>
       <dd class="portletItem">
         <ul>
-          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:#${subtopic/id}" tal:content="subtopic/title">Workflow</a></li>
+          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:#${subtopic/id}" tal:content="subtopic/title" i18n:translate="">Workflow</a></li>
         </ul>
       </dd>
       </dl>
 
       <div class="doclist" tal:repeat="subtopic subtopics">
-        <h2><a name="workflow" tal:attributes="name subtopic/id; id subtopic/id" tal:content="subtopic/title">Workflow</a></h2>
+        <h2><a name="workflow" tal:attributes="name subtopic/id; id subtopic/id" tal:content="subtopic/title" i18n:translate="">Workflow</a></h2>
         <dl>
           <tal:block tal:repeat="item subtopic/docs">
             <dt>

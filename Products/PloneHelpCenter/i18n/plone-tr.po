@@ -417,3 +417,22 @@ msgstr "Nesneyi yukarıya taşı"
 msgid "title_relevance"
 msgstr "İlinti Oranı"
 
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Frequently Asked Questions"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Error references"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Links"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+msgid "Manuals"
+msgstr ""

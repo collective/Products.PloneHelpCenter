@@ -8,7 +8,7 @@
     <div metal:define-macro="body" 
                  tal:define="view here/@@hcf_view; section request/section;">
       
-      <h1 tal:content="section">Section Heading</h1>
+      <h1 tal:content="section" i18n:translate="">Section Heading</h1>
 
       <p>
         <a class="link-parent"
