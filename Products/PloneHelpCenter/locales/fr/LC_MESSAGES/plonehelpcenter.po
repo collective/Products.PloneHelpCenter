@@ -1112,3 +1112,6 @@ msgstr "Ressources additionnelles"
 msgid "phc_asearch_link"
 msgstr "Chercher par section, version, audience&hellip;"
 
+#: ../skins/plone_help_center/phc_genericfolder_view.pt
+msgid "No section"
+msgstr "Sans section"
