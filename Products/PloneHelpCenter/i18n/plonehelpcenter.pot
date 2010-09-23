@@ -1112,3 +1112,7 @@ msgstr ""
 #: ../skins/plone_help_center/helpcenter_ploneorg.pt
 msgid "phc_asearch_link"
 msgstr ""
+
+#: ../skins/plone_help_center/phc_genericfolder_view.pt
+msgid "No section"
+msgstr ""

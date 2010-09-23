@@ -74,7 +74,6 @@ class HelpCenterFolderView(BrowserView):
         context = Acquisition.aq_inner(self.context)
         
         plone_utils = getToolByName(context, 'plone_utils')
-        brains = context.getFolderContents(contentFilter = kwargs)
 
         charset = context.getCharset()
 
@@ -87,14 +86,7 @@ class HelpCenterFolderView(BrowserView):
             t = s.encode(charset)
             sections.append({'id'      : plone_utils.normalizeString(t),
                              'section' : t,
-                             'items'   : []})
-
-        # Then insert each how-to in the appropriate audience/section
-        for b in brains:
-            itemSections = b.getSections or ['No section']
-            matchedSections = [s for s in sections if s['section'] in itemSections]
-            for s in matchedSections:
-                s['items'].append(b)
+                             'items'   : self.getItemsBySection(s, kwargs=kwargs)})
 
         # Finally clean out empty audiences or sections
         delSections = []

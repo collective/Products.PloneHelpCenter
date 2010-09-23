@@ -37,6 +37,7 @@
         <h2 tal:condition="not:noSections">
           <a class="link-anchor" 
               tal:content="section/section"
+              i18n:translate=""
               tal:attributes="name section/id">
               Section heading
           </a>
