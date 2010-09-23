@@ -6,7 +6,7 @@
   <body>
     <div metal:fill-slot="main"
          tal:define="view here/@@hcf_view;
-                     sections view/getSectionsToList;
+                     sections view/getItemsBySections;
                      noSections python:len(sections) <= 1;
                      global getInfoFor nocall:here/portal_workflow/getInfoFor;">
 
@@ -16,8 +16,8 @@
         <dd class="portletItem">
             <ul>
             <li tal:repeat="section sections">
-            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section,)"
-               tal:content="section" i18n:translate="">Section</a>
+            <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+               tal:content="section/section" i18n:translate="">Section</a>
             </li>
             </ul>
         </dd>
@@ -36,16 +36,16 @@
 
         <h2>
           <a class="link-anchor" 
-              tal:content="section"
+              tal:content="section/section"
               i18n:translate=""
-              tal:attributes="name section;
-                              href string:${here/absolute_url}#${section};">
+              tal:attributes="name section/id;
+                              href string:${here/absolute_url}#${section/id};">
               Section Heading
             </a>
         </h2>
 
         <dl>
-            <tal:video tal:repeat="video python:view.getItemsBySection(section=section)">
+            <tal:video tal:repeat="video python:section['items']">
             <dt>
                 <div style="float:right; text-align: center; margin: 1em 0 1em 1em;"
                      tal:condition="video/screenshot_thumb | nothing">
