@@ -1,7 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
       lang="en"
       metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+      i18n:domain="plonehelpcenter">
 
 <metal:head fill-slot="top_slot"
             tal:define="dummy python:request.set('disable_border',1)" />
@@ -22,12 +22,12 @@
 
         <fieldset>
 
-            <legend i18n:translate="legend_search_terms">Search Terms</legend>
+            <legend i18n:translate="legend_search_terms" i18n:domain="plone">Search Terms</legend>
 
             <div class="field">
-                <label for="SearchableText" i18n:translate="label_search_text">Search Text</label>
+                <label for="SearchableText" i18n:translate="label_search_text" i18n:domain="plone">Search Text</label>
 
-                <div class="formHelp" i18n:translate="help_search_text">
+                <div class="formHelp" i18n:translate="help_search_text" i18n:domain="plone">
                 For a simple text search, enter your search term
                 here. Multiple words may be found by combining
                 them with <strong>AND</strong> and <strong>OR</strong>.
@@ -133,9 +133,9 @@
             <br />
 
             <div class="field">
-                <label i18n:translate="label_item_version">Audience</label>
+                <label i18n:translate="label_item_audience">Audience</label>
 
-                <div class="formHelp" i18n:translate="help_search_item_version">
+                <div class="formHelp" i18n:translate="help_search_item_audience">
                 Return only documents for at least one of the selected audiences. Select no audiences for widest search.
                 </div>
 
@@ -227,6 +227,7 @@
                        name="submit"
                        value="Search"
                        i18n:attributes="value label_search;"
+                       i18n:domain="plone"
                        />
             </div>
 
