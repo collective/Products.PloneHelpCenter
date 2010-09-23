@@ -87,7 +87,7 @@
             <div class="visualClear" id="clear-space-before-version"><!-- --></div>
             <br />
 
-            <div class="field">
+            <div class="field" tal:condition="here/getVersionsVocab">
                 <label i18n:translate="label_item_version">Version</label>
 
                 <div class="formHelp" i18n:translate="help_search_item_version">
@@ -132,7 +132,7 @@
             <div class="visualClear" id="clear-space-before-audience"><!-- --></div>
             <br />
 
-            <div class="field">
+            <div class="field" tal:condition="here/getAudiencesVocab">
                 <label i18n:translate="label_item_audience">Audience</label>
 
                 <div class="formHelp" i18n:translate="help_search_item_audience">
