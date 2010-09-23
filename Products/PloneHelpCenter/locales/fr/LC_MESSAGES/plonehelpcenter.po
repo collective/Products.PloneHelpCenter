@@ -1115,3 +1115,43 @@ msgstr "Chercher par section, version, audience&hellip;"
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
 msgid "No section"
 msgstr "Sans section"
+
+#. Default: "Search for documentation"
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "heading_documentation_search"
+msgstr "Recherche de documentation"
+
+#. Default: "This search form enables you to find documenation by specifying one or more search terms."
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "description_documentation_asearch"
+msgstr "Ce formulaire de recherche vous permet de trouver de la documentation en spécifiant un ou plusieurs termes de recherche. "
+
+#. Default: "Topic"
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "label_item_topic"
+msgstr "Sections"
+
+#. Default: "Return only documents matching at least one of the selected topics. Select no topics for widest search."
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "help_search_item_topic"
+msgstr "Retourne seulement la documentation relative aux sections sélectionnées."
+
+#. Default: "Version"
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "label_item_version"
+msgstr "Versions"
+
+#. Default: "Return only documents matching at least one of the selected versions. Select no versions for widest search."
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "help_search_item_version"
+msgstr "Retourne seulement la documentation relative aux versions sélectionnées."
+
+#. Default: "Audiences"
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "label_item_audience"
+msgstr "Audiences"
+
+#. Default: "Return only documents matching at least one of the selected audiences. Select no versions for widest search."
+#: ../skins/plone_help_center/phc_asearch_form.pt
+msgid "help_search_item_audience"
+msgstr "Retourne seulement la documentation relative aux audiences sélectionnées."
