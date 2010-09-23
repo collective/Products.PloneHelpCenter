@@ -218,6 +218,7 @@ class HelpCenterFolderView(BrowserView):
 
         for o in context.getFolderContents(contentFilter = kwargs):
             for s in o.getSections:
+                if not s: continue #we pass the empty string !
                 sections[s]=1
             if len(sections) == max_sections:
                 break
