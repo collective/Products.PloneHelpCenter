@@ -50,7 +50,15 @@ class HelpCenterFolderView(BrowserView):
             return items
         else:
             criteria['getSections'] = section
-            return context.getFolderContents(contentFilter = criteria)
+            res = []
+            #we have to filter the brains to avoid getting one concerning a minor section when the section is a major section
+            # -> we don't want 'major:minor' if only 'major' is searched
+            for brain in context.getFolderContents(contentFilter = criteria):
+                #the searched section is a major one, we have to check if there's a minor one too"
+                if section.find(':') == -1 and len([s for s in brain.getSections if s.startswith('%s:'%section)]):
+                    continue
+                res.append(brain)
+            return res
 
     def getItemsBySections(self, **kwargs):
         """Get all items to list, by section only. Returns a list of dicts:
