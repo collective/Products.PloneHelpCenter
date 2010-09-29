@@ -6,6 +6,12 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a1 (UNRELEASED)
 
+    - Fix next/previous custom adapter to visit the same items as appear in
+      the navigation dropdown. Also make sure this adapter is used for legacy
+      ReferenceManuals. This fixes
+      http://plone.org/products/plonehelpcenter/issues/152/.
+      [dukebody, davisagli]
+
     - Don't fail when trying to acquire getCurrentVersions if not in
       a container that includes currentVersions in its schema. [davisagli]
 
@@ -32,13 +38,6 @@ History of changes to PHC (name of developer listed in brackets)::
     - updated INSTALL.txt with step by step upgrade guide related to 
       issue #142 "upgrade steps order unclear" and issue #132 "errata 
       mentioning Ploneboard". [acsr]
-
-    - Fix next/previous custom adapter to ignore types not
-      implementing IHelpCenterMultiPage, effectively removing images
-      and files from the next/previous links.
-      This fixes
-      http://plone.org/products/plonehelpcenter/issues/152/.
-      [dukebody]
     
     - Respect exclude_from_nav setting in the reference manual
       table of contents generation [miohtama]
