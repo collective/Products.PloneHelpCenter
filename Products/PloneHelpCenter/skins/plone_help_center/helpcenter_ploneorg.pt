@@ -1,6 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" 
-      metal:use-macro="context/main_template/macros/master" 
-      i18n:domain="plonehelpcenter">
+<html metal:use-macro="context/main_template/macros/master">
 <head>
 <style type="text/css" media="all" metal:fill-slot="css_slot">
 .supportlink {
@@ -33,7 +31,7 @@ dl.topicList dt {
 dl.topicList dt a {
     color: black;
     text-decoration: none;
-		border: none !important;
+        border: none !important;
 }
 dl.topicList dd {
     margin: 0 !important;
@@ -68,11 +66,11 @@ dl.topicList dd {
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getSectionMap">
 
     <dl id="reading" class="portlet" style="margin:0;">
-      <dt class="portletHeader" style="font-size: 16px; margin: 0; color: White; line-height: 2em" i18n:translate="">Recommended Reading</dt>
+      <dt class="portletHeader" style="font-size: 16px; margin: 0; color: White; line-height: 2em">Recommended Reading</dt>
       <dd class="portletItem">
 
         <div class="rc">
-            <h3 i18n:translate="">Books</h3>
+            <h3>Books</h3>
             <ul>
               <li tal:repeat="book python:context.books.getFolderContents()[:8]">
                 <a href="[book-url]"
@@ -81,7 +79,7 @@ dl.topicList dd {
                 </a>
               </li>
             </ul>
-           <a href="books" i18n:translate="">More books...</a>
+           <a href="books">More books...</a>
         </div>
         
         <br style="clear:both" />
@@ -130,13 +128,13 @@ dl.topicList dd {
         </form>
     
         <div class="rc">    
-            <h3 i18n:translate="">Additional Resources</h3>
-            <ul i18n:domain="plone">
-                <li><a href="manual" i18n:translate="">Manuals</a></li>
-                <li><a href="faq" i18n:translate="">Frequently Asked Questions</a></li>
-                <li><a href="error" i18n:translate="">Error references</a></li>
-                <li><a href="glossary" i18n:translate="">Glossary</a></li>
-                <li><a href="http://api.plone.org/" i18n:translate="">Programmer's API Reference Guides</a></li>
+            <h3>Additional Resources</h3>
+            <ul>
+                <li><a href="manual">Manuals</a></li>
+                <li><a href="faq">Frequently Asked Questions</a></li>
+                <li><a href="error">Error Reference</a></li>
+                <li><a href="glossary">Glossary</a></li>
+                <li><a href="http://api.plone.org/">Programmer's API Reference Guides</a></li>
             </ul>
         </div>
 
@@ -144,21 +142,21 @@ dl.topicList dd {
     </dl>
 
     <br style="clear:both" />
-    
+        
     <dl class="topicList"
         tal:repeat="section sections">
       <dt><a href="[section-url]" tal:attributes="href section/url">
-            <span i18n:translate="" tal:content="section/title" />
+            <span tal:content="section/title" />
             (<span tal:content="section/count" />)</a></dt>
       <dd tal:repeat="item section/subtopics" class="discreet">
           <a href="[item url]" 
               tal:attributes="href item/url;" 
               tal:content="python:item['title'].split(':')[-1]" 
-              i18n:translate="">[Title of start-here item]
+              >[Title of start-here item]
           </a><tal:separator condition="not:repeat/item/end"> |</tal:separator>
       </dd>
       <dd tal:condition="not:section/subtopics" class="discreet">
-          <a href="[section-url]" tal:attributes="href section/url" i18n:translate="">General</a>
+          <a href="[section-url]" tal:attributes="href section/url">General</a>
       </dd>
     </dl>
 
