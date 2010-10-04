@@ -49,6 +49,8 @@ class HelpCenterFolderView(BrowserView):
                     items.append(item)
             return items
         else:
+            if isinstance(section, basestring):
+                section = [section]
             criteria['getSections'] = section
             res = []
             #we have to filter the brains to avoid getting one concerning a minor section when the section is a major section
