@@ -7,7 +7,7 @@
     <div metal:fill-slot="main"
          tal:define="view here/@@hcf_view;
                      sections view/getItemsBySections;
-                     noSections python:len(sections) <= 1;
+                     noSections python:len(sections) &lt;= 1;
                      global getInfoFor nocall:here/portal_workflow/getInfoFor;">
 
     <dl class="portlet" style="float: right" tal:condition="not:noSections">
