@@ -91,7 +91,7 @@
 
                 <select id="select_add_item"
                         name="type_name"
-                        tal:condition="python: num_types > 1">
+                        tal:condition="python: num_types &gt; 1">
 
                     <option value="Select"
                             i18n:domain="plone"
@@ -241,7 +241,7 @@
                     <metal:item_slot metal:define-slot="item_display">
                     <td>
                       <span tal:condition="not: item_size"> &nbsp; </span>
-                      <span tal:condition="python:item_size>0"
+                      <span tal:condition="python:item_size&gt;0"
                             tal:content="item_size"
                             tal:attributes="class item_wf_state_class"> size </span>
                     </td>

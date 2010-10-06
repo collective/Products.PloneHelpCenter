@@ -11,7 +11,7 @@
           tal:content="topic" i18n:translate="">Security and Permissions</h1>
 
       <dl style="width: 30%; float: right; display: block; margin-left:1em"
-       class="portlet" tal:condition="python:len(subtopics)>1">
+       class="portlet" tal:condition="python:len(subtopics)&gt;1">
       <dt class="portletHeader" i18n:translate="">In This Section...</dt>
       <dd class="portletItem">
         <ul>
