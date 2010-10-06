@@ -6,7 +6,6 @@ from plone.memoize.view import memoize
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
-from Products.PythonScripts.standard import url_quote_plus
 
 
 # Compare section brains by title
@@ -50,8 +49,11 @@ class HelpCenterFolderView(BrowserView):
             return items
         else:
             if isinstance(section, basestring):
-                section = [section]
-            criteria['getSections'] = section
+                # Wrap in list to avoid solr interpreting sections with spaces
+                # as multiple keywords
+                criteria['getSections'] = [section]
+            else:
+                criteria['getSections'] = section
             res = []
             #we have to filter the brains to avoid getting one concerning a minor section when the section is a major section
             # -> we don't want 'major:minor' if only 'major' is searched
