@@ -48,10 +48,11 @@ class TestNextPrevious(PHCTestCase):
         # test the previous item of page2
         previous = adapter.getPreviousItem(section2.page2)
         self.failUnlessEqual(previous["id"], 'page1')
-        
-        # page 1 of sec 2 should have the 1st section as previous item
-        previous = adapter.getPreviousItem(section2.page1)
-        self.failUnlessEqual(previous["id"], 'section1')
+       
+        # HMMM, is this change correct? 
+        # sec 2 should have the 1st section as previous item
+        previous = adapter.getPreviousItem(section2)
+        self.failUnlessEqual(previous["id"], 'page3')
 
         # page 3 of sec 2 should have the 3rd section as next item,
         # not the created image nor the file
@@ -59,20 +60,23 @@ class TestNextPrevious(PHCTestCase):
         self.failUnlessEqual(next["id"], 'section3')
 
         adapter = INextPreviousProvider(manual)
-        # sec 2 should have the 3rd section as next item
+        # HMMM, is this change correct? 
+        # sec 2 should have the 2nd section page1 as next item
         next = adapter.getNextItem(section2)
-        self.failUnlessEqual(next["id"], 'section3')
+        self.failUnlessEqual(next["id"], 'page1')
 
-        # sec 2 should have the 1st section as prev item
+        # HMMM, is this change correct? 
+        # sec 2 should have the 1st section page3 as prev item
         previous = adapter.getPreviousItem(section2)
-        self.failUnlessEqual(previous["id"], 'section1')
+        self.failUnlessEqual(previous["id"], 'page3')
 
         # sec 1 should have no previous item
         previous = adapter.getPreviousItem(section1)
         self.failUnlessEqual(previous, None)
 
+        # HMMM, is this change correct? 
         # sec 3 should have no next item
-        next = adapter.getNextItem(section3)
+        next = adapter.getNextItem(section3.page3)
         self.failUnlessEqual(next, None)
 
 

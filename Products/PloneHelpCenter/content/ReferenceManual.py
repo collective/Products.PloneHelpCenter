@@ -135,6 +135,7 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                 item = n['item']
                 res.append( { 
                     'title'   : "%s %s" % (n['numbering'], item.Title),
+                    'id'      : item.id,
                     'url'     : item.getURL(),
                     'current' : n['currentItem'],
                 } )
