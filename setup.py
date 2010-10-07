@@ -34,9 +34,9 @@ setup(name='Products.PloneHelpCenter',
       extras_require={
         'plone4' : ['Zope2'],
         'test' : ['Pillow',
-                  'Products.LinguaPlone',
-                  'Products.i18ntestcase',
         ],
-        'testtranslations' : ['i18ndude'
-         ]}
+        'testi18n' : ['i18ndude',
+                              'Products.LinguaPlone',
+                              'Products.i18ntestcase',
+        ]}
 )
