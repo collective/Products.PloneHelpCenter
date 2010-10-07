@@ -29,5 +29,14 @@ setup(name='Products.PloneHelpCenter',
         'setuptools',
         'plone.i18n',
         'Products.contentmigration',
+        'Products.Archetypes',
       ],
+      extras_require={
+        'plone4' : ['Zope2'],
+        'test' : ['Pillow',
+                  'Products.LinguaPlone',
+                  'Products.i18ntestcase',
+        ],
+        'testtranslations' : ['i18ndude'
+         ]}
 )
