@@ -25,4 +25,6 @@ class HelpCenterPagedView(BrowserView):
         while parent and not IHelpCenterNavRoot.providedBy(parent):
             if hasattr(parent, 'aq_parent'):
                 parent = parent.aq_parent
+            else:
+                parent = parent
         return parent
