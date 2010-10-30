@@ -6,6 +6,11 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a1 (UNRELEASED)
 
+    - Use the aq_parent function instead of the attribute to avoid
+      AttributeErrors when not using an acquisition wrapper (newer
+      Zope versions).
+      [dukebody]
+
     - Fix next/previous custom adapter to visit the same items as appear in
       the navigation dropdown. Also make sure this adapter is used for legacy
       ReferenceManuals. This fixes
