@@ -1,6 +1,6 @@
 """ support for HelpCenter content templates """
 
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -21,7 +21,7 @@ class HelpCenterPagedView(BrowserView):
 
         context = aq_inner(self.context)
         
-        parent = context.aq_parent
+        parent = aq_parent(context)
         while parent and not IHelpCenterNavRoot.providedBy(parent):
-            parent = parent.aq_parent
+            parent = aq_parent(parent)
         return parent
