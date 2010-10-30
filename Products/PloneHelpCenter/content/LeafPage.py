@@ -7,7 +7,7 @@
 
 from zope.interface import implements
 from AccessControl import ClassSecurityInfo
-from Acquisition import aq_inner
+from Acquisition import aq_inner, aq_parent
 
 try:
     from Products.LinguaPlone.public import *
@@ -53,10 +53,10 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
     def navRootObject(self):
         """ Find the metadata parent """
     
-        parent = aq_inner(self).aq_parent
+        parent = aq_parent(aq_inner(self))
         while parent and not IHelpCenterNavRoot.providedBy(parent):
             try:
-                parent = parent.aq_parent
+                parent = aq_parent(parent)
             except AttributeError:
                 break
         return parent
