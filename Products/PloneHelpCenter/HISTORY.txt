@@ -4,7 +4,7 @@ HISTORY
 History of changes to PHC (name of developer listed in brackets)::
 
 
-    PloneHelpCenter 4.0a1 (UNRELEASED)
+    PloneHelpCenter 4.0 (UNRELEASED)
 
     - Use the aq_parent function instead of the attribute to avoid
       AttributeErrors when not using an acquisition wrapper (newer
