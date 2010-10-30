@@ -6,6 +6,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0 (UNRELEASED)
 
+    - Made it possible to query contentIds via XML-RPC for 
+      collective.developermanual uploads [miohtama]
+
     - Use the aq_parent function instead of the attribute to avoid
       AttributeErrors when not using an acquisition wrapper (newer
       Zope versions).
