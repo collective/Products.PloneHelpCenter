@@ -59,7 +59,16 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     def Contributors(self):
         """ get from parent """
         return self.aq_parent.Contributors()
-        
+
+    security.declarePublic('contentIds')
+    def contentIds(self, filter=None):
+        """
+             List IDs of contentish and folderish sub-objects.
+             (method is without docstring to disable publishing)
+             
+             Fix for https://bugs.launchpad.net/zope-cmf/+bug/661834
+        """
+        return ATContentTypes.content.folder.ATFolder.contentIds(self, filter)
 
 registerType(HelpCenterReferenceManualSection, PROJECTNAME)
 
