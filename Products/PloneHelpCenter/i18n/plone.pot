@@ -131,6 +131,10 @@ msgstr ""
 msgid "Tutorial Page"
 msgstr ""
 
+#. Default: "Leaf Page"
+msgid "Leaf Page"
+msgstr ""
+
 #. Default: "Tutorial Section"
 msgid "Tutorial Section"
 msgstr ""
