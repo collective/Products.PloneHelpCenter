@@ -29,6 +29,11 @@ msgstr "Popis chyby"
 msgid "Error Reference Section"
 msgstr "Sekce chyby"
 
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Error references"
+msgstr ""
+
 #. Default: "FAQ"
 msgid "FAQ"
 msgstr "FAQ"
@@ -36,6 +41,11 @@ msgstr "FAQ"
 #. Default: "FAQ Section"
 msgid "FAQ Section"
 msgstr "Sekce FAQ"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Frequently Asked Questions"
+msgstr ""
 
 #. Default: "Glossary"
 msgid "Glossary"
@@ -117,9 +127,23 @@ msgstr "Jak-na-to"
 msgid "How-to Section"
 msgstr "Sekce Jak-na-to"
 
+#. Default: "Leaf Page"
+msgid "Leaf Page"
+msgstr ""
+
 #. Default: "Link Section"
 msgid "Link Section"
 msgstr "Sekce Odkazy"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Links"
+msgstr ""
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Manuals"
+msgstr ""
 
 #. Default: "Plone Help Center Folder"
 msgid "PHCFolder"
@@ -205,9 +229,9 @@ msgid "description_subject_or"
 msgstr "Porovnat aspoň jedno"
 
 #. Default: "Up one level"
-#: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/phc_attachments.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
+#: ../skins/plone_help_center/referencemanualsection_view.pt
 msgid "go_to_parent_url"
 msgstr "Nahoru o jednu úroveň"
 
@@ -419,22 +443,3 @@ msgstr "Přesunou položku výše"
 msgid "title_relevance"
 msgstr "Relevance"
 
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Frequently Asked Questions"
-msgstr ""
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Error references"
-msgstr ""
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Links"
-msgstr ""
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Manuals"
-msgstr ""

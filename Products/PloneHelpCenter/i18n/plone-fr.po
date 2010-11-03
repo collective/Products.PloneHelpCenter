@@ -7,6 +7,7 @@ msgstr ""
 "POT-Creation-Date: 2006-09-20 09:17+0000\n"
 "PO-Revision-Date: 2007-6-27 11:00+0000\n"
 "Last-Translator: Stephan Geulette <stephan.geulette@uvcw.be>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,6 +30,11 @@ msgstr "Référence d'erreur"
 msgid "Error Reference Section"
 msgstr "Section Référence d'erreur"
 
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Error references"
+msgstr "Références d'erreur"
+
 #. Default: "FAQ"
 msgid "FAQ"
 msgstr "Question fréquente"
@@ -36,6 +42,11 @@ msgstr "Question fréquente"
 #. Default: "FAQ Section"
 msgid "FAQ Section"
 msgstr "Section FAQ"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Frequently Asked Questions"
+msgstr "Questions fréquentes"
 
 #. Default: "Glossary"
 msgid "Glossary"
@@ -117,9 +128,23 @@ msgstr "How-to"
 msgid "How-to Section"
 msgstr "Section How-to"
 
+#. Default: "Leaf Page"
+msgid "Leaf Page"
+msgstr "Page"
+
 #. Default: "Link Section"
 msgid "Link Section"
 msgstr "Section Lien"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Links"
+msgstr "Liens"
+
+#: ../skins/plone_help_center/helpcenter_topicview.pt
+#: ../skins/plone_help_center/helpcenter_topicview_main.pt
+msgid "Manuals"
+msgstr "Manuels"
 
 #. Default: "Plone Help Center Folder"
 msgid "PHCFolder"
@@ -205,9 +230,9 @@ msgid "description_subject_or"
 msgstr "Correspond à chacun"
 
 #. Default: "Up one level"
-#: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/phc_attachments.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
+#: ../skins/plone_help_center/referencemanualsection_view.pt
 msgid "go_to_parent_url"
 msgstr "Remonter d'un niveau"
 
@@ -418,24 +443,4 @@ msgstr "Déplacer l'élément vers le haut"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "title_relevance"
 msgstr "Pertinence"
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Frequently Asked Questions"
-msgstr "Questions fréquentes"
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Error references"
-msgstr "Références d'erreur"
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Links"
-msgstr "Liens"
-
-#: ../skins/plone_help_center/helpcenter_topicview_main.pt
-#: ../skins/plone_help_center/helpcenter_topicview.pt
-msgid "Manuals"
-msgstr "Manuels"
 
