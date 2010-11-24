@@ -8,10 +8,11 @@
 <div metal:fill-slot="main">
 
     <div metal:define-macro="main"
-         tal:define="len_text python:len(here.getBody());
+         tal:define="len_text python:len(here.getText());
                      sibl     python:[p for p in here.getPages()];
                      num_sibl python:len(sibl);
-                     pos      python:here.getPagePosition(here);">
+                     pos      python:here.getPagePosition(here);
+                     is_editable context/@@plone_context_state/is_editable;">
       
         <h1 class="documentFirstHeading">
             <span tal:replace="here/title_or_id">Title or id</span>
@@ -33,7 +34,7 @@
             This item does not have any body text, click the edit tab to change it.
         </p>
         <div id="bodyContent">
-            <div tal:replace="structure python:here.getBody()" />
+            <div tal:replace="structure python:here.getText()" />
         </div>
     
 	<div class="listingBar" 
