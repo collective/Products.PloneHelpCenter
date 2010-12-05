@@ -41,39 +41,34 @@ class TestNextPrevious(PHCTestCase):
         # set up the adapter for the sec2
         adapter = INextPreviousProvider(section2)
 
-        # test the next item of page 2
+        # forwards from 2.2.
         next = adapter.getNextItem(section2.page2)
-        self.failUnlessEqual(next["id"], 'page3')
+        self.failUnlessEqual(next["title"], '2.3. ')
         
-        # test the previous item of page2
+        # backwards
         previous = adapter.getPreviousItem(section2.page2)
-        self.failUnlessEqual(previous["id"], 'page1')
+        self.failUnlessEqual(previous["title"], '2.1. ')
         
-        # page 1 of sec 2 should have the 1st section as previous item
+        # backwards from 2.1.
         previous = adapter.getPreviousItem(section2.page1)
-        self.failUnlessEqual(previous["id"], 'section1')
+        self.failUnlessEqual(previous["title"], '2. ')
 
-        # page 3 of sec 2 should have the 3rd section as next item,
-        # not the created image nor the file
+        # forwards from 2.3., ignoring the image and the file
         next = adapter.getNextItem(section2.page3)
-        self.failUnlessEqual(next["id"], 'section3')
+        self.failUnlessEqual(next["title"], '3. ')
 
         adapter = INextPreviousProvider(manual)
-        # sec 2 should have the 3rd section as next item
+        # forwards from 2.
         next = adapter.getNextItem(section2)
-        self.failUnlessEqual(next["id"], 'section3')
+        self.failUnlessEqual(next["title"], '2.1. ')
 
-        # sec 2 should have the 1st section as prev item
+        # backwards
         previous = adapter.getPreviousItem(section2)
-        self.failUnlessEqual(previous["id"], 'section1')
+        self.failUnlessEqual(previous["title"], '1.3. ')
 
-        # sec 1 should have no previous item
+        # 1. has no previous item
         previous = adapter.getPreviousItem(section1)
         self.failUnlessEqual(previous, None)
-
-        # sec 3 should have no next item
-        next = adapter.getNextItem(section3)
-        self.failUnlessEqual(next, None)
 
 
 def test_suite():
