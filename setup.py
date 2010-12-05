@@ -27,6 +27,7 @@ setup(name='Products.PloneHelpCenter',
       download_url='http://plone.org/products/plonehelpcenter',
       install_requires=[
         'setuptools',
+        'Plone',
         'plone.i18n',
         'Products.contentmigration',
       ],
