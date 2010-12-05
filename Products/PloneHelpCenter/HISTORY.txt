@@ -6,6 +6,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0 (UNRELEASED)
 
+    - Include title in the section title.
+      [dukebody]
+
     - Rename type titles: "Page" to "Tutorial Page" and "Link" to
       "Help Center Link".
       [dukebody]
