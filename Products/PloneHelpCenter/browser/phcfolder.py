@@ -90,7 +90,7 @@ class HelpCenterFolderView(BrowserView):
             t = s.encode(charset)
             sections.append({'id'      : plone_utils.normalizeString(t),
                              'section' : t,
-                             'items'   : self.getItemsBySection(s, kwargs=kwargs)})
+                             'items'   : self.getItemsBySection(t, kwargs=kwargs)})
 
         # Finally clean out empty audiences or sections
         delSections = []
