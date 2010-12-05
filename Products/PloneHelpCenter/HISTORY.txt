@@ -6,6 +6,10 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0 (UNRELEASED)
 
+    - Rename type titles: "Page" to "Tutorial Page" and "Link" to
+      "Help Center Link".
+      [dukebody]
+
     - Made it possible to query contentIds via XML-RPC for 
       collective.developermanual uploads [miohtama]
 
