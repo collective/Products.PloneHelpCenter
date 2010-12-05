@@ -7,12 +7,16 @@
   <div metal:fill-slot="main"
        tal:define="fullToc python:here.getTOC(current = here);
                    tocInfo python:here.getTOCInfo(fullToc);
-                   toc     tocInfo/localTOC">
+                   toc     tocInfo/localTOC;
+                   currentIdx tocInfo/currentIdx;
+                   tocList    tocInfo/tocList;
+                   current    python:tocList[currentIdx];
+                   numbering  current/numbering">
 
     <div tal:replace="structure provider:plone.abovecontenttitle" />
 
     <h1 class="documentFirstHeading">
-        <span tal:replace="here/Title">Title</span>
+        <span tal:replace="string:${numbering} ${here/Title}">X.y. Title</span>
     </h1>
     
     <p class="documentDescription"
