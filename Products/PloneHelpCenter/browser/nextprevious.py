@@ -20,19 +20,27 @@ class HelpCenterFolderNextPrevious(ATFolderNextPrevious):
     adapts(IHelpCenterMultiPage)
 
     def getNextItem(self, obj):
-        toc = obj.getTOCSelectOptions(current=obj)
+        toc = list(obj.getTOCSelectOptions(current=obj))
         use_next = False
         for item in toc:
             if use_next:
-                return item
+                if item == toc[-1]:
+                    # last item has no next one
+                    return None
+                else:
+                    return item
             if item['current']:
                 use_next = True
     
     def getPreviousItem(self, obj):
-        toc = reversed(obj.getTOCSelectOptions(current=obj))
+        toc = list(reversed(obj.getTOCSelectOptions(current=obj)))
         use_next = False
         for item in toc:
             if use_next:
-                return item
+                if item == toc[-1]:
+                    # first item has no previous one
+                    return None
+                else:
+                    return item
             if item['current']:
                 use_next = True
