@@ -88,15 +88,15 @@ present without being installed, errors will occur.
 Installing with buildout
 ------------------------
 
-If you are using `buildout`_ to manage your instance installing Ploneboard
-is very simple. You can install it by adding it to the eggs line for your
-instance::
+If you are using `buildout`_ to manage your instance installing Plone
+Help Center is very simple. You can install it by adding it to the
+eggs line for your instance::
 
   [instance]
   eggs = Products.PloneHelpCenter
 
 
-If another egg package depends on Products.Ploneboard you do not need
+If another egg package depends on Products.PloneHelpCenter you do not need
 to specify anything in the buildout configuration: buildout will detect this
 automatically.
 
