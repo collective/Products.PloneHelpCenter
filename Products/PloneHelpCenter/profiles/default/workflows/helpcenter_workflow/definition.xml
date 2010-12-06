@@ -17,29 +17,38 @@
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
  </state>
  <state state_id="obsolete" title="Obsolete">
@@ -48,35 +57,37 @@
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
  </state>
  <state state_id="pending" title="Waiting for reviewer">
@@ -89,33 +100,38 @@
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reviewer</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Contributor</permission-role>
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
    <permission-role>Manager</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reviewer</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
-   <permission-role>Owner</permission-role>
-   <permission-role>Reviewer</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="View" acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
    <permission-role>Reviewer</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
  </state>
  <state state_id="published" title="Published">
@@ -125,26 +141,38 @@
   <permission-map name="Access contents information"
                   acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Add portal content" acquired="False">
-   <permission-role>Manager</permission-role>
+   <permission-role>Contributor</permission-role>
    <permission-role>Owner</permission-role>
   </permission-map>
   <permission-map name="Change portal events"
                   acquired="False">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="List folder contents"
                   acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="Modify portal content"
                   acquired="False">
    <permission-role>Manager</permission-role>
    <permission-role>Owner</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
   <permission-map name="View" acquired="True">
    <permission-role>Manager</permission-role>
+   <permission-role>Owner</permission-role>
+   <permission-role>Reader</permission-role>
+   <permission-role>Editor</permission-role>
   </permission-map>
  </state>
  <transition transition_id="mark_obsolete"
