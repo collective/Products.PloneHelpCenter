@@ -1,3 +1,5 @@
+import lxml.html
+
 from zope.interface import implements
 from AccessControl import ClassSecurityInfo
 
@@ -246,15 +248,16 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
 
     security.declareProtected(CMFCorePermissions.View, 'addImagePaths')
     def addImagePaths(self, body, baseurl):
-        """Fixup image paths in section body"""
-        
+        """Turn relative paths into absolute paths in section body"""
+
         # This is a convenience method for use in referencemanual_macros
-        # section_collation macro. It looks in body for img tags
-        # with relative URLs in the src attribute and prepends the baseurl.
-        # TODO: when we not longer need 2.1 compatibility, this belongs in 
+        # section_collation macro.
+        # TODO: when we not longer need 2.1 compatibility, this belongs in
         # a view.
-                
-        return IMG_PATTERN.sub(r"""\1src="%s/\2"\3""" % baseurl, body)
+
+        html = lxml.html.fromstring(body)
+        html.make_links_absolute(baseurl, resolve_base_href=False)
+        return lxml.html.tostring(html)
 
 
     security.declareProtected(CMFCorePermissions.View, 'referenceManualObject')
