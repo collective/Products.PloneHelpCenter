@@ -4,7 +4,7 @@ HISTORY
 History of changes to PHC (name of developer listed in brackets)::
 
 
-    PloneHelpCenter 4.0 (UNRELEASED)
+    PloneHelpCenter 4.0a1 (2010-12-07)
 
     - Use lxml to turn image relative links into absolute for the
       one-page version of manuals. This introduces a new install
