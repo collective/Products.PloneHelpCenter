@@ -6,11 +6,19 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0 (UNRELEASED)
 
-    - Include title in the section title.
+    - Use lxml to turn image relative links into absolute for the
+      one-page version of manuals. This introduces a new install
+      dependency on lxml.
+      Fixes http://plone.org/products/plonehelpcenter/issues/136.
+      [dukebody]
+
+    - Include numbering in the section title.
+      Fixes http://plone.org/products/plonehelpcenter/issues/137.
       [dukebody]
 
     - Rename type titles: "Page" to "Tutorial Page" and "Link" to
       "Help Center Link".
+      Fixes http://plone.org/products/plonehelpcenter/issues/140.
       [dukebody]
 
     - Made it possible to query contentIds via XML-RPC for 
