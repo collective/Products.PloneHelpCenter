@@ -5,6 +5,11 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a2 (unreleased)
 
+    - Modify workflow definitions to disallow Anonymous users to see
+      content inside hidden Help Centers.
+      Fixes http://plone.org/products/plonehelpcenter/issues/118.
+      [dukebody]
+
     - Remove the "Properties" tab for content-types, that was
       duplicating the Metadata schemata already present in the edit
       view in Plone 3.
