@@ -3,7 +3,12 @@
 #
 
 import os, sys
-from email.parser import Parser
+
+try:
+    from email.parser import Parser
+except ImportError: # Plone 3, Python 2.4.
+    from email.Parser import Parser
+
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
@@ -15,7 +20,7 @@ try:
 except ImportError:
     MockMailHost = None
 from Products.PloneHelpCenter.utils import discussion_notify
-
+from Products.PloneHelpCenter.utils import PLONE4
 
 class TestTutorialPageComments(PHCTestCase.PHCTestCase):
     """Tests related to a bug where comments on objects in a PHC Tutorial's
@@ -111,14 +116,23 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
         member.setMemberProperties({'fullname': 'fullname', 'email': 'testuser@testme.com',})
         discussion_notify(self.tutorial.page1)
         self.assertEqual( len(mailhost.messages), 1 )
-        
-        msg_text = mailhost.messages[0]
-        parser = Parser()
-        msg = parser.parsestr(msg_text)
-        payload = msg.get_payload()
-        self.failUnlessEqual( msg['To'], 'testuser@testme.com' )
-        self.failUnlessEqual( msg['subject'], '=?utf-8?q?New_comment_on_page1?=' )
-        self.failUnless( payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0 )
+
+        if PLONE4:
+            msg_text = mailhost.messages[0]
+            parser = Parser()
+            msg = parser.parsestr(msg_text)
+            msgTo = msg['To']
+            msgSubject = msg['subject']
+            payload = msg.get_payload()
+        else:
+            msg = mailhost.messages[0]
+            msgTo = msg.mto[0]
+            msgSubject = msg.message['subject']
+            payload = msg.message.get_payload().decode('base64')
+
+        self.failUnlessEqual(msgTo, 'testuser@testme.com' )
+        self.failUnlessEqual(msgSubject, '=?utf-8?q?New_comment_on_page1?=' )
+        self.failUnless(payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0 )
 
 
 def test_suite():
