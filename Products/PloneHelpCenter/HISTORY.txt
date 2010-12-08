@@ -5,6 +5,11 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a2 (unreleased)
 
+    - Allow all site-enabled markup types for PHC content, instead of
+      a fixed list.
+      Fixes http://plone.org/products/plonehelpcenter/issues/117.
+      [dukebody]
+
     - Modify workflow definitions to disallow Anonymous users to see
       content inside hidden Help Centers.
       Fixes http://plone.org/products/plonehelpcenter/issues/118.

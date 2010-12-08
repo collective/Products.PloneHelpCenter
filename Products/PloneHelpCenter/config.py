@@ -30,15 +30,6 @@ GLOBALS = globals()
 # invalidate.
 CACHE_MINUTES = 30
 
-DEFAULT_CONTENT_TYPES = {
-    'default_output_type': 'text/html',
-    'default_content_type': 'text/html',
-    'allowable_content_types': ('text/plain',
-                                'text/restructured',
-                                'text/html',
-                                'text/structured',)
-    }
-
 # A bug in CMF 2.1 prevents setting default discussion.
 # If this gets fixed, we can turn this back on here
 # and in the individual content types.

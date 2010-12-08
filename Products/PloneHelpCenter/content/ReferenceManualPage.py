@@ -21,9 +21,6 @@ from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage, IHelpCente
 
 HelpCenterReferenceManualPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
 HideOwnershipFields(HelpCenterReferenceManualPageSchema)
-# Support specified content formats
-for key, attr in DEFAULT_CONTENT_TYPES.items():
-    setattr(HelpCenterReferenceManualPageSchema['text'], key, attr)
 
 
 class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBase):
