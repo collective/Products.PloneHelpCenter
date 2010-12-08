@@ -3,6 +3,12 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0a2 (unreleased)
+
+    - Make mail sending code compatible with Plone 3. PHC 4 is now
+      compatible with both Plone 3 and 4.
+      [dukebody]
+
 
     PloneHelpCenter 4.0a1 (2010-12-07)
 
