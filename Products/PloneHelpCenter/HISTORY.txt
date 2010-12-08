@@ -5,6 +5,12 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a2 (unreleased)
 
+    - Remove the "Properties" tab for content-types, that was
+      duplicating the Metadata schemata already present in the edit
+      view in Plone 3.
+      Fixes http://plone.org/products/plonehelpcenter/issues/119.
+      [dukebody]
+
     - Make mail sending code compatible with Plone 3. PHC 4 is now
       compatible with both Plone 3 and 4.
       [dukebody]
