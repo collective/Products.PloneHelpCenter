@@ -30,9 +30,7 @@ FAQSchema['description'].widget = \
 FAQSchema['text'].widget.label = "Answer"
 FAQSchema['text'].widget.label_msgid = "label_answer"
 FAQSchema['text'].widget.i18n_domain = "plonehelpcenter"
-for key, attr in DEFAULT_CONTENT_TYPES.items():
-    setattr(FAQSchema['text'], key, attr)
-    
+
 finalizeATCTSchema(FAQSchema, folderish=False, moveDiscussion=False)
 
 

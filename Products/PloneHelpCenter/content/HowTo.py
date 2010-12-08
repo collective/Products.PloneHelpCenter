@@ -33,8 +33,6 @@ from Products.ATContentTypes.content.base import ATCTOrderedFolder
 HowToSchema = ATDocumentSchema.copy() + ConstrainTypesMixinSchema + HelpCenterItemSchemaNarrow
 HideOwnershipFields(HowToSchema)
 finalizeATCTSchema(HowToSchema, folderish=True, moveDiscussion=False)
-for key, attr in DEFAULT_CONTENT_TYPES.items():
-    setattr(HowToSchema['text'], key, attr)
 
 
 class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
