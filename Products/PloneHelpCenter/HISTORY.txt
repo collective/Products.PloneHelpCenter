@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a2 (unreleased)
 
+    - Use ordering adapters in Plone 4 to sort items in sections.
+      [dukebody]
+
     - Make the default view for PHC folders obey the items ordering
       set using the Contents tab. Formerly, they were sorted
       alphabetically by title.
