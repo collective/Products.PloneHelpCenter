@@ -3,7 +3,7 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 4.0a2 (unreleased)
+    PloneHelpCenter 4.0b1 (2010-12-09)
 
     - Use ordering adapters in Plone 4 to sort items in sections.
       [dukebody]
