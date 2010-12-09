@@ -63,7 +63,9 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         helpCenter.setTitle(title)
         helpCenter.setDescription('A HelpCenter instance for unit tests.')
         helpCenter.setVersionsVocab(versions)
-        self.portal.portal_workflow.doActionFor(helpCenter, 'submit')
+        self.setRoles(['Member', 'Reviewer'])
+        self.portal.portal_workflow.doActionFor(helpCenter, 'publish')
+        self.setRoles(['Member'])
         return helpCenter
 
     def _createHowto(self, howtoFolder, id, title=defaultTitle):
