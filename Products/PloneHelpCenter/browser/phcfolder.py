@@ -3,18 +3,26 @@
 import Acquisition
 
 from plone.memoize.view import memoize
+from plone.folder.interfaces import IOrdering
+from zope.component import getAdapter
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
+from Products.PloneHelpCenter.utils import PLONE4
 
 # Compare section brains by title
 def _sectionCmp(a, b):
+    # XXX: convert into an ordering adapter for Plone 4
     # depends on cmp(True, False) == 1
     ash = getattr(a, 'getStartHere', False)
     bsh = getattr(b, 'getStartHere', False)
     if ash == bsh:
-        return cmp(a.getObjPositionInParent(), b.getObjPositionInParent())
+        if PLONE4:
+            ordering = getAdapter(Acquisition.aq_parent(a.getObject()), IOrdering)
+            return cmp(ordering.getObjectPosition(a.id), ordering.getObjectPosition(b.id))
+        else: # Plone 3
+            return cmp(a.getObjPositionInParent(), b.getObjPositionInParent())
     elif ash:
         return -1
     else:
