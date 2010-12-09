@@ -6,6 +6,7 @@ import os, sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
+from AccessControl import Unauthorized
 from Products.PloneTestCase.PloneTestCase import default_user
 
 if __name__ == '__main__':
@@ -20,9 +21,14 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
 
     def afterSetUp(self):
         PHCTestCase.PHCTestCase.afterSetUp(self)
-        pm = self.portal.portal_membership
-        pm.addMember( 'test_reviewer', 'pw', ['Member', 'Reviewer'], [] )
-        pm.addMember( 'test_manager', 'pw', ['Member', 'Manager'], [] )
+        self.pm = self.portal.portal_membership
+        self.pm.addMember( 'test_member', 'pw', ['Member'], [] )
+        self.pm.addMember( 'test_reviewer', 'pw', ['Member', 'Reviewer'], [] )
+        self.pm.addMember( 'test_contributor', 'pw', ['Member', 'Contributor'], [] )
+        self.pm.addMember( 'test_editor', 'pw', ['Member', 'Editor'], [] )
+        self.pm.addMember( 'test_reader', 'pw', ['Member', 'Reader'], [] )
+        self.pm.addMember( 'test_manager', 'pw', ['Member', 'Manager'], [])
+
 
     def _publishContent(self, item):
         """Moves content created by the default user to the published state."""
@@ -37,7 +43,10 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.assertEqual(itemState, state)
 
     # Next several tests: owners can edit content even after it's published
-    
+
+    def _getPermissionsOfRole(self, context, role):
+        return [p['name'] for p in context.permissionsOfRole(role) if p['selected']]
+
     def testEditPublishedHowto(self):
         newBody = 'Changed to this content while published.'
         howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
@@ -312,7 +321,93 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.login('test_manager')
         self.portal.portal_workflow.doActionFor(definition, 'mark_obsolete')
         self._checkReviewState(definition, 'obsolete')
-    
+
+
+    def testReaderUnpublished(self):
+        """Readers can view the item even if it's not published, but
+        can't edit it.
+        """
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+        self.login('test_reader')
+        self.assertTrue(self.pm.checkPermission('View', howto))
+        self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
+
+    def testEditorUnpublished(self):
+        """Editors can view the item even if it's not published, and
+        can edit it.
+        """
+
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+        self.login('test_editor')
+        self.assertTrue(self.pm.checkPermission('View', howto))
+        self.assertTrue(self.pm.checkPermission('Modify portal content', howto))
+
+    def testMemberUnpublished(self):
+        """Normal Members can't view the item if it's not published, nor
+        can edit it.
+        """
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+        self.login('test_member')
+        self.assertFalse(self.pm.checkPermission('View', howto))
+        self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
+
+    def testAnonymousUnpublished(self):
+        """Anonymous can't view the item if it's not published, nor
+        can edit it.
+        """
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+
+        self.logout()
+        self.assertFalse(self.pm.checkPermission('View', howto))
+        self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
+
+    def testAnonymousCantCreateContent(self):
+        """Anonymous can't create documentation.
+        """
+        self.logout()
+        self.assertRaises(Unauthorized, self._createHowto, getattr(self.folder.hc, 'how-to'), 'howto1')
+
+    def testContributorMemberCanCreateContent(self):
+        """Members can create documentation by default.
+        """
+        howtoFolder = getattr(self.folder.hc, 'how-to')
+        self.folder.hc.manage_setLocalRoles('test_member', ['Contributor'])
+        self.login('test_member')
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'),
+        'howto1')
+        self.assertTrue(howto == howtoFolder.howto1)
+
+    def testMemberCantCreateContent(self):
+        """If the folder is not open for submission, Members can't
+        create content inside.
+        """
+        howtoFolder = getattr(self.folder.hc, 'how-to')
+        self.portal.portal_workflow.doActionFor(howtoFolder, 'retract')
+        self.login('test_member')
+        self.assertRaises(Unauthorized, self._createHowto, getattr(self.folder.hc, 'how-to'), 'howto1')
+
+    def testAnonymousPublished(self):
+        """Anonymous can view published content, but not edit it.
+        """
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+        self._publishContent(howto)
+        self.logout()
+        self.assertTrue(self.pm.checkPermission('View', howto))
+        self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
+
+    def testAnonymousPublishedHiddenPHC(self):
+        """Anonymous can't view published content if the PHC is
+        hidden, nor edit it.
+        """
+        howto = self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
+        self._publishContent(howto)
+        self.login('test_manager')
+        # oddly, default workflow is plone_workflow
+        self.portal.portal_workflow.doActionFor(self.folder.hc, 'retract')
+        self.portal.portal_workflow.doActionFor(self.folder.hc, 'hide')
+        self.logout()
+        self.assertFalse(self.pm.checkPermission('View', howto))
+        self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
 
 def test_suite():
     from unittest import TestSuite, makeSuite
