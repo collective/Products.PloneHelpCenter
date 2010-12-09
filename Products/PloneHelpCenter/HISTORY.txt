@@ -5,6 +5,12 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0a2 (unreleased)
 
+    - Make the default view for PHC folders obey the items ordering
+      set using the Contents tab. Formerly, they were sorted
+      alphabetically by title.
+      Fixes http://plone.org/products/plonehelpcenter/issues/121.
+      [dukebody]
+
     - Allow all site-enabled markup types for PHC content, instead of
       a fixed list.
       Fixes http://plone.org/products/plonehelpcenter/issues/117.
