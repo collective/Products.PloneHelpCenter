@@ -14,7 +14,7 @@ def _sectionCmp(a, b):
     ash = getattr(a, 'getStartHere', False)
     bsh = getattr(b, 'getStartHere', False)
     if ash == bsh:
-        return cmp(a.Title.lower(), b.Title.lower())
+        return cmp(a.getObjPositionInParent(), b.getObjPositionInParent())
     elif ash:
         return -1
     else:
