@@ -14,12 +14,19 @@
       <dt class="portletHeader">In This Section...</dt>
       <dd class="portletItem">
         <ul>
-          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:#${subtopic/id}" tal:content="subtopic/title">Workflow</a></li>
+          <tal:subtopic tal:repeat="subtopic subtopics">
+            <li tal:condition="python: subtopic['docs']">
+              <a href="#workflow"
+                 tal:attributes="href string:#${subtopic/id}"
+                 tal:content="subtopic/title">Workflow</a></li>
+          </tal:subtopic>
         </ul>
       </dd>
       </dl>
 
-      <div class="doclist" tal:repeat="subtopic subtopics">
+      <tal:subtopics tal:repeat="subtopic subtopics">
+      <div class="doclist"
+           tal:condition="python: subtopic['docs']">
         <h2><a name="workflow" tal:attributes="name subtopic/id; id subtopic/id" tal:content="subtopic/title">Workflow</a></h2>
         <dl>
           <tal:block tal:repeat="item subtopic/docs">
@@ -37,6 +44,7 @@
           </tal:block>
         </dl>
       </div>
+      </tal:subtopics>
 
   </div>
 

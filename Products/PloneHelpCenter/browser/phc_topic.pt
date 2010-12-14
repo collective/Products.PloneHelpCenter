@@ -15,7 +15,12 @@
       <dt class="portletHeader" i18n:translate="">In This Section...</dt>
       <dd class="portletItem">
         <ul>
-          <li tal:repeat="subtopic subtopics"><a href="#workflow" tal:attributes="href string:${request/ACTUAL_URL}#${subtopic/id}" tal:content="subtopic/title" i18n:translate="">Workflow</a></li>
+          <tal:subtopics tal:repeat="subtopic subtopics">
+          <li tal:condition="python: subtopic['docs']"><a href="#workflow"
+              tal:attributes="href string:${request/ACTUAL_URL}#${subtopic/id}"
+              tal:content="subtopic/title"
+              i18n:translate="">Workflow</a></li>
+          </tal:subtopics>
         </ul>
       </dd>
       </dl>

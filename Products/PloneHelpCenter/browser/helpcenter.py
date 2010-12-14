@@ -252,51 +252,52 @@ class HelpCenterView(BrowserView):
 
 
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
-        """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view"""
-        
-        context = Acquisition.aq_inner(self.context)
+        """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view.
+        Returns sorted list of dicts in the form:
+        { 'title': title, 'id':id, 'docs': docs, }
+        docs are a sorted list of document brains.
 
-        # Returns sorted list of dicts in the form:
-        # { 'title': title, 'id':id, 'docs': docs, }
-        # docs are a sorted list of document brains
+        The subtopics are presented in the same order they're set in
+        the PHC or PHCFolder. Subtopics without matching items have an
+        empty list under the 'docs' key.
+        """
+
+        context = Acquisition.aq_inner(self.context)
 
         # get a list of brains for all items of matching type and topic
         items = self.catalog(portal_type=portal_types, 
                              getSections=topic, 
                              path=context.getPHCPath())
-        
-        # construct a dict of subtopics under this topic
-        # with a list of matching items as value
-        subtopics = {}
+
+        def isSubTopicOf(subtopic, topic):
+            """Return true if the given subtopic is really a subtopic
+            of topic."""
+            if subtopic.startswith(topic) and subtopic!=topic \
+                   and ':' in subtopic:
+                return True
+            return False
+
+        subtopics = [s for s in context.getSectionsVocab() if isSubTopicOf(s, topic)]
+        # place each item under the right subtopic
+        subtopic_items = {}
         for item in items:
-            # Add item to subtopics by section.
-            # Sections should have the format "topic : subtopic"
-            sections = []
-            for s in item.getSections:
-                if s.startswith(topic):
-                    pos = s.find(':')
-                    if pos > 0:
-                        sections.append(s[pos+1:].strip())
-            if sections:
-                for s in sections:
-                    subtopics.setdefault(s, []).append(item)
-            else:
-                subtopics.setdefault('!!!General', []).append(item)
-            
-        # Sort the subtopics
-        keys = subtopics.keys()
-        keys.sort(ncCmp)
-        
-        # organize into an array of dicts with keys: title, id, docs
-        # where docs is a sorted list of docs in section with 'start here' docs at top
+            for section in item.getSections:
+                if section in subtopics:
+                    subtopic_items.setdefault(section, []).append(item)
+                else: # item matches the main topic but not any subtopic
+                    subtopic_items.setdefault('General', []).append(item)
+
         sorted_list = []
-        for k in keys:
-          title = k.replace('!!!','') # strip off force-alpha
-          id = title.lower().replace(' ','-')  # make HTML anchor ID
-          docs = subtopics[k]
-          docs.sort(itemCmp)
-          sorted_list.append( { 'title': title, 'id':id, 'docs': docs, } )
-        
+        for subtopic in subtopics:
+           title = subtopic[subtopic.index(':')+1:].strip()
+           id = title.lower().replace(' ','-')  # make HTML anchor ID
+           if subtopic in subtopic_items:
+               docs = subtopic_items[subtopic]
+           else:  # no docs matching this subtopic
+               docs = []
+           docs.sort(itemCmp)
+           sorted_list.append( { 'title': title, 'id':id, 'docs': docs, } )
+
         return sorted_list
 
 
