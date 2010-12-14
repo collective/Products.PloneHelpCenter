@@ -14,7 +14,7 @@ Hc.Id = 'hc'
 Hc.Title = 'Test Help Center'
 Hc.Desc = 'A help center instance for functional testing of PHC.'
 Hc.Versions = ('Version 1.0', 'Version 2.0', 'Different Version 1.0')
-Hc.Sections =  ('Topic1', 'Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2', 'Topic2: Section1', 'Topic2: Section2')
+Hc.Sections =  ('Topic1', 'Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2', 'Topic2: Section Z', 'Topic2: Section A')
 
 # Alternate HelpCenter folderish object ----------------------------------------
 AltHc = PropertyHolder()
@@ -55,11 +55,11 @@ User.list = [User1, User2, User3, User4]
 
 # HowtoFolder settings -----------------------------------------------
 HowtoFolder = PropertyHolder()
-HowtoFolder.Sections = ('Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2: Section1', 'Topic2: Section2', 'General')
+HowtoFolder.Sections = Hc.Sections
 
 # TutorialFolder settings --------------------------------------------
 TutorialFolder = PropertyHolder()
-TutorialFolder.Sections = ('Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2: Section1', 'Topic2: Section2')
+TutorialFolder.Sections = Hc.Sections
 
 # FAQFolder settings --------------------------------------------
 FAQFolder = PropertyHolder()
@@ -79,7 +79,7 @@ LinkFolder.Sections = ('General', 'Link Section1', 'Link Section2 - \xc3\xa1'.de
 
 # ReferenceManualFolder settings --------------------------------------------
 ReferenceManualFolder = PropertyHolder()
-ReferenceManualFolder.Sections = ('Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2: Section1', 'Topic2: Section2')
+ReferenceManualFolder.Sections = Hc.Sections
 
 # VideoFolder settings --------------------------------------------
 VideoFolder = PropertyHolder()
@@ -223,7 +223,7 @@ End of test document content.
 '''
 Howto1.Format = 'text/x-rst'
 Howto1.Versions = ( Hc.Versions[1], )
-Howto1.Sections = ( HowtoFolder.Sections[1], )
+Howto1.Sections = ( HowtoFolder.Sections[2], )
 Howto1.Transition = Transition.publish
 Howto1.Owner = User1
 
@@ -365,7 +365,7 @@ End of test document content.
 '''
 Howto2.Format = 'text/x-rst'
 Howto2.Versions = ( Hc.Versions[1], )
-Howto2.Sections = ( HowtoFolder.Sections[1], HowtoFolder.Sections[2], )
+Howto2.Sections = ( HowtoFolder.Sections[1], HowtoFolder.Sections[3], )
 Howto2.Transition = Transition.publish
 Howto2.Owner = User1
 

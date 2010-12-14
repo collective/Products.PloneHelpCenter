@@ -21,7 +21,8 @@ Setup our site with a PHC instance data provided in Data.py and utilities in Cus
 Check PHC Sections Vocabulary Setup
     >>> hc = self.portal.hc
     >>> hc.sectionsVocab
-    (u'Topic1', u'Topic1: Section1', u'Topic1: Section2 - \xe1', u'Topic2', u'Topic2: Section1', u'Topic2: Section2')
+    (u'Topic1', u'Topic1: Section1', u'Topic1: Section2 - \xe1',
+    u'Topic2', u'Topic2: Section Z', u'Topic2: Section A')
 
 CreateRootPHC creates a sections vocabulary for the how-to folder, so we'll
 need to clear it to test global sections.

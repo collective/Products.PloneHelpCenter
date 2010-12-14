@@ -49,7 +49,7 @@ howtos are there.
 
     >>> browser.getLink('All 7 How-tos').click()
     >>> browser.contents
-    '...Test Howto 10...Test Howto 1...Test Howto 8...How to use this resource...'
+    '...How to use this resource...Test Howto 10...Test Howto 1...Test Howto 8...'
 
 Follow the link to one of the howtos. Check content.
 
