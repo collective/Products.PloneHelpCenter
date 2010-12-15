@@ -1,5 +1,6 @@
 from zope.interface import implements
 from AccessControl import ClassSecurityInfo
+from Acquisition import aq_parent, aq_inner
 
 try:
     from Products.LinguaPlone.public import *
@@ -48,17 +49,17 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get from parent """
-        return self.aq_parent.Rights()
+        return aq_parent(aq_inner(self)).Rights()
     
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
-        return self.aq_parent.Creators()
+        return aq_parent(aq_inner(self)).Creators()
     
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
         """ get from parent """
-        return self.aq_parent.Contributors()
+        return aq_parent(aq_inner(self)).Contributors()
 
     security.declarePublic('contentIds')
     def contentIds(self, filter=None):
