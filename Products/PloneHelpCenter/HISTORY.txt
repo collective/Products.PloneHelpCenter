@@ -5,6 +5,10 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b2 (unreleased)
 
+    - Use the containment acquisition chain to get the parent
+      attributes in ReferenceManualSection type.
+      [dukebody]
+
     - Make listings respect the subtopics order set in the HelpCenter
       or type folders, instead of sorting alphabetically.
       Fixes http://plone.org/products/plonehelpcenter/issues/127.
