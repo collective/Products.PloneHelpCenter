@@ -3,13 +3,16 @@
 import Acquisition
 
 from plone.memoize.view import memoize
-from plone.folder.interfaces import IOrdering
 from zope.component import getAdapter
 
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
 
 from Products.PloneHelpCenter.utils import PLONE4
+
+
+if PLONE4:
+    from plone.folder.interfaces import IOrdering
 
 # Compare section brains by title
 def _sectionCmp(a, b):
