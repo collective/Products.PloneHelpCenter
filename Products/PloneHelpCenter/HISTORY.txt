@@ -3,7 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 4.0b2 (unreleased)
+    PloneHelpCenter 4.0b3 (unreleased)
+
+    - ...
+
+    PloneHelpCenter 4.0b2 (2010-12-28)
 
     - Fix import error in Plone 3.
       [miohtama]
