@@ -11,9 +11,6 @@ from Products.CMFCore.utils import getToolByName
 from Products.PloneHelpCenter.utils import PLONE4
 
 
-if PLONE4:
-    from plone.folder.interfaces import IOrdering
-
 # Compare section brains by title
 def _sectionCmp(a, b):
     # XXX: convert into an ordering adapter for Plone 4
@@ -22,6 +19,7 @@ def _sectionCmp(a, b):
     bsh = getattr(b, 'getStartHere', False)
     if ash == bsh:
         if PLONE4:
+            from plone.folder.interfaces import IOrdering
             ordering = getAdapter(Acquisition.aq_parent(a.getObject()), IOrdering)
             return cmp(ordering.getObjectPosition(a.id), ordering.getObjectPosition(b.id))
         else: # Plone 3
