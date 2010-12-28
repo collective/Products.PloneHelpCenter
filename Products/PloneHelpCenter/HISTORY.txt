@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b2 (unreleased)
 
+    - Fix import error in Plone 3.
+      [miohtama]
+
     - Use the containment acquisition chain to get the parent
       attributes in ReferenceManualSection type.
       [dukebody]
