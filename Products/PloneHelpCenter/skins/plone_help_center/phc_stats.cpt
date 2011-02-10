@@ -20,6 +20,7 @@
 
     <form method="get"
           name="search"
+          id="search-phc"
           tal:attributes="action string:${here/absolute_url}/${template/getId}">
           
         <input type="hidden" name="form.submitted" value="1"/>
@@ -93,7 +94,7 @@
                 Return items created by a particular person.
                 </div>
     
-                <tal:creators tal:define="creators python:portal.portal_catalog.uniqueValuesFor('Creator')">
+                <tal:creators tal:define="creators python:context.portal_catalog.uniqueValuesFor('Creator')">
                     <select name="Creator"
                             id="Creator"
                             tal:condition="python: len(creators) &lt;= 30">
@@ -133,7 +134,7 @@
                         size="7"
                         multiple="multiple"
                         tal:define="contentSubjects here/Subject;
-                                    usedSubjects python:here.portal_catalog.uniqueValuesFor('Subject');"
+                                    usedSubjects python:context.portal_catalog.uniqueValuesFor('Subject');"
                         >
                     <option value="#"
                             tal:repeat="subject usedSubjects"
@@ -520,6 +521,7 @@
                            type="checkbox"
                            name="review_state:list"
                            checked="checked"
+                           tal:define="normalizeString nocall:context/@@plone/normalizeString"
                            tal:attributes="value python:state[1];
                                            id python:normalizeString(state[1]);" />
                     <label for="review_state:list"
