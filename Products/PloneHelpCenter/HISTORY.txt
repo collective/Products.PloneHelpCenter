@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0b3 (unreleased)
+    
+    - Revamp helpcenter_topicview_main to show start-here items,
+      topic counts.
+      [davisagli]
 
     PloneHelpCenter 4.0b2 (2010-12-28)
 

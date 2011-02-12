@@ -1,5 +1,6 @@
 """ support for HelpCenter templates """
 
+from collections import defaultdict
 import Acquisition
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -168,17 +169,20 @@ class HelpCenterView(BrowserView):
         
         topics = phc.getSectionsVocab()
         
-        # dict to save counts
-        topicsDict = {}
+        # dict to save counts and start-here items
+        topicsDict = defaultdict(lambda: 0)
+        featuredDict = defaultdict(list)
         
-        for topic in topics:
-            if ':' not in topic:
-                items = self.catalog(portal_type=TOPIC_VIEW_TYPES,
-                                               review_state='published',
-                                               getSections=[topic])
-                for item in items:
-                    for section in item.getSections:
-                        topicsDict[section] = topicsDict.get(section, 0) + 1
+        items = self.catalog(portal_type=TOPIC_VIEW_TYPES,
+                             review_state='published')
+        for item in items:
+            for section in item.getSections:
+                topicsDict[section] = topicsDict[section] + 1
+                if item.getStartHere:
+                    featuredDict[section].append({
+                        'title': item.Title,
+                        'url': item.getPath(),
+                    })
         
         sections = []
         currTitle = ''
@@ -194,16 +198,19 @@ class HelpCenterView(BrowserView):
                     # append a new topic dict
                     currTitle = main
                     currSubSections = []
+                    featured = featuredDict.get(topic)
                     sections.append(
                      {'title':currTitle,
                       'subtopics':currSubSections,
                       'url': here_url + '/topic/' + url_quote_plus(currTitle),
-                      'count':count
+                      'count':count,
+                      'featured': featured,
                       }
                      )
                 if sub:
                     # add to the subtopics list
                     id = sub.lower().replace(' ','-')  # make HTML anchor ID
+                    sections[-1]['count'] += count
                     currSubSections.append(
                      {'title':sub,
                       'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)

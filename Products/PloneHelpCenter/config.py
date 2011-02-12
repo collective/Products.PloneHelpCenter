@@ -4,7 +4,6 @@ try:
 except ImportError:    
     from Products.CMFCore.CMFCorePermissions import AddPortalContent
     from Products.CMFCore.CMFCorePermissions import setDefaultRoles
-from Products.Archetypes.public import DisplayList
 
 ADD_CENTER_PERMISSION = 'PloneHelpCenter: Add Plone Help Center'
 ADD_CONTENT_PERMISSION = AddPortalContent
@@ -71,4 +70,4 @@ MANUAL_DESCRIPTION = 'A brief description of how you use and contribute to the H
 MANUAL_SECTION     = 'General'
 
 # These are the types for which we'll support topic searches and views
-TOPIC_VIEW_TYPES = ['HelpCenterTutorial','HelpCenterReferenceManual','HelpCenterHowTo']
+TOPIC_VIEW_TYPES = ['HelpCenterTutorial','HelpCenterHowTo']
