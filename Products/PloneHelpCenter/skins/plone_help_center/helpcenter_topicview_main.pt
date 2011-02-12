@@ -8,13 +8,14 @@
   <div metal:fill-slot="portlets_one_slot">
     <dl class="portlet">
       <tal:add-button
-        tal:define="mtool context/portal_membership;
-                    kb context/kb|nothing"
-        tal:condition="python:kb and mtool.checkPermission('PloneHelpCenter: Add Documentation', kb)">
-          <form action="${context/absolute_url}/kb/createObject?type_name=HelpCenterHowTo">
+        tal:define="mtool context/portal_membership"
+        tal:condition="python:mtool.checkPermission('PloneHelpCenter: Add Documentation', context)">
+          <form tal:attributes="action string:${context/absolute_url}/createObject">
+            <input type="hidden" name="type_name" value="HelpCenterHowTo" />
             <input type="submit" value="Add a new knowledge base howto" style="margin: 0 1em 1.5em;" />
           </form>
-          <form action="${context/absolute_url}/kb/createObject?type_name=HelpCenterTutorial">
+          <form tal:attributes="action string:${context/absolute_url}/createObject">
+            <input type="hidden" name="type_name" value="HelpCenterTutorial" />
             <input type="submit" value="Add a new knowledge base tutorial" style="margin: 0 1em 1.5em;" />
           </form>
       </tal:add-button>
