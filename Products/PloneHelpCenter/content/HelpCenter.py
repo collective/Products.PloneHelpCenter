@@ -400,4 +400,34 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         return '/'.join(self.getPhysicalPath())
 
 
+    security.declareProtected(CMFCorePermissions.View, 'getPHCSubNav')
+    def getPHCSubNav(self, defpath='manual'):
+        """
+        returns a list of dicts {url, title, desc, selected} for use in
+        building a PHC sub nav menu
+        defpath sets what's selected when at PHC root
+        
+        submenu items are ordered by obj pos in parent
+        """
+
+        phc = self.getPHCObject()
+        phcpath = self.getPHCPath()
+        cpath = '/'.join(self.getPhysicalPath())
+        if cpath == phcpath:
+            cpath = "%s/%s" % (cpath, defpath)
+
+        tabs = [item for item in phc.getFolderContents() if not item.exclude_from_nav]
+
+        res = []
+        for item in tabs:
+            res.append({
+                'title' : item.Title,
+                'url' : item.getURL(),
+                'selected' : item.getPath().find(cpath) == 0,
+                'desc' : item.Description,
+            })
+
+        return res
+
+
 registerType(HelpCenter, PROJECTNAME)
