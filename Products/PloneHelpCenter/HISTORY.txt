@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b3 (unreleased)
     
+    - Add subnavigation to most templates.
+      [smcmahon]
+    
     - Revamp helpcenter_topicview_main to show start-here items,
       topic counts.
       [davisagli]

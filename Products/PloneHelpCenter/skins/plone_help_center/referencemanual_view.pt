@@ -5,81 +5,113 @@
 
 <body>
 
-  <div metal:fill-slot="main" tal:define="putils context/plone_utils">
+    <metal:main metal:fill-slot="content">
 
-    <div tal:replace="structure provider:plone.abovecontenttitle" />
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-    <h1 class="documentFirstHeading">
-        <span tal:replace="here/Title">Title</span>
-    </h1>
-    
-    <p class="documentDescription"
-      tal:condition="here/Description"
-      tal:content="structure here/Description">
-      Description
-    </p>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-    <p tal:condition="here/isOutdated | nothing" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-    </p>
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
-    <div tal:replace="structure provider:plone.abovecontentbody" />
 
-    <tal:block define="toc here/getTOC;">
-        
-        <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
-            
-        <p class="visualNoPrint" tal:condition="nocall:toc">
-            <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages"
-               i18n:translate="all_content_on_one_page">
-            All content on one page (useful for printing, presentation mode etc.)</a>
-        </p>
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
 
-        <p tal:condition="not:nocall:toc" class="discreet">
-          <span i18n:translate="view_no_reference_manual1"
-                tal:omit-tag="">There are no pages or sections in this Reference Manual.</span>
-          <tal:block condition="python:user.has_permission('Modify portal content', here)"
-                     i18n:translate="view_no_reference_manual2">
-            Use the 'add new item' menu to add Sections, Pages, Files, or Images.
-            Sections can be nested in an arbitrary depth, but we recommend not
-            using more than three or four levels for good legibility.
-          </tal:block>
-        </p>
-       
-    </tal:block>
-    
-     <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
-           <fieldset tal:condition="nocall:items">
-               <legend>Attached files</legend>
-               <ul class="visualNoMarker">
-               <tal:related tal:repeat="item items">
-                   <li tal:define="
-                           desc      item/Description;
-                           item_type item/portal_type;
-                           item_type_class python: 'contenttype-' + putils.normalizeString(item_type);
-                           item_wf_state       item/review_state|python: getInfoFor(item, 'review_state', '');
-                           item_wf_state_class python: 'state-' + putils.normalizeString(item_wf_state);
-                           item_url           item/getURL;">
-                       <span tal:attributes="class item_type_class">
-                       <a href="" class="visualIconPadding"
-                           tal:attributes="href  item_url;
-                                           title desc;"
-                           tal:content="item/pretty_title_or_id">
-                           Related Item
-                       </a>
-                       </span>
-                   </li>
-               </tal:related>
-               </ul>
-           </fieldset>
-      </tal:block>
-        
-    <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
-      see also - shows the references if this feature is switched on
-    </div>
+        <div id="content">
+            <div tal:define="putils context/plone_utils">
 
-    <div tal:replace="structure provider:plone.belowcontentbody" />
-  </div>
+              <div tal:replace="structure provider:plone.abovecontenttitle" />
+
+              <h1 class="documentFirstHeading">
+                  <span tal:replace="here/Title">Title</span>
+              </h1>
+
+              <p class="documentDescription"
+                tal:condition="here/Description"
+                tal:content="structure here/Description">
+                Description
+              </p>
+
+              <p tal:condition="here/isOutdated | nothing" i18n:translate="phc_warning_outdated" class="portalMessage">
+                     Warning: This item is marked as outdated.
+              </p>
+
+              <div tal:replace="structure provider:plone.abovecontentbody" />
+
+              <tal:block define="toc here/getTOC;">
+
+                  <metal:recursion use-macro="here/referencemanual_macros/macros/section_toc"/>
+
+                  <p class="visualNoPrint" tal:condition="nocall:toc">
+                      <a href="" tal:attributes="href string:${context/absolute_url}/referencemanual-all-pages"
+                         i18n:translate="all_content_on_one_page">
+                      All content on one page (useful for printing, presentation mode etc.)</a>
+                  </p>
+
+                  <p tal:condition="not:nocall:toc" class="discreet">
+                    <span i18n:translate="view_no_reference_manual1"
+                          tal:omit-tag="">There are no pages or sections in this Reference Manual.</span>
+                    <tal:block condition="python:user.has_permission('Modify portal content', here)"
+                               i18n:translate="view_no_reference_manual2">
+                      Use the 'add new item' menu to add Sections, Pages, Files, or Images.
+                      Sections can be nested in an arbitrary depth, but we recommend not
+                      using more than three or four levels for good legibility.
+                    </tal:block>
+                  </p>
+
+              </tal:block>
+
+               <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
+                     <fieldset tal:condition="nocall:items">
+                         <legend>Attached files</legend>
+                         <ul class="visualNoMarker">
+                         <tal:related tal:repeat="item items">
+                             <li tal:define="
+                                     desc      item/Description;
+                                     item_type item/portal_type;
+                                     item_type_class python: 'contenttype-' + putils.normalizeString(item_type);
+                                     item_wf_state       item/review_state|python: getInfoFor(item, 'review_state', '');
+                                     item_wf_state_class python: 'state-' + putils.normalizeString(item_wf_state);
+                                     item_url           item/getURL;">
+                                 <span tal:attributes="class item_type_class">
+                                 <a href="" class="visualIconPadding"
+                                     tal:attributes="href  item_url;
+                                                     title desc;"
+                                     tal:content="item/pretty_title_or_id">
+                                     Related Item
+                                 </a>
+                                 </span>
+                             </li>
+                         </tal:related>
+                         </ul>
+                     </fieldset>
+                </tal:block>
+
+              <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+                see also - shows the references if this feature is switched on
+              </div>
+
+              <div tal:replace="structure provider:plone.belowcontentbody" />
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
+
 </body>
 </html>
 

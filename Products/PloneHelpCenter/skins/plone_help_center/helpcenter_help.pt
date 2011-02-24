@@ -9,208 +9,234 @@
     </head>
 
 <body>
-    <div metal:fill-slot="main">
+    <metal:main metal:fill-slot="content">
 
-    <h1 class="documentFirstHeading">
-    Using the Help Center
-    </h1>
-
-    <a class="link-parent visualNoPrint"
-      href=".">
-      Back to the Help Center
-    </a>
-    
-
-    <p class="documentDescription">
-    A brief description of how you use and contribute to the Help Center.
-    </p>
-
-    <p>
-    Welcome to the Help Center! This way of doing documentation is a bit
-    different from what you may be used to, so please read this document
-    to understand how to contribute.
-    </p>
-    
-    <h2>Quick Start</h2>
-    
-    <p>For the impatient, here's the bare minimum you should know:</p>
-    
-    <ol>
-        <li>You normally need to be logged in.</li>
-
-        <li>There are several different documentation types, most are 
-            self-explanatory, but pay attention to the difference between a
-            <strong>How-to</strong> and a <strong>Tutorial</strong> (explained
-            below).
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
         </li>
+    </ul>
 
-        <li>To add a piece of documentation/help, go into the relevant section,
-            <strong>make sure there isn't already an existing entry about what
-            you want to add</strong>,
-            and use the button at the top right to add (normally says <code>Add 
-            FAQ</code> or similar).
-        </li>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-        <li>Add your content, and save it. This edit/view cycle can be
-            performed as many times as you like, until you are happy with the
-            result.
-        </li>
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
-        <li>Make sure you <code>Submit</code> your document for publication
-            when you are done &mdash; top right pulldown in the content area.
-        </li>
-        
-        <li>A reviewer will then pick up the document, and publish it unless
-            the content needs to be improved.
-        </li>
-            
-        <li>If somebody adds comments to your entry later, you will be notified
-            by e-mail.
-        </li>
-    </ol>    
 
-    <h2>What type of item is my documentation?</h2>
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
 
-    <p>Below is a description, usage and example for each type.</p>
+        <div id="content">
+            <h1 class="documentFirstHeading">
+            Using the Help Center
+            </h1>
 
-    <dl>
-        <dt>Frequently Asked Question (FAQ)</dt>
+            <a class="link-parent visualNoPrint"
+              href=".">
+              Back to the Help Center
+            </a>
 
-        <dd>
-            <p>
-            An FAQ is a short question with a 1-2 paragraph answer. You can add several
-            questions to a FAQ area and group the questions into sections.
+
+            <p class="documentDescription">
+            A brief description of how you use and contribute to the Help Center.
             </p>
 
-            <fieldset>
-                <legend>FAQ Example</legend>
-                <strong>Question:</strong> What is Plone?
-
-                <p>
-                <strong>Answer:</strong>
-                Plone is an open source Enterprise Content Management
-                System (ECM/CMS) that runs on top of Zope and CMF.
-                </p>
-            </fieldset>
-
-        </dd>
-    </dl>
-
-    <dl>
-        <dt>HowTo</dt>
-
-        <dd>
             <p>
-            A HowTo is a one-page description on how to accomplish something, but is
-    folderish, so Files/Images can be attached. It's usually very brief and to-the-point.
+            Welcome to the Help Center! This way of doing documentation is a bit
+            different from what you may be used to, so please read this document
+            to understand how to contribute.
             </p>
 
-            <fieldset>
-                <legend>Typical How-Tos</legend>
+            <h2>Quick Start</h2>
 
-                <ul>
-                    <li>How to set up Plone with the Apache Web Server</li>
-                    <li>How to change the tabs that appear at the top of the portal</li>
-                </ul>
-            </fieldset>
-        </dd>
-    </dl>
+            <p>For the impatient, here's the bare minimum you should know:</p>
 
-    <dl>
-        <dt>Tutorial</dt>
+            <ol>
+                <li>You normally need to be logged in.</li>
 
-        <dd>
-            <p>
-            A tutorial is a multi-paged article with lots of detail. The tutorial
-            is more in-depth than a How-to, and may cover the conceptual aspects
-            of the task, in addition to the practical steps to get the job done.
-            </p>
-            <p>
-            If you are unsure of the difference of a How-to and a Tutorial, think
-            about it as the difference between a recipe that only teaches you 
-            what ingredients are needed, and how to bake the cake (How-to),
-            and an article telling you about the history behind cakes in general,
-            that may or may not teach you how to actually bake one (Tutorial).
-            </p>
+                <li>There are several different documentation types, most are 
+                    self-explanatory, but pay attention to the difference between a
+                    <strong>How-to</strong> and a <strong>Tutorial</strong> (explained
+                    below).
+                </li>
 
-            <fieldset>
-                <legend>Typical Tutorials</legend>
+                <li>To add a piece of documentation/help, go into the relevant section,
+                    <strong>make sure there isn't already an existing entry about what
+                    you want to add</strong>,
+                    and use the button at the top right to add (normally says <code>Add 
+                    FAQ</code> or similar).
+                </li>
 
-                <ul>
-                    <li>How to utilize workflows in your projects</li>
-                    <li>Why separate content, logic and presentation?</li>
-                </ul>
-            </fieldset>
-        </dd>
-    </dl>
+                <li>Add your content, and save it. This edit/view cycle can be
+                    performed as many times as you like, until you are happy with the
+                    result.
+                </li>
+
+                <li>Make sure you <code>Submit</code> your document for publication
+                    when you are done &mdash; top right pulldown in the content area.
+                </li>
+
+                <li>A reviewer will then pick up the document, and publish it unless
+                    the content needs to be improved.
+                </li>
+
+                <li>If somebody adds comments to your entry later, you will be notified
+                    by e-mail.
+                </li>
+            </ol>    
+
+            <h2>What type of item is my documentation?</h2>
+
+            <p>Below is a description, usage and example for each type.</p>
+
+            <dl>
+                <dt>Frequently Asked Question (FAQ)</dt>
+
+                <dd>
+                    <p>
+                    An FAQ is a short question with a 1-2 paragraph answer. You can add several
+                    questions to a FAQ area and group the questions into sections.
+                    </p>
+
+                    <fieldset>
+                        <legend>FAQ Example</legend>
+                        <strong>Question:</strong> What is Plone?
+
+                        <p>
+                        <strong>Answer:</strong>
+                        Plone is an open source Enterprise Content Management
+                        System (ECM/CMS) that runs on top of Zope and CMF.
+                        </p>
+                    </fieldset>
+
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>HowTo</dt>
+
+                <dd>
+                    <p>
+                    A HowTo is a one-page description on how to accomplish something, but is
+            folderish, so Files/Images can be attached. It's usually very brief and to-the-point.
+                    </p>
+
+                    <fieldset>
+                        <legend>Typical How-Tos</legend>
+
+                        <ul>
+                            <li>How to set up Plone with the Apache Web Server</li>
+                            <li>How to change the tabs that appear at the top of the portal</li>
+                        </ul>
+                    </fieldset>
+                </dd>
+            </dl>
+
+            <dl>
+                <dt>Tutorial</dt>
+
+                <dd>
+                    <p>
+                    A tutorial is a multi-paged article with lots of detail. The tutorial
+                    is more in-depth than a How-to, and may cover the conceptual aspects
+                    of the task, in addition to the practical steps to get the job done.
+                    </p>
+                    <p>
+                    If you are unsure of the difference of a How-to and a Tutorial, think
+                    about it as the difference between a recipe that only teaches you 
+                    what ingredients are needed, and how to bake the cake (How-to),
+                    and an article telling you about the history behind cakes in general,
+                    that may or may not teach you how to actually bake one (Tutorial).
+                    </p>
+
+                    <fieldset>
+                        <legend>Typical Tutorials</legend>
+
+                        <ul>
+                            <li>How to utilize workflows in your projects</li>
+                            <li>Why separate content, logic and presentation?</li>
+                        </ul>
+                    </fieldset>
+                </dd>
+            </dl>
 
 
 
 
-    <dl>
-        <dt>Help Link</dt>
+            <dl>
+                <dt>Help Link</dt>
 
-        <dd>
-            <p>
-                A help link is a link (either external or internal). It is
-    different from a standard Plone link in that it can have section
-    and version information.
+                <dd>
+                    <p>
+                        A help link is a link (either external or internal). It is
+            different from a standard Plone link in that it can have section
+            and version information.
 
-            </p>
+                    </p>
 
-            <fieldset>
-                <legend>Typical Help Links</legend>
+                    <fieldset>
+                        <legend>Typical Help Links</legend>
 
-                <ul>
-                    <li>The Zope Book at zope.org</li>
-                    <li>CSS reference manual at W3C</li>
-                </ul>
-            </fieldset>
-        </dd>
-    </dl>
+                        <ul>
+                            <li>The Zope Book at zope.org</li>
+                            <li>CSS reference manual at W3C</li>
+                        </ul>
+                    </fieldset>
+                </dd>
+            </dl>
 
-    <dl>
-        <dt>Error Reference</dt>
+            <dl>
+                <dt>Error Reference</dt>
 
-        <dd>
-            <p>
-                An error reference is meant to be the explanation of a particular error, with details on how to fix it, if relevant.
-            </p>
+                <dd>
+                    <p>
+                        An error reference is meant to be the explanation of a particular error, with details on how to fix it, if relevant.
+                    </p>
 
-            <fieldset>
-                <legend>Typical Error References</legend>
+                    <fieldset>
+                        <legend>Typical Error References</legend>
 
-                <ul>
-                    <li>Expected sequence, got integer</li>
-                    <li>FS Page Template has errors: Compilation failed</li>
-                </ul>
-            </fieldset>
-        </dd>
-    </dl>
-    
-    <dl>
-        <dt>Glossary Definition</dt>
+                        <ul>
+                            <li>Expected sequence, got integer</li>
+                            <li>FS Page Template has errors: Compilation failed</li>
+                        </ul>
+                    </fieldset>
+                </dd>
+            </dl>
 
-        <dd>
-            <p>
-                A glossary definition describes a particular term used as 
-                concisely as possible.
-            </p>
+            <dl>
+                <dt>Glossary Definition</dt>
 
-            <fieldset>
-                <legend>Typical Glossary Definitions</legend>
+                <dd>
+                    <p>
+                        A glossary definition describes a particular term used as 
+                        concisely as possible.
+                    </p>
 
-                <ul>
-                    <li><strong>CMF</strong>: The Content Management Framework</li>
-                    <li><strong>Workflow</strong>: A state machine structure used to model business processes</li>
-                </ul>
-            </fieldset>
-        </dd>
-    </dl>
+                    <fieldset>
+                        <legend>Typical Glossary Definitions</legend>
 
-    
+                        <ul>
+                            <li><strong>CMF</strong>: The Content Management Framework</li>
+                            <li><strong>Workflow</strong>: A state machine structure used to model business processes</li>
+                        </ul>
+                    </fieldset>
+                </dd>
+            </dl>
+        </div> <!-- End content -->
 
-  </div>
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
+
 </body>
 
 </html>

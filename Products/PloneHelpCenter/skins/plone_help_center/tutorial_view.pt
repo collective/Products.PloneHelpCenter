@@ -4,52 +4,79 @@
   i18n:domain="plonehelpcenter">
 
 <body>
-  <div metal:fill-slot="main">
+    <metal:main metal:fill-slot="content">
 
-    <h1 class="documentFirstHeading">
-        <span tal:replace="here/Title">Title</span>
-    </h1>
-    
-    <p class="documentDescription"
-      tal:condition="here/Description"
-      tal:content="structure here/Description">
-      Description
-    </p>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-    <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-    </p>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-    <ol tal:condition="here/getPages">
-         <li tal:repeat="page here/getPages">
-            <a tal:attributes="href page/getURL">
-               <span tal:attributes="class string:state-${page/review_state}" 
-                     tal:content="page/Title" /></a>
-            <span tal:replace="page/Description">Description</span>
-         </li>
-    </ol>
-    
-    <p class="visualNoPrint" tal:condition="nocall:here/getPages" i18n:translate="">
-      <a href="" tal:attributes="href string:${context/absolute_url}/tutorial-all-pages"
-         i18n:translate="all_content_on_one_page">
-        All content on one page (useful for printing, presentation mode etc.)</a>
-    </p>
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
-    <p tal:condition="not:here/getPages" class="discreet">
-      There are no pages in this Tutorial. 
-      <span tal:define="member context/@@plone_portal_state/member;"
-            tal:condition="python:member.has_permission('Modify portal contents', here)">
-        Use the 'add new item' menu to add Tutorial Pages, Files, or Images.
-      </span>
-    </p>
 
-    <div class="visualClear">&nbsp;</div>
-        
-    <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
-      see also - shows the references if this feature is switched on
-    </div>
-    
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
 
-  </div>
+        <div id="content">
+            <h1 class="documentFirstHeading">
+                <span tal:replace="here/Title">Title</span>
+            </h1>
+
+            <p class="documentDescription"
+              tal:condition="here/Description"
+              tal:content="structure here/Description">
+              Description
+            </p>
+
+            <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+                   Warning: This item is marked as outdated.
+            </p>
+
+            <ol tal:condition="here/getPages">
+                 <li tal:repeat="page here/getPages">
+                    <a tal:attributes="href page/getURL">
+                       <span tal:attributes="class string:state-${page/review_state}" 
+                             tal:content="page/Title" /></a>
+                    <span tal:replace="page/Description">Description</span>
+                 </li>
+            </ol>
+
+            <p class="visualNoPrint" tal:condition="nocall:here/getPages" i18n:translate="">
+              <a href="" tal:attributes="href string:${context/absolute_url}/tutorial-all-pages"
+                 i18n:translate="all_content_on_one_page">
+                All content on one page (useful for printing, presentation mode etc.)</a>
+            </p>
+
+            <p tal:condition="not:here/getPages" class="discreet">
+              There are no pages in this Tutorial. 
+              <span tal:define="member context/@@plone_portal_state/member;"
+                    tal:condition="python:member.has_permission('Modify portal contents', here)">
+                Use the 'add new item' menu to add Tutorial Pages, Files, or Images.
+              </span>
+            </p>
+
+            <div class="visualClear">&nbsp;</div>
+
+            <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+              see also - shows the references if this feature is switched on
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
+
 </body>
 </html>
