@@ -4,119 +4,148 @@
   i18n:domain="plonehelpcenter">
 
 <body>
-  <div metal:fill-slot="main">
-    <div metal:define-macro="body" 
-      tal:define="pss python:modules['Products.PythonScripts.standard']; 
-                  sections here/@@hcf_view/getItemsBySections;
-                  noSections python:len(sections) == 1;
-                  full request/full|nothing">
+    <metal:main metal:fill-slot="content">
 
-      <h1 tal:content="here/Title" class="documentFirstHeading">
-        Folder Title
-      </h1>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-      <p class="documentDescription"
-        tal:content="here/Description">
-        Description.
-      </p>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-      <dl class="portlet visualNoPrint"
-          style="float:right; margin: 0 0 1em 1em;"
-          tal:condition="not:noSections">
-        <dt class="portletHeader"
-            i18n:translate="phc_index_sections">Sections</dt>
-        <dd class="portletItem">
-          <ol>
-            <li tal:repeat="section sections">
-                <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
-                   tal:content="section/section" i18n:translate="">Section</a>
-             </li>
-          </ol>
-        </dd>
-      </dl>
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
-      <div tal:condition="full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s' % here.absolute_url()">
-          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
-        </a>
-      </div>
 
-      <div tal:condition="not: full">
-        <a class="link-expand"
-          tal:attributes="href python:'%s?full=1' % here.absolute_url()">
-          <span i18n:translate="phc_view_entire_faq">View entire FAQ expanded</span>
-        </a>
-      </div>
-
-      <div tal:repeat="section sections">
-
-        
-        <h2 tal:condition="not:noSections">
-          <a class="link-anchor"
-             tal:content="section/section"
-             tal:attributes="name section/id"
-             i18n:translate="">
-            Section Heading
-          </a>
-        </h2>
-
-        <tal:section condition="not:full">
-
-          <ol>
-            <li tal:repeat="faq python:section['items']">
-                <a href="" tal:content="faq/Title" 
-                   tal:attributes="href faq/getURL;
-                                   class string:state-${faq/review_state}">FAQ</a>
-                <img src="error_icon.gif" alt="!" class="outdatedMarker"
-                     tal:condition="faq/isOutdated|nothing"
-                     title="This FAQ applies to a previous version" 
-                     i18n:attributes="title"/>
-            </li>
-
-          </ol>
-
-        </tal:section>
-
-        <div tal:condition="full" 
-          tal:repeat="faq python:section['items']">
-         <tal:faq define="faq faq/getObject">
-          
-          <h3>
-            <span tal:replace="faq/Title">Question</span>
-          </h3>
-
-          <p tal:condition="faq/Description"
-             tal:content="structure faq/Description"
-             class="portletContent even">
-            Full Question
-          </p>
-
-          <div tal:content="structure faq/getText"
-               class="portletContent odd">
-            Answer
-          </div>
-
-          <p tal:condition="faq/Versions" 
-          class="discreet">
-          This FAQ applies to: 
-          <span tal:condition="faq/Versions"
-            metal:use-macro="python:faq.widget('versions')">
-            Versions
-          </span>
-
-          <span tal:condition="not: faq/Versions">
-              <span i18n:translate="phc_any_version">
-              Any version.
-              </span>
-          </span>
-          </p>
-        
-        </tal:faq>
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
         </div>
-      </div>
-    </div>
-  </div>
+
+        <div id="content">
+            <div metal:define-macro="body" 
+              tal:define="pss python:modules['Products.PythonScripts.standard']; 
+                          sections here/@@hcf_view/getItemsBySections;
+                          noSections python:len(sections) == 1;
+                          full request/full|nothing">
+
+              <h1 tal:content="here/Title" class="documentFirstHeading">
+                Folder Title
+              </h1>
+
+              <p class="documentDescription"
+                tal:content="here/Description">
+                Description.
+              </p>
+
+              <dl class="portlet visualNoPrint"
+                  style="float:right; margin: 0 0 1em 1em;"
+                  tal:condition="not:noSections">
+                <dt class="portletHeader"
+                    i18n:translate="phc_index_sections">Sections</dt>
+                <dd class="portletItem">
+                  <ol>
+                    <li tal:repeat="section sections">
+                        <a tal:attributes="href python:'%s#%s'% (here.absolute_url(), section['id'],)"
+                           tal:content="section/section" i18n:translate="">Section</a>
+                     </li>
+                  </ol>
+                </dd>
+              </dl>
+
+              <div tal:condition="full">
+                <a class="link-expand"
+                  tal:attributes="href python:'%s' % here.absolute_url()">
+                  &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
+                </a>
+              </div>
+
+              <div tal:condition="not: full">
+                <a class="link-expand"
+                  tal:attributes="href python:'%s?full=1' % here.absolute_url()">
+                  <span i18n:translate="phc_view_entire_faq">View entire FAQ expanded</span>
+                </a>
+              </div>
+
+              <div tal:repeat="section sections">
+
+
+                <h2 tal:condition="not:noSections">
+                  <a class="link-anchor"
+                     tal:content="section/section"
+                     tal:attributes="name section/id"
+                     i18n:translate="">
+                    Section Heading
+                  </a>
+                </h2>
+
+                <tal:section condition="not:full">
+
+                  <ol>
+                    <li tal:repeat="faq python:section['items']">
+                        <a href="" tal:content="faq/Title" 
+                           tal:attributes="href faq/getURL;
+                                           class string:state-${faq/review_state}">FAQ</a>
+                        <img src="error_icon.gif" alt="!" class="outdatedMarker"
+                             tal:condition="faq/isOutdated|nothing"
+                             title="This FAQ applies to a previous version" 
+                             i18n:attributes="title"/>
+                    </li>
+
+                  </ol>
+
+                </tal:section>
+
+                <div tal:condition="full" 
+                  tal:repeat="faq python:section['items']">
+                 <tal:faq define="faq faq/getObject">
+
+                  <h3>
+                    <span tal:replace="faq/Title">Question</span>
+                  </h3>
+
+                  <p tal:condition="faq/Description"
+                     tal:content="structure faq/Description"
+                     class="portletContent even">
+                    Full Question
+                  </p>
+
+                  <div tal:content="structure faq/getText"
+                       class="portletContent odd">
+                    Answer
+                  </div>
+
+                  <p tal:condition="faq/Versions" 
+                  class="discreet">
+                  This FAQ applies to: 
+                  <span tal:condition="faq/Versions"
+                    metal:use-macro="python:faq.widget('versions')">
+                    Versions
+                  </span>
+
+                  <span tal:condition="not: faq/Versions">
+                      <span i18n:translate="phc_any_version">
+                      Any version.
+                      </span>
+                  </span>
+                  </p>
+
+                </tal:faq>
+                </div>
+              </div>
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
 </body>
 
 </html>

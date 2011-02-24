@@ -4,34 +4,57 @@
       i18n:domain="plonehelpcenter">
 <body>
 
-<div metal:fill-slot="main">
+    <metal:main metal:fill-slot="content">
 
-  <div metal:define-macro="main">
-      
-        <h1 class="documentFirstHeading">
-            <span tal:replace="here/title_or_id">Title or id</span>
-        </h1>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-        <p class="documentDescription"
-             tal:content="here/Description">
-            description
-        </p>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-        <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
+
+
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
         </div>
 
-        <p>
-        <a href="" tal:attributes="href here/url" tal:content="here/url">url</a>
-        </p>
-    
-    <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
-      see also - shows the references if this feature is switched on
-    </div>
+        <div id="content">
+                <h1 class="documentFirstHeading">
+                    <span tal:replace="here/title_or_id">Title or id</span>
+                </h1>
 
-    </div>
+                <p class="documentDescription"
+                     tal:content="here/Description">
+                    description
+                </p>
 
-</div>
+                <div tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+                   Warning: This item is marked as outdated.
+                </div>
+
+                <p>
+                <a href="" tal:attributes="href here/url" tal:content="here/url">url</a>
+                </p>
+
+            <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+              see also - shows the references if this feature is switched on
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
 
 </body>
 </html>

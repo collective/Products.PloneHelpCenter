@@ -5,64 +5,88 @@
 
 <body>
 
-<div metal:fill-slot="main">
+<div metal:fill-slot="content">
 
-    <div metal:define-macro="main"
-         tal:define="len_text python:len(here.getBody());
+    <div tal:define="len_text python:len(here.getBody());
                      sibl     python:[p for p in here.getPages()];
                      num_sibl python:len(sibl);
                      pos      python:here.getPagePosition(here);">
       
-        <h1 class="documentFirstHeading">
-            <span tal:replace="here/title_or_id">Title or id</span>
-        </h1>
-    
-        <p class="documentDescription"
-             tal:content="here/Description">
-            description
-        </p>
-        
-        <div class="portalMessage" tal:condition="python:here.portal_workflow.getInfoFor(here, 'review_state') != 'published'">
-           You must publish this page before it becomes visible to the public.
+         <ul id="sub-nav" class="navigation">
+             <li tal:repeat="item context/getPHCSubNav | nothing">
+                 <a href="#"
+                    tal:content="item/title"
+                    tal:attributes="href item/url; 
+                        class python:item['selected'] and 'selected' or nothing;
+                        title item/desc"          
+                 >Title</a>
+             </li>
+         </ul>
+
+         <div tal:define="show_border context/@@plone/showEditableBorder"
+              tal:attributes="class python:show_border and 'documentEditable' or ''">
+
+             <div id="edit-bar"
+                 tal:condition="show_border"
+                 tal:content="structure provider:plone.contentviews" />
+
+
+             <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+               Portal status message
+             </div>
+
+        <div id="content">
+                <h1 class="documentFirstHeading">
+                    <span tal:replace="here/title_or_id">Title or id</span>
+                </h1>
+
+                <p class="documentDescription"
+                     tal:content="here/Description">
+                    description
+                </p>
+
+                <div class="portalMessage" tal:condition="python:here.portal_workflow.getInfoFor(here, 'review_state') != 'published'">
+                   You must publish this page before it becomes visible to the public.
+                </div>
+
+                <p class="discreet"
+                   tal:condition="python: not len_text and is_editable"
+                   i18n:domain="plone"
+                   i18n:translate="no_body_text">
+                    This item does not have any body text, click the edit tab to change it.
+                </p>
+                <div id="bodyContent">
+                    <div tal:replace="structure python:here.getBody()" />
+                </div>
+
+        	<div class="listingBar" 
+        		tal:condition="python: next or prev"
+        		tal:define="next python:pos &lt; num_sibl-1 and sibl[pos+1];
+        			prev python:pos != 0 and sibl[pos-1]">
+
+        			<a class="next"
+        				tal:condition="python:next"
+        				tal:attributes="href next/getURL"
+        				href="">
+        				<span i18n:translate="phc_next">Next:</span>
+        				<span tal:replace="next/Title" /> 
+        				&#9658;
+        			</a>
+
+        			<a class="previous"
+        				tal:condition="python:prev"
+        				tal:attributes="href prev/getURL"
+        				href="">
+        				&#9668;
+        				<span i18n:translate="phc_previous">Previous:</span>
+        				<span tal:replace="prev/Title" />
+        			</a>
+        	</div>
+
+                <div class="visualClear">&nbsp;</div>
+
+            </div>
         </div>
-
-        <p class="discreet"
-           tal:condition="python: not len_text and is_editable"
-           i18n:domain="plone"
-           i18n:translate="no_body_text">
-            This item does not have any body text, click the edit tab to change it.
-        </p>
-        <div id="bodyContent">
-            <div tal:replace="structure python:here.getBody()" />
-        </div>
-    
-	<div class="listingBar" 
-		tal:condition="python: next or prev"
-		tal:define="next python:pos &lt; num_sibl-1 and sibl[pos+1];
-			prev python:pos != 0 and sibl[pos-1]">
-
-			<a class="next"
-				tal:condition="python:next"
-				tal:attributes="href next/getURL"
-				href="">
-				<span i18n:translate="phc_next">Next:</span>
-				<span tal:replace="next/Title" /> 
-				&#9658;
-			</a>
-
-			<a class="previous"
-				tal:condition="python:prev"
-				tal:attributes="href prev/getURL"
-				href="">
-				&#9668;
-				<span i18n:translate="phc_previous">Previous:</span>
-				<span tal:replace="prev/Title" />
-			</a>
-	</div>
-
-        <div class="visualClear">&nbsp;</div>
-
-    </div>
 
 </div>
 

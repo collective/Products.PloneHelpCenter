@@ -4,64 +4,92 @@
   i18n:domain="plonehelpcenter">
 
 <body>
-  <div metal:fill-slot="main">
-    <div metal:define-macro="body" 
-                 tal:define="view here/@@hcf_view; section request/section;">
-      
-      <h1 tal:content="section" i18n:translate="">Section Heading</h1>
+    <metal:main metal:fill-slot="content">
 
-      <p>
-        <a class="link-parent"
-           tal:define="here_url context/@@plone_context_state/object_url"
-           tal:attributes="href here_url">
-          &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
-        </a>
-      </p>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
+
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
+
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
 
-
-      <div class="faqMarker" tal:repeat="faq python: view.getItemsBySection(section=section)">
-
-      <tal:faq define="faq faq/getObject">
-
-        <h2>
-          <span tal:replace="faq/Title">Question</span>
-          <img src="error_icon.gif" alt="!" class="outdatedMarker"
-                     tal:condition="faq/isOutdated"
-                     title="This FAQ applies to a previous version" 
-                     i18n:attributes="title"/>
-        </h2>
-
-        <p tal:condition="faq/Description"
-        tal:content="structure faq/Description"
-	class="portletContent even">
-	<span i18n:translate="phc_full_question">Full Question</span>
-        </p>
-
-        <div tal:content="structure faq/getText"
-	class="portletContent odd">
-          Answer
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
         </div>
 
-        <p tal:condition="faq/versions" 
-        class="discreet">
-	<span i18n:translate="phc_faq_applies_to">This FAQ applies to:</span>         
-        <span tal:condition="faq/versions"
-          metal:use-macro="python:faq.widget('versions')">
-          Versions
-        </span>
+        <div id="content">
+            <div metal:define-macro="body" 
+                         tal:define="view here/@@hcf_view; section request/section;">
 
-        <span tal:condition="not: faq/versions">
-	  <span i18n:translate="phc_any_version">
-          Any version.
-	  </span>
-        </span>
-        </p>
-        </tal:faq>
-      </div>
-    </div>
+              <h1 tal:content="section" i18n:translate="">Section Heading</h1>
 
-  </div>
+              <p>
+                <a class="link-parent"
+                   tal:define="here_url context/@@plone_context_state/object_url"
+                   tal:attributes="href here_url">
+                  &laquo; <span i18n:translate="phc_up_to_toc">Back to Table of Contents</span>
+                </a>
+              </p>
+
+
+
+              <div class="faqMarker" tal:repeat="faq python: view.getItemsBySection(section=section)">
+
+              <tal:faq define="faq faq/getObject">
+
+                <h2>
+                  <span tal:replace="faq/Title">Question</span>
+                  <img src="error_icon.gif" alt="!" class="outdatedMarker"
+                             tal:condition="faq/isOutdated"
+                             title="This FAQ applies to a previous version" 
+                             i18n:attributes="title"/>
+                </h2>
+
+                <p tal:condition="faq/Description"
+                tal:content="structure faq/Description"
+        	class="portletContent even">
+        	<span i18n:translate="phc_full_question">Full Question</span>
+                </p>
+
+                <div tal:content="structure faq/getText"
+        	class="portletContent odd">
+                  Answer
+                </div>
+
+                <p tal:condition="faq/versions" 
+                class="discreet">
+        	<span i18n:translate="phc_faq_applies_to">This FAQ applies to:</span>         
+                <span tal:condition="faq/versions"
+                  metal:use-macro="python:faq.widget('versions')">
+                  Versions
+                </span>
+
+                <span tal:condition="not: faq/versions">
+        	  <span i18n:translate="phc_any_version">
+                  Any version.
+        	  </span>
+                </span>
+                </p>
+                </tal:faq>
+              </div>
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
 </body>
 
 </html>

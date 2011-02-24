@@ -4,32 +4,61 @@
   i18n:domain="plonehelpcenter">
 
 <body>
-  <div metal:fill-slot="main">
+    <metal:main metal:fill-slot="content">
 
-    <h1 tal:content="here/Title" class="documentFirstHeading">
-      Title
-    </h1>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav | nothing">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-    <p><a href=""
-      class="link-parent visualNoPrint"
-      tal:condition="not: request/full|nothing"
-      tal:define="parent_url python:here.navigationParent(here, template.getId())"
-      tal:attributes="href parent_url">
-      &laquo; <span i18n:translate="phc_up_to_glossary">Back to Glossary</span>      
-    </a></p>
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-    <p tal:condition="here/Description"
-       tal:content="structure here/Description">
-      Definition
-    </p>
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
-    <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
-           Warning: This item is marked as outdated.
-    </p>
 
-    <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
-      see also - shows the references if this feature is switched on
-    </div>
-  </div>
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
+
+        <div id="content">
+            <h1 tal:content="here/Title" class="documentFirstHeading">
+              Title
+            </h1>
+
+            <p><a href=""
+              class="link-parent visualNoPrint"
+              tal:condition="not: request/full|nothing"
+              tal:define="parent_url python:here.navigationParent(here, template.getId())"
+              tal:attributes="href parent_url">
+              &laquo; <span i18n:translate="phc_up_to_glossary">Back to Glossary</span>      
+            </a></p>
+
+            <p tal:condition="here/Description"
+               tal:content="structure here/Description">
+              Definition
+            </p>
+
+            <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
+                   Warning: This item is marked as outdated.
+            </p>
+
+            <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
+              see also - shows the references if this feature is switched on
+            </div>
+        </div> <!-- End content -->
+
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
+
 </body>
 </html>
