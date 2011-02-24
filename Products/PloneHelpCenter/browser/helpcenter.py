@@ -182,7 +182,7 @@ class HelpCenterView(BrowserView):
                     featuredDict[section].append({
                         'title': item.Title,
                         'description': item.Description,
-                        'url': item.getPath(),
+                        'url': item.getURL(),
                     })
         
         sections = []
