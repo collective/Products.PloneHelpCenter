@@ -1,177 +1,86 @@
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
-      xmlns:tal="http://xml.zope.org/namespaces/tal"
-      xmlns:metal="http://xml.zope.org/namespaces/metal"
-      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
-      lang="en"
-      metal:use-macro="here/main_template/macros/master"
-      i18n:domain="plone">
+<html metal:use-macro="context/main_template/macros/master">
 <head>
-	<metal:main fill-slot="head_slot">
-	    <script>
-	      jQuery(
-	        function(){
-	          jQuery("#topics").tabs("#topics ul.topic", {tabs: 'h3', effect: 'slide', current: 'selected'});
-	        }
-	      );
-	    </script>
-
-		<style type="text/css" media="screen">
-#topics {
-	background-color: white;
-	padding: 10px;
-	/*margin-top: 8px; compensate for corners*/ 
-	margin-bottom: 8px
-}
-
-#topics h3 {
-	border-top: 1px solid #ccc;
-	font-size: 14px;
-}
-
-#topics h3 a {
-	display: block;
-	padding: 0.5em 0 0.5em 0;
-}
-
-#topics h3.selected a {
-	/*padding-left: 1.25em;*/
-	color: black;
-	cursor: default;
-}
-
-#topics h3 a:before {
-	content: "▶ ";
-}
-
-#topics h3.selected a:before {
-	content: "▼ ";
-	/*content: "";*/
-}
-
-#topics h3 span.topicsummary {
-	color: #444;
-	font-size: 90%;
-	font-weight: normal;
-}
-
-#topics p {
-	font-size: 12px;	
-}
-
-ul.topic {
-	font-size: 13px;
-}
-
-ul.topic li {
-	display: inline-block !important;	
-	vertical-align: top;
-	width: 29.5%;
-	margin: 0 0 1em 1.5em;
-}
-		</style>
-
-	</metal:main>
 </head>
-
 <body>
 
-<metal:main metal:fill-slot="main" 
-            tal:define="view context/@@hc_view; sections view/getSectionMap">
+    <metal:main metal:fill-slot="content">
 
-<ul id="subnav" class="navigation">
-    <li tal:repeat="item context/subNavItems">
-        <a href="#"
-           tal:content="item/title"
-           tal:attributes="href item/url; 
-               class python:item['selected'] and 'selected' or nothing;
-               title item/desc"          
-        >Title</a>
-    </li>
-</ul>
+    <ul id="sub-nav" class="navigation">
+        <li tal:repeat="item context/getPHCSubNav">
+            <a href="#"
+               tal:content="item/title"
+               tal:attributes="href item/url; 
+                   class python:item['selected'] and 'selected' or nothing;
+                   title item/desc"          
+            >Title</a>
+        </li>
+    </ul>
 
-<div class="grid-row">
-	<div class="grid-cell position-leftmost width-three-quarters">
+    <div tal:define="show_border context/@@plone/showEditableBorder"
+         tal:attributes="class python:show_border and 'documentEditable' or ''">
 
-		<div class="pane">
-
-			<div class="pagesearch">
-                <form id="searchform" action="http://plone.org/documentation/phc_search" name="searchform">
-                <label class="hiddenStructure" for="searchGadget"> Search Documentation </label>
-                <input type="text" class="inputLabel" title="Search Documentation…" alt="Search Documentation" size="25" name="SearchableText">
-                </form>
-			</div>
-
-			<h2>Knowledge Base</h2>
-
-			<div id="topics">
-				<tal:section tal:repeat="section sections">
-				<h3>
-					<a href="#">
-						<span tal:replace="section/title" />
-					</a>
-				</h3>
-                <p class="discreet">Subtopics: 
-                <span tal:condition="section/subtopics"
-                    tal:repeat="item section/subtopics">
-                  <a href="[item url]" 
-                      tal:attributes="href item/url;" 
-                      tal:content="item/title" 
-                      i18n:translate=""
-                      >[Title of subtopic item]
-                  </a>, 
-                </span> 
-
-					<ul class="topic">
-						<li tal:repeat="item section/featured">
-							<h4><a tal:content="item/title" tal:attributes="href item/url"/></h4>
-							<p tal:content="item/description" />
-						</li>
-					</ul>
-				</tal:section>
-			</div>
-
-	</div> <!-- End pane -->
-</div> <!-- End cell -->
+        <div id="edit-bar"
+            tal:condition="show_border"
+            tal:content="structure provider:plone.contentviews" />
 
 
-<div class="grid-cell position-three-quarters width-quarter">
-	<div class="sidebar">
+        <div metal:use-macro="context/global_statusmessage/macros/portal_message">
+          Portal status message
+        </div>
 
-      <tal:add-button
-        tal:define="mtool context/portal_membership"
-        tal:condition="python:mtool.checkPermission('PloneHelpCenter: Add Documentation', context)">
-          <form tal:attributes="action string:${context/absolute_url}/createObject">
-            <input type="hidden" name="type_name" value="HelpCenterHowTo" />
-            <input type="submit" value="Add a new knowledge base howto" style="margin: 0 1em 1.5em;" />
-          </form>
-          <form tal:attributes="action string:${context/absolute_url}/createObject">
-            <input type="hidden" name="type_name" value="HelpCenterTutorial" />
-            <input type="submit" value="Add a new knowledge base tutorial" style="margin: 0 1em 1.5em;" />
-          </form>
-      </tal:add-button>
+        <div id="content">
+            <div tal:define="view context/@@hc_view; sections view/getTopics">
 
-      <h2>What is the Knowledge Base?</h2>
-      <p style="font-size: 13px; margin-bottom: 1em">
-          The knowledge base contains focused articles on specific subjects contributed
-          by the wider community. They are often about very specific subjects, edge cases
-          or things that related to specific integration tasks that may just apply to a
-          subset of our users and developers.
-      </p>
+              <h1 tal:content="context/Title">Documentation</h1>
 
-      <h2>How to contribute</h2>
-      <p style="font-size: 13px; margin-bottom: 1em">
-          Anybody can create a new article in the knowledge base. Just log in, and use
-          the button to add a new article.
-      </p>
+              <p class="documentDescription" tal:content="context/Description">Our descrip area...</p>
 
-	</div> 
-</div>  <!-- End cell -->
+              <dl class="portlet" tal:condition="nothing">
+                <dt class="portletHeader">Getting Started</dt>
+                <dd class="portletItem">
+                  <ul>
+                    <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+                    <li><a href="/hardcoded">Stuff in "End User" doc section</a></li>
+                  </ul>
+                </dd>
+                <dd class="portletFooter">All End User Documentation</dd>
+              </dl>
 
-</div> <!-- End row -->
+              <h2>Quick Links: Find documentation by topic</h2>
 
+              <div class="quicklinks" tal:define="length python: len(sections); splitat python: int(modules['math'].ceil(length/2.0)); left python: sections[:splitat]; right python: sections[splitat:]">
+                <ul style="float: left; width: 45%">
+                    <li tal:repeat="section left"><a tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></li>
+                </ul>
+                <ul>
+                   <li tal:repeat="section right"><a tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></li>
+                </ul>
+                <div style="clear: both"></div>
+              </div>
 
-    
-</metal:main>
+              <div tal:repeat="section sections">
+                <h2 class="section-subheading"><a href="[section-url]" tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></h2>
+                <ul tal:condition="section/subtopics">
+                  <li tal:repeat="item section/subtopics">
+                    <a href="[item url]" 
+                        tal:attributes="href item/url;" 
+                        tal:content="item/title" 
+                        >[Title of start-here item]
+                    </a>
+                  </li>
+                </ul> 
+                <div class="readmore">
+                  <a href="[section-url]" tal:attributes="href section/url"> Read More&hellip;</a>
+                </div>
+              </div>
+            </div>
+        </div> <!-- End content -->
 
+    </div> <!-- End documentEditable -->
+
+    </metal:main>
+
+ 
 </body>
+
 </html>
