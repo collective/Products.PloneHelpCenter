@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b3 (unreleased)
     
+    - Update discussion_reply.cpy to keep in sync with Plone.
+      [davisagli]
+    
     - Add subnavigation to most templates.
       [smcmahon]
     
