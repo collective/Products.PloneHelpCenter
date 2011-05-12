@@ -28,4 +28,4 @@ Numerous 1.0 presentation fixes: Servilio Afre Puentes.
 Version 3.0 refactoring: Steve McMahon
 
 Migration for Plone 4.0: Fabio Rizzo from Liberiun.com and Israel
-Saeta Perez.
+Saeta Pérez.
