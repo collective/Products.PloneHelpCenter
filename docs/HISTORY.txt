@@ -3,7 +3,10 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
-    PloneHelpCenter 4.0b3 (unreleased)
+    PloneHelpCenter 4.0b3 (2011-05-12)
+
+    - Clean up package and release
+      [aclark]
     
     - Update discussion_reply.cpy to keep in sync with Plone.
       [davisagli]

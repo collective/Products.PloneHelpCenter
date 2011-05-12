@@ -1,14 +1,16 @@
 # -*- coding: utf-8 -*-
+import os
 from setuptools import setup, find_packages
 
-version = open("Products/PloneHelpCenter/version.txt").read().strip()
+version = '4.0b3'
 
 setup(name='Products.PloneHelpCenter',
       version=version,
       description="A simple help-desk style documentation product for Plone.",
-      long_description= open("Products/PloneHelpCenter/README.txt").read() + '\n' +
-                        open("Products/PloneHelpCenter/INSTALL.txt").read() + '\n' +
-                        open("Products/PloneHelpCenter/CREDITS.txt").read(),
+      long_description= open("README.txt").read() + '\n' +
+                        open(os.path.join("docs", "INSTALL.txt")).read() + '\n' +
+                        open(os.path.join("docs", "HISTORY.txt")).read() + '\n' +
+                        open(os.path.join("docs", "CREDITS.txt")).read(),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",
