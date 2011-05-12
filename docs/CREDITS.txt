@@ -11,7 +11,7 @@ Development, Assistance: Christian "Tiran" Heimes
 
 Original FAQ code: Tim Terlegard, Edward Muller - further enhancements by Jean-Paul Ladage and Ahmad Hadi from Zest Software
 
-Fixing various stuff, documentation: The Sprinters: Christian Heimes, Dorneles Tremea, Daniel Nouri, Nate Aune
+Fixing various stuff, documentation: The Sprinters: Christian Heimes, Dorneles Treméa, Daniel Nouri, Nate Aune
 
 Added optional "see also" references to other Archetypes based types: Jens "jensens" Klein
 
