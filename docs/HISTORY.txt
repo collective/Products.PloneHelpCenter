@@ -21,6 +21,9 @@ History of changes to PHC (name of developer listed in brackets)::
     - Add getPHCSubNav method for PloneHelpCenter to create subnavigation.
       [stevem]
 
+    - Added metadata.xml file, used by QuickInstaller when upgrading
+      [afd]
+
     PloneHelpCenter 4.0b2 (2010-12-28)
 
     - Fix phc_stats template in Plone 4.
