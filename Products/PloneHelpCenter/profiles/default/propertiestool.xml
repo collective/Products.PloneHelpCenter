@@ -1,5 +1,12 @@
 <?xml version="1.0"?>
 <object name="portal_properties">
+ <object name="plonehelpcenter_display_properties" meta_type="Plone Property Sheet">
+   <property name="title">PloneHelpCenter display properties</property>
+   <property name="visible_review_states" type="lines" purge="False">
+     <element value="published"/>
+     <element value="visible"/>
+   </property>
+ </object>
  <object name="navtree_properties">
   <property name="parentMetaTypesNotToQuery" type="lines" purge="False">
    <element value="HelpCenterHowTo"/>
