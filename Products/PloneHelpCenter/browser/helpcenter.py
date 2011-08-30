@@ -127,15 +127,26 @@ class HelpCenterView(BrowserView):
         """ subtype sections in current folder """
 
         context = Acquisition.aq_inner(self.context)
+
+        props_tool = getToolByName(self, 'portal_properties')
+        sheet = props_tool.get('plonehelpcenter_display_properties', {})
+        states = sheet.getProperty('visible_review_states', ('published', 'visible',))
         
-        contentFilter = {'review_state':('published', 'visible',), 'portal_type' : self.subtypes()}
+        contentFilter = {'review_state':states, 'portal_type' : self.subtypes()}
         return context.getFolderContents(contentFilter=contentFilter)
 
 
     def sectionContents(self, section, limit=5):
         """ return section contents """
         
-        contentFilter = {'review_state':'published','sort_on':'modified','sort_order':'reverse', 'limit' : limit}
+        props_tool = getToolByName(self, 'portal_properties')
+        sheet = props_tool.get('plonehelpcenter_display_properties', {})
+        states = sheet.getProperty('visible_review_states', ('published',))
+
+        contentFilter = {'review_state':states,
+                         'sort_on':'modified',
+                         'sort_order':'reverse',
+                         'limit' : limit}
         return section.getObject().getFolderContents(contentFilter=contentFilter);        
 
 
