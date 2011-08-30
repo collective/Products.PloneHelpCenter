@@ -3,6 +3,17 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.01dev (2011-08-30)
+
+    - Add a Plone Property Sheet in portal_properties titled
+      'plonehelpcenter_display_properties (PloneHelpCenter display properties)'
+      [rijkstofberg]
+
+    - Start refactoring browser views and templates to use this.
+      - Done: helpcenter_view.pt
+              helpcenter.py
+      [rijkstofberg]
+
     PloneHelpCenter 4.0b3 (2011-05-12)
 
     - Clean up package and release

@@ -2,7 +2,7 @@
 import os
 from setuptools import setup, find_packages
 
-version = '4.0b3'
+version = '4.01dev'
 
 setup(name='Products.PloneHelpCenter',
       version=version,
