@@ -24,7 +24,10 @@
                      view_title view_title|request/view_title|string:;
                      contentsMethod python:test(here.portal_type=='Topic', here.queryCatalog, here.getFolderContents);
                      batch batch|python:contentsMethod(contentFilter,batch=True, b_size=b_size);
-                     full_view full_view|request/full_view|python:True;">
+                     full_view full_view|request/full_view|python:True;
+                     putils context/plone_utils;
+                     template_id template/getId;
+                     ifacetool context/portal_interface;">
       
       <form name="folderContentsForm"
             method="post"
@@ -71,11 +74,12 @@
                                    use_folder_contents site_properties/typesLinkToFolderContentsInFC|nothing;
                                    use_view_action site_properties/typesUseViewActionInListings|python:();
                                    query_path python:path('contentFilter/path|nothing') or request.get('path',None);
-                                   orderable_iface string:OFS.IOrderSupport.IOrderedContainer;
+                                   orderable_iface string:OFS.interfaces.IOrderedContainer;
                                    preSorted python:query_path or ((contentFilter and contentFilter.get('sort_on', 'getObjPositionInParent')!='getObjPositionInParent') or (not contentFilter and request.get('sort_on', 'getObjPositionInParent')!='getObjPositionInParent'));
                                    isOrderable python:ifacetool.objectImplements(here, orderable_iface);
                                    nosortclass python:test(isOrderable, 'nosort', '');
-                                   canModifyFolderContent is_editable;">
+                                   portal context/@@plone_portal_state/portal;
+                                   canModifyFolderContent context/@@plone_context_state/is_editable;">
           <div tal:condition="standalone|nothing">
           <metal:add_button define-macro="add_button"
                             tal:define="num_types python:len(contentTypes);">
@@ -175,7 +179,7 @@
             <metal:block tal:condition="batch|not:standalone|nothing">
             <tbody tal:define="arrowUp portal/arrowUp.gif;
                                arrowDown portal/arrowDown.gif;
-                               getRelativeContentURL nocall:utool/getRelativeContentURL
+                               getRelativeContentURL nocall:context/portal_url/getRelativeContentURL
                                ">
                 <tal:items tal:repeat="item batch">
                    <tr tal:define="oddrow               repeat/item/odd;
