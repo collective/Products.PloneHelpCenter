@@ -78,7 +78,8 @@
                 <div id="bodyContent">
                     <div tal:replace="structure python:context.getText()" />
                 </div>
-                <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
+
+                <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile', 'ATBlob')})">
                    <fieldset>
                        <legend>Attached files</legend>
                        <ul class="visualNoMarker">
