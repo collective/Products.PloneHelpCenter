@@ -35,7 +35,7 @@ HideOwnershipFields(HowToSchema)
 finalizeATCTSchema(HowToSchema, folderish=True, moveDiscussion=False)
 
 
-class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
+class HelpCenterHowTo(ATCTOrderedFolder, ATDocumentBase, PHCContentMixin):
 
     """A How-to is a document describing how to address a single, common 
     use-case or issue. You may add images and files as attachments.
