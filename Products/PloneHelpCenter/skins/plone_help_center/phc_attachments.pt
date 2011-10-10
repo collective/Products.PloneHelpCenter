@@ -27,7 +27,9 @@
                      full_view full_view|request/full_view|python:True;
                      putils context/plone_utils;
                      template_id template/getId;
-                     ifacetool context/portal_interface;">
+                     ifacetool context/portal_interface;
+                     wtool context/portal_workflow;
+                     normalizeString nocall:context/@@plone/normalizeString;">
       
       <form name="folderContentsForm"
             method="post"
