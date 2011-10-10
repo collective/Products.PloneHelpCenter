@@ -17,7 +17,9 @@
         </li>
     </ul>
 
-    <div tal:define="show_border context/@@plone/showEditableBorder"
+    <div tal:define="show_border context/@@plone/showEditableBorder;
+                     normalizeString nocall:context/@@plone/normalizeString;
+                     putils context/plone_utils;"
          tal:attributes="class python:show_border and 'documentEditable' or ''">
 
         <div id="edit-bar"
@@ -30,7 +32,7 @@
         </div>
 
         <div id="content">
-            <div tal:define="len_text python:len(here.body);">
+            <div tal:define="len_text python:len(context.getText());">
 
                 <h1 class="documentFirstHeading" tal:content="here/title_or_id">
                 Title or id
@@ -74,20 +76,19 @@
                 </p>
 
                 <div id="bodyContent">
-                    <div tal:replace="structure python:here.getBody()" />
+                    <div tal:replace="structure python:context.getText()" />
                 </div>
-
                 <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
-                   <fieldset tal:condition="nocall:items">
+                   <fieldset>
                        <legend>Attached files</legend>
                        <ul class="visualNoMarker">
                        <tal:related tal:repeat="item items">
                            <li tal:define="
                                    desc      item/Description;
                                    item_type item/portal_type;
-                                   item_type_class python: 'contenttype-' + putils.normalizeString(item_type);
+                                   item_type_class python: 'contenttype-' + normalizeString(item_type);
                                    item_wf_state       item/review_state|python: getInfoFor(item, 'review_state', '');
-                                   item_wf_state_class python: 'state-' + putils.normalizeString(item_wf_state);
+                                   item_wf_state_class python: 'state-' + normalizeString(item_wf_state);
            		                item_url           item/getURL;">
                                <span tal:attributes="class item_type_class">
                                <a href="" class="visualIconPadding"
