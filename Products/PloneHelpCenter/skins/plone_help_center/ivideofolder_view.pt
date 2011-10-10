@@ -68,10 +68,12 @@
                      i18n:attributes="title"/>
             </dt>
             
-            <dd tal:content="video/Description">Description</dd>
-            <div class="discreet" tal:define="getObjSize nocall:context/getObjSize">
+            <dd tal:content="video/Description" >Description</dd>
+            <div class="discreet" 
+                tal:define="getObjSize nocall:context/getObjSize;
+                            video python:video.getObject()">
                 <strong i18n:translate="">Duration:</strong>
-                <span tal:content="video/duration" tal:condition="video/duration | nothing">
+                <span tal:content="python:video.getDuration()">
                       Duration
                 </span> <span i18n:translate="" tal:omit-tag="">minutes</span>
                 <br />
