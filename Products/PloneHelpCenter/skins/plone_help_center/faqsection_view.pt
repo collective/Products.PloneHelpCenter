@@ -31,7 +31,12 @@
 
         <div id="content">
             <div metal:define-macro="body" 
-                         tal:define="view here/@@hcf_view; section request/section;">
+                         tal:define="view here/@@hcf_view; section request/section | nothing;">
+
+             <tal:cond condition="not:section">
+             You need to specify a section name in the request
+             </tal:cond>
+             <tal:cond condition="section">
 
               <h1 tal:content="section" i18n:translate="">Section Heading</h1>
 
@@ -84,6 +89,7 @@
                 </p>
                 </tal:faq>
               </div>
+              </tal:cond>
             </div>
         </div> <!-- End content -->
 
