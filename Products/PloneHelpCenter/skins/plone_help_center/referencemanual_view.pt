@@ -30,6 +30,8 @@
           Portal status message
         </div>
 
+<div id="region-content" class="documentContent">
+
         <div id="content">
             <div tal:define="putils context/plone_utils">
 
@@ -107,6 +109,8 @@
               <div tal:replace="structure provider:plone.belowcontentbody" />
             </div>
         </div> <!-- End content -->
+		
+</div> <!-- end regione content -->
 
     </div> <!-- End documentEditable -->
 

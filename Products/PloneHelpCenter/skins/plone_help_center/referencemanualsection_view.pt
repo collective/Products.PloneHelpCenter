@@ -29,6 +29,8 @@
           Portal status message
         </div>
 
+<div id="region-content" class="documentContent">
+
         <div id="content">
             <div tal:define="fullToc python:here.getTOC(current = here);
                              tocInfo python:here.getTOCInfo(fullToc);
@@ -80,6 +82,8 @@
 
             </div>
         </div> <!-- End content -->
+
+</div> <!-- end regione content -->
 
     </div> <!-- End documentEditable -->
 

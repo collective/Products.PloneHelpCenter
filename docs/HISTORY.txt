@@ -3,6 +3,14 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0b3-rt1 (Unreleased)
+    
+    - Fixed CSS styles for Plone 3.3
+    
+    - Fixed reference manual section and reference manual view for Plone 3.3
+    
+    - Added LeafPage to searchable types
+
     PloneHelpCenter 4.0b3 (2011-05-12)
 
     - Clean up package and release

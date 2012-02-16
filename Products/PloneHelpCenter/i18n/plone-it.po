@@ -33,7 +33,7 @@ msgstr "Errore"
 #: ../skins/plone_help_center/helpcenter_topicview.pt
 #: ../skins/plone_help_center/helpcenter_topicview_main.pt
 msgid "Error references"
-msgstr ""
+msgstr "Riferimenti ad errori"
 
 #. Default: "FAQ"
 msgid "FAQ"
@@ -46,7 +46,7 @@ msgstr "Domanda frequente"
 #: ../skins/plone_help_center/helpcenter_topicview.pt
 #: ../skins/plone_help_center/helpcenter_topicview_main.pt
 msgid "Frequently Asked Questions"
-msgstr ""
+msgstr "Domande frequenti"
 
 #. Default: "Glossary"
 msgid "Glossary"
@@ -130,7 +130,7 @@ msgstr "Aiuto"
 
 #. Default: "Leaf Page"
 msgid "Leaf Page"
-msgstr ""
+msgstr "Pagina"
 
 #. Default: "Link Section"
 msgid "Link Section"
@@ -144,7 +144,7 @@ msgstr ""
 #: ../skins/plone_help_center/helpcenter_topicview.pt
 #: ../skins/plone_help_center/helpcenter_topicview_main.pt
 msgid "Manuals"
-msgstr ""
+msgstr "Manuali"
 
 #. Default: "Plone Help Center Folder"
 msgid "PHCFolder"

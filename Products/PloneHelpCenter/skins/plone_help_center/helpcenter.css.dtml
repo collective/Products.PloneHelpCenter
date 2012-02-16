@@ -160,4 +160,10 @@ h2.section-subheading {
 }
 
 
+/* Plone 3 fix */
+#sub-nav li { 
+	display: inline; 
+	padding: 0 0.3em; 
+} 
+
 /* </dtml-with> */

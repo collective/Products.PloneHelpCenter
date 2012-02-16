@@ -451,7 +451,7 @@ class HelpCenterView(BrowserView):
         # get our choice from the form request
         request = context.REQUEST
         choice = request.form.get("phc_selection",None)
-        
+
         # map our sections to our eligible choices
         choiceTypes={
             "faq":('HelpCenterFAQ','HelpCenterFAQFolder'),
@@ -462,7 +462,8 @@ class HelpCenterView(BrowserView):
             "error":("HelpCenterErrorReference","HelpCenterErrorReferenceFolder"),
             "glossary":("HelpCenterDefinition","HelpCenterGlossary"),
             "manual":("HelpCenterReferenceManual","HelpCenterReferenceManualFolder", \
-                    "HelpCenterReferenceManualSection","HelpCenterReferenceManualPage"),
+                    "HelpCenterReferenceManualSection","HelpCenterReferenceManualPage",
+                    "HelpCenterLeafPage"),
             "video":("HelpCenterInstructionalVideo","HelpCenterInstructionalVideoFolder"),
         }
         
@@ -480,7 +481,8 @@ class HelpCenterView(BrowserView):
                     'HelpCenterReferenceManual',
                     'HelpCenterReferenceManualSection',
                     'HelpCenterReferenceManualPage',
-                    'HelpCenterInstructionalVideo']
+                    'HelpCenterInstructionalVideo',
+                    'HelpCenterLeafPage']
         
         return result
 
