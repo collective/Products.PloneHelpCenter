@@ -3,6 +3,11 @@ HISTORY
 
 History of changes to PHC (name of developer listed in brackets)::
 
+    PloneHelpCenter 4.0b4 (unreleased)
+
+    - Improved styling of portlet_phc_about
+      [davisagli, hennaheto @ cioppino]
+
     PloneHelpCenter 4.0b3 (2011-05-12)
 
     - Clean up package and release
