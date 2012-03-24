@@ -159,5 +159,14 @@ h2.section-subheading {
   margin-top: 0.5em;
 }
 
+#phcMetadata ul {
+  list-style-type: none; 
+  margin-left: 0px;
+}
+#phcMetadata ul ul {
+  list-style-type: none; 
+  margin-top: -1.5em; 
+  margin-left: 6em;
+}
 
 /* </dtml-with> */
