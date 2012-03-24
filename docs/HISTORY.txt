@@ -5,6 +5,9 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b4 (unreleased)
 
+    - Make it possible to filter phc_search by getVersions
+      [davisagli @ cioppino]
+
     - Improved styling of portlet_phc_about
       [davisagli, hennaheto @ cioppino]
 

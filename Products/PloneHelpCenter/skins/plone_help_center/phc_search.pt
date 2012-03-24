@@ -15,6 +15,7 @@
                    results python:here.queryCatalog({
                                 'portal_type':wanted_types,
                                 'SearchableText':request.form.get('SearchableText',''),
+                                'getVersions': request.form.get('getVersions', None),
                                 'path':searchPath,
                     });
                  Batch python:modules['Products.CMFPlone'].Batch;
