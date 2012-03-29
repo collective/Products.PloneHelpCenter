@@ -70,7 +70,7 @@ class HelpCenterFolderView(BrowserView):
                 #the searched section is a major one, we have to check if there's a minor one too"
                 if section.find(':') == -1 and len([s for s in brain.getSections if s.startswith('%s:'%section)]):
                     continue
-                res.append(brain)
+                res.append(brain)      
             return res
 
     def getItemsBySections(self, **kwargs):
@@ -112,8 +112,9 @@ class HelpCenterFolderView(BrowserView):
 
         # sort inside sections
         for j in sections:
-            j['items'].sort(_sectionCmp)
-
+            #j['items'].sort(_sectionCmp)
+            j['items'].sort(key=lambda x: x.getVersions)
+            j['items'].reverse()
         return sections
 
 
@@ -206,7 +207,9 @@ class HelpCenterFolderView(BrowserView):
         # sort inside sections            
         for a in audiences:
             for s in a['sections']:
-                s['items'].sort(_sectionCmp)
+                s['items'].sort(key=lambda x: x.getVersions)
+                s['items'].reverse()
+                #s['items'].sort(_sectionCmp)
 
         return audiences
 

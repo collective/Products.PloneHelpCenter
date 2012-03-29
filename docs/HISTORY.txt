@@ -2,7 +2,7 @@ HISTORY
 =======
 
 History of changes to PHC (name of developer listed in brackets)::
-
+    
     PloneHelpCenter 4.0b4 (unreleased)
 
     - Make the knowledge base type not globally addable.
@@ -13,7 +13,10 @@ History of changes to PHC (name of developer listed in brackets)::
 
     - Improved styling of portlet_phc_about
       [davisagli, hennaheto @ cioppino]
-
+      
+    - Howtos, Reference Manuals, Tutorials Sort By version number
+      [lukebrannon]
+      
     PloneHelpCenter 4.0b3 (2011-05-12)
 
     - Clean up package and release
