@@ -29,7 +29,17 @@ def _sectionCmp(a, b):
     else:
         return 1
 
-
+def get_latest_version(item):
+    """ returns the latest version number """
+    
+    listVersions = list(item.getVersions)
+    
+    if len(listVersions) > 0:
+        listVersions.sort()
+        return listVersions[-1]
+    else:
+        return 0
+    
 class HelpCenterFolderView(BrowserView):
     """ support for HelpCenter container templates """
     
@@ -72,7 +82,7 @@ class HelpCenterFolderView(BrowserView):
                     continue
                 res.append(brain)      
             return res
-
+    
     def getItemsBySections(self, **kwargs):
         """Get all items to list, by section only. Returns a list of dicts:
 
@@ -112,9 +122,7 @@ class HelpCenterFolderView(BrowserView):
 
         # sort inside sections
         for j in sections:
-            #j['items'].sort(_sectionCmp)
-            j['items'].sort(key=lambda x: x.getVersions)
-            j['items'].reverse()
+            j['items'].sort(key=get_latest_version, reverse=True)
         return sections
 
 
@@ -207,12 +215,9 @@ class HelpCenterFolderView(BrowserView):
         # sort inside sections            
         for a in audiences:
             for s in a['sections']:
-                s['items'].sort(key=lambda x: x.getVersions)
-                s['items'].reverse()
-                #s['items'].sort(_sectionCmp)
+                s['items'].sort(key=get_latest_version, reverse=True)
 
         return audiences
-
 
     @memoize
     def getSectionsToList(self, **kwargs):
