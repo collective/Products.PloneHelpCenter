@@ -219,6 +219,7 @@ class HelpCenterView(BrowserView):
                              review_state='published')
         for item in items:
             for section in item.getSections:
+                if not section: continue
                 topicsDict[section] = topicsDict[section] + 1
                 if item.getStartHere:
                     featuredDict[section].append({
@@ -301,7 +302,7 @@ class HelpCenterView(BrowserView):
         return sections
 
 
-    def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES):
+    def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES, with_general=False):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view.
         Returns sorted list of dicts in the form:
         { 'title': title, 'id':id, 'docs': docs, }
@@ -332,12 +333,16 @@ class HelpCenterView(BrowserView):
         subtopic_items = {}
         for item in items:
             for section in item.getSections:
+                if not section: continue
                 if section in subtopics:
                     subtopic_items.setdefault(section, []).append(item)
                 else: # item matches the main topic but not any subtopic
                     subtopic_items.setdefault('General', []).append(item)
 
         sorted_list = []
+        if with_general and subtopic_items.has_key('General'):
+            subtopic_items['General'].sort(itemCmp)
+            sorted_list.append({ 'title': 'General', 'id':'', 'docs': subtopic_items['General'], })
         for subtopic in subtopics:
            title = subtopic[subtopic.index(':')+1:].strip()
            id = title.lower().replace(' ','-')  # make HTML anchor ID
