@@ -62,6 +62,9 @@ def _cacheKey(method, self):
     else:
         return time()
 
+def _cacheKeyTypes(method, self, portal_types):
+    return (portal_types, _cacheKey(method, self))
+
 # note that KnowledgeBases are not included; they don't really
 # fit the type-folder scheme.
 subtypes_tuples = (
@@ -192,8 +195,8 @@ class HelpCenterView(BrowserView):
         return sections
 
 
-    @cache(_cacheKey)
-    def getSectionMap(self):
+    @cache(_cacheKeyTypes)
+    def getSectionMap(self, portal_types=TOPIC_VIEW_TYPES):
         """
           returns a complex list of section dicts
           [{title:sectiontitle, subtopics:listOfSubTopics, url:urlOfSection, count:itemsInSection}, ...]
@@ -212,7 +215,7 @@ class HelpCenterView(BrowserView):
         topicsDict = defaultdict(lambda: 0)
         featuredDict = defaultdict(list)
         
-        items = self.catalog(portal_type=TOPIC_VIEW_TYPES,
+        items = self.catalog(portal_type=portal_types,
                              review_state='published')
         for item in items:
             for section in item.getSections:
