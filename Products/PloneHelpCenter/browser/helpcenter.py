@@ -264,7 +264,7 @@ class HelpCenterView(BrowserView):
                 if sub:
                     # add to the subtopics list
                     id = sub.lower().replace(' ','-')  # make HTML anchor ID
-                    sections[-1]['count'] += count
+                    #sections[-1]['count'] += count #no need to globalize on the main level section because it's already done: now a subsection item has the main section automatically selected
                     currSubSections.append(
                      {'title':sub,
                       'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
