@@ -95,6 +95,16 @@ def itemCmp(a, b):
     else:
         return 1
 
+# compare sections, putting subsections first
+def sectionCmp(a, b):
+    acol = ':' in a
+    bcol = ':' in b
+    if (acol and bcol) or (not acol and not bcol):
+        return 0
+    elif acol:
+        return -1
+    else:
+        return 1
 
 class HelpCenterView(BrowserView):
     """ support for HelpCenter templates """
@@ -329,15 +339,20 @@ class HelpCenterView(BrowserView):
             return False
 
         subtopics = [s for s in context.getSectionsVocab() if isSubTopicOf(s, topic)]
+
         # place each item under the right subtopic
         subtopic_items = {}
         for item in items:
-            for section in item.getSections:
+            item_sections = sorted(item.getSections, sectionCmp) #we sort sections, putting subsections first
+            in_sub = False
+            for section in item_sections:
                 if not section: continue
                 if section in subtopics:
                     subtopic_items.setdefault(section, []).append(item)
-                else: # item matches the main topic but not any subtopic
+                    in_sub = True
+                elif section == topic and not in_sub: # item matches the main topic but not any subtopic
                     subtopic_items.setdefault('General', []).append(item)
+                    break #to put only one time the item in General in case of multiple main topics
 
         sorted_list = []
         if with_general and subtopic_items.has_key('General'):

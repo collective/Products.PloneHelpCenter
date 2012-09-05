@@ -5,7 +5,7 @@
   <div metal:fill-slot="main"
         tal:define="topic request/topic;
                     view context/@@hc_view;
-                    subtopics python:view.getSubTopics(topic=topic)">
+                    subtopics python:view.getSubTopics(topic=topic, with_general=True)">
 
       <h1 class="documentFirstHeading"
           tal:content="topic" i18n:translate="">Security and Permissions</h1>
