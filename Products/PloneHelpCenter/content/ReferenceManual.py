@@ -255,9 +255,9 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         # TODO: when we not longer need 2.1 compatibility, this belongs in
         # a view.
 
-        html = lxml.html.fromstring(body)
+        html = lxml.html.fromstring(body.decode('utf8'))
         html.make_links_absolute(baseurl, resolve_base_href=False)
-        return lxml.html.tostring(html)
+        return lxml.html.tostring(html, encoding='utf-8')
 
 
     security.declareProtected(CMFCorePermissions.View, 'referenceManualObject')
