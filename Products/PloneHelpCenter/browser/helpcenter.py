@@ -206,7 +206,7 @@ class HelpCenterView(BrowserView):
 
 
     @cache(_cacheKeyTypes)
-    def getSectionMap(self, portal_types=TOPIC_VIEW_TYPES):
+    def getSectionMap(self, portal_types=TOPIC_VIEW_TYPES, review_state='published'):
         """
           returns a complex list of section dicts
           [{title:sectiontitle, subtopics:listOfSubTopics, url:urlOfSection, count:itemsInSection}, ...]
@@ -226,7 +226,7 @@ class HelpCenterView(BrowserView):
         featuredDict = defaultdict(list)
         
         items = self.catalog(portal_type=portal_types,
-                             review_state='published')
+                             review_state=review_state)
         for item in items:
             for section in item.getSections:
                 if not section: continue
