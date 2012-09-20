@@ -62,8 +62,8 @@ def _cacheKey(method, self):
     else:
         return time()
 
-def _cacheKeyTypes(method, self, portal_types):
-    return (portal_types, _cacheKey(method, self))
+def _cacheKeyTypes(method, self, portal_types, review_state):
+    return (portal_types, review_state, _cacheKey(method, self))
 
 # note that KnowledgeBases are not included; they don't really
 # fit the type-folder scheme.
