@@ -11,6 +11,7 @@ except ImportError:
 
 import Products.CMFCore.permissions as CMFCorePermissions
 from Products.CMFCore.utils import getToolByName
+from Products.CMFPlone.utils import safe_unicode
 
 from plone.app.layout.navigation.navtree import NavtreeStrategyBase, buildFolderTree
 
@@ -255,7 +256,7 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         # TODO: when we not longer need 2.1 compatibility, this belongs in
         # a view.
 
-        html = lxml.html.fromstring(body.decode('utf8'))
+        html = lxml.html.fromstring(safe_unicode(body))
         html.make_links_absolute(baseurl, resolve_base_href=False)
         return lxml.html.tostring(html, encoding='utf-8')
 
