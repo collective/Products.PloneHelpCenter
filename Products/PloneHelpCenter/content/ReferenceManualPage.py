@@ -48,7 +48,10 @@ class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBa
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
-        return aq_inner(self).aq_parent.Creators()
+        try: 
+            return aq_inner(self).aq_parent.Creators()
+        except AttributeError:  #parent in not a ReferenceManual
+            return ()
     
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
