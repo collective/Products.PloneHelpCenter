@@ -2,17 +2,17 @@
 # Tests for PHC and the Comment (discussion or talkback) system
 #
 
-import os, sys
+import os
+import sys
 
 try:
     from email.parser import Parser
-except ImportError: # Plone 3, Python 2.4.
+except ImportError:  # Plone 3, Python 2.4.
     from email.Parser import Parser
 
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 try:
@@ -22,13 +22,14 @@ except ImportError:
 from Products.PloneHelpCenter.utils import discussion_notify
 from Products.PloneHelpCenter.utils import PLONE4
 
+
 class TestTutorialPageComments(PHCTestCase.PHCTestCase):
     """Tests related to a bug where comments on objects in a PHC Tutorial's
     items were shoting up on the tutorial itself."""
 
     def afterSetUp(self):
         PHCTestCase.PHCTestCase.afterSetUp(self)
-        self.tf = self.folder.hc.tutorial # tutorial folder
+        self.tf = self.folder.hc.tutorial  # tutorial folder
         self.tf.invokeFactory('HelpCenterTutorial', id='t')
         self.tutorial = self.tf.t
         self.tutorial.invokeFactory('HelpCenterLeafPage', 'page1')
@@ -39,7 +40,7 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         self.tutorial.page1.allowDiscussion(allowDiscussion=True)
         self.tutorial.page2.allowDiscussion(allowDiscussion=True)
         self.tutorial.page3.allowDiscussion(allowDiscussion=True)
-        
+
     def testCommentOnTutorialPage(self):
         title = 'Test comment'
         body = 'head\nbody\nlegs\n'
@@ -55,7 +56,7 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         comment = talkback.objectValues()[0]
         self.assertEqual(comment.Title(), title)
         self.assertEqual(comment.EditableBody(), body)
-        # verify that the comment doesn't show up on the parent tutorial object 
+        # verify that the comment doesn't show up on the parent tutorial object
         talkback = discussionTool.getDiscussionFor(self.tutorial)
         self.assertEqual(talkback.objectValues(), [])
         # verify that the comment doesn't show up on the other tutorial pages
@@ -63,7 +64,7 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         self.assertEqual(talkback.objectValues(), [])
         talkback = discussionTool.getDiscussionFor(self.tutorial.page3)
         self.assertEqual(talkback.objectValues(), [])
-        
+
     def testCommentOnTutorialFolder(self):
         title = 'Test folder comment'
         body = 'head\nbody\nlegs\n'
@@ -85,13 +86,14 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
         talkback = discussionTool.getDiscussionFor(self.tutorial.page3)
         self.assertEqual(talkback.objectValues(), [])
 
+
 class MockMailHostTests(PHCTestCase.PHCTestCase):
 
     def afterSetUp(self):
         self.portal._original_MailHost = self.portal.MailHost
         self.portal.MailHost = MockMailHost('MailHost')
         PHCTestCase.PHCTestCase.afterSetUp(self)
-        self.tf = self.folder.hc.tutorial # tutorial folder
+        self.tf = self.folder.hc.tutorial  # tutorial folder
         self.tf.invokeFactory('HelpCenterTutorial', id='t')
         self.tutorial = self.tf.t
         self.tutorial.invokeFactory('HelpCenterLeafPage', 'page1')
@@ -103,19 +105,19 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
         """ Make sure we're mailing comments """
 
         mailhost = self.portal.MailHost
-        self.assertEqual( len(mailhost.messages), 0 )
+        self.assertEqual(len(mailhost.messages), 0)
 
         # try to notify
         discussion_notify(self.tutorial.page1)
         # there is no sendto address, so we expect no outgoing mail
-        self.assertEqual( len(mailhost.messages), 0 )
+        self.assertEqual(len(mailhost.messages), 0)
 
         # set an owner email address and try again
-        owner = self.tutorial.page1.Creator()        
+        owner = self.tutorial.page1.Creator()
         member = self.portal.portal_membership.getMemberById(owner)
-        member.setMemberProperties({'fullname': 'fullname', 'email': 'testuser@testme.com',})
+        member.setMemberProperties({'fullname': 'fullname', 'email': 'testuser@testme.com', })
         discussion_notify(self.tutorial.page1)
-        self.assertEqual( len(mailhost.messages), 1 )
+        self.assertEqual(len(mailhost.messages), 1)
 
         if PLONE4:
             msg_text = mailhost.messages[0]
@@ -130,9 +132,9 @@ class MockMailHostTests(PHCTestCase.PHCTestCase):
             msgSubject = msg.message['subject']
             payload = msg.message.get_payload().decode('base64')
 
-        self.failUnlessEqual(msgTo, 'testuser@testme.com' )
-        self.failUnlessEqual(msgSubject, '=?utf-8?q?New_comment_on_page1?=' )
-        self.failUnless(payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0 )
+        self.failUnlessEqual(msgTo, 'testuser@testme.com')
+        self.failUnlessEqual(msgSubject, '=?utf-8?q?New_comment_on_page1?=')
+        self.failUnless(payload.find('Someone added a comment on your HelpCenterLeafPage:\npage1.') > 0)
 
 
 def test_suite():

@@ -2,11 +2,11 @@
 # PHC Setup tests
 #
 
-import os, sys
+import os
+import sys
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
-from Testing import ZopeTestCase
 from AccessControl import Unauthorized
 from Products.PloneHelpCenter.tests import PHCTestCase
 
@@ -21,13 +21,13 @@ class TestPortalTypes(PHCTestCase.PHCTestCase):
 
     def testHelpCenterDefinitionType(self):
         self.failUnless('HelpCenterDefinition' in self.types)
-        
+
     def testHelpCenterLinkType(self):
         self.failUnless('HelpCenterLink' in self.types)
-        
+
     def testHelpCenterHowToType(self):
         self.failUnless('HelpCenterHowTo' in self.types)
-        
+
     def testHelpCenterErrorReferenceFolderType(self):
         self.failUnless('HelpCenterErrorReferenceFolder' in self.types)
 
@@ -42,9 +42,6 @@ class TestPortalTypes(PHCTestCase.PHCTestCase):
 
     def testHelpCenterLeafPageType(self):
         self.failUnless('HelpCenterLeafPage' in self.types)
-
-    def testHelpCenterKnowledgeBase(self):
-        self.failUnless('HelpCenterKnowledgeBase' in self.types)
 
     def testHelpCenterLinkFolderType(self):
         self.failUnless('HelpCenterLinkFolder' in self.types)
@@ -84,53 +81,53 @@ class TestGlobalAllow(PHCTestCase.PHCTestCase):
         PHCTestCase.PHCTestCase.afterSetUp(self)
         self.failUnless('hc' in self.folder.objectIds())
 
-    def typeNotGloballyAllowed(self, type):
+    def typeNotGloballyAllowed(self, ptype):
         try:
-            self.folder.invokeFactory(type, id='h')
-        except (ValueError, Unauthorized): # diff'nt errors in 2.0 & 2.1
+            self.folder.invokeFactory(ptype, id='h')
+        except (ValueError, Unauthorized):  # diff'nt errors in 2.0 & 2.1
             return True
         else:
             return False
 
     def testHelpCenterKnowledgeBase(self):
-        self.failIf(self.typeNotGloballyAllowed('HelpCenterKnowledgeBase'))        
+        self.failUnless(self.typeNotGloballyAllowed('HelpCenterKnowledgeBase'))
 
     def testCreateHelpCenterHowto(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterHowTo'))
 
     def testHelpCenterDefinition(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterDefinition'))
-        
+
     def testHelpCenterLink(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterLink'))
-        
+
     def testHelpCenterErrorReferenceFolder(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterErrorReferenceFolder'))
-        
+
     def testHelpCenterFaqFolder(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterFAQFolder'))
-        
+
     def testHelpCenterErrorReference(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterErrorReference'))
-        
+
     def testHelpCenterTutorialPage(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterTutorialPage'))
-        
+
     def testHelpCenterLinkFolder(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterLinkFolder'))
-        
+
     def testHelpCenterTutorial(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterTutorial'))
-        
+
     def testHelpCenterTutorialFolder(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterTutorialFolder'))
-        
+
     def testHelpCenterFaq(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterFAQ'))
-        
+
     def testHelpCenterGlossary(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterGlossary'))
-        
+
     def testHelpCenterHowToFolder(self):
         self.failUnless(self.typeNotGloballyAllowed('HelpCenterHowToFolder'))
 
@@ -183,8 +180,8 @@ class TestHelpCenterContainment(_TestFolderishContainmentBase):
             'glossary',
         ]
         self.assertEqual(len(content), len(initial))
-        for id in initial:
-            self.failUnless(id in content)
+        for key in initial:
+            self.failUnless(key in content)
 
 
 class TestHowToFolderContainment(_TestFolderishContainmentBase):
@@ -225,7 +222,7 @@ class TestHelpCenterErrorReferenceFolderContainment(_TestFolderishContainmentBas
         # Allowed
         self.hf.invokeFactory('HelpCenterErrorReference', id='h')
         self.assertEqual(self.hf.objectIds(), ['h'])
-    
+
     def testCreateDocumentInErrorReferenceFolder(self):
         # Not allowed
         self.assertRaises(ValueError, self.hf.invokeFactory, 'Document', id='doc')
@@ -273,14 +270,14 @@ class TestHelpCenterLinkFolderContainment(_TestFolderishContainmentBase):
     def testCreateDocumentInLinkFolder(self):
         # Not allowed
         self.assertRaises(ValueError, self.hf.invokeFactory, 'Document', id='doc')
-    
+
 
 class TestHelpCenterTutorialFolderContainment(_TestFolderishContainmentBase):
 
     def afterSetUp(self):
         _TestFolderishContainmentBase.afterSetUp(self)
         self.hf = self.folder.hc.tutorial
-        
+
     def testTutorialFolderAllowedContentTypes(self):
         allowed = [
             'HelpCenterTutorial',
@@ -295,7 +292,7 @@ class TestHelpCenterTutorialFolderContainment(_TestFolderishContainmentBase):
     def testCreateDocumentInTutorialFolder(self):
         # Not allowed
         self.assertRaises(ValueError, self.hf.invokeFactory, 'Document', id='doc')
-    
+
 
 class TestHelpCenterTutorialContainment(_TestFolderishContainmentBase):
 
@@ -304,7 +301,7 @@ class TestHelpCenterTutorialContainment(_TestFolderishContainmentBase):
         self.hf = self.folder.hc.tutorial
         self.hf.invokeFactory('HelpCenterTutorial', id='tf')
         self.tf = self.hf.tf
-        
+
     def testTutorialFolderAllowedContentTypes(self):
         allowed = [
             'Image',
@@ -323,14 +320,14 @@ class TestHelpCenterTutorialContainment(_TestFolderishContainmentBase):
     def testCreateDocumentInTutorial(self):
         # Not allowed
         self.assertRaises(ValueError, self.tf.invokeFactory, 'Document', id='doc')
-    
+
 
 class TestHelpCenterGlossaryContainment(_TestFolderishContainmentBase):
 
     def afterSetUp(self):
         _TestFolderishContainmentBase.afterSetUp(self)
         self.hf = self.folder.hc.glossary
-        
+
     def testGlossaryAllowedContentTypes(self):
         allowed = [
             'HelpCenterDefinition',

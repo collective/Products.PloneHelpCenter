@@ -7,10 +7,10 @@ version = '4.0b3'
 setup(name='Products.PloneHelpCenter',
       version=version,
       description="A simple help-desk style documentation product for Plone.",
-      long_description= open("README.txt").read() + '\n' +
-                        open(os.path.join("docs", "INSTALL.txt")).read() + '\n' +
-                        open(os.path.join("docs", "HISTORY.txt")).read() + '\n' +
-                        open(os.path.join("docs", "CREDITS.txt")).read(),
+      long_description=open("README.txt").read() + '\n' +
+                       open(os.path.join("docs", "INSTALL.txt")).read() + '\n' +
+                       open(os.path.join("docs", "HISTORY.txt")).read() + '\n' +
+                       open(os.path.join("docs", "CREDITS.txt")).read(),
       classifiers=[
         "Framework :: Plone",
         "Framework :: Zope2",

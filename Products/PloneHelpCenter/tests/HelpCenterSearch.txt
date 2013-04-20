@@ -111,4 +111,4 @@ member.
     >>> browser.getControl(name='SearchableText', index=0).value = 'Test FAQ'
     >>> browser.getControl('Search', index=1).click()
     >>> browser.contents
-    '...4 items matching your search terms...'
+    '...<strong id="search-results-number">4</strong>...items matching your search terms...'

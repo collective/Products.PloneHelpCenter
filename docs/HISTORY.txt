@@ -5,6 +5,15 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b4 (unreleased)
 
+    - Fix test for knowledge base type not globally addable.
+      [ale-rt]
+
+    - Replace rss.gif with rss.png
+      [ale-rt]
+
+    - Removed unused to remove dependency from zope.app.publisher.
+      [ale-rt]
+
     - Make ManualPage addable through tempfolder
       [tiberiuichim]
 

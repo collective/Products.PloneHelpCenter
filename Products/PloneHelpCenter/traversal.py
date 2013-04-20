@@ -9,13 +9,11 @@ Created by Steve McMahon on 2009-04-19.
 import urllib
 
 from zope.component import adapts, getMultiAdapter
-from zope.component import queryMultiAdapter
-from zope.app.publisher.browser import getDefaultViewName
-from zope.interface import alsoProvides
 from zope.publisher.interfaces.http import IHTTPRequest
 from ZPublisher.BaseRequest import DefaultPublishTraverse
 
 from interfaces import IHelpCenterFolder, IHelpCenter
+
 
 class PHCBaseTraverser(DefaultPublishTraverse):
 
@@ -31,7 +29,8 @@ class PHCBaseTraverser(DefaultPublishTraverse):
                 while furtherPath:
                     furtherPath.pop()
                 # use the topic view
-                view = getMultiAdapter((self.context, request), name='phc_topic')
+                view = getMultiAdapter((self.context, request),
+                                       name='phc_topic')
                 # return view wrapped in context
                 return view.__of__(self.context)
             else:
@@ -47,4 +46,3 @@ class PHCTraverser(PHCBaseTraverser):
 
 class PHCFolderTraverser(PHCBaseTraverser):
     adapts(IHelpCenterFolder, IHTTPRequest)
-

@@ -6,7 +6,7 @@
     tal:define="view context/@@hc_view;">
 
     <p style="font-size:13px; text-align: center;">
-      <img tal:replace="structure here/rss.gif" />
+      <img tal:replace="structure here/rss.png" />
       <a tal:attributes="href view/getSyndicationURL" 
          i18n:translate="phc_rss_all">
         Feed for all documentation
