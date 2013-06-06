@@ -18,12 +18,12 @@ msgstr ""
 #. Default: "Duration:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Duration:"
-msgstr ""
+msgstr "Dauer:"
 
 #. Default: "Find and modify content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Find and modify content"
-msgstr ""
+msgstr "Inhalte suchen und bearbeiten"
 
 #. Default: "Go"
 #: ../skins/plone_help_center/referencemanual_macros.pt
@@ -34,7 +34,7 @@ msgstr "Los"
 #. Default: "Help Center Statistics and Maintenance"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Help Center Statistics and Maintenance"
-msgstr ""
+msgstr "Help Center Statistik und Wartung"
 
 #. Default: "RSS Feed"
 #: ../skins/plone_help_center/phc_search.pt
@@ -44,7 +44,7 @@ msgstr ""
 #. Default: "RSS feed of these search results"
 #: ../skins/plone_help_center/phc_search.pt
 msgid "RSS feed of these search results"
-msgstr ""
+msgstr "RSS Feed dieser Suchergebnisse"
 
 #. Default: "Search"
 #: ../skins/plone_help_center/helpcenter_view.pt
@@ -54,12 +54,12 @@ msgstr "Suche"
 #. Default: "Search for content"
 #: ../skins/plone_help_center/phc_stats.cpt
 msgid "Search for content"
-msgstr ""
+msgstr "Inhalte suchen"
 
 #. Default: "Size:"
 #: ../skins/plone_help_center/ivideofolder_view.pt
 msgid "Size:"
-msgstr ""
+msgstr "Größe:"
 
 #. Default: "This FAQ applies to a previous version"
 #: ../skins/plone_help_center/faqfolder_view.pt
@@ -102,7 +102,6 @@ msgstr ""
 
 #. Default: "All ${number} ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "all_helptype"
 msgstr "Alle ${title}"
 
@@ -281,19 +280,19 @@ msgstr ""
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanualpage_view.pt
 msgid "must_publish_before_visible_to_public"
-msgstr ""
+msgstr "Sie müssen die Seite veröffentlichen um sie für Besucher sichtbar zu machen."
 
 #. Default: "Nothing published in ${title}"
 #: ../skins/plone_help_center/helpcenter_view.pt
 msgid "nopublished_helptype"
-msgstr ""
+msgstr "Nichts veröffentlicht in ${title}"
 
 #. Default: "Any audience."
 #: ../skins/plone_help_center/errorreference_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 #: ../skins/plone_help_center/tutorial_view.pt
 msgid "phc_any_audience"
-msgstr ""
+msgstr "Alle Zielgruppen."
 
 #. Default: "Any version."
 #: ../skins/plone_help_center/faqfolder_view.pt
@@ -308,7 +307,6 @@ msgstr "Body (Hauptbereich)"
 
 #. Default: "Instructions on how to contribute to and use this resource."
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "phc_contrib_use"
 msgstr "Anleitung wie Sie zu diesen Ressourcen beitragen und sie benutzten können."
 
@@ -493,7 +491,7 @@ msgstr "Diese Kurzanleitung trifft zu auf:"
 #. Default: "This How-to is intended for:"
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_howto_audiences"
-msgstr ""
+msgstr "Diese Kurzanleitung wendet sich an:"
 
 #. Default: "Step-by-step instructions."
 msgid "phc_howto_description"
@@ -514,14 +512,14 @@ msgstr "Liste der Wichtigkeitsbewertungen, die Inhalte verwendet werden sollen."
 #. Default: "Audiences"
 #: ../skins/plone_help_center/phcfolder_view.pt
 msgid "phc_index_audiences"
-msgstr ""
+msgstr "Zielgruppen"
 
 #. Default: "Sections"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
 #: ../skins/plone_help_center/glossary_view.pt
 msgid "phc_index_sections"
-msgstr ""
+msgstr "Abschnitte"
 
 #. Default: "Description"
 msgid "phc_label_ErrorReference"
@@ -714,7 +712,7 @@ msgstr "Diese Bedienungsanleitung betrifft:"
 #. Default: "This Reference Manual is intended for:"
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "phc_referencemanual_audiences"
-msgstr ""
+msgstr "Diese Bedienungsanleitung wendet sich an:"
 
 #. Default: "Reference Manual description"
 msgid "phc_referencemanual_description"
@@ -730,7 +728,6 @@ msgstr "Eine Liste der Schlüsselwörter, die zusammen mit dem Inhalt registrier
 
 #. Default: "Feed for all documentation."
 #: ../skins/plone_help_center/helpcenter_view.pt
-#, fuzzy
 msgid "phc_rss_all"
 msgstr "RSS-Feeds für alle Dokumentationsarten"
 
@@ -774,7 +771,6 @@ msgstr "Zum Wörterbuch"
 #: ../skins/plone_help_center/faqfolder_view.pt
 #: ../skins/plone_help_center/faqsection_view.pt
 #: ../skins/plone_help_center/faq_view.pt
-#, fuzzy
 msgid "phc_up_to_toc"
 msgstr "Zum Inhaltsverzeichnis"
 
@@ -789,7 +785,7 @@ msgstr "Versionen des Produktes, die auf diesen Eintrag zutreffen (Frei lassen w
 #. Default: "This Video applies to:"
 #: ../skins/plone_help_center/ivideo_view.pt
 msgid "phc_video_applies_to"
-msgstr ""
+msgstr "Dieses Video wendet sich an:"
 
 #. Default: "Instructional videos."
 msgid "phc_video_description"
@@ -815,7 +811,7 @@ msgstr "Zeige den ganzen Abschnitt"
 #: ../skins/plone_help_center/definition_view.pt
 #: ../skins/plone_help_center/howto_view.pt
 msgid "phc_warning_outdated"
-msgstr ""
+msgstr "Warnung: Dieser Inhalt ist als veraltet markiert."
 
 #. Default: "Recent documentation"
 #: ../skins/plone_help_center/portlet_helpcenter.pt
@@ -830,13 +826,13 @@ msgstr ""
 #. Default: "see also:"
 #: ../skins/plone_help_center/helpcenter_references.pt
 msgid "see_also"
-msgstr ""
+msgstr "siehe auch:"
 
 #. Default: "There are no pages or sections in this Reference Manual."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
 #: ../skins/plone_help_center/referencemanual_view.pt
 msgid "view_no_reference_manual1"
-msgstr ""
+msgstr "Es gibt keine Seiten in diesem Handbuch."
 
 #. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
 #: ../skins/plone_help_center/referencemanualsection_view.pt
