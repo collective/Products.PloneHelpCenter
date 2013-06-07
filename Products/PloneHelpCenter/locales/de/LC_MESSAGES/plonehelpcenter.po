@@ -519,7 +519,7 @@ msgstr "Zielgruppen"
 #: ../skins/plone_help_center/phc_genericfolder_view.pt
 #: ../skins/plone_help_center/glossary_view.pt
 msgid "phc_index_sections"
-msgstr "Abschnitte"
+msgstr "Index"
 
 #. Default: "Description"
 msgid "phc_label_ErrorReference"
