@@ -42,7 +42,7 @@
         <span i18n:name="advanced_search">
         <a href=""
            i18n:translate="search_results_advanced_link"
-           tal:attributes="href string:$portal_url/search_form">Advanced Search</a>
+           tal:attributes="href string:$portal_url/@@search">Advanced Search</a>
         </span>
         for more precise search options.
     </p>
