@@ -32,7 +32,7 @@ def _sectionCmp(a, b):
 
 class HelpCenterFolderView(BrowserView):
     """ support for HelpCenter container templates """
-    
+
     def __init__(self, context, request):
         """ set up a few convenience object attributes """
         BrowserView.__init__(self, context, request)
@@ -46,14 +46,14 @@ class HelpCenterFolderView(BrowserView):
 
     def getItemsBySection(self, section, **kwargs):
         """Get items in this section"""
-        
+
         context = Acquisition.aq_inner(self.context)
-        
+
         criteria = {}
         if section == 'No section':
             items = []
             for item in context.getFolderContents(contentFilter = kwargs):
-                if not item.getSections:
+                if len(item.getSections) < 2:
                     items.append(item)
             return items
         else:
@@ -83,9 +83,9 @@ class HelpCenterFolderView(BrowserView):
         The first item will have an section title of 'No section' and contain
         all items with no section selected.
         """
-        
+
         context = Acquisition.aq_inner(self.context)
-        
+
         plone_utils = getToolByName(context, 'plone_utils')
 
         charset = context.getCharset()
@@ -128,14 +128,14 @@ class HelpCenterFolderView(BrowserView):
                 'section' : The name of the section
                 'items'   : A list of catalog brains for items in this section
 
-        The first item will have an 'audience' title of 'Any audience' and 
+        The first item will have an 'audience' title of 'Any audience' and
         contain all items with no audience selected.
         """
 
         context = Acquisition.aq_inner(self.context)
-        
+
         plone_utils = getToolByName(context, 'plone_utils')
-        
+
         contentFilter = {'object_provides':'Products.PloneHelpCenter.interfaces.IHelpCenterContent'}
         brains = context.getFolderContents(contentFilter=contentFilter)
 
@@ -173,7 +173,7 @@ class HelpCenterFolderView(BrowserView):
                         except ValueError:
                             pass
 
-            itemAudiences = b.getAudiences or ['Any audience']            
+            itemAudiences = b.getAudiences or ['Any audience']
             matchedAudiences = [a for a in audiences if a['audience'] in itemAudiences]
             if not matchedAudiences:
                 # put it in 'Any audience'
@@ -203,7 +203,7 @@ class HelpCenterFolderView(BrowserView):
         for i in delAudiences:
             del audiences[i]
 
-        # sort inside sections            
+        # sort inside sections
         for a in audiences:
             for s in a['sections']:
                 s['items'].sort(_sectionCmp)
@@ -213,7 +213,7 @@ class HelpCenterFolderView(BrowserView):
 
     @memoize
     def getSectionsToList(self, **kwargs):
-        """Sections that have at least one listable item. Note that this does 
+        """Sections that have at least one listable item. Note that this does
         not take account of audiences.
 
         May return [] if there are no sections in the vocabulary
