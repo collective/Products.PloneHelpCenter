@@ -37,10 +37,10 @@ finalizeATCTSchema(HowToSchema, folderish=True, moveDiscussion=False)
 
 class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
 
-    """A How-to is a document describing how to address a single, common 
+    """A How-to is a document describing how to address a single, common
     use-case or issue. You may add images and files as attachments.
     """
-    
+
     implements(IATFolder, IATDocument, IHelpCenterHowTo, IHelpCenterContent)
 
     isPrincipiaFolderish = True

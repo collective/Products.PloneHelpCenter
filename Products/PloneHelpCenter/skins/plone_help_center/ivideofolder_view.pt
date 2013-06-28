@@ -35,7 +35,7 @@
     <div tal:repeat="section sections">
 
         <h2>
-          <a class="link-anchor" 
+          <a class="link-anchor"
               tal:content="section/section"
               i18n:translate=""
               tal:attributes="name section/id;
@@ -64,10 +64,10 @@
                                    class string:state-${video/review_state}">Video</a>
                 <img src="error_icon.gif" alt="!" class="outdatedMarker"
                      tal:condition="video/isOutdated"
-                     title="This video applies to a previous version" 
+                     title="This video applies to a previous version"
                      i18n:attributes="title"/>
             </dt>
-            
+
             <dd tal:content="video/Description">Description</dd>
             <div class="discreet" tal:define="getObjSize nocall:context/getObjSize">
                 <strong i18n:translate="">Duration:</strong>
@@ -84,7 +84,7 @@
         </dl>
 
     </div>
- 
+
     </div>
   </body>
 

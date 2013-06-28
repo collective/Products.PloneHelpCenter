@@ -406,7 +406,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         returns a list of dicts {url, title, desc, selected} for use in
         building a PHC sub nav menu
         defpath sets what's selected when at PHC root
-        
+
         submenu items are ordered by obj pos in parent
         """
 

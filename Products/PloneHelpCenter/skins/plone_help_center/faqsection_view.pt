@@ -10,9 +10,9 @@
         <li tal:repeat="item context/getPHCSubNav | nothing">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -30,7 +30,7 @@
         </div>
 
         <div id="content">
-            <div metal:define-macro="body" 
+            <div metal:define-macro="body"
                          tal:define="view here/@@hcf_view; section request/section | nothing;">
 
              <tal:cond condition="not:section">
@@ -58,7 +58,7 @@
                   <span tal:replace="faq/Title">Question</span>
                   <img src="error_icon.gif" alt="!" class="outdatedMarker"
                              tal:condition="faq/isOutdated"
-                             title="This FAQ applies to a previous version" 
+                             title="This FAQ applies to a previous version"
                              i18n:attributes="title"/>
                 </h2>
 
@@ -73,9 +73,9 @@
                   Answer
                 </div>
 
-                <p tal:condition="faq/versions" 
+                <p tal:condition="faq/versions"
                 class="discreet">
-        	<span i18n:translate="phc_faq_applies_to">This FAQ applies to:</span>         
+        	<span i18n:translate="phc_faq_applies_to">This FAQ applies to:</span>
                 <span tal:condition="faq/versions"
                   metal:use-macro="python:faq.widget('versions')">
                   Versions

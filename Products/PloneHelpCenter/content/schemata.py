@@ -49,7 +49,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain = "plonehelpcenter"
                 ),
         ),
-    
+
     LinesField(
         'sections',
         multiValued=1,
@@ -66,7 +66,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain = "plonehelpcenter",
                 ),
         ),
-    
+
     LinesField(
         'audiences',
         multiValued=1,
@@ -83,7 +83,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain = "plonehelpcenter",
                 ),
         ),
-    
+
     LinesField(
         'contributors',
         accessor="Contributors",
@@ -96,7 +96,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain="plone",
                 ),
         ),
-    
+
     LinesField(
         'subject',
         accessor='Subject',
@@ -123,7 +123,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain="plonehelpcenter"
         ),
     ),
-    
+
     ReferenceField(
         'relatedItems',
         relationship='PloneHelpCenter',
@@ -139,7 +139,7 @@ HelpCenterItemSchema = Schema((
                 i18n_domain="plonehelpcenter"
                 ),
     ),
-    
+
 ))
 
 # a version that doesn't duplicate any
@@ -163,7 +163,7 @@ HelpCenterItemSchemaNarrow = Schema((
                 i18n_domain = "plonehelpcenter"
                 ),
         ),
-    
+
     LinesField(
         'sections',
         multiValued=1,
@@ -180,7 +180,7 @@ HelpCenterItemSchemaNarrow = Schema((
                 i18n_domain = "plonehelpcenter",
                 ),
         ),
-    
+
     LinesField(
         'audiences',
         multiValued=1,
@@ -197,7 +197,7 @@ HelpCenterItemSchemaNarrow = Schema((
                 i18n_domain = "plonehelpcenter",
                 ),
         ),
-    
+
     BooleanField(
         'startHere',
         index='FieldIndex',
@@ -210,7 +210,7 @@ HelpCenterItemSchemaNarrow = Schema((
                 i18n_domain="plonehelpcenter"
         ),
     ),
-    
+
 ))
 
 GenericHelpCenterItemSchema = HelpCenterItemSchema.copy()

@@ -41,7 +41,7 @@ GlossarySchema = HelpCenterBaseSchemaFolderish + Schema((
     ),) + HelpCenterContainerSchema
 
 class HelpCenterGlossary(PHCFolder, ATContentTypes.content.folder.ATFolder):
-    """A Glossary can be used to hold definitions of common terms, listing them 
+    """A Glossary can be used to hold definitions of common terms, listing them
     in a dictionary-like manner.
     """
 

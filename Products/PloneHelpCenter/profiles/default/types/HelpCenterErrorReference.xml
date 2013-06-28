@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Error Reference</property>
  <property
-    name="description">An Error Reference can be used to explain a particular error which may 
+    name="description">An Error Reference can be used to explain a particular error which may
       arise.
       </property>
  <property name="content_icon">errorref_icon.gif</property>

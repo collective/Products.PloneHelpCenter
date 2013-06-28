@@ -184,7 +184,7 @@
                 <div class="formHelp" i18n:translate="help_search_item_type">
                 Return items of a specific type.
                 </div>
-    
+
                 <span class="optionsToggle" tal:condition="nothing">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'phc_selection:list', true);"

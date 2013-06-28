@@ -29,7 +29,7 @@ LinkSchema = HelpCenterBaseSchema + Schema((
                 label="Description",
                 i18n_domain = "plonehelpcenter"),
         ),
-    
+
     StringField(
         'url',
         searchable=1,

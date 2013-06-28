@@ -15,7 +15,7 @@ try:
 except ImportError:
     LINGUAPLONE = False
     print "LinguaPlone not found... skipping multilingual tests."
-    
+
 
 class TestMultilingual(PHCTestCase.PHCTestCase):
     """General tests for multilingual objects."""
@@ -26,7 +26,7 @@ class TestMultilingual(PHCTestCase.PHCTestCase):
         self.enFaq = self.folder.hc.faq.f
         self.enFaq.addTranslation('fr')
         self.frFaq = self.enFaq.getTranslation('fr')
-        
+
     def testIndependentVersions(self):
         versions = ('1.0','2.0','Strange version')
         self.folder.hc.setVersionsVocab(versions)
@@ -40,7 +40,7 @@ class TestMultilingual(PHCTestCase.PHCTestCase):
         self.enFaq.setDescription(enDescription)
         self.frFaq.setDescription(frDescription)
         self.failIfEqual(self.enFaq.Description(), self.frFaq.Description())
-        
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

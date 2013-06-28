@@ -5,7 +5,7 @@
 ##bind script=script
 ##bind subpath=traverse_subpath
 ##parameters=
-##title=Create the list of sections to print on the single page view of a manual 
+##title=Create the list of sections to print on the single page view of a manual
 ##
 
 # Returns a list of dicts, containing:

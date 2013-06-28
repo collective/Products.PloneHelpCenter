@@ -1,7 +1,7 @@
 from zope.interface import Interface
 
 class IHelpCenter(Interface):
-    """ The Help Center itself 
+    """ The Help Center itself
     """
 
 class IHelpCenterFolder(Interface):
@@ -25,7 +25,7 @@ class IHelpCenterNavRoot(Interface):
 
     def getTOCSelectOptions(current=None):
         pass
-        
+
     def getAllPagesURL():
         pass
 
@@ -34,4 +34,4 @@ class IHelpCenterMultiPage(Interface):
     """ Marker interface for content objects
         that need nav support -- like manual pages.
     """
-    
+

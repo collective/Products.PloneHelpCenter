@@ -68,7 +68,7 @@ class HelpCenterReferenceManualFolder(PHCFolder, atct.content.folder.ATFolder):
         """
              List IDs of contentish and folderish sub-objects.
              (method is without docstring to disable publishing)
-             
+
              Fix for https://bugs.launchpad.net/zope-cmf/+bug/661834
         """
         return atct.content.folder.ATFolder.contentIds(self, filter)

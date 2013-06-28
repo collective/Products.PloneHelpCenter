@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Glossary</property>
  <property
-    name="description">A Glossary can be used to hold definitions of common terms, listing them 
+    name="description">A Glossary can be used to hold definitions of common terms, listing them
       in a dictionary-like manner.
       </property>
  <property name="content_icon">glossary_icon.gif</property>

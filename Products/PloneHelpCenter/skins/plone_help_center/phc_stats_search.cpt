@@ -7,7 +7,7 @@
       tal:define="view context/@@hc_view; results view/statsQueryCatalog">
 
       <h1>Search results</h1>
-      
+
       <a href=""
          class="link-parent"
          tal:attributes="href string:${here/absolute_url}/phc_stats"
@@ -28,7 +28,7 @@
       <form method="post"
             tal:condition="results"
             tal:attributes="action string:${here/absolute_url}/${template/getId}">
-         
+
          <input type="hidden" name="form.submitted" value="1" />
 
          <strong i18n:domain="plone"
@@ -74,7 +74,7 @@
                </tal:items>
             </tbody>
          </table>
-         
+
          <div class="field">
              <label for="Subject">Assign keywords</label>
 
@@ -121,7 +121,7 @@
                  Replace existing keywords
              </label>
          </div>
-         
+
          <div class="field">
              <label for="audiences">Assign audiences</label>
 
@@ -168,7 +168,7 @@
                  Replace existing audiences
              </label>
          </div>
-         
+
          <div class="field" tal:define="usedSections here/aq_explicit/getSectionsVocab | nothing"
                             tal:condition="usedSections">
              <label for="sections">Assign sections</label>
@@ -215,7 +215,7 @@
                  Replace existing sections
              </label>
          </div>
-         
+
          <div class="field">
              <label for="versions">Assign versions</label>
 
@@ -262,7 +262,7 @@
                  Replace existing versions
              </label>
          </div>
-         
+
          <div class="formControls">
             <input class="context"
                     type="submit"

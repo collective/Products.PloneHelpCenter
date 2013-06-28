@@ -35,7 +35,7 @@ finalizeATCTSchema(FAQSchema, folderish=False, moveDiscussion=False)
 
 
 class HelpCenterFAQ(ATDocumentBase,PHCContentMixin):
-    """A Frequently Asked Question defines a common question with an answer - 
+    """A Frequently Asked Question defines a common question with an answer -
     this is a place to document answers to common questions, not ask them.
     """
 

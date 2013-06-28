@@ -40,26 +40,26 @@ class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocumentBase):
     # Satisfy metadata requirements for items with deleted ownership.
     # It would be great to do this in a mixin or adapter,
     # but the structure of Archetypes prevents that.
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get from parent """
         return aq_inner(self).aq_parent.Rights()
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
         return aq_inner(self).aq_parent.Creators()
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
         """ get from parent """
         return aq_inner(self).aq_parent.Contributors()
-        
+
     security.declareProtected(CMFCorePermissions.View, 'listCreators')
     def listCreators(self):
         """ List Dublin Core Creator elements - resource authors.
         """
         return self.Creators()
-        
+
 registerType(HelpCenterTutorialPage, PROJECTNAME)

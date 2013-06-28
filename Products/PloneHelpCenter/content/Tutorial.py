@@ -20,8 +20,8 @@ TutorialSchema = ATContentTypes.content.folder.ATFolderSchema.copy() + HelpCente
 if GLOBAL_RIGHTS:
     del TutorialSchema['rights']
 finalizeATCTSchema(TutorialSchema, folderish=True, moveDiscussion=False)
-TutorialSchema['nextPreviousEnabled'].defaultMethod = None  
-TutorialSchema['nextPreviousEnabled'].default = True  
+TutorialSchema['nextPreviousEnabled'].defaultMethod = None
+TutorialSchema['nextPreviousEnabled'].default = True
 
 
 class HelpCenterTutorial(ATContentTypes.content.folder.ATFolder, PHCContentMixin):
@@ -50,7 +50,7 @@ class HelpCenterTutorial(ATContentTypes.content.folder.ATFolder, PHCContentMixin
     def getPages(self, states=[]):
         """Get items"""
         criteria = contentFilter = \
-            {'object_provides' : 
+            {'object_provides' :
              'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',}
         if states:
             criteria['review_state'] = states

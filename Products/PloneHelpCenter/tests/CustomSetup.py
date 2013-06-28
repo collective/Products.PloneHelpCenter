@@ -99,7 +99,7 @@ def CreateFaqs( self, portal, alt=False ):
         helpCenter = getattr( portal, Data.AltHc.Id )
     else:
         helpCenter = getattr( portal, Data.Hc.Id )
-    
+
     for content in Data.FAQ.list:
         helpCenter.faq.invokeFactory( 'HelpCenterFAQ', content.Id)
         newFaq = getattr( helpCenter.faq, content.Id )
@@ -142,7 +142,7 @@ def CreateVideos( self, portal ):
 def CreateTestData( self, portal ):
     out = []
     out.append( CreateRootPHC( self, portal ) )
-    out.append( CreateUsers( self, portal ) ) 
+    out.append( CreateUsers( self, portal ) )
     out.append( CreateHowtos( self, portal ) )
     out.append( CreateTutorials( self, portal ) )
     out.append( CreateFaqs( self, portal ) )

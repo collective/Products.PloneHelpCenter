@@ -31,8 +31,8 @@ ReferenceManualSchema = ATContentTypes.content.folder.ATFolderSchema.copy() + He
 if GLOBAL_RIGHTS:
     del ReferenceManualSchema['rights']
 finalizeATCTSchema(ReferenceManualSchema, folderish=True, moveDiscussion=False)
-ReferenceManualSchema['nextPreviousEnabled'].defaultMethod = None  
-ReferenceManualSchema['nextPreviousEnabled'].default = True  
+ReferenceManualSchema['nextPreviousEnabled'].defaultMethod = None
+ReferenceManualSchema['nextPreviousEnabled'].default = True
 
 
 class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCContentMixin):
@@ -53,32 +53,32 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
     security.declareProtected(CMFCorePermissions.View,
                                 'getReferenceManualDescription')
     def getReferenceManualDescription(self):
-        """ Returns the description of the ReferenceManual -- 
+        """ Returns the description of the ReferenceManual --
         convenience method for ReferenceManualPage
         """
         return self.Description()
 
     security.declareProtected(CMFCorePermissions.View, 'getTOC')
     def getTOC(self, current=None, root=None):
-        """Get the table-of-contents of this manual. 
-        
+        """Get the table-of-contents of this manual.
+
         The parameter 'current' gives the object that is the current page or
-        section being viewed. 
-        
+        section being viewed.
+
         The parameter 'root' gives the root of the manual - if not given, this
-        ReferenceManual object is used, but you can pass in a 
-        ReferenceManualSection instead to root the TOC at this element. The 
+        ReferenceManual object is used, but you can pass in a
+        ReferenceManualSection instead to root the TOC at this element. The
         root element itself is not included in the table-of-contents.
-        
-        The return value is a list of dicts, recursively representing the 
+
+        The return value is a list of dicts, recursively representing the
         table-of-contents of this manual. Each element dict contains:
-        
+
             item        -- a catalog brain for the item (a section or page)
             numbering   -- The dotted numbering of this item, e.g. 1.3.2
             depth       -- The depth of the item (0 == top-level item)
             currentItem -- True if this item corresponds to the object 'current'
             children    -- A list of dicts
-            
+
         The list 'children' recursively contains the equivalent dicts for
         children of each section. If the parameter 'current' is not given, no
         element will have current == True.
@@ -88,13 +88,13 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             root = self
 
         class Strategy(NavtreeStrategyBase):
-            
+
             rootPath = '/'.join(root.getPhysicalPath())
             showAllParents = False
-            
+
             def nodeFilter(self, node):
                 """ Don't show items marked as exclude from nav tree.
-                
+
                 Copied from Products.CMFPlone.broser.navtree.
                 """
                 item = node['item']
@@ -102,14 +102,14 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                     return False
                 else:
                     return True
-                
+
         strategy = Strategy()
         query=  {'path'        : '/'.join(root.getPhysicalPath()),
                  'object_provides' : 'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',
                  'sort_on'     : 'getObjPositionInParent'}
-                
+
         toc = buildFolderTree(self, current, query, strategy)['children']
-        
+
         def buildNumbering(nodes, base=""):
             idx = 1
             for n in nodes:
@@ -117,7 +117,7 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                 n['numbering'] = numbering
                 buildNumbering(n['children'], numbering)
                 idx += 1
-                
+
         buildNumbering(toc)
         return toc
 
@@ -131,12 +131,12 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             current: True if current section/page
         This is a convenience for creating an option list.
         """
-        
+
         def doNodes(nodes):
             res = []
             for n in nodes:
                 item = n['item']
-                res.append( { 
+                res.append( {
                     'title'   : "%s %s" % (n['numbering'], item.Title),
                     'url'     : item.getURL(),
                     'current' : n['currentItem'],
@@ -146,14 +146,14 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                     if childres:
                         res = res + childres
             return res
-        
+
         return doNodes(self.getTOC(current))
 
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCInfo')
     def getTOCInfo(self, toc):
         """Get information about a table-of-contents, as returned by getTOC.
-        
+
         The return value is a dict, containing:
 
             tocList    -- A flat list representing the table-of-contents
@@ -163,21 +163,21 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             nextIdx    -- The index in tocList of the next item after 'current'
             prevIdx    -- The index in tocList of the next item before 'current'
             parentIdx  -- The index in tocList of the parent of 'current'
-            
+
         The elements 'currentIdx', 'nextIdx', 'prevIdx' and 'parentIdx' may be
         None if either the table-of-contents was not constructed with a current
-        item, or if there is no previous/next/parent item. Similarly, 'localTOC' 
-        will be None if the table-of-contents was not constructed with a current 
+        item, or if there is no previous/next/parent item. Similarly, 'localTOC'
+        will be None if the table-of-contents was not constructed with a current
         item.
-        
-        Each item in the list 'tocList' in the returned dict contains a dict 
+
+        Each item in the list 'tocList' in the returned dict contains a dict
         with keys:
-        
+
             item       -- A catalog brain repsenting the item
             numbering  -- The dotted numbering of the item, e.g. 1.3.2.
             depth      -- The depth of the item (0 = top-level item)
             current    -- True if this item represents the current page/section
-         
+
         The parameter 'toc' gives the table of contents, as returned by
         getTOC() above.
         """
@@ -270,7 +270,7 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
     security.declareProtected(CMFCorePermissions.View, 'getAllPagesURL')
     def getAllPagesURL(self):
         """ return URL for all pages view """
-        
+
         return "%s/referencemanual-all-pages" % self.absolute_url()
 
 
@@ -302,10 +302,10 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         """
              List IDs of contentish and folderish sub-objects.
              (method is without docstring to disable publishing)
-             
+
              Fix for https://bugs.launchpad.net/zope-cmf/+bug/661834
         """
         return ATContentTypes.content.folder.ATFolder.contentIds(self, filter)
-    
+
 registerType(HelpCenterReferenceManual, PROJECTNAME)
 

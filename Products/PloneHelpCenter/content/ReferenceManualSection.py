@@ -27,7 +27,7 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     """
 
     implements(IHelpCenterMultiPage)
-    
+
     schema = HelpCenterReferenceManualSectionSchema
 
     archetype_name = 'Section'
@@ -45,17 +45,17 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
         """
         return self.Description()
 
-        
+
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get from parent """
         return aq_parent(aq_inner(self)).Rights()
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
         return aq_parent(aq_inner(self)).Creators()
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
         """ get from parent """
@@ -66,7 +66,7 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
         """
              List IDs of contentish and folderish sub-objects.
              (method is without docstring to disable publishing)
-             
+
              Fix for https://bugs.launchpad.net/zope-cmf/+bug/661834
         """
         return ATContentTypes.content.folder.ATFolder.contentIds(self, filter)

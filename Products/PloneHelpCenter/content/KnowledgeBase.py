@@ -18,7 +18,7 @@ from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 from schemata import HelpCenterContainerSchema
 from PHCFolder import PHCFolder
 
-KnowledgeBaseSchema = folder.ATBTreeFolderSchema.copy() + HelpCenterContainerSchema    
+KnowledgeBaseSchema = folder.ATBTreeFolderSchema.copy() + HelpCenterContainerSchema
 schemata.finalizeATCTSchema(KnowledgeBaseSchema, moveDiscussion=False, folderish=True)
 
 class HelpCenterKnowledgeBase(PHCFolder, folder.ATBTreeFolder):
@@ -30,7 +30,7 @@ class HelpCenterKnowledgeBase(PHCFolder, folder.ATBTreeFolder):
 
     archetype_name = 'Knowledge Base'
     meta_type = "HelpCenterKnowledgeBase"
-    
+
     schema = KnowledgeBaseSchema
 
     filter_content_types = 1

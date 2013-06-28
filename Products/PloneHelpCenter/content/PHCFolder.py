@@ -48,12 +48,12 @@ class PHCFolder(object):
         if not safe_hasattr(self.aq_parent, 'getVersionsVocab'):
             return []
         return self.aq_parent.getVersionsVocab()
-            
+
 
     security.declareProtected(CMFCorePermissions.View, 'getSectionsVocab')
     def getSectionsVocab(self):
         """Get sections vocabulary"""
-        
+
         localSections = self.sectionsVocab
         if len(localSections):
             return localSections

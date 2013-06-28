@@ -39,13 +39,13 @@ def initialize(context):
 
     # Extract constructors for items, areas and the root help center so that
     # they can be given different permissions.
-    
+
     itemConstructors = {}
     areaConstructors = {}
     rootConstructors = {}
     for i in range(0, len(contentTypes)):
-        if contentTypes[i].meta_type in ('HelpCenterDefinition', 
-                                         'HelpCenterFAQ', 
+        if contentTypes[i].meta_type in ('HelpCenterDefinition',
+                                         'HelpCenterFAQ',
                                          'HelpCenterTutorial',
                                          'HelpCenterReferenceManual',
                                          'HelpCenterReferenceManualSection',

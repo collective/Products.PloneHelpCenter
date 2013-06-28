@@ -3,7 +3,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">How-to</property>
  <property
-    name="description">A How-to is a document describing how to address a single, common 
+    name="description">A How-to is a document describing how to address a single, common
       use-case or issue. You may add images and files as attachments.
       </property>
  <property name="content_icon">howto_icon.gif</property>
@@ -19,12 +19,12 @@
  </property>
  <property name="allow_discussion">False</property>
  <property name="default_view">document_view</property>
- 
+
  <alias from="(Default)" to="(dynamic view)"/>
  <alias from="edit" to="atct_edit"/>
  <alias from="sharing" to="@@sharing"/>
  <alias from="view" to="(selected layout)"/>
- 
+
  <action title="View" action_id="view" category="object" condition_expr=""
     url_expr="string:${object_url}" visible="True" i18n:attributes="title">
   <permission value="View"/>

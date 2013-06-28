@@ -1,6 +1,6 @@
 #
 # Tests for formats other than plain-text in the editing views
-# 
+#
 # http://plone.org/products/plonehelpcenter/issues/99
 #
 
@@ -21,14 +21,14 @@ class TestDescriptionFormats(PHCTestCase.PHCTestCase):
 
     def afterSetUp(self):
         PHCTestCase.PHCTestCase.afterSetUp(self)
-        
+
         # In the Markup Control Panel, choose more than one text
         # format from the "Alternative Formats" choices
         markup_data = IMarkupSchema(self.portal)
         markup_data.allowed_types = (
             'text/html','text/plain','text/restructured'
         )
-        
+
         self._createFAQ(self.folder.hc.faq, 'f')
         self.faq = self.folder.hc.faq.f
         self._createHowto( getattr(self.folder.hc, 'how-to'), 'howto1' )
@@ -40,7 +40,7 @@ class TestDescriptionFormats(PHCTestCase.PHCTestCase):
         self._createErrorReference(self.folder.hc.error, 'e')
         self.errorRef = self.folder.hc.error.e
         # phew, there are a lot of content types in PHC ...
-    
+
     def testAllowableContentTypes(self):
         for obj in [
             self.faq, self.howto, self.tutorial, self.link, self.errorRef,

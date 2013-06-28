@@ -29,13 +29,13 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
     defaultBodyRst = """
     Bogus reST body
     ===============
-    
+
     Here's fake body content for unit tests.
-    
+
     * Looks like a list.
     * Smells like a list.
     * It's a list!
-    
+
     Final content after the list.
     """
 
@@ -76,7 +76,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         howto = getattr(howtoFolder, id)
         howto.setTitle(title)
         howto.setDescription('A PHC Howto for unit tests.')
-        howto.setText(self.defaultBodyRst) 
+        howto.setText(self.defaultBodyRst)
         howto.setVersions( ('Version 2.0',) )
         howto.setSections( ('General',) )
         self.portal.plone_utils.editMetadata(howto, format='text/x-rst')
@@ -103,7 +103,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
             newPage.setText(self.defaultBodyRst)
             self.portal.plone_utils.editMetadata(newPage,format='text/x-rst')
         return tutorial
-                                   
+
     def _createFAQ(self, faqFolder, id, title=defaultTitle):
         """Creates and returns a reference to a PHC FAQ.
         This method creates an FAQ instance under a folder.  It fills in
@@ -155,7 +155,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         pass
 
 class PHCFunctionalTestCase(PloneTestCase.FunctionalTestCase):
-    
+
     class Session(dict):
         def set(self, key, value):
             self[key] = value

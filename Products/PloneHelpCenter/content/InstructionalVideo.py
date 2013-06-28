@@ -31,7 +31,7 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
                  i18n_domain = "plonehelpcenter"
               ),
         ),
-        
+
     FileField(
         'video_file',
         required=1,
@@ -111,7 +111,7 @@ InstructionalVideoSchema.moveField('subject', pos='bottom')
 InstructionalVideoSchema.moveField('relatedItems', pos='bottom')
 
 class HelpCenterInstructionalVideo(PHCContent,BaseContent):
-    """This is an Instructional Video content type, to which you can attach 
+    """This is an Instructional Video content type, to which you can attach
     movies and other relevant files.
     """
 

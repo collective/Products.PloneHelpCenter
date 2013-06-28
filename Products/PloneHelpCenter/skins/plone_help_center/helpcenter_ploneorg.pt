@@ -62,7 +62,7 @@ dl.topicList dd {
 </style>
 </head>
 <body>
-   
+
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getSectionMap">
 
     <dl id="reading" class="portlet" style="margin:0;">
@@ -81,18 +81,18 @@ dl.topicList dd {
             </ul>
            <a href="books">More books...</a>
         </div>
-        
+
         <br style="clear:both" />
-        
+
         <form name="searchform"
               id="searchform"
               action="phc_search"
               tal:attributes="action string:${here/absolute_url}/phc_search">
-               
+
             <fieldset>
-                
+
                 <legend i18n:translate="phc_doc_search">Documentation search</legend>
-                
+
                 <label for="searchGadget"
                        class="hiddenStructure"
                        i18n:domain="plone"
@@ -109,25 +109,25 @@ dl.topicList dd {
                        i18n:attributes="alt; accesskey; title"
                        tal:attributes="value request/SearchableText|nothing"
                        />
-        
+
                 <input class="searchButton"
                        name="Search"
                        type="submit"
                        value="Search"
                        accesskey="accesskeys-search"
                        i18n:attributes="value; accesskey" />
-                       
-                
+
+
                 <div id="phc_asearch_link" style="margin-top: 6px;">
                     <a href="phc_asearch_form" tal:attributes="href string:${here/getPHCUrl}/phc_asearch_form" i18n:translate="phc_asearch_link">
                         Search by topic, version, audience&hellip;
                     </a>
                 </div>
-                
+
             </fieldset>
         </form>
-    
-        <div class="rc">    
+
+        <div class="rc">
             <h3>Additional Resources</h3>
             <ul>
                 <li><a href="manual">Manuals</a></li>
@@ -142,16 +142,16 @@ dl.topicList dd {
     </dl>
 
     <br style="clear:both" />
-        
+
     <dl class="topicList"
         tal:repeat="section sections">
       <dt><a href="[section-url]" tal:attributes="href section/url">
             <span tal:content="section/title" />
             (<span tal:content="section/count" />)</a></dt>
       <dd tal:repeat="item section/subtopics" class="discreet">
-          <a href="[item url]" 
-              tal:attributes="href item/url;" 
-              tal:content="python:item['title'].split(':')[-1]" 
+          <a href="[item url]"
+              tal:attributes="href item/url;"
+              tal:content="python:item['title'].split(':')[-1]"
               >[Title of start-here item]
           </a><tal:separator condition="not:repeat/item/end"> |</tal:separator>
       </dd>

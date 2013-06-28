@@ -15,9 +15,9 @@
         <li tal:repeat="item context/getPHCSubNav | nothing">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -62,7 +62,7 @@
             <ol>
                 <li>You normally need to be logged in.</li>
 
-                <li>There are several different documentation types, most are 
+                <li>There are several different documentation types, most are
                     self-explanatory, but pay attention to the difference between a
                     <strong>How-to</strong> and a <strong>Tutorial</strong> (explained
                     below).
@@ -71,7 +71,7 @@
                 <li>To add a piece of documentation/help, go into the relevant section,
                     <strong>make sure there isn't already an existing entry about what
                     you want to add</strong>,
-                    and use the button at the top right to add (normally says <code>Add 
+                    and use the button at the top right to add (normally says <code>Add
                     FAQ</code> or similar).
                 </li>
 
@@ -91,7 +91,7 @@
                 <li>If somebody adds comments to your entry later, you will be notified
                     by e-mail.
                 </li>
-            </ol>    
+            </ol>
 
             <h2>What type of item is my documentation?</h2>
 
@@ -151,7 +151,7 @@
                     </p>
                     <p>
                     If you are unsure of the difference of a How-to and a Tutorial, think
-                    about it as the difference between a recipe that only teaches you 
+                    about it as the difference between a recipe that only teaches you
                     what ingredients are needed, and how to bake the cake (How-to),
                     and an article telling you about the history behind cakes in general,
                     that may or may not teach you how to actually bake one (Tutorial).
@@ -217,7 +217,7 @@
 
                 <dd>
                     <p>
-                        A glossary definition describes a particular term used as 
+                        A glossary definition describes a particular term used as
                         concisely as possible.
                     </p>
 

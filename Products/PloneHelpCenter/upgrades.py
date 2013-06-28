@@ -54,7 +54,7 @@ class IfInstalled(object):
         wrapper.__doc__ = func.__doc__
         wrapper.__module__ = func.__module__
         return wrapper
-        
+
 def migrateBodyTexts(self):
 
     catalog = getToolByName(self, 'portal_catalog')
@@ -82,7 +82,7 @@ def migrateFAQs(self):
     catalog = getToolByName(self, 'portal_catalog')
     brains = catalog(
         portal_type=['HelpCenterFAQ',],
-        path='/'.join(self.getPhysicalPath())        
+        path='/'.join(self.getPhysicalPath())
     )
 
     res = ['Migrate FAQ Answers ...']
@@ -134,9 +134,9 @@ def reindexNearlyAll(portal):
         We need the object_provides index to reflect
         some of our new interfaces.
     """
-    
+
     mytypes = [ t['portal_type'] for t in listTypes(PROJECTNAME) ]
-    
+
     catalog = getToolByName(portal, 'portal_catalog')
     for brain in catalog(portal_type=mytypes):
         brain.getObject().reindexObject('object_provides')
@@ -169,16 +169,16 @@ class TPageMigrator(InplaceATItemMigrator):
 
 
 
-@IfInstalled()        
+@IfInstalled()
 def runTypesMigration(setuptool):
     """
         Migrate to 3+ types
     """
-    
+
     runTypesUpdate(setuptool)
-    
+
     portal = getPortal()
-    
+
     # add next/previous flags to multi-page types
     print migrateNextPrev(portal)
     # move body texts

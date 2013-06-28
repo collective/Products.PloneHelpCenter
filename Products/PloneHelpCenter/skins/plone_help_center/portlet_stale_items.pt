@@ -10,7 +10,7 @@
          (member.has_role('Reviewer', context)) or
          (member.has_role(['Manager'], context))
      )">
-     
+
     <tal:staleitemslist tal:define="stale_interval context/REQUEST/SESSION/stale_PHC_items_interval | string:1_year;
                  results python:context.fetchStaleItems( stale_interval )">
 
@@ -22,14 +22,14 @@
 
             <tal:block tal:repeat="obj results"
                        tal:define="oddrow python:0;
-                                   portal_types_info python: 
-                                    {  
+                                   portal_types_info python:
+                                    {
                                       'HelpCenterDefinition': ('definition', 'glossary_icon'),
                                       'HelpCenterErrorReference': ('error reference', 'errorref_icon'),
                                       'HelpCenterFAQ': ('question', 'faq_icon'),
                                       'HelpCenterHowTo': ('how-to', 'topic_icon'),
                                       'HelpCenterLink': ('link', 'link_icon'),
-                                      'HelpCenterTutorial': ('tutorial', 'tutorial_icon'), 
+                                      'HelpCenterTutorial': ('tutorial', 'tutorial_icon'),
                                     };">
 
                 <div tal:condition="repeat/obj/first/portal_type"
@@ -75,7 +75,7 @@
     </div>
 
     </tal:staleitemslist>
-    
+
 </div>
 
 </body>

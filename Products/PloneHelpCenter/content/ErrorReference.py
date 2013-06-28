@@ -23,9 +23,9 @@ ErrorReferenceSchema['text'].widget.i18n_domain = "plonehelpcenter"
 
 
 class HelpCenterErrorReference(HelpCenterHowTo):
-    """An Error Reference can be used to explain a particular error which may 
+    """An Error Reference can be used to explain a particular error which may
     arise.
-    """ 
+    """
 
     content_icon = 'errorref_icon.gif'
 

@@ -1,7 +1,7 @@
 try:
     from Products.CMFCore.permissions import AddPortalContent
     from Products.CMFCore.permissions import setDefaultRoles
-except ImportError:    
+except ImportError:
     from Products.CMFCore.CMFCorePermissions import AddPortalContent
     from Products.CMFCore.CMFCorePermissions import setDefaultRoles
 
@@ -25,7 +25,7 @@ GLOBALS = globals()
 # the results of expensive queries that help build
 # the PHC top page.
 # Set to zero for no caching.
-# Note that editing the PHC object will force cache 
+# Note that editing the PHC object will force cache
 # invalidate.
 CACHE_MINUTES = 30
 
@@ -49,7 +49,7 @@ REFERENCEABLE_TYPES = ('HelpCenterFAQ',
     'HelpCenterReferenceManual',
     'HelpCenterReferenceManualSection',
     'HelpCenterReferenceManualPage',
-    'HelpCenterInstructionalVideo',    
+    'HelpCenterInstructionalVideo',
     'HelpCenterKnowledgeBase',
 )
 

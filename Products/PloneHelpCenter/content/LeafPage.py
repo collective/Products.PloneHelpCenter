@@ -49,10 +49,10 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
     security = ClassSecurityInfo()
 
     # Satisfy metadata requirements for items with hidden metadata.
-    
+
     def navRootObject(self):
         """ Find the metadata parent """
-    
+
         parent = aq_parent(aq_inner(self))
         while parent and not IHelpCenterNavRoot.providedBy(parent):
             try:
@@ -60,8 +60,8 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             except AttributeError:
                 break
         return parent
-    
-    
+
+
     security.declareProtected(CMFCorePermissions.View, 'Subject')
     def Subject(self):
         """ get from parent """
@@ -69,7 +69,7 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             return self.navRootObject().Subject()
         except AttributeError:
             return
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get from parent """
@@ -77,7 +77,7 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             return self.navRootObject().Rights()
         except AttributeError:
             return
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get from parent """
@@ -85,7 +85,7 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             return self.navRootObject().Creators()
         except AttributeError:
             return
-    
+
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
     def Contributors(self):
         """ get from parent """
@@ -93,7 +93,7 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             return self.navRootObject().Contributors()
         except AttributeError:
             return
-    
+
     security.declareProtected(CMFCorePermissions.View, 'listCreators')
     def listCreators(self):
         """ List Dublin Core Creator elements - resource authors.
@@ -103,5 +103,5 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
         except AttributeError:
             return
 
-        
+
 registerType(HelpCenterLeafPage, PROJECTNAME)

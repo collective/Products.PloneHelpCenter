@@ -3,10 +3,10 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">FAQ</property>
  <property
-    name="description">A Frequently Asked Question defines a common question with an answer - 
+    name="description">A Frequently Asked Question defines a common question with an answer -
       this is a place to document answers to common questions, not ask them.
  </property>
-      
+
  <property name="content_icon">faq_icon.gif</property>
  <property name="content_meta_type">HelpCenterFAQ</property>
  <property name="product">PloneHelpCenter</property>
@@ -18,7 +18,7 @@
  <property name="allow_discussion">False</property>
 
  <property name="default_view">faq_view</property>
- 
+
   <alias from="(Default)" to="(dynamic view)"/>
   <alias from="edit" to="atct_edit"/>
   <alias from="sharing" to="@@sharing"/>

@@ -19,7 +19,7 @@
       href=".">
       Ritorna al Centro di Supporto
     </a>
-    
+
 
     <p class="documentDescription">
     Una breve descrizione di come potete contribuire ed utilizzare il Centro di Supporto.
@@ -30,11 +30,11 @@
     diverso da quello a cui siete abituati, quindi, per cortesia, leggete questo documento
     per comprendere come contribuire.
     </p>
-    
+
     <h2>Partenza rapida</h2>
-    
+
     <p>Per l'impaziente: c'e' un minimo di cose da sapere:</p>
-    
+
     <ol>
         <li>Normalmente dovete essere "loggati" cioe' aver fornito un identificativo d'utente ed una password.</li>
 
@@ -64,16 +64,16 @@
 	    &mdash; utilizzate il menu a tendina sulla destra nell'area
 	    del documento.
         </li>
-        
+
         <li>
 	    Un revisore si prendera' in carico il documento, e provvedrera'
 	    a pubblicarlo, a meno che il contenuto non necessiti di miglioramenti.
         </li>
-            
+
         <li>
 	    Se qualcuno in seguito aggiungera' dei commenti, sarete informati via e-mail.
         </li>
-    </ol>    
+    </ol>
 
     <h2>Quali tipi di elementi sono compresi nella documentazione?</h2>
 
@@ -137,7 +137,7 @@
 	    per completare il lavoro.
             </p>
             <p>
-	    Se non sei sicuro di aver compreso la differenza tra Ricette 
+	    Se non sei sicuro di aver compreso la differenza tra Ricette
 	    e Guide, pensa alla differenza tra una ricetta che ti indica soltanto
 	    gli ingredienti richiesti, e come fare (ricetta) una torta,
 	    ed un articolo che parla della storia delle torte in generale,
@@ -185,7 +185,7 @@
 
         <dd>
             <p>
-	       Una Decodifica di errore rappresenta la spiegazione di un 
+	       Una Decodifica di errore rappresenta la spiegazione di un
 	       particolare errore, con dettagli su come risolverlo,
 	       se rilevante.
             </p>
@@ -200,13 +200,13 @@
             </fieldset>
         </dd>
     </dl>
-    
+
     <dl>
         <dt>Definizioni del Glossario</dt>
 
         <dd>
             <p>
-	       Una definizione del glossario descrive 
+	       Una definizione del glossario descrive
 	       il significato di un termine
 	       particolare nel modo piu' conciso possibile.
             </p>
@@ -225,7 +225,7 @@
         </dd>
     </dl>
 
-    
+
 
   </div>
 </body>

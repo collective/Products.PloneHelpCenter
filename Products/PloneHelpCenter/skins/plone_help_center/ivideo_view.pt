@@ -15,9 +15,9 @@
           <li tal:repeat="item context/getPHCSubNav | nothing">
               <a href="#"
                  tal:content="item/title"
-                 tal:attributes="href item/url; 
+                 tal:attributes="href item/url;
                      class python:item['selected'] and 'selected' or nothing;
-                     title item/desc"          
+                     title item/desc"
               >Title</a>
           </li>
       </ul>
@@ -45,12 +45,12 @@
 	  description
 	</p>
 	
-	<object id="flashMovie" 
+	<object id="flashMovie"
 		style="margin: auto; display:block;"
-		codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" 
-		height="600" 
+		codeBase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
+		height="600"
 		width="800"
-		classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" 
+		classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
 		VIEWASTEXT=""
 		tal:define="physical_path python:'/'.join(here.getPhysicalPath())"
 		tal:attributes="width here/width; height here/height">
@@ -59,7 +59,7 @@
 	  <param name="_cy"                value="26" />
 	  <param name="FlashVars"          value="" />
 	  <param name="Movie"              value=""
-		 tal:attributes="value here/Title" />   
+		 tal:attributes="value here/Title" />
 	  <param name="Src"                value=""
 		 tal:attributes="value string:${physical_path}/video_file" />
 	  <param name="WMode"              value="Window" />
@@ -76,20 +76,20 @@
 	  <param name="SWRemote"           value="" />
 	  <param name="MovieData"          value="" />
 	  <param name="SeamlessTabbing"    value="1" />
-	  
-	  <embed src         ="" 
-		 quality     ="high" 
-		 bgcolor     ="#FFFFFF" 
-		 width       ="800" 
-		 height      ="600" 
-		 type        ="application/x-shockwave-flash" 
+	
+	  <embed src         =""
+		 quality     ="high"
+		 bgcolor     ="#FFFFFF"
+		 width       ="800"
+		 height      ="600"
+		 type        ="application/x-shockwave-flash"
 		 pluginspace ="http://www.macromedia.com/go/getflashplayer"
 		 tal:attributes="src string:${physical_path}/video_file; width here/width; height here/height">
 	  </embed>
 	</object>
 
 	<p tal:condition="here/getVersionsVocab" tal:define="versions here/Versions" class="discreet" style="text-align: center">
-	  <span i18n:translate="phc_video_applies_to">This Video applies to:</span>         
+	  <span i18n:translate="phc_video_applies_to">This Video applies to:</span>
 	  <span tal:condition="versions" tal:replace="versions">1.0, 2.0</span>
 	  <span tal:condition="not: versions">
 	    <span i18n:translate="phc_any_version">

@@ -1,4 +1,4 @@
-<div i18n:domain="plonehelpcenter" 
+<div i18n:domain="plonehelpcenter"
      tal:omit-tag=""
      tal:define="charset site_properties/default_charset | string:utf-8;
                  dummy python:request.RESPONSE.setHeader('Content-Type', 'text/html;;charset=%s' % charset);
@@ -20,6 +20,6 @@ To view the new comment, visit:
 <span i18n:name="url" tal:replace="comment_on_object/absolute_url" />
 </tal:body>
 
--- 
+--
 <span tal:replace="here/email_from_name" />
 </div>

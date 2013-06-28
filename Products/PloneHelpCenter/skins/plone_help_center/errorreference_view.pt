@@ -8,30 +8,30 @@
 
     <div metal:define-macro="main"
          tal:define="len_text python:len(here.getText());">
-      
+
         <h1 class="documentFirstHeading">
             <span tal:replace="here/title_or_id">Title or id</span>
         </h1>
-        
+
         <p class="documentDescription"
              tal:content="here/Description">
             description
         </p>
-        
+
         <p tal:condition="here/isOutdated" i18n:translate="phc_warning_outdated" class="portalMessage">
            Warning: This item is marked as outdated.
         </p>
-  
+
         <p tal:condition="not: len_text"
            i18n:domain="plone"
            i18n:translate="no_body_text">
             This item does not have any body text, click the edit tab to change it.
         </p>
-    
+
         <div id="bodyContent">
             <div tal:replace="structure python:here.getText()" />
         </div>
-    
+
         <tal:block define="items python:here.getFolderContents(contentFilter={'portal_type' : ('File', 'ATFile')})">
            <fieldset tal:condition="nocall:items">
                <legend>Attached files</legend>
@@ -57,9 +57,9 @@
                </ul>
            </fieldset>
       </tal:block>
-    
-    
-    
+
+
+
     <div metal:use-macro="here/helpcenter_references/macros/view_referenced_items">
       see also - shows the references if this feature is switched on
     </div>

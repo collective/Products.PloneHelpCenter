@@ -107,24 +107,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -138,25 +138,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -165,35 +165,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -202,21 +202,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -239,7 +239,7 @@ Howto Title
 
 .. _Plone: http://www.plone.org/
 
-This howto is a document that starts inthe published state and is 
+This howto is a document that starts inthe published state and is
 attached to two Howto Sections.
 The rest of the content below this description was basically stolen from
 the CVS tutorial on Plone.org just to give us a non-trivial document.
@@ -249,24 +249,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -280,25 +280,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -307,35 +307,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -344,21 +344,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -392,24 +392,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -423,25 +423,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -450,35 +450,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -487,21 +487,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -534,24 +534,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -565,25 +565,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -592,35 +592,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -629,21 +629,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -666,7 +666,7 @@ Howto Title
 
 .. _Plone: http://www.plone.org/
 
-This howto is a document that starts inthe in-progress state and is 
+This howto is a document that starts inthe in-progress state and is
 attached to two Howto Sections.  It is also owned by a different user
 than the other test howto that is in-progress.
 The rest of the content below this description was basically stolen from
@@ -677,24 +677,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -708,25 +708,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -735,35 +735,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -772,21 +772,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -819,24 +819,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -850,25 +850,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -877,35 +877,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -914,21 +914,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -962,24 +962,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -993,25 +993,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -1020,35 +1020,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -1057,21 +1057,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -1105,24 +1105,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -1136,25 +1136,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -1163,35 +1163,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -1200,21 +1200,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -1248,24 +1248,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -1279,25 +1279,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -1306,35 +1306,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -1343,21 +1343,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -1391,24 +1391,24 @@ source format.
 Section 1
 =========
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone_ Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone_ Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -1422,25 +1422,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 
 
@@ -1449,35 +1449,35 @@ Section 2
 
 How to get a local copy of code for a Product from the Plone_ Collective.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone_ Product.  See the list of 
-folders in the CVS web interface for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone_ Product.  See the list of
+folders in the CVS web interface for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you wouldd replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -1486,21 +1486,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone_ Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone_ Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you wouldd replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you wouldd replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 
 End of test document content.
@@ -1530,24 +1530,24 @@ the CVS tutorial on Plone.org just to give us a non-trivial document.
 It is one of the few reStructured Text documents for which I have the
 source format.
 
-This document was spawned from conversations on the #plone IRC channel. 
-A new version of the PloneHelpCenter from the Plone Collective was 
-undergoing testing, but some developers wanted to start working on brand 
-new code.  The danger was that the new code would delay the deployment 
-of some of the much-needed bug fixes and changes that were almost ready 
-for deployment on plone.org.  The obivous choice was to create a branch, 
-but no one seemed comfortable enough with CVS to make a branch.  I 
-volunteered to make a minimal HOWTO that would explain the essential 
-CVS commands for getting day to day work done, up to and including 
+This document was spawned from conversations on the #plone IRC channel.
+A new version of the PloneHelpCenter from the Plone Collective was
+undergoing testing, but some developers wanted to start working on brand
+new code.  The danger was that the new code would delay the deployment
+of some of the much-needed bug fixes and changes that were almost ready
+for deployment on plone.org.  The obivous choice was to create a branch,
+but no one seemed comfortable enough with CVS to make a branch.  I
+volunteered to make a minimal HOWTO that would explain the essential
+CVS commands for getting day to day work done, up to and including
 creating branches and merging code between branches.
 
 I assume that you are familiar with revision control in general and
 have CVS client software installed and working.  We just provide a
 quick explanation of the most common commands that you will need.  While
 there are some great CVS GUIs (Win CVS, Tortois CVS, Cervisia, etc.),
-I will only cover the cvs command line here.  
+I will only cover the cvs command line here.
 
-Please see the end of this document for links to more complete CVS 
+Please see the end of this document for links to more complete CVS
 documentation and to some useful CVS tools.
 
 General syntax
@@ -1561,25 +1561,25 @@ The ``command`` is one of the CVS commands, such as checkout, update, or
 commit.  To see a brief list of the available commands, use the
 following option::
 
-    cvs --help-commands 
+    cvs --help-commands
 
-The ``global-options`` are the same for all commands.  Each command has 
+The ``global-options`` are the same for all commands.  Each command has
 a different set of ``command-options`` and ``command-arguments``.
 
 The most common ``global-options`` are listed here for later reference.
 
 ``-d``
-    specifies the root of the CVS tree and possibly also identifies a 
-    remote repository, account name, and connection method for the 
-    remote repository; overrides the CVSROOT environment variable; 
-    generally only used with the checkout command (after that, cvs 
-    reads this information from the CVS/Root file in your personal 
+    specifies the root of the CVS tree and possibly also identifies a
+    remote repository, account name, and connection method for the
+    remote repository; overrides the CVSROOT environment variable;
+    generally only used with the checkout command (after that, cvs
+    reads this information from the CVS/Root file in your personal
     copy of the files)
 ``-n``
-    do not execute anything that would change the disk; for many commands, 
+    do not execute anything that would change the disk; for many commands,
     this options shows what would be done, but does not actually do it
 ``-z``
-    specifies a compression level for network traffic; recommended for 
+    specifies a compression level for network traffic; recommended for
     remote repositories
 '''
 Page1.Format = 'text/x-rst'
@@ -1599,35 +1599,35 @@ the CVS tutorial on Plone.org just to give us a non-trivial document.
 It is one of the few reStructured Text documents for which I have the
 source format.
 
-The CVS command to get a local working copy of code from a central CVS 
+The CVS command to get a local working copy of code from a central CVS
 repository is ``checkout``.  This command is normally abbreviated as ``co``.
-This command will give you a copy of all of the files of a directory 
-tree on your machine.  This local copy is sometimes called your 
-sandbox (you get to play in your sandbox).  A checkout works on a module, 
+This command will give you a copy of all of the files of a directory
+tree on your machine.  This local copy is sometimes called your
+sandbox (you get to play in your sandbox).  A checkout works on a module,
 which will just be a top-level folder in the Collective for our purposes.
 
 
 You just want the latest version of a Product
 ---------------------------------------------
 
-If you do not need to develop or modify code, you can use anonymous 
-check out from SourceForge.  An anonymous checkout permits you to 
-get and update a local copy of the code in CVS.  You do not need a 
-SourceForge account.  You can also make local changes and view the 
-diffs between your local code and the repository code.  You will be 
+If you do not need to develop or modify code, you can use anonymous
+check out from SourceForge.  An anonymous checkout permits you to
+get and update a local copy of the code in CVS.  You do not need a
+SourceForge account.  You can also make local changes and view the
+diffs between your local code and the repository code.  You will be
 unable to submit your changes.  See also the Collective CVS page.
 
-Enter the following line command exactly as written.  When prompted for a 
-password, just press enter:: 
+Enter the following line command exactly as written.  When prompted for a
+password, just press enter::
 
     cvs -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective login
 
-Once you are logged into the pserver, you can checkout (co) the Product 
-you need.  For the next command, you will need to replace *modulename* 
-with the name of the module you want to checkcout.   The *modulename* is 
-generally the top level folder for a Plone Product.  See the list of 
-folders in the CVS web interfoce for the Collective.  For example, if you 
-wanted a copy of PloneHelpCenter, you would replace *modulename* with the 
+Once you are logged into the pserver, you can checkout (co) the Product
+you need.  For the next command, you will need to replace *modulename*
+with the name of the module you want to checkcout.   The *modulename* is
+generally the top level folder for a Plone Product.  See the list of
+folders in the CVS web interfoce for the Collective.  For example, if you
+wanted a copy of PloneHelpCenter, you would replace *modulename* with the
 word ``PloneHelpCenter``::
 
     cvs -z3 -d:pserver:anonymous@cvs.sourceforge.net:/cvsroot/collective co -P modulename
@@ -1636,21 +1636,21 @@ word ``PloneHelpCenter``::
 You want to do development work on a Product
 --------------------------------------------
 
-Anonymous checkout does not permit you to commit changes to a Product 
-in the Collective.  If you need to modify and submit code to the 
-Collective, you will need to get an account on SourceForge.  Once 
-you have that account, someone will need to add you to the list of 
-developers for the Plone Collective project on SourceForge.  You 
-will  be checking out code over a secure SSH tunnel.  SourceForge 
-provides decent documentation concerning configuration of client 
+Anonymous checkout does not permit you to commit changes to a Product
+in the Collective.  If you need to modify and submit code to the
+Collective, you will need to get an account on SourceForge.  Once
+you have that account, someone will need to add you to the list of
+developers for the Plone Collective project on SourceForge.  You
+will  be checking out code over a secure SSH tunnel.  SourceForge
+provides decent documentation concerning configuration of client
 software for accessing their CVS repositories over SSH.
 
-The command to checkout code for development follows.  Remember to replace 
-*developername* with your name and *modulename* with the folder of code 
-you want.  For example, if you wanted to check out a copy of 
-PloneHelpCenter, you would replace *modulename* with the word 
+The command to checkout code for development follows.  Remember to replace
+*developername* with your name and *modulename* with the folder of code
+you want.  For example, if you wanted to check out a copy of
+PloneHelpCenter, you would replace *modulename* with the word
 ``PloneHelpCenter``::
- 
+
     cvs -z3 -d:ext:developername@cvs.sourceforge.net:/cvsroot/collective co -P modulename
 '''
 Page2.Format = 'text/x-rst'
@@ -1675,7 +1675,7 @@ to explain and consistent across multiple platforms.  While some
 operations may continue to be easier from the command line, even some
 of us who generally prefer the command line like to use a graphical
 CVS client when browsing file histories and looking at diffs between
-revisions.  
+revisions.
 
 http://www.wincvs.org/
     An excellent starting point for CVS and GUIs.  Links to multiple
@@ -1683,7 +1683,7 @@ http://www.wincvs.org/
 http://www.tortoisecvs.org/
     Recommended by multiple Plone developers who develop on Windows.
     This plugin enables CVS operations directly from Microsoft Windows
-    file explorer. 
+    file explorer.
 http://www.kde.org/apps/cervisia/
     I generally use Cervisia when I want a CVS client other than the
     command line or Emacs PCL-CVS mode under KDE on my Linux machines.
@@ -1695,15 +1695,15 @@ everyone stops using CVS in favor of some other revision control
 software, there will be a need for developers who have a thorough
 knowledge of CVS.  (Not everyone is content to be a faker!)
 
-http://cvsbook.red-bean.com/ 
+http://cvsbook.red-bean.com/
     My favorite CVS books.  Very practical.  Lots of "best practices"
     advice.  Also available in print.
-https://www.cvshome.org/  
+https://www.cvshome.org/
     The official home for all things CVS.
-https://www.cvshome.org/docs/manual/ 
+https://www.cvshome.org/docs/manual/
     The official CVS Manual originally by Per Cederqvist.
 http://www.cmcrossroads.com/bradapp/acme/
-    A nice starting point for SCM information in general, including 
+    A nice starting point for SCM information in general, including
     links to software other than CVS (Subversion, Perforce, ClearCase, etc.)
 '''
 Page3.Format = 'text/x-rst'

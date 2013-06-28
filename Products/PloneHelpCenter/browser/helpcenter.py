@@ -39,7 +39,7 @@ except ImportError:
         def __repr__(self):
             return 'defaultdict(%s, %s)' % (self.default_factory,
                                             dict.__repr__(self))
-            
+
 import Acquisition
 from Products.Five.browser import BrowserView
 from Products.CMFCore.utils import getToolByName
@@ -111,23 +111,23 @@ class HelpCenterView(BrowserView):
 
     def __init__(self, context, request):
         """ set up a few convenience object attributes """
-        
+
         BrowserView.__init__(self, context, request)
 
         self.catalog = getToolByName(self.context, 'portal_catalog')
-        self.portal_url = getToolByName(self.context, 'portal_url')()      
+        self.portal_url = getToolByName(self.context, 'portal_url')()
         self.context_path = '/'.join(self.context.getPhysicalPath())
 
 
     def subtypes(self):
         """ returns a list of major container types """
         return [t[0] for t in subtypes_tuples]
-    
+
 
     def rss_subtypes(self):
         """ returns a list of doc types """
         return [t[1] for t in subtypes_tuples]
-        
+
 
     def getSyndicationURL(self):
         """ returns a URL for RSS feed of help doc types """
@@ -135,34 +135,34 @@ class HelpCenterView(BrowserView):
         return self.portal_url + '/search_rss?sort_on=modified&sort_order=descending&path=' \
          + self.context_path + '&' + ('&'.join(['portal_type=%s' % s[1] for s in subtypes_tuples ]))
 
-    
+
     def sections(self):
         """ subtype sections in current folder """
 
         context = Acquisition.aq_inner(self.context)
-        
+
         contentFilter = {'review_state':('published', 'visible',), 'portal_type' : self.subtypes()}
         return context.getFolderContents(contentFilter=contentFilter)
 
 
     def sectionContents(self, section, limit=5):
         """ return section contents """
-        
+
         contentFilter = {'review_state':'published','sort_on':'modified','sort_order':'reverse', 'limit' : limit}
-        return section.getObject().getFolderContents(contentFilter=contentFilter);        
+        return section.getObject().getFolderContents(contentFilter=contentFilter);
 
 
     @cache(_cacheKey)
     def getTopics(self):
         """Returns list of major topics and subtopics; used in helpcenter_topicview"""
-        
+
         # major topics are those defined in the HelpCenter object.
         # returns list in the form:
         # [{title, url, subtopics}, ...]
         # subtopics are [{title, url}, ...]
-        
+
         context = Acquisition.aq_inner(self.context)
-        
+
         here_url  = context.absolute_url()
 
         # get a set of the major topics
@@ -171,7 +171,7 @@ class HelpCenterView(BrowserView):
         except KeyError:
             return []
         liveSections = set( self.catalog.uniqueValuesFor('getSections') )
-        
+
         sections = []
         currTitle = ''
         for live in majorTopics:
@@ -181,14 +181,14 @@ class HelpCenterView(BrowserView):
                 main = cs[0]
                 sub = ': '.join(cs[1:])
                 # sub = cs[-1]
-                
+
                 if main != currTitle:
                     # append a new topic dict
                     currTitle = main
                     currSubSections = []
                     sections.append(
                      {'title':currTitle,
-                      'subtopics':currSubSections, 
+                      'subtopics':currSubSections,
                       'url': here_url + '/topic/' + url_quote_plus(currTitle),
                       }
                      )
@@ -201,7 +201,7 @@ class HelpCenterView(BrowserView):
                       }
                      )
 
-        #sections.sort(indexCmp)        
+        #sections.sort(indexCmp)
         return sections
 
 
@@ -213,18 +213,18 @@ class HelpCenterView(BrowserView):
           subtopics are each lists [{title:titleOfSubSection,url:urlOfSubSection}]
           This is used in helpcenter_ploneorg.pt.
         """
-        
+
         context = Acquisition.aq_inner(self.context)
-        
+
         here_url  = context.absolute_url()
         phc = context.getPHCObject()
-        
+
         topics = phc.getSectionsVocab()
-        
+
         # dict to save counts and start-here items
         topicsDict = defaultdict(lambda: 0)
         featuredDict = defaultdict(list)
-        
+
         items = self.catalog(portal_type=portal_types,
                              review_state='published')
         for item in items:
@@ -237,7 +237,7 @@ class HelpCenterView(BrowserView):
                         'description': item.Description,
                         'url': item.getURL(),
                     })
-        
+
         sections = []
         currTitle = ''
         for topic in topics:
@@ -247,7 +247,7 @@ class HelpCenterView(BrowserView):
                 cs = [s.strip() for s in topic.split(':')]
                 main = cs[0]
                 sub = ': '.join(cs[1:])
-                
+
                 if main != currTitle:
                     # append a new topic dict
                     currTitle = main
@@ -270,7 +270,7 @@ class HelpCenterView(BrowserView):
                       'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
                       }
                      )
-            
+
         return sections
 
 
@@ -295,12 +295,12 @@ class HelpCenterView(BrowserView):
                 items = self.catalog(portal_type=['HelpCenterReferenceManual','HelpCenterTutorial','HelpCenterHowTo'],
                                                review_state='published',
                                                getSections=[topic])
-                
+
                 startHeres = []
                 for item in items:
                     if item.getStartHere:
                         startHeres.append( {'title':item.Title, 'url':item.getURL()} )
-                
+
                 sections.append(
                  {'title':topic,
                   'startheres': startHeres[:startHereLimit],
@@ -326,8 +326,8 @@ class HelpCenterView(BrowserView):
         context = Acquisition.aq_inner(self.context)
 
         # get a list of brains for all items of matching type and topic
-        items = self.catalog(portal_type=portal_types, 
-                             getSections=topic, 
+        items = self.catalog(portal_type=portal_types,
+                             getSections=topic,
                              path=context.getPHCPath())
 
         def isSubTopicOf(subtopic, topic):
@@ -384,10 +384,10 @@ class HelpCenterView(BrowserView):
                 topics.setdefault(topic[:pos].strip(), 1)
             else:
                 topics.setdefault(topic, 1)
-        
+
         keys = topics.keys()
         keys.sort(ncCmp)
-        
+
         return keys
 
 
@@ -395,7 +395,7 @@ class HelpCenterView(BrowserView):
         """Get a list of folder objects of types not defined by the help
         center product which have been placed in this help center.
         """
-        
+
         context = Acquisition.aq_inner(self.context)
 
         phcTypes = context.allowed_content_types
@@ -415,42 +415,42 @@ class HelpCenterView(BrowserView):
             Find documentation items based on a statistics query.
             Used in phc_stats_search.cpt
         """
-        
+
         context = Acquisition.aq_inner(self.context)
 
         REQUEST = context.REQUEST
-        
+
         catalogMatches = context.queryCatalog(REQUEST=REQUEST, use_types_blacklist=False)
         matches = [m for m in catalogMatches]
-        
+
         # Now do checks for comments, multiple sections/audiences/versions
-        
+
         multipleSections = REQUEST.get('getSections_multiple', False)
         if multipleSections:
             matches = [m for m in matches if len(m.getSections) > 1]
-            
+
         noSections = REQUEST.get('getSections_none', False)
         if noSections:
             matches = [m for m in matches if len(m.getSections) == 0]
-            
+
         multipleAudiences = REQUEST.get('getAudiences_multiple', False)
         if multipleAudiences:
             matches = [m for m in matches if len(m.getAudiences) > 1]
-        
+
         multipleVersions = REQUEST.get('getVersions_multiple', False)
         if multipleVersions:
             matches = [m for m in matches if len(m.getVersions) > 1]
-            
+
         noVersions = REQUEST.get('getVersions_none', False)
         if noVersions:
             matches = [m for m in matches if len(m.getVersions) == 0]
-            
+
         hasComments = REQUEST.get('hasComments', False)
         if hasComments:
             matchedPaths = [m.getPath() for m in matches]
-            comments = self.catalog.searchResults(path = matchedPaths, 
+            comments = self.catalog.searchResults(path = matchedPaths,
                                                   portal_type = 'Discussion Item')
-                                             
+
             foundPaths = {}
             for c in comments:
                 path = c.getPath()
@@ -458,9 +458,9 @@ class HelpCenterView(BrowserView):
                 path = path[:idx]
                 id = path.split('/')[-1]
                 foundPaths[path] = 1
-                
+
             matches = [m for m in matches if m.getPath() in foundPaths]
-                
+
         return matches
 
     def searchTypes(self):
@@ -468,13 +468,13 @@ class HelpCenterView(BrowserView):
          Determine which portal_types to search
          based on the request and our type list.
         """
-        
+
         context = Acquisition.aq_inner(self.context)
 
         # get our choice from the form request
         request = context.REQUEST
         choice = request.form.get("phc_selection",None)
-        
+
         # map our sections to our eligible choices
         choiceTypes={
             "faq":('HelpCenterFAQ','HelpCenterFAQFolder'),
@@ -488,7 +488,7 @@ class HelpCenterView(BrowserView):
                     "HelpCenterReferenceManualSection","HelpCenterReferenceManualPage"),
             "video":("HelpCenterInstructionalVideo","HelpCenterInstructionalVideoFolder"),
         }
-        
+
         if choice and choiceTypes.has_key(choice):
             result = choiceTypes.get(choice)
         else:
@@ -504,7 +504,7 @@ class HelpCenterView(BrowserView):
                     'HelpCenterReferenceManualSection',
                     'HelpCenterReferenceManualPage',
                     'HelpCenterInstructionalVideo']
-        
+
         return result
 
 

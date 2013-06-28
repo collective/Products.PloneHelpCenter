@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Video</property>
  <property
-    name="description">This is an Instructional Video content type, to which you can attach 
+    name="description">This is an Instructional Video content type, to which you can attach
       movies and other relevant files.
       </property>
  <property name="content_icon">movie_icon.gif</property>

@@ -46,7 +46,7 @@
             </tal:block>
 
             <div class="portletContent odd">
-            
+
                 <tal:helpcenters repeat="center python: here.portal_catalog.searchResults(portal_type='HelpCenter', review_state='published')">
 
                 <a href=""
@@ -57,7 +57,7 @@
                    >
                     More <tal:center replace="center/Title">Documentation</tal:center>&#8230;
                 </a>
-                
+
                 </tal:helpcenters>
 
             </div>

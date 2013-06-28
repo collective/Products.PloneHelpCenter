@@ -41,7 +41,7 @@ ErrorReferenceFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
     ),) + HelpCenterContainerSchema
 
 class HelpCenterErrorReferenceFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
-    """An Error Reference Section can contain references to and explanations of 
+    """An Error Reference Section can contain references to and explanations of
     common errors.
     """
 

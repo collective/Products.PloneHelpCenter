@@ -11,9 +11,9 @@
           <li tal:repeat="item context/getPHCSubNav">
               <a href="#"
                  tal:content="item/title"
-                 tal:attributes="href item/url; 
+                 tal:attributes="href item/url;
                      class python:item['selected'] and 'selected' or nothing;
-                     title item/desc"          
+                     title item/desc"
               >Title</a>
           </li>
       </ul>
@@ -62,7 +62,7 @@
               <div tal:repeat="section sections">
 
                   <h2 tal:condition="not:noSections">
-                    <a class="link-anchor" 
+                    <a class="link-anchor"
                         tal:content="section/section"
           	      i18n:translate=""
                         tal:attributes="name section/id;
@@ -80,7 +80,7 @@
                                              class string:state-${item/review_state}">Item</a>
                           <img src="error_icon.gif" alt="!" class="outdatedMarker"
                                tal:condition="item/isOutdated"
-                               title="This item applies to a previous version" 
+                               title="This item applies to a previous version"
                                i18n:attributes="title"/>
                       </dt>
 

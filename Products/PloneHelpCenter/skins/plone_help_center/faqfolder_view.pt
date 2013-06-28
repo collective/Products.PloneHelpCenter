@@ -10,9 +10,9 @@
         <li tal:repeat="item context/getPHCSubNav | nothing">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -30,8 +30,8 @@
         </div>
 
         <div id="content">
-            <div metal:define-macro="body" 
-              tal:define="pss python:modules['Products.PythonScripts.standard']; 
+            <div metal:define-macro="body"
+              tal:define="pss python:modules['Products.PythonScripts.standard'];
                           sections here/@@hcf_view/getItemsBySections;
                           noSections python:len(sections) == 1;
                           full request/full|nothing">
@@ -90,12 +90,12 @@
 
                   <ol>
                     <li tal:repeat="faq python:section['items']">
-                        <a href="" tal:content="faq/Title" 
+                        <a href="" tal:content="faq/Title"
                            tal:attributes="href faq/getURL;
                                            class string:state-${faq/review_state}">FAQ</a>
                         <img src="error_icon.gif" alt="!" class="outdatedMarker"
                              tal:condition="faq/isOutdated|nothing"
-                             title="This FAQ applies to a previous version" 
+                             title="This FAQ applies to a previous version"
                              i18n:attributes="title"/>
                     </li>
 
@@ -103,7 +103,7 @@
 
                 </tal:section>
 
-                <div tal:condition="full" 
+                <div tal:condition="full"
                   tal:repeat="faq python:section['items']">
                  <tal:faq define="faq faq/getObject">
 
@@ -122,9 +122,9 @@
                     Answer
                   </div>
 
-                  <p tal:condition="faq/Versions" 
+                  <p tal:condition="faq/Versions"
                   class="discreet">
-                  This FAQ applies to: 
+                  This FAQ applies to:
                   <span tal:condition="faq/Versions"
                     metal:use-macro="python:faq.widget('versions')">
                     Versions

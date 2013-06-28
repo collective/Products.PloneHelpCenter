@@ -9,9 +9,9 @@
         <li tal:repeat="item context/getPHCSubNav">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -62,13 +62,13 @@
                 <h2 class="section-subheading"><a href="[section-url]" tal:attributes="href section/url" tal:content="section/title">[Section Name]</a></h2>
                 <ul tal:condition="section/subtopics">
                   <li tal:repeat="item section/subtopics">
-                    <a href="[item url]" 
-                        tal:attributes="href item/url;" 
-                        tal:content="item/title" 
+                    <a href="[item url]"
+                        tal:attributes="href item/url;"
+                        tal:content="item/title"
                         >[Title of start-here item]
                     </a>
                   </li>
-                </ul> 
+                </ul>
                 <div class="readmore">
                   <a href="[section-url]" tal:attributes="href section/url"> Read More&hellip;</a>
                 </div>
@@ -80,7 +80,7 @@
 
     </metal:main>
 
- 
+
 </body>
 
 </html>

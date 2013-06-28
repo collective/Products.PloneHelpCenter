@@ -12,7 +12,7 @@
     </p>
 
     <h2 i18n:translate="">Find and modify content</h2>
-    
+
     <p i18n:translate="">
        Using the criteria below, you can find content and then modify it
        from the search results page.
@@ -22,7 +22,7 @@
           name="search"
           id="search-phc"
           tal:attributes="action string:${here/absolute_url}/${template/getId}">
-          
+
         <input type="hidden" name="form.submitted" value="1"/>
 
         <input type="hidden" name="path" tal:attributes="value python:'/'.join(here.getPhysicalPath())" />
@@ -71,14 +71,14 @@
                     be found by combining them with <strong>AND</strong> and
                     <strong>OR</strong>.
                 </div>
-    
+
                 <input type="text"
                        id="Description"
                        name="Description"
                        size="25"
                        />
             </div>
-            
+
             <div class="field"
                  tal:define="isAnon context/@@plone_portal_state/anonymous"
 		 tal:condition="python: site_properties.allowAnonymousViewAbout or not isAnon">
@@ -93,7 +93,7 @@
                      i18n:translate="help_search_author">
                 Return items created by a particular person.
                 </div>
-    
+
                 <tal:creators tal:define="creators python:context.portal_catalog.uniqueValuesFor('Creator')">
                     <select name="Creator"
                             id="Creator"
@@ -107,7 +107,7 @@
                             <option value="" tal:attributes="value creator" tal:content="creator"> username </option>
                         </metal:block>
                     </select>
-    
+
                     <input name="Creator"
                            tal:condition="python: len(creators) &gt; 30 " />
                 </tal:creators>
@@ -172,7 +172,7 @@
                     Match all
                 </label>
             </div>
-    
+
             <div class="field" tal:define="sectionsVocab here/getSectionsVocab | nothing"
                                tal:condition="sectionsVocab">
                 <label for="getSections" i18n:translate="label_sections">Sections</label>
@@ -240,7 +240,7 @@
                     Match all
                 </label>
             </div>
-    
+
             <div class="field" tal:define="audiencesVocab here/getAudiencesVocab | nothing"
                                tal:condition="audiencesVocab">
                 <label for="getAudiences" i18n:translate="label_audiences">Audiences</label>
@@ -298,7 +298,7 @@
                     Match all
                 </label>
             </div>
-            
+
             <div class="field" tal:define="versionsVocab here/getVersionsVocab | nothing"
                                tal:condition="versionsVocab">
                 <label for="getVersions" i18n:translate="label_versions">Versions</label>
@@ -366,7 +366,7 @@
                     Match all
                 </label>
             </div>
-    
+
             <div class="field">
                 <label for="created"
                        i18n:domain="plone"
@@ -380,7 +380,7 @@
                     Return items added since you were last logged on, the last
                     week, etc.
                 </div>
-    
+
                 <tal:datetime define="today python:DateTime().earliestTime()">
                 <select name="created:list:date"
                         id="created"
@@ -423,7 +423,7 @@
 
                 <input type="hidden" name="created_usage" value="range:min" />
             </div>
-    
+
             <div class="field" tal:define="portal_types view/searchTypes">
                 <label i18n:domain="plone"
                        i18n:translate="label_item_type">
@@ -435,7 +435,7 @@
                      i18n:translate="help_search_item_type">
                     Return items of a specific type.
                 </div>
-    
+
                 <span class="optionsToggle">
                     <input type="checkbox"
                            onclick="javascript:toggleSelect(this, 'portal_type:list', true);"
@@ -480,7 +480,7 @@
             <br />
 
             <div class="field">
-    
+
                 <label for="review_state"
                        i18n:domain="plone"
                        i18n:translate="label_review_status">
@@ -494,7 +494,7 @@
                     review state. If you wish to constrain results to items in
                     certain states, select them from this list.
                 </div>
-    
+
                 <span class="optionsToggle">
                 <input type="checkbox"
                        onclick="javascript:toggleSelect(this, 'review_state:list', true);"
@@ -533,14 +533,14 @@
                     </tal:items>
                 </tal:states>
             </div>
-            
+
             <div class="field">
                 <input type="checkbox"
                        id="hasComments:boolean"
                        value="True"
                        name="hasComments:ignore_empty"
                        />
-                       
+
                 <label for="hasComments" i18n:translate="label_has_comments">Has comments</label>
 
                 <div class="formHelp" i18n:translate="help_search_has_comments">
@@ -559,9 +559,9 @@
             </div>
 
         </fieldset>
-    
+
     </form>
-    
+
 </div>
 
 </html>

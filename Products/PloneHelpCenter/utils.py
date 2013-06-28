@@ -17,7 +17,7 @@ def discussion_notify(comment_on_object, variables = {}):
     host = portal.plone_utils.getMailHost()
     encoding = portal.plone_utils.getSiteEncoding()
     envelope_from = send_from_address
-    
+
     mt = portal.portal_membership
     if IDiscussionResponse.providedBy(comment_on_object):
         owner = comment_on_object.Creator()
@@ -37,13 +37,13 @@ def discussion_notify(comment_on_object, variables = {}):
                         host.send(message, send_to_address, envelope_from, subject=subject, charset=encoding, msg_type='text/plain')
                     else:
                         host.secureSend(message_body, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=envelope_from)
-                        
+
 
         parents = comment_on_object.parentsInThread()
         if not parents:
             return
         comment_on_object = parents[0]
-            
+
     owner = comment_on_object.Creator()
     if owner:
         member = mt.getMemberById(owner)

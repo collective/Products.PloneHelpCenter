@@ -25,7 +25,7 @@
                      contentsMethod python:test(here.portal_type=='Topic', here.queryCatalog, here.getFolderContents);
                      batch batch|python:contentsMethod(contentFilter,batch=True, b_size=b_size);
                      full_view full_view|request/full_view|python:True;">
-      
+
       <form name="folderContentsForm"
             method="post"
             action="folder_object"
@@ -37,7 +37,7 @@
           <span tal:content="python: view_title and here.utranslate(view_title) or putils.pretty_title_or_id(here)" tal:omit-tag="">Directory Id</span>
         </h1>
         <tal:full_view condition="full_view">
-    
+
             <a href=""
                class="link-parent"
                tal:define="parent_url python:here.navigationParent(here, fallThroughDefaultPage = False, checkPermissions = ['List folder contents'])"
@@ -47,7 +47,7 @@
                i18n:translate="go_to_parent_url">
                 Up one level
             </a>
-    
+
             <p tal:content="here/Description">
                 Description
             </p>
@@ -231,7 +231,7 @@
                             </strong>
                         </a>
                         </span>
-                        
+
                         <span class="state-expired"
                               tal:condition="python:portal.isExpired(item)"
                               i18n:domain="plone"
@@ -245,7 +245,7 @@
                             tal:content="item_size"
                             tal:attributes="class item_wf_state_class"> size </span>
                     </td>
-                    <td 
+                    <td
                        tal:define="toLocalizedTime nocall: context/@@plone/toLocalizedTime"
                        tal:content="python:here.toLocalizedTime(item_modified, long_format=1)"
                         tal:attributes="class item_wf_state_class">

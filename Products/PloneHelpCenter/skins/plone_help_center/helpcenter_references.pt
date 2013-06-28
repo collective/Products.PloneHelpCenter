@@ -2,10 +2,10 @@
   lang="en"
   i18n:domain="plonehelpcenter">
 
-<body>    
+<body>
     <metal:define define-macro="view_referenced_items">
         <tal:define define="objs here/getRelatedItems;"
-                    condition="objs">    
+                    condition="objs">
             <h2 i18n:translate="see_also">Related content</h2>
             <dl>
               <tal:repeat tal:repeat="obj objs">

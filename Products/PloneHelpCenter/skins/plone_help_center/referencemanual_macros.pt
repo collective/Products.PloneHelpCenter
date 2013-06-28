@@ -1,7 +1,7 @@
-<!-- A section (or top-level) table-of-contents 
+<!-- A section (or top-level) table-of-contents
     (titles + description, nested list)
-    
-    Call this with 'section' defined 
+
+    Call this with 'section' defined
   -->
 <metal:block define-macro="section_toc">
     <ol tal:condition="toc | nothing">
@@ -42,7 +42,7 @@
             <p class="documentDescription" tal:content="item/Description">
                 description
             </p>
-    
+
             <div tal:condition="nocall:body">
                 <tal:block condition="nocall:addImagePaths">
                     <div tal:replace="structure python:addImagePaths(body, itemUrl)" />
@@ -57,7 +57,7 @@
                 <metal:recursion use-macro="here/referencemanual_macros/macros/section_collation"/>
             </tal:subsections>
 
-        </div>        
+        </div>
     </tal:section>
 </metal:block>
 
@@ -66,7 +66,7 @@
     Call this with tocInfo (as returned by getTOCInfo()) defined
   -->
 <div metal:define-macro="navigation_bar"
-    class="listingBar" 
+    class="listingBar"
     tal:define="nextIdx tocInfo/nextIdx;
                 prevIdx tocInfo/prevIdx;
                 tocList tocInfo/tocList"
@@ -75,33 +75,33 @@
 
     <tal:next condition="nextIdx">
         <a class="next"
-           tal:define="next python:tocList[nextIdx]['item']" 
+           tal:define="next python:tocList[nextIdx]['item']"
            tal:attributes="href next/getURL"
            href="">
             <span i18n:translate="phc_next">
                Next:
             </span>
-            <span tal:replace="next/Title" /> 
+            <span tal:replace="next/Title" />
             &#9658;
-       </a>   
+       </a>
     </tal:next>
-       
+
     <tal:prev condition="prevIdx">
         <a class="previous"
-           tal:define="prev python:tocList[prevIdx]['item']" 
+           tal:define="prev python:tocList[prevIdx]['item']"
            tal:attributes="href prev/getURL"
            href="">
             &#9668;
             <span i18n:translate="phc_previous">
                Previous:
             </span>
-            <span tal:replace="prev/Title" /> 
-       </a>   
-    </tal:prev>	       
+            <span tal:replace="prev/Title" />
+       </a>
+    </tal:prev>	
 </div>
 
 <!-- The "jump to" drop-down box
-    
+
     Call this with tocList (as returned in tocInfo returned by getTOCInfo())
     defined.
   -->
@@ -112,7 +112,7 @@
     <form method="get" action="#"
           tal:attributes="action context/absolute_url">
         <label for="destination" class="hiddenStructure">Jump to: </label>
-        <select name=":action" 
+        <select name=":action"
                 onchange="window.location.href=this.options[this.selectedIndex].value">
 	    <option value="referencemanual-all-pages"
 		    title="Useful for printing, presentation mode etc.">

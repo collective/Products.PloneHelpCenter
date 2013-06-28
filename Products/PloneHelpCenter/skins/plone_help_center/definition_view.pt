@@ -10,9 +10,9 @@
         <li tal:repeat="item context/getPHCSubNav | nothing">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -39,7 +39,7 @@
               tal:condition="not: request/full|nothing"
               tal:define="parent_url python:here.navigationParent(here, template.getId())"
               tal:attributes="href parent_url">
-              &laquo; <span i18n:translate="phc_up_to_glossary">Back to Glossary</span>      
+              &laquo; <span i18n:translate="phc_up_to_glossary">Back to Glossary</span>
             </a></p>
 
             <p tal:condition="here/Description"

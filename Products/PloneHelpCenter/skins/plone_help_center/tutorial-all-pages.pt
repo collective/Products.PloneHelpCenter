@@ -11,9 +11,9 @@
         <li tal:repeat="item context/getPHCSubNav | nothing">
             <a href="#"
                tal:content="item/title"
-               tal:attributes="href item/url; 
+               tal:attributes="href item/url;
                    class python:item['selected'] and 'selected' or nothing;
-                   title item/desc"          
+                   title item/desc"
             >Title</a>
         </li>
     </ul>
@@ -42,7 +42,7 @@
                     <a href="" tal:attributes="href here/absolute_url">&laquo; Return to page index</a>
                 </p>
 
-                <p class="documentDescription" 
+                <p class="documentDescription"
                      tal:content="here/getTutorialDescription">
                 Tutorial Description
                 </p>

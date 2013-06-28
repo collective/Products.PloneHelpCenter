@@ -77,7 +77,7 @@ transaction.commit()
 # walk the sources
 for source in [phc[s] for s in sources]:
     print source
-    
+
     for id, object in source.objectItems():
         # find the first section
         spos = 99
@@ -107,5 +107,5 @@ for source in [phc[s] for s in sources]:
             # Leave it where it is
             print "No sections: ",
             print id, object.getSections()
-            
+
 noSecurityManager()

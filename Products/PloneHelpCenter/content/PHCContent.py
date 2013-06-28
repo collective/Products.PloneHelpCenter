@@ -31,7 +31,7 @@ except ImportError:
     except ImportError:
         class HistoryAwareMixin:
             """Dummy class when we can't find the real McCoy"""
-            
+
             __implements__ =()
             actions        =()
 
@@ -140,13 +140,13 @@ class PHCContentMixin:
         # Outdated - we didn't match anything
         return 1
 
-    security.declareProtected(CMFCorePermissions.View, 'getRelatedItems') 
+    security.declareProtected(CMFCorePermissions.View, 'getRelatedItems')
     def getRelatedItems(self):
         """method to fetch the referenced items in context of
            config and permissions
         """
         try:
-            objs = [o for o in self.getField('relatedItems').get(self) 
+            objs = [o for o in self.getField('relatedItems').get(self)
                       if self.portal_membership.checkPermission('View', o)]
             return objs
         except:
@@ -166,7 +166,7 @@ def HideMetadataFields(schema):
 
 
 class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
-    """A simple  mixin class to provide contentish functions 
+    """A simple  mixin class to provide contentish functions
        archetype with no schema defined.
     """
 

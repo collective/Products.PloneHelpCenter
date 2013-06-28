@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Error Reference Section</property>
  <property
-    name="description">An Error Reference Section can contain references to and explanations of 
+    name="description">An Error Reference Section can contain references to and explanations of
       common errors.
       </property>
  <property name="content_icon">errorref_icon.gif</property>

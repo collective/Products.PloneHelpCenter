@@ -53,7 +53,7 @@ def addCatalogIndex(self, out, catalog, index, type, extra = None):
 
 def addCatalogMetadata(self, out, catalog, column):
     """Add the given column to the catalog's metadata schema"""
-    
+
     if column not in catalog.schema():
         catalog.addColumn(column)
         print >> out, "Added", column, "to catalog metadata"
@@ -62,16 +62,16 @@ def addCatalogMetadata(self, out, catalog, column):
 
 def removeCatalogIndex(self, out, catalog, index):
     """Delete the given index"""
-    
+
     if index in catalog.indexes():
         catalog.delIndex(index)
         print >> out, "Removed index", index
     else:
         print >> out, "Index", index, "not in catalog"
-    
+
 def removeCatalogMetadata(self, out, catalog, column):
     """Delete the given metadata column"""
-    
+
     if column in catalog.schema():
         catalog.delColumn(column)
         print >> out, "Removed column", column
@@ -81,7 +81,7 @@ def removeCatalogMetadata(self, out, catalog, column):
 
 def turnOnVersioning(site):
     """ auto versioning for all leaf types """
-    
+
     DEFAULT_POLICIES = ('at_edit_autoversion', 'version_on_revert')
     ctypes = (
         'HelpCenterHowTo',
@@ -91,7 +91,7 @@ def turnOnVersioning(site):
         'HelpCenterErrorReference',
         'HelpCenterDefinition',
         )
-    
+
     portal_repository = getToolByName(site, 'portal_repository')
     versionable_types = list(portal_repository.getVersionableContentTypes())
     for type_id in ctypes:
@@ -101,7 +101,7 @@ def turnOnVersioning(site):
 
     for ctype in ctypes:
         for policy_id in DEFAULT_POLICIES:
-            portal_repository.addPolicyForContentType(ctype, policy_id)    
+            portal_repository.addPolicyForContentType(ctype, policy_id)
 
 
 def importVarious(context):
@@ -115,4 +115,4 @@ def importVarious(context):
 
     site = context.getSite()
     print install(site)
-    
+

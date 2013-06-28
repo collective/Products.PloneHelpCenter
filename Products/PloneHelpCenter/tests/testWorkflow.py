@@ -66,7 +66,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         page.setDescription('A tutorial page added after tutorial was published')
         page.setText=('')
         self.assertEqual(tutorial.newPage.Title(), 'New Page')
-        
+
     def testEditPublishedTutorialPage(self):
         # Edit a page on a tutorial that has been published.
         newDescription = 'New Description.'
@@ -125,7 +125,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.portal.portal_workflow.doActionFor(howto, 'mark_obsolete')
         howto.edit(text_format='plain', text=newBody)
         self.assertEqual(howto.getRawText(), newBody)
-        
+
 
     # Next several tests: owners can obsolete their own content at any point
 

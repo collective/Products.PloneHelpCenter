@@ -19,7 +19,7 @@ stale_threshold_time = DateTime() - thresholdValues[ stale_interval ]
 
 results = context.portal_catalog.searchResults(
     modified = { 'query': stale_threshold_time, 'range': 'max' },
-    review_state=['published'], 
+    review_state=['published'],
     portal_type=[
         'HelpCenterDefinition',
         'HelpCenterErrorReference',
