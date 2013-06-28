@@ -25,15 +25,17 @@ except NameError:
 
 try:
     from Products.Archetypes.HistoryAware import HistoryAwareMixin
+    HistoryAwareMixin  # pyflakes
 except ImportError:
     try:
         from Products.ATContentTypes.HistoryAware import HistoryAwareMixin
+        HistoryAwareMixin  # pyflakes
     except ImportError:
         class HistoryAwareMixin:
             """Dummy class when we can't find the real McCoy"""
 
             __implements__ =()
-            actions        =()
+            actions = ()
 
 
 class PHCContentMixin:
@@ -72,9 +74,8 @@ class PHCContentMixin:
         for s in values:
             pos = s.find(':')
             if pos >= 0:
-                valueSet.add( s[:pos].strip() )
+                valueSet.add(s[:pos].strip())
         self.sections = tuple(valueSet)
-
 
     security.declareProtected(CMFCorePermissions.View, 'getAudiencesVocab')
     def getAudiencesVocab(self):
@@ -147,7 +148,7 @@ class PHCContentMixin:
         """
         try:
             objs = [o for o in self.getField('relatedItems').get(self)
-                      if self.portal_membership.checkPermission('View', o)]
+                    if self.portal_membership.checkPermission('View', o)]
             return objs
         except:
             return []
@@ -156,22 +157,18 @@ class PHCContentMixin:
 def HideOwnershipFields(schema):
     """ Some PHC types should not have their own ownership metadata """
     for fname in ('creators', 'contributors', 'rights'):
-        schema[fname].widget.visible = {'view':'invisible','edit':'invisible'}
+        schema[fname].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 
 
 def HideMetadataFields(schema):
     """ Some PHC types should have very little visible metadata """
     for field in ('creators', 'contributors', 'rights', 'location', 'subject', 'language'):
-        schema[field].widget.visible = {'view':'invisible','edit':'invisible'}
+        schema[field].widget.visible = {'view': 'invisible', 'edit': 'invisible'}
 
 
 class PHCContent(BrowserDefaultMixin, HistoryAwareMixin, PHCContentMixin):
     """A simple  mixin class to provide contentish functions
        archetype with no schema defined.
     """
-
-
     security = ClassSecurityInfo()
-
     _at_rename_after_creation = True
-

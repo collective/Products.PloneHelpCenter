@@ -3,11 +3,6 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
@@ -22,7 +17,7 @@ DefinitionSchema = HelpCenterBaseSchema + Schema((
         accessor="Description",
         default_content_type = 'text/plain',
         allowable_content_types = ('text/plain',),
-        storage=AttributeStorage(), # Needed for HistoryAwareMixin
+        storage=AttributeStorage(),  # Needed for HistoryAwareMixin
         widget = TextAreaWidget(
                     description = 'An explanation of the term.',
                     description_msgid = "phc_desc_definition",
@@ -39,7 +34,8 @@ DefinitionSchema = HelpCenterBaseSchema + Schema((
 DefinitionSchema.moveField('subject', pos='bottom')
 DefinitionSchema.moveField('relatedItems', pos='bottom')
 
-class HelpCenterDefinition(PHCContent,BaseContent):
+
+class HelpCenterDefinition(PHCContent, BaseContent):
     """A Definition defines a special term, and will be listed in the glossary.
     """
 
@@ -52,7 +48,7 @@ class HelpCenterDefinition(PHCContent,BaseContent):
     # allow_discussion = IS_DISCUSSABLE
 
     typeDescription= 'A Definition defines a special term, and will be listed in the glossary.'
-    typeDescMsgId  = 'description_edit_definition'
+    typeDescMsgId = 'description_edit_definition'
 
     # aliases = PHCContent.aliases.copy()
     # aliases.update({'(Default)' : 'definition_view',

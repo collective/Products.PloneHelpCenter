@@ -7,7 +7,6 @@ try:
     import Products.CMFCore.permissions as CMFCorePermissions
 except ImportError:
     from Products.CMFCore import CMFCorePermissions
-from Products.Archetypes.Marshall import PrimaryFieldMarshaller
 from Products.PloneHelpCenter.config import *
 
 from Products import ATContentTypes as atct
@@ -43,8 +42,8 @@ HelpCenterItemSchema = Schema((
                 label_msgid='phc_label_versions',
                 label= "Versions",
                 condition='object/getVersionsVocab',
-                description='Versions of product that apply to this item ' \
-                            '(leave blank if not version-specific).',
+                description=('Versions of product that apply to this item '
+                             '(leave blank if not version-specific).'),
                 description_msgid = "phc_versions",
                 i18n_domain = "plonehelpcenter"
                 ),
@@ -131,7 +130,7 @@ HelpCenterItemSchema = Schema((
         required = 0,
         multiValued=1,
         languageIndependent=1,
-        widget=PHCReferenceWidget (
+        widget=PHCReferenceWidget(
                 label="Referenced Items",
                 description="Set one or more references to HelpCenter items.",
                 description_msgid = "phc_reference",
@@ -157,8 +156,8 @@ HelpCenterItemSchemaNarrow = Schema((
                 label_msgid='phc_label_versions',
                 label= "Versions",
                 condition='object/getVersionsVocab',
-                description='Versions of product that apply to this item ' \
-                            '(leave blank if not version-specific).',
+                description=('Versions of product that apply to this item '
+                             '(leave blank if not version-specific).'),
                 description_msgid = "phc_versions",
                 i18n_domain = "plonehelpcenter"
                 ),
@@ -225,13 +224,16 @@ HelpCenterContainerSchema = Schema((
         edit_accessor='getRawSectionsVocab',
         mutator='setSectionsVocab',
         widget=LinesWidget(
-                   label="Sections",
-                   description="One section on each line. Used for grouping items. If you leave this blank, the help center's sections will be used. If both are blank, sections will not be used.",
-                   description_msgid = "phc_sections_vocab",
-                   label_msgid = "phc_label_sections-vocab",
-                   i18n_domain="plonehelpcenter",
-                   rows=6,
-                   )
+            label="Sections",
+            description=("One section on each line. Used for grouping items. "
+                         "If you leave this blank, the help center's "
+                         "sections will be used. If both are blank, "
+                         "sections will not be used."),
+            description_msgid = "phc_sections_vocab",
+            label_msgid = "phc_label_sections-vocab",
+            i18n_domain="plonehelpcenter",
+            rows=6,
+            )
         ),
     ))
 

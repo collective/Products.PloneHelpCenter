@@ -6,13 +6,8 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_hasattr, base_hasattr
-from AccessControl import getSecurityManager
-from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 
-from zope.interface import implements
-from Products.PloneHelpCenter.interfaces import IHelpCenterFolder
 
 # Compare section brains by title
 def _sectionCmp(a, b):
@@ -41,14 +36,12 @@ class PHCFolder(object):
             return []
         return self.aq_parent.getAudiencesVocab()
 
-
     security.declareProtected(CMFCorePermissions.View, 'getVersionsVocab')
     def getVersionsVocab(self):
         """Get version vocabulary."""
         if not safe_hasattr(self.aq_parent, 'getVersionsVocab'):
             return []
         return self.aq_parent.getVersionsVocab()
-
 
     security.declareProtected(CMFCorePermissions.View, 'getSectionsVocab')
     def getSectionsVocab(self):

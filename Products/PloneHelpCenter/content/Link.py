@@ -3,11 +3,6 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
@@ -54,7 +49,8 @@ LinkSchema = HelpCenterBaseSchema + Schema((
 LinkSchema.moveField('subject', pos='bottom')
 LinkSchema.moveField('relatedItems', pos='bottom')
 
-class HelpCenterLink(PHCContent,BaseContent):
+
+class HelpCenterLink(PHCContent, BaseContent):
     """A simple archetype"""
 
     content_icon = 'helplink_icon.gif'
@@ -66,7 +62,7 @@ class HelpCenterLink(PHCContent,BaseContent):
     # allow_discussion = IS_DISCUSSABLE
 
     typeDescription= 'Links are links to other documentation and resources.'
-    typeDescMsgId  = 'description_edit_link'
+    typeDescMsgId = 'description_edit_link'
 
     # aliases = PHCContent.aliases.copy()
     # aliases.update({'(Default)' : 'helplink_view',

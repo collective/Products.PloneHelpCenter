@@ -32,18 +32,13 @@ from Products.PloneHelpCenter.interfaces import IHelpCenter
 
 from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFCore.utils import getToolByName
-from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin, fti_meta_type
+from Products.CMFDynamicViewFTI.browserdefault import BrowserDefaultMixin
 from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from Products.CMFPlone.utils import _createObjectByType
 
 import os
 from App.Common import package_home
-
-try:
-    set
-except NameError:
-    from sets import Set as set
 
 HCRootSchema = BaseFolderSchema + Schema((
     TextField(
@@ -117,13 +112,14 @@ HCRootSchema = BaseFolderSchema + Schema((
         edit_accessor='getRawSectionsVocab',
         mutator='setSectionsVocab',
         widget=LinesWidget(
-           label="Sections",
-           description="One section on each line. Used for grouping items. May be overriden in individual help center folders.",
-           description_msgid = "phc_topsections_vocab",
-           label_msgid = "phc_label_sections-vocab",
-           i18n_domain="plonehelpcenter",
-           rows=6,
-           )
+            label="Sections",
+            description=("One section on each line. Used for grouping items. "
+                         "May be overriden in individual help center folders."),
+            description_msgid = "phc_topsections_vocab",
+            label_msgid = "phc_label_sections-vocab",
+            i18n_domain="plonehelpcenter",
+            rows=6,
+            )
         ),
 
     TextField(
@@ -190,43 +186,43 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
     suppl_views = ('helpcenter_topicview', 'helpcenter_topicview_main',)
 
     actions = (
-        {'id'          : 'view',
-         'name'        : 'View',
-         'action'      : 'string:${object_url}',
-         'permissions' : (CMFCorePermissions.View,)
+        {'id': 'view',
+         'name': 'View',
+         'action': 'string:${object_url}',
+         'permissions': (CMFCorePermissions.View,)
          },
-        {'id'          : 'edit',
-         'name'        : 'Edit',
-         'action'      : 'string:${object_url}/edit',
-         'permissions' : (CMFCorePermissions.ModifyPortalContent,),
+        {'id': 'edit',
+         'name': 'Edit',
+         'action': 'string:${object_url}/edit',
+         'permissions': (CMFCorePermissions.ModifyPortalContent,),
          },
-        {'id'          : 'metadata',
-         'name'        : 'Properties',
-         'action'      : 'string:${object_url}/properties',
-         'permissions' : (CMFCorePermissions.ModifyPortalContent,),
+        {'id': 'metadata',
+         'name': 'Properties',
+         'action': 'string:${object_url}/properties',
+         'permissions': (CMFCorePermissions.ModifyPortalContent,),
          },
-        {'id'          : 'local_roles',
-         'name'        : 'Sharing',
-         'action'      : 'string:${object_url}/sharing',
-         'permissions' : (CMFCorePermissions.ManageProperties,),
+        {'id': 'local_roles',
+         'name': 'Sharing',
+         'action': 'string:${object_url}/sharing',
+         'permissions': (CMFCorePermissions.ManageProperties,),
          },
-        {'id'          : 'stats',
-         'name'        : 'Statistics',
-         'action'      : 'string:${object_url}/stats',
-         'permissions' : (CMFCorePermissions.ManageProperties,),
+        {'id': 'stats',
+         'name': 'Statistics',
+         'action': 'string:${object_url}/stats',
+         'permissions': (CMFCorePermissions.ManageProperties,),
          },
         )
 
     aliases = {
-        '(Default)'  : '(dynamic view)',
-        'view'       : '(selected layout)',
-        'index.html' : '',
-        'edit'       : 'base_edit',
-        'properties' : 'base_metadata',
-        'sharing'    : 'folder_localrole_form',
-        'stats'      : 'phc_stats',
-        'gethtml'    : '',
-        'mkdir'      : '',
+        '(Default)': '(dynamic view)',
+        'view': '(selected layout)',
+        'index.html': '',
+        'edit': 'base_edit',
+        'properties': 'base_metadata',
+        'sharing': 'folder_localrole_form',
+        'stats': 'phc_stats',
+        'gethtml': '',
+        'mkdir': '',
         }
 
     def initializeArchetype(self, **kwargs):
@@ -234,13 +230,13 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         add a standard how-to-use-this-resource help page. The body text of
         this is found in docs/PHCManual.stx.
         """
-        OrderedBaseFolder.initializeArchetype(self,**kwargs)
+        OrderedBaseFolder.initializeArchetype(self, **kwargs)
 
         # Set right_slots to empty
         self.manage_changeProperties(right_slots=[])
 
         if 'faq' not in self.objectIds():
-            _createObjectByType('HelpCenterFAQFolder',self, 'faq')
+            _createObjectByType('HelpCenterFAQFolder', self, 'faq')
             obj = self['faq']
             obj.setTitle(self.translate(
                     msgid='phc_faq_title',
@@ -253,7 +249,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
             obj.reindexObject()
 
         if 'how-to' not in self.objectIds():
-            _createObjectByType('HelpCenterHowToFolder',self, 'how-to')
+            _createObjectByType('HelpCenterHowToFolder', self, 'how-to')
             obj = self['how-to']
             obj.setTitle(self.translate(
                     msgid='phc_howto_title',
@@ -266,7 +262,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
             obj.reindexObject()
 
         if 'tutorial' not in self.objectIds():
-            _createObjectByType('HelpCenterTutorialFolder',self, 'tutorial')
+            _createObjectByType('HelpCenterTutorialFolder', self, 'tutorial')
             obj = self['tutorial']
             obj.setTitle(self.translate(
                     msgid='phc_tutorial_title',
@@ -279,7 +275,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
             obj.reindexObject()
 
         if 'manual' not in self.objectIds():
-            _createObjectByType('HelpCenterReferenceManualFolder',self, 'manual')
+            _createObjectByType('HelpCenterReferenceManualFolder', self, 'manual')
             obj = self['manual']
             obj.setTitle(self.translate(
                     msgid='phc_referencemanual_title',
@@ -306,7 +302,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         #    obj.reindexObject()
 
         if 'error' not in self.objectIds():
-            _createObjectByType('HelpCenterErrorReferenceFolder',self, 'error')
+            _createObjectByType('HelpCenterErrorReferenceFolder', self, 'error')
             obj = self['error']
             obj.setTitle(self.translate(
                     msgid='phc_errorreference_title',
@@ -319,7 +315,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
             obj.reindexObject()
 
         if 'link' not in self.objectIds():
-            _createObjectByType('HelpCenterLinkFolder',self, 'link')
+            _createObjectByType('HelpCenterLinkFolder', self, 'link')
             obj = self['link']
             obj.setTitle(self.translate(
                     msgid='phc_links_title',
@@ -332,7 +328,7 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
             obj.reindexObject()
 
         if 'glossary' not in self.objectIds():
-            _createObjectByType('HelpCenterGlossary',self, 'glossary')
+            _createObjectByType('HelpCenterGlossary', self, 'glossary')
             obj = self['glossary']
             obj.setTitle(self.translate(
                     msgid='phc_glossary_title',
@@ -374,7 +370,6 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
                 except WorkflowException:
                     wftool.doActionFor(manual, 'submit')
 
-
     ##############
     # the following methods are meant to be used in an enclosed object
     # that is invoking the method by aquisition.
@@ -385,20 +380,17 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
 
         return self
 
-
     security.declareProtected(CMFCorePermissions.View, 'getPHCUrl')
     def getPHCUrl(self):
         """return the enclosing PHC object URL"""
 
         return self.absolute_url()
 
-
     security.declareProtected(CMFCorePermissions.View, 'getPHCPath')
     def getPHCPath(self):
         """return the enclosing PHC object path as a string"""
 
         return '/'.join(self.getPhysicalPath())
-
 
     security.declareProtected(CMFCorePermissions.View, 'getPHCSubNav')
     def getPHCSubNav(self, defpath='manual'):
@@ -421,10 +413,10 @@ class HelpCenter(BrowserDefaultMixin, OrderedBaseFolder):
         res = []
         for item in tabs:
             res.append({
-                'title' : item.Title,
-                'url' : item.getURL(),
-                'selected' : item.getPath().find(cpath) == 0,
-                'desc' : item.Description,
+                'title': item.Title,
+                'url': item.getURL(),
+                'selected': item.getPath().find(cpath) == 0,
+                'desc': item.Description,
             })
 
         return res

@@ -10,7 +10,6 @@ except ImportError:
     from Products.Archetypes.public import *
 
 import Products.CMFCore.permissions as CMFCorePermissions
-from Products.CMFCore.utils import getToolByName
 from Products.CMFPlone.utils import safe_unicode
 
 from plone.app.layout.navigation.navtree import NavtreeStrategyBase, buildFolderTree
@@ -21,7 +20,7 @@ from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 from schemata import HelpCenterItemSchemaNarrow
 from PHCContent import PHCContentMixin
 from Products.PloneHelpCenter.config import *
-from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot, IHelpCenterContent
+from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot
 
 import re
 IMG_PATTERN = re.compile(r"""(\<img .*?)src="([^/]+?)"(.*?\>)""", re.IGNORECASE | re.DOTALL)
@@ -47,11 +46,10 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
     security = ClassSecurityInfo()
 
     typeDescription= 'A Reference Manual can contain Reference Manual Pages and Sections, Images and Files. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content.'
-    typeDescMsgId  = 'description_edit_referencemanual'
-
+    typeDescMsgId = 'description_edit_referencemanual'
 
     security.declareProtected(CMFCorePermissions.View,
-                                'getReferenceManualDescription')
+                              'getReferenceManualDescription')
     def getReferenceManualDescription(self):
         """ Returns the description of the ReferenceManual --
         convenience method for ReferenceManualPage
@@ -104,9 +102,9 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
                     return True
 
         strategy = Strategy()
-        query=  {'path'        : '/'.join(root.getPhysicalPath()),
-                 'object_provides' : 'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',
-                 'sort_on'     : 'getObjPositionInParent'}
+        query = {'path': '/'.join(root.getPhysicalPath()),
+                 'object_provides': 'Products.PloneHelpCenter.interfaces.IHelpCenterMultiPage',
+                 'sort_on': 'getObjPositionInParent'}
 
         toc = buildFolderTree(self, current, query, strategy)['children']
 
@@ -120,7 +118,6 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
 
         buildNumbering(toc)
         return toc
-
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCSelectOptions')
     def getTOCSelectOptions(self, current=None):
@@ -136,11 +133,11 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             res = []
             for n in nodes:
                 item = n['item']
-                res.append( {
-                    'title'   : "%s %s" % (n['numbering'], item.Title),
-                    'url'     : item.getURL(),
-                    'current' : n['currentItem'],
-                } )
+                res.append({
+                    'title': "%s %s" % (n['numbering'], item.Title),
+                    'url': item.getURL(),
+                    'current': n['currentItem'],
+                })
                 if n['children']:
                     childres = doNodes(n['children'])
                     if childres:
@@ -148,7 +145,6 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
             return res
 
         return doNodes(self.getTOC(current))
-
 
     security.declareProtected(CMFCorePermissions.View, 'getTOCInfo')
     def getTOCInfo(self, toc):
@@ -191,21 +187,21 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         prevWasCurrent = False
 
         def addToList(tocInfo, tocItem):
-            item      = tocItem['item']
+            item = tocItem['item']
             numbering = tocItem['numbering']
-            depth     = tocItem['depth']
-            children  = tocItem['children']
+            depth = tocItem['depth']
+            children = tocItem['children']
             isCurrent = tocItem['currentItem']
 
             global parentIdx, prevIdx, prevDepth, prevWasCurrent
 
             numberingList = numbering.split('.')[:-1]
-            idxList = [int(number) - 1 for number in numberingList]
+            #idxList = [int(number) - 1 for number in numberingList]
 
-            tocInfo['tocList'].append({'item'        : item,
-                                       'numbering'   : numbering,
-                                       'depth'       : depth,
-                                       'currentItem' : isCurrent,
+            tocInfo['tocList'].append({'item': item,
+                                       'numbering': numbering,
+                                       'depth': depth,
+                                       'currentItem': isCurrent,
                                        })
 
             currentIdx = len(tocInfo['tocList']) - 1
@@ -234,18 +230,17 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
 
             prevIdx = currentIdx
 
-        tocInfo = {'currentIdx' : None,
-                   'nextIdx'    : None,
-                   'prevIdx'    : None,
-                   'parentIdx'  : None,
-                   'tocList'    : [],
-                   'localTOC'   : None}
+        tocInfo = {'currentIdx': None,
+                   'nextIdx': None,
+                   'prevIdx': None,
+                   'parentIdx': None,
+                   'tocList': [],
+                   'localTOC': None}
 
         for topLevel in toc:
             addToList(tocInfo, topLevel)
 
         return tocInfo
-
 
     security.declareProtected(CMFCorePermissions.View, 'addImagePaths')
     def addImagePaths(self, body, baseurl):
@@ -260,12 +255,10 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         html.make_links_absolute(baseurl, resolve_base_href=False)
         return lxml.html.tostring(html, encoding='utf-8')
 
-
     security.declareProtected(CMFCorePermissions.View, 'referenceManualObject')
     def referenceManualObject(self):
         """ find manual from sub-object """
         return self
-
 
     security.declareProtected(CMFCorePermissions.View, 'getAllPagesURL')
     def getAllPagesURL(self):
@@ -273,26 +266,23 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
 
         return "%s/referencemanual-all-pages" % self.absolute_url()
 
-
     security.declareProtected(CMFCorePermissions.View, 'getNextPreviousParentValue')
     def getNextPreviousParentValue(self):
         """ always true """
         return True
 
-
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
         """ get rights from parent if necessary """
-        if self.Schema().has_key('rights'):
+        if 'rights' in self.Schema():
             return self.getRawRights()
         else:
             return self.aq_parent.Rights()
 
-
     security.declareProtected(CMFCorePermissions.View, 'Creators')
     def Creators(self):
         """ get rights from parent if necessary """
-        if self.Schema().has_key('creators'):
+        if 'creators' in self.Schema():
             return self.getRawCreators()
         else:
             return self.aq_parent.Creators()
@@ -308,4 +298,3 @@ class HelpCenterReferenceManual(ATContentTypes.content.folder.ATFolder, PHCConte
         return ATContentTypes.content.folder.ATFolder.contentIds(self, filter)
 
 registerType(HelpCenterReferenceManual, PROJECTNAME)
-

@@ -13,9 +13,7 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 
-import Products.CMFCore.permissions as CMFCorePermissions
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
@@ -40,6 +38,7 @@ InstructionalVideoFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
                 ),
     ),) + HelpCenterContainerSchema
 
+
 class HelpCenterInstructionalVideoFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A simple folderish archetype"""
 
@@ -55,7 +54,7 @@ class HelpCenterInstructionalVideoFolder(PHCFolder, ATContentTypes.content.folde
     allowed_content_types = ('HelpCenterInstructionalVideo', )
 
     typeDescription= 'A Video Section can contain instructional Flash videos.'
-    typeDescMsgId  = 'description_edit_instructionalvideofolder'
+    typeDescMsgId = 'description_edit_instructionalvideofolder'
 
     security = ClassSecurityInfo()
 

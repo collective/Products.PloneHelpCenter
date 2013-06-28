@@ -3,15 +3,10 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-try:
-    import Products.CMFCore.permissions as CMFCorePermissions
-except ImportError:
-    from Products.CMFCore import CMFCorePermissions
 from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchema, GenericHelpCenterItemSchema
 from PHCContent import PHCContent
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
 
 InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
     TextField(
@@ -52,9 +47,9 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
         widget=ImageWidget(
             label='Screenshot',
             label_msgid='phc_label_video_screenshot',
-            description='Add a screenshot by clicking the \'Browse\' '
-                          'button. Add a screenshot that highlights the '
-                          'content of the instructional video.',
+            description=('Add a screenshot by clicking the \'Browse\' '
+                         'button. Add a screenshot that highlights the '
+                         'content of the instructional video.'),
             description_msgid='phc_help_video_screenshot',
             i18n_domain='plonehelpcenter',
             ),
@@ -110,7 +105,8 @@ InstructionalVideoSchema = HelpCenterBaseSchema + Schema((
 InstructionalVideoSchema.moveField('subject', pos='bottom')
 InstructionalVideoSchema.moveField('relatedItems', pos='bottom')
 
-class HelpCenterInstructionalVideo(PHCContent,BaseContent):
+
+class HelpCenterInstructionalVideo(PHCContent, BaseContent):
     """This is an Instructional Video content type, to which you can attach
     movies and other relevant files.
     """
@@ -124,7 +120,7 @@ class HelpCenterInstructionalVideo(PHCContent,BaseContent):
     # allow_discussion = IS_DISCUSSABLE
 
     typeDescription= 'An Instructional Video can be used to upload Flash instructional videos.'
-    typeDescMsgId  = 'description_edit_instructionalvideo'
+    typeDescMsgId = 'description_edit_instructionalvideo'
 
     # aliases = PHCContent.aliases.copy()
     # aliases.update({'(Default)' : 'ivideo_view',

@@ -13,9 +13,7 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-import Products.CMFCore.permissions as CMFCorePermissions
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
@@ -40,6 +38,7 @@ ErrorReferenceFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
+
 class HelpCenterErrorReferenceFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """An Error Reference Section can contain references to and explanations of
     common errors.
@@ -57,7 +56,7 @@ class HelpCenterErrorReferenceFolder(PHCFolder, ATContentTypes.content.folder.AT
     allowed_content_types = ('HelpCenterErrorReference', )
 
     typeDescription= 'An Error Reference Section can contain references to and explanations of common errors.'
-    typeDescMsgId  = 'description_edit_errorreferencefolder'
+    typeDescMsgId = 'description_edit_errorreferencefolder'
 
     security = ClassSecurityInfo()
 

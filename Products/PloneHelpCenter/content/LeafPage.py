@@ -16,9 +16,7 @@ except ImportError:
     from Products.Archetypes.public import *
 
 import Products.CMFCore.permissions as CMFCorePermissions
-
 from Products import ATContentTypes
-from Products.ATContentTypes.interface import IATDocument
 
 from Products.PloneHelpCenter.config import *
 from PHCContent import HideMetadataFields
@@ -44,7 +42,7 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
     content_icon = 'document_icon.gif'
 
     typeDescription= 'A Help Center content page.'
-    typeDescMsgId  = 'description_leafpage'
+    typeDescMsgId = 'description_leafpage'
 
     security = ClassSecurityInfo()
 
@@ -60,7 +58,6 @@ class HelpCenterLeafPage(ATContentTypes.content.document.ATDocument):
             except AttributeError:
                 break
         return parent
-
 
     security.declareProtected(CMFCorePermissions.View, 'Subject')
     def Subject(self):

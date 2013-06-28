@@ -13,9 +13,7 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 
-import Products.CMFCore.permissions as CMFCorePermissions
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from PHCFolder import PHCFolder
@@ -43,6 +41,7 @@ ReferenceManualFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
+
 class HelpCenterReferenceManualFolder(PHCFolder, atct.content.folder.ATFolder):
     """A simple folderish archetype"""
 
@@ -58,8 +57,7 @@ class HelpCenterReferenceManualFolder(PHCFolder, atct.content.folder.ATFolder):
     allowed_content_types = ('HelpCenterReferenceManual', )
 
     typeDescription= 'A Reference Manual Section can contain reference manuals for individual projects and larger documentation efforts.'
-    typeDescMsgId  = 'description_edit_referencemanualfolder'
-
+    typeDescMsgId = 'description_edit_referencemanualfolder'
 
     security = ClassSecurityInfo()
 

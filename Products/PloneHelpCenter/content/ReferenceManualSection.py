@@ -10,7 +10,6 @@ except ImportError:
 import Products.CMFCore.permissions as CMFCorePermissions
 
 from Products import ATContentTypes
-from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.content.PHCContent import HideMetadataFields
@@ -34,7 +33,7 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
     meta_type = 'HelpCenterReferenceManualSection'
 
     typeDescription= 'A Reference Manual Section can contain Reference Manual Pages, and other Reference Manual (Sub-)Sections. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content.'
-    typeDescMsgId  = 'description_edit_referencemanualsection'
+    typeDescMsgId = 'description_edit_referencemanualsection'
 
     security = ClassSecurityInfo()
 
@@ -44,7 +43,6 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
         convenience method for ReferenceManualPage
         """
         return self.Description()
-
 
     security.declareProtected(CMFCorePermissions.View, 'Rights')
     def Rights(self):
@@ -72,4 +70,3 @@ class HelpCenterReferenceManualSection(ATContentTypes.content.folder.ATFolder):
         return ATContentTypes.content.folder.ATFolder.contentIds(self, filter)
 
 registerType(HelpCenterReferenceManualSection, PROJECTNAME)
-

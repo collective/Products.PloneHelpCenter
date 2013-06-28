@@ -12,11 +12,9 @@ import Products.CMFCore.permissions as CMFCorePermissions
 
 from Products import ATContentTypes
 from Products.ATContentTypes.interface import IATDocument
-from Products.ATContentTypes.content.schemata import finalizeATCTSchema
 
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.content.PHCContent import HideOwnershipFields
-from Products.PloneHelpCenter.interfaces import IHelpCenterMultiPage, IHelpCenterContent
 
 
 HelpCenterReferenceManualPageSchema = ATContentTypes.content.document.ATDocumentSchema.copy()
@@ -35,7 +33,6 @@ class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBa
 
     security = ClassSecurityInfo()
 
-
     # Satisfy metadata requirements for items with deleted ownership.
     # It would be great to do this in a mixin or adapter,
     # but the structure of Archetypes prevents that.
@@ -50,7 +47,7 @@ class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBa
         """ get from parent """
         try:
             return aq_inner(self).aq_parent.Creators()
-        except AttributeError:  #parent in not a ReferenceManual
+        except AttributeError:  # parent in not a ReferenceManual
             return ()
 
     security.declareProtected(CMFCorePermissions.View, 'Contributors')
@@ -66,4 +63,3 @@ class HelpCenterReferenceManualPage(ATContentTypes.content.document.ATDocumentBa
 
 
 registerType(HelpCenterReferenceManualPage, PROJECTNAME)
-

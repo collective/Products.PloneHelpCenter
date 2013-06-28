@@ -1,17 +1,11 @@
-from zope import event
 from zope.interface import implements
-from zope.lifecycleevent import ObjectModifiedEvent
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-
-import Products.CMFCore.permissions as CMFCorePermissions
-
 
 from Products.PloneHelpCenter.config import *
 from Products.PloneHelpCenter.interfaces import IHelpCenterHowTo
@@ -48,8 +42,7 @@ class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
     content_icon = 'howto_icon.gif'
 
     typeDescription= 'A How-to is a document describing how to address a single, common use-case or issue. You may add images and files as attachments.'
-    typeDescMsgId  = 'description_edit_howto'
-
+    typeDescMsgId = 'description_edit_howto'
 
     schema = HowToSchema
     archetype_name = 'How-to'
@@ -63,7 +56,5 @@ class HelpCenterHowTo(ATDocumentBase, PHCContentMixin, ATCTOrderedFolder):
         (folderish) item, and the item is folderish.
         """
         return False
-
-
 
 registerType(HelpCenterHowTo, PROJECTNAME)

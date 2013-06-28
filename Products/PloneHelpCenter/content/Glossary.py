@@ -10,9 +10,7 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-import Products.CMFCore.permissions as CMFCorePermissions
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 from Products import ATContentTypes
@@ -40,6 +38,7 @@ GlossarySchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
+
 class HelpCenterGlossary(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A Glossary can be used to hold definitions of common terms, listing them
     in a dictionary-like manner.
@@ -57,7 +56,7 @@ class HelpCenterGlossary(PHCFolder, ATContentTypes.content.folder.ATFolder):
     allowed_content_types = ('HelpCenterDefinition', )
 
     typeDescription= 'A Glossary can be used to hold definitions of common terms, listing them in a dictionary-like manner.'
-    typeDescMsgId  = 'description_edit_glossary'
+    typeDescMsgId = 'description_edit_glossary'
 
     security = ClassSecurityInfo()
 

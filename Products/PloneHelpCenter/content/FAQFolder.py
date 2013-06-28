@@ -4,20 +4,15 @@
 #  versions.
 #
 
-import urllib
-
 from zope.interface import implements
 
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
-from zope.component import getMultiAdapter
+from AccessControl import ClassSecurityInfo
 
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-
-import Products.CMFCore.permissions as CMFCorePermissions
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
@@ -40,8 +35,9 @@ FAQFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
                 label="Description",
                 i18n_domain = "plonehelpcenter",
                 rows=6,)
-        ),
+              ),
     ),) + HelpCenterContainerSchema
+
 
 class HelpCenterFAQFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """An FAQ Section can hold frequently asked questions with answers."""
@@ -60,7 +56,7 @@ class HelpCenterFAQFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     security = ClassSecurityInfo()
 
     typeDescription= 'An FAQ Section can hold frequently asked questions with answers.'
-    typeDescMsgId  = 'description_edit_faqfolder'
+    typeDescMsgId = 'description_edit_faqfolder'
 
     # def getTOCSelectOptions(self, current=None):
     #     """

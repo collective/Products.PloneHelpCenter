@@ -1,16 +1,12 @@
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 
 try:
     from Products.LinguaPlone.public import *
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-
-import Products.CMFCore.permissions as CMFCorePermissions
-
 from Products.PloneHelpCenter.config import *
 from HowTo import HowToSchema, HelpCenterHowTo
-
 
 ErrorReferenceSchema = HowToSchema.copy()
 # del ErrorReferenceSchema['versions']
@@ -34,7 +30,7 @@ class HelpCenterErrorReference(HelpCenterHowTo):
     meta_type = 'HelpCenterErrorReference'
 
     typeDescription= 'An Error Reference can be used to explain a particular error which may arise.'
-    typeDescMsgId  = 'description_edit_errorreference'
+    typeDescMsgId = 'description_edit_errorreference'
 
     security = ClassSecurityInfo()
 

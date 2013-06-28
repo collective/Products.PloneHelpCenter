@@ -12,8 +12,7 @@ try:
 except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
-import Products.CMFCore.permissions as CMFCorePermissions
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
@@ -41,6 +40,7 @@ HowToFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     )) + HelpCenterContainerSchema
 
+
 class HelpCenterHowToFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A How-to Section can contain how-to documents."""
 
@@ -56,7 +56,7 @@ class HelpCenterHowToFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     allowed_content_types = ('HelpCenterHowTo', )
 
     typeDescription= 'A How-to Section can contain how-to documents.'
-    typeDescMsgId  = 'description_edit_howtofolder'
+    typeDescMsgId = 'description_edit_howtofolder'
 
     security = ClassSecurityInfo()
 

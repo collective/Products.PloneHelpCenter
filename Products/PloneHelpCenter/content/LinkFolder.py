@@ -12,9 +12,7 @@ except ImportError:
     # No multilingual support
     from Products.Archetypes.public import *
 
-import Products.CMFCore.permissions as CMFCorePermissions
-
-from AccessControl import ClassSecurityInfo, ModuleSecurityInfo
+from AccessControl import ClassSecurityInfo
 from Products.PloneHelpCenter.config import *
 from schemata import HelpCenterBaseSchemaFolderish, HelpCenterContainerSchema
 
@@ -42,6 +40,7 @@ LinkFolderSchema = HelpCenterBaseSchemaFolderish + Schema((
         ),
     ),) + HelpCenterContainerSchema
 
+
 class HelpCenterLinkFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     """A simple folderish archetype"""
 
@@ -57,7 +56,7 @@ class HelpCenterLinkFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
     allowed_content_types = ('HelpCenterLink', )
 
     typeDescription= 'A Link Section can contain links to other documentation.'
-    typeDescMsgId  = 'description_edit_linkfolder'
+    typeDescMsgId = 'description_edit_linkfolder'
 
     security = ClassSecurityInfo()
 

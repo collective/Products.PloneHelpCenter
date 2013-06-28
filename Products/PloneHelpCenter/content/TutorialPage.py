@@ -9,7 +9,6 @@ except ImportError:
     from Products.Archetypes.public import *
 import Products.CMFCore.permissions as CMFCorePermissions
 
-import Products.CMFCore.permissions as CMFCorePermissions
 from Products import ATContentTypes
 from Products.ATContentTypes.interface import IATDocument
 
@@ -33,7 +32,7 @@ class HelpCenterTutorialPage(ATContentTypes.content.document.ATDocumentBase):
     content_icon = 'document_icon.gif'
 
     typeDescription= 'A Tutorial Page contains the text of a single page of the tutorial.'
-    typeDescMsgId  = 'description_edit_tutorialpage'
+    typeDescMsgId = 'description_edit_tutorialpage'
 
     security = ClassSecurityInfo()
 
