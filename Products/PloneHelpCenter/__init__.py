@@ -15,8 +15,6 @@ from config import *
 
 registerDirectory(SKINS_DIR, GLOBALS)
 
-# MonkeyPatch CMFDefault.DiscussionItemContainer
-import Patch
 
 def initialize(context):
 
