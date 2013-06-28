@@ -5,6 +5,7 @@ from email.Header import Header
 
 try:
     from Products.CMFPlone.factory import _IMREALLYPLONE4 as PLONE4
+    PLONE4  # pyflakes
 except:
     PLONE4 = False
 
@@ -37,7 +38,6 @@ def discussion_notify(comment_on_object, variables = {}):
                         host.send(message, send_to_address, envelope_from, subject=subject, charset=encoding, msg_type='text/plain')
                     else:
                         host.secureSend(message_body, send_to_address, envelope_from, subject=subject, subtype='plain', charset=encoding, debug=False, From=envelope_from)
-
 
         parents = comment_on_object.parentsInThread()
         if not parents:

@@ -12,7 +12,7 @@ from zope.component import getUtility
 from Products.CMFCore.interfaces import ISiteRoot
 from Products.CMFCore.utils import getToolByName
 
-from Products.Archetypes.public import process_types, listTypes
+from Products.Archetypes.public import listTypes
 
 from StringIO import StringIO
 from Products.contentmigration import walker

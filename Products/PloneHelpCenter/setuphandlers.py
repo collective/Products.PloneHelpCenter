@@ -37,12 +37,10 @@ def install(self):
 
     return out.getvalue()
 
-
-from Products.Archetypes.public import listTypes
-from Products.Archetypes.Extensions.utils import installTypes, install_subskin
 from Products.PloneHelpCenter.config import *
 
-def addCatalogIndex(self, out, catalog, index, type, extra = None):
+
+def addCatalogIndex(self, out, catalog, index, type, extra=None):
     """Add the given index name, of the given type, to the catalog."""
 
     if index not in catalog.indexes():
@@ -50,6 +48,7 @@ def addCatalogIndex(self, out, catalog, index, type, extra = None):
         print >> out, "Added index", index, "to catalog"
     else:
         print >> out, "Index", index, "already in catalog"
+
 
 def addCatalogMetadata(self, out, catalog, column):
     """Add the given column to the catalog's metadata schema"""
@@ -60,6 +59,7 @@ def addCatalogMetadata(self, out, catalog, column):
     else:
         print >> out, column, "already in catalog metadata"
 
+
 def removeCatalogIndex(self, out, catalog, index):
     """Delete the given index"""
 
@@ -68,6 +68,7 @@ def removeCatalogIndex(self, out, catalog, index):
         print >> out, "Removed index", index
     else:
         print >> out, "Index", index, "not in catalog"
+
 
 def removeCatalogMetadata(self, out, catalog, column):
     """Delete the given metadata column"""
@@ -115,4 +116,3 @@ def importVarious(context):
 
     site = context.getSite()
     print install(site)
-

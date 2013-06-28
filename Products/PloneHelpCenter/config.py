@@ -1,6 +1,7 @@
 try:
     from Products.CMFCore.permissions import AddPortalContent
     from Products.CMFCore.permissions import setDefaultRoles
+    AddPortalContent, setDefaultRoles  # pyflakes
 except ImportError:
     from Products.CMFCore.CMFCorePermissions import AddPortalContent
     from Products.CMFCore.CMFCorePermissions import setDefaultRoles
@@ -40,7 +41,8 @@ CACHE_MINUTES = 30
 GLOBAL_RIGHTS = 1
 
 # here you can specify which types are allowed as references.
-REFERENCEABLE_TYPES = ('HelpCenterFAQ',
+REFERENCEABLE_TYPES = (
+    'HelpCenterFAQ',
     'HelpCenterDefinition',
     'HelpCenterTutorial',
     'HelpCenterErrorReference',
@@ -51,7 +53,7 @@ REFERENCEABLE_TYPES = ('HelpCenterFAQ',
     'HelpCenterReferenceManualPage',
     'HelpCenterInstructionalVideo',
     'HelpCenterKnowledgeBase',
-)
+    )
 
 IMAGE_SIZES = {
     'preview': (400, 400),
@@ -62,12 +64,12 @@ IMAGE_SIZES = {
     }
 
 # Path to HelpCenter How-to
-MANUAL_PATH        = 'doc/PHCManual.stx'
-MANUAL_MIMETYPE    = 'text/structured'
-MANUAL_ID          = 'use-help-center'
-MANUAL_TITLE       = 'How to use this resource'
+MANUAL_PATH = 'doc/PHCManual.stx'
+MANUAL_MIMETYPE = 'text/structured'
+MANUAL_ID = 'use-help-center'
+MANUAL_TITLE = 'How to use this resource'
 MANUAL_DESCRIPTION = 'A brief description of how you use and contribute to the Help Center.'
-MANUAL_SECTION     = 'General'
+MANUAL_SECTION = 'General'
 
 # These are the types for which we'll support topic searches and views
-TOPIC_VIEW_TYPES = ['HelpCenterTutorial','HelpCenterHowTo']
+TOPIC_VIEW_TYPES = ['HelpCenterTutorial', 'HelpCenterHowTo']

@@ -28,14 +28,13 @@ import sys
 from Testing.makerequest import makerequest
 
 import transaction
-from zope.component import queryUtility, queryMultiAdapter
+from zope.component import queryUtility
 from plone.i18n.normalizer.interfaces import IURLNormalizer
 from Products.CMFPlone.utils import _createObjectByType
 
 from AccessControl.SecurityManagement import \
     newSecurityManager, noSecurityManager
 
-from Products.PloneHelpCenter.interfaces import IHelpCenterContent
 from Products.PloneHelpCenter.browser.helpcenter import HelpCenterView
 
 normalize = queryUtility(IURLNormalizer).normalize

@@ -1,9 +1,7 @@
 """ support for HelpCenter content templates """
 
 from Acquisition import aq_inner, aq_parent
-
 from Products.Five.browser import BrowserView
-from Products.CMFCore.utils import getToolByName
 
 from Products.PloneHelpCenter.interfaces import IHelpCenterNavRoot
 
@@ -14,7 +12,6 @@ class HelpCenterPagedView(BrowserView):
     def __init__(self, context, request):
         """ set up a few convenience object attributes """
         BrowserView.__init__(self, context, request)
-
 
     def navRootObject(self):
         """ Find the root of the page navigation """

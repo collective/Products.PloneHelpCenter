@@ -1,9 +1,8 @@
 from AccessControl import allow_module
-from App.Common import package_home
 from Products.Archetypes.public import process_types, listTypes
 from Products.CMFCore import utils as CMFCoreUtils
 from Products.CMFCore.DirectoryView import registerDirectory
-import os, os.path, sys
+import sys
 
 # Get all the content types in the types directory
 from Products.PloneHelpCenter import content
@@ -31,10 +30,10 @@ def initialize(context):
     # ADD_HELP_AREA_PERMISSION, ADD_DOCUMENTATION_PERMISSION
     CMFCoreUtils.ContentInit(
         PROJECTNAME + ' Content',
-        content_types      = contentTypes,
-        permission         = ADD_CONTENT_PERMISSION,
-        extra_constructors = constructors,
-        fti                = ftis,
+        content_types=contentTypes,
+        permission=ADD_CONTENT_PERMISSION,
+        extra_constructors=constructors,
+        fti=ftis,
         ).initialize(context)
 
     # Extract constructors for items, areas and the root help center so that
@@ -88,4 +87,3 @@ def initialize(context):
             constructors = (constructor,),
             permission = ADD_CENTER_PERMISSION,
             )
-

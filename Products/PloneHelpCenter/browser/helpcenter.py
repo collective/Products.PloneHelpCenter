@@ -2,13 +2,14 @@
 
 try:
     from collections import defaultdict
+    defaultdict  # pyflakes
 except ImportError:
     # Python 2.4 compatibility
     # http://code.activestate.com/recipes/523034-emulate-collectionsdefaultdict/
     class defaultdict(dict):
         def __init__(self, default_factory=None, *a, **kw):
             if (default_factory is not None and
-                not hasattr(default_factory, '__call__')):
+                    not hasattr(default_factory, '__call__')):
                 raise TypeError('first argument must be callable')
             dict.__init__(self, *a, **kw)
             self.default_factory = default_factory
@@ -456,7 +457,7 @@ class HelpCenterView(BrowserView):
                 path = c.getPath()
                 idx = path.rfind('/talkback')
                 path = path[:idx]
-                id = path.split('/')[-1]
+                #id = path.split('/')[-1]
                 foundPaths[path] = 1
 
             matches = [m for m in matches if m.getPath() in foundPaths]
