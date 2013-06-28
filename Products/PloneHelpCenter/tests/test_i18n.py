@@ -1,8 +1,5 @@
 import os, sys
 
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
-
 HAVE_i18n = False
 try:
     from Products.i18ntestcase.I18NTestCase import getPoFiles, getPotFiles, getProductFromPath
@@ -65,7 +62,3 @@ def test_suite():
     for test in tests:
         suite.addTest(unittest.makeSuite(test))
     return suite
-
-if __name__ == '__main__':
-    framework()
-

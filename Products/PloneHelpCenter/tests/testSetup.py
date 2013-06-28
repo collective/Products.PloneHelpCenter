@@ -4,8 +4,6 @@
 
 import os
 import sys
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
 
 from AccessControl import Unauthorized
 from Products.PloneHelpCenter.tests import PHCTestCase
@@ -358,6 +356,3 @@ def test_suite():
     suite.addTest(makeSuite(TestHelpCenterTutorialContainment))
     suite.addTest(makeSuite(TestHelpCenterGlossaryContainment))
     return suite
-
-if __name__ == '__main__':
-    framework()

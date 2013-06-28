@@ -10,9 +10,6 @@ try:
 except ImportError:  # Plone 3, Python 2.4.
     from email.Parser import Parser
 
-if __name__ == '__main__':
-    execfile(os.path.join(sys.path[0], 'framework.py'))
-
 from Products.CMFCore.utils import getToolByName
 from Products.PloneHelpCenter.tests import PHCTestCase
 
@@ -145,6 +142,3 @@ def test_suite():
     if MockMailHost:
         suite.addTest(makeSuite(MockMailHostTests))
     return suite
-
-if __name__ == '__main__':
-    framework()
