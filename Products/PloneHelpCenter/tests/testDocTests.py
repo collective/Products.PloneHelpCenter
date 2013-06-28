@@ -2,13 +2,12 @@
 files in the tests directory and runs them. (stolen from Plone)
 """
 
-import os, sys
-
-import glob
 import doctest
+import glob
+import os
 import unittest
+
 from App.Common import package_home
-from Products.PloneTestCase import PloneTestCase
 from Testing.ZopeTestCase import FunctionalDocFileSuite as Suite
 
 from Products.PloneHelpCenter.config import GLOBALS
@@ -20,15 +19,14 @@ OPTIONFLAGS = (doctest.REPORT_ONLY_FIRST_FAILURE |
                doctest.ELLIPSIS |
                doctest.NORMALIZE_WHITESPACE)
 
+
 def list_doctests():
     home = package_home(GLOBALS)
     return [filename for filename in
             glob.glob(os.path.sep.join([home, 'tests', '*.txt']))]
 
+
 def test_suite():
-
-    import Products.Five.testbrowser
-
     filenames = list_doctests()
 
     return unittest.TestSuite(

@@ -2,9 +2,6 @@
 # Tests for Tutorial types in the PHC
 #
 
-import os, sys
-
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 
@@ -21,11 +18,10 @@ class TestTutorial(PHCTestCase.PHCTestCase):
         self.assertEqual(self.tutorial.getSections(), ('General',))
 
     def testVersionsonTutorial(self):
-        versions = ('1.0','2.0','Strange version')
+        versions = ('1.0', '2.0', 'Strange version')
         self.folder.hc.setVersionsVocab(versions)
         newVersions = self.tutorial.getVersionsVocab()
         self.assertEqual(newVersions, versions)
-
 
 
 def test_suite():

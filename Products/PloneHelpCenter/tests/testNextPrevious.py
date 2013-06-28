@@ -1,6 +1,7 @@
 from plone.app.layout.nextprevious.interfaces import INextPreviousProvider
 from Products.PloneHelpCenter.tests.PHCTestCase import PHCTestCase
 
+
 class TestNextPrevious(PHCTestCase):
     """PHC use cases and tests for next/previous navigation
     """
@@ -34,9 +35,9 @@ class TestNextPrevious(PHCTestCase):
 
     def testNextPreviousItems(self):
         manual = self.hc.manual_folder.manual
-        section1  = manual.section1
-        section2  = manual.section2
-        section3  = manual.section3
+        section1 = manual.section1
+        section2 = manual.section2
+        #section3 = manual.section3
 
         # set up the adapter for the sec2
         adapter = INextPreviousProvider(section2)

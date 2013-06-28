@@ -4,6 +4,7 @@ so we store the data in a Python module where I'm sure that it can be
 imported by other modules in the same Python package.
 """
 
+
 class PropertyHolder:
     """A dummy struct-like class for holding properties"""
     pass
@@ -14,7 +15,7 @@ Hc.Id = 'hc'
 Hc.Title = 'Test Help Center'
 Hc.Desc = 'A help center instance for functional testing of PHC.'
 Hc.Versions = ('Version 1.0', 'Version 2.0', 'Different Version 1.0')
-Hc.Sections =  ('Topic1', 'Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2', 'Topic2: Section Z', 'Topic2: Section A')
+Hc.Sections = ('Topic1', 'Topic1: Section1', 'Topic1: Section2 - \xc3\xa1'.decode('utf8'), 'Topic2', 'Topic2: Section Z', 'Topic2: Section A')
 
 # Alternate HelpCenter folderish object ----------------------------------------
 AltHc = PropertyHolder()
@@ -33,22 +34,22 @@ Transition.obsolete = 'mark_obsolete'
 User1 = PropertyHolder()
 User1.Id = 'tester1'
 User1.Password = 'tester1'
-User1.Roles = ['Member',]
+User1.Roles = ['Member', ]
 
 User2 = PropertyHolder()
 User2.Id = 'tester2'
 User2.Password = 'tester2'
-User2.Roles = ['Member',]
+User2.Roles = ['Member']
 
 User3 = PropertyHolder()
 User3.Id = 'test_manager'
 User3.Password = 'test_manager'
-User3.Roles = ['Member','Manager',]
+User3.Roles = ['Member', 'Manager']
 
 User4 = PropertyHolder()
 User4.Id = 'test_reviewer'
 User4.Password = 'test_reviewer'
-User4.Roles = ['Member','Reviewer',]
+User4.Roles = ['Member', 'Reviewer']
 
 User = PropertyHolder()
 User.list = [User1, User2, User3, User4]
@@ -63,11 +64,11 @@ TutorialFolder.Sections = Hc.Sections
 
 # FAQFolder settings --------------------------------------------
 FAQFolder = PropertyHolder()
-FAQFolder.Sections = ('General', 'FAQ Section1', 'FAQ - \xc3\xa1 - Section2'.decode('utf8') )
+FAQFolder.Sections = ('General', 'FAQ Section1', 'FAQ - \xc3\xa1 - Section2'.decode('utf8'))
 
 # ErrorReferenceFolder settings --------------------------------------------
 ErrorReferenceFolder = PropertyHolder()
-ErrorReferenceFolder.Sections = ('General', 'Error Ref Section1 - \xc3\xa1'.decode('utf8') )
+ErrorReferenceFolder.Sections = ('General', 'Error Ref Section1 - \xc3\xa1'.decode('utf8'))
 
 # Glossary settings --------------------------------------------
 Glossary = PropertyHolder()
@@ -75,7 +76,7 @@ Glossary.Sections = ('General', )
 
 # LinkFolder settings --------------------------------------------
 LinkFolder = PropertyHolder()
-LinkFolder.Sections = ('General', 'Link Section1', 'Link Section2 - \xc3\xa1'.decode('utf8'), 'Link Section3' )
+LinkFolder.Sections = ('General', 'Link Section1', 'Link Section2 - \xc3\xa1'.decode('utf8'), 'Link Section3')
 
 # ReferenceManualFolder settings --------------------------------------------
 ReferenceManualFolder = PropertyHolder()
@@ -222,8 +223,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto1.Format = 'text/x-rst'
-Howto1.Versions = ( Hc.Versions[1], )
-Howto1.Sections = ( HowtoFolder.Sections[2], )
+Howto1.Versions = (Hc.Versions[1], )
+Howto1.Sections = (HowtoFolder.Sections[2], )
 Howto1.Transition = Transition.publish
 Howto1.Owner = User1
 
@@ -364,8 +365,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto2.Format = 'text/x-rst'
-Howto2.Versions = ( Hc.Versions[1], )
-Howto2.Sections = ( HowtoFolder.Sections[1], HowtoFolder.Sections[3], )
+Howto2.Versions = (Hc.Versions[1], )
+Howto2.Sections = (HowtoFolder.Sections[1], HowtoFolder.Sections[3], )
 Howto2.Transition = Transition.publish
 Howto2.Owner = User1
 
@@ -507,8 +508,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto3.Format = 'text/x-rst'
-Howto3.Versions = ( Hc.Versions[1], )
-Howto3.Sections = ( HowtoFolder.Sections[1], )
+Howto3.Versions = (Hc.Versions[1], )
+Howto3.Sections = (HowtoFolder.Sections[1], )
 Howto3.Transition = Transition.publish
 Howto3.Owner = User2
 
@@ -649,8 +650,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto4.Format = 'text/x-rst'
-Howto4.Versions = ( Hc.Versions[1], )
-Howto4.Sections = ( HowtoFolder.Sections[1], )
+Howto4.Versions = (Hc.Versions[1], )
+Howto4.Sections = (HowtoFolder.Sections[1], )
 Howto4.Transition = None
 Howto4.Owner = User1
 
@@ -792,8 +793,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto5.Format = 'text/x-rst'
-Howto5.Versions = ( Hc.Versions[1], )
-Howto5.Sections = ( HowtoFolder.Sections[1], HowtoFolder.Sections[2], )
+Howto5.Versions = (Hc.Versions[1], )
+Howto5.Sections = (HowtoFolder.Sections[1], HowtoFolder.Sections[2], )
 Howto5.Transition = None
 Howto5.Owner = User2
 
@@ -934,8 +935,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto6.Format = 'text/x-rst'
-Howto6.Versions = ( Hc.Versions[1], )
-Howto6.Sections = ( HowtoFolder.Sections[1], )
+Howto6.Versions = (Hc.Versions[1], )
+Howto6.Sections = (HowtoFolder.Sections[1], )
 Howto6.Transition = Transition.submit
 Howto6.Owner = User1
 
@@ -1077,8 +1078,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto7.Format = 'text/x-rst'
-Howto7.Versions = ( Hc.Versions[1], )
-Howto7.Sections = ( HowtoFolder.Sections[2], )
+Howto7.Versions = (Hc.Versions[1], )
+Howto7.Sections = (HowtoFolder.Sections[2], )
 Howto7.Transition = Transition.publish
 Howto7.Owner = User1
 
@@ -1220,8 +1221,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto8.Format = 'text/x-rst'
-Howto8.Versions = ( Hc.Versions[1], )
-Howto8.Sections = ( HowtoFolder.Sections[2], )
+Howto8.Versions = (Hc.Versions[1], )
+Howto8.Sections = (HowtoFolder.Sections[2], )
 Howto8.Transition = Transition.publish
 Howto8.Owner = User2
 
@@ -1363,8 +1364,8 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto9.Format = 'text/x-rst'
-Howto9.Versions = ( Hc.Versions[1], )
-Howto9.Sections = ( HowtoFolder.Sections[2], )
+Howto9.Versions = (Hc.Versions[1], )
+Howto9.Sections = (HowtoFolder.Sections[2], )
 Howto9.Transition = None
 Howto9.Owner = User1
 
@@ -1506,15 +1507,15 @@ PloneHelpCenter, you wouldd replace *modulename* with the word
 End of test document content.
 '''
 Howto10.Format = 'text/x-rst'
-Howto10.Versions = ( Hc.Versions[1], )
-Howto10.Sections = ( HowtoFolder.Sections[0], )
+Howto10.Versions = (Hc.Versions[1], )
+Howto10.Sections = (HowtoFolder.Sections[0], )
 Howto10.Transition = Transition.publish
 Howto10.Owner = User1
 
 
 # Sample Howto content -----------------------------------------------
 Howto = PropertyHolder()
-Howto.list = [ Howto1, Howto2, Howto3, Howto4, Howto5, Howto6, Howto7, Howto8, Howto9, Howto10 ]
+Howto.list = [Howto1, Howto2, Howto3, Howto4, Howto5, Howto6, Howto7, Howto8, Howto9, Howto10]
 
 # Sample Tutorial Page content ---------------------------------------
 Page1 = PropertyHolder()
@@ -1714,9 +1715,9 @@ Tutorial1 = PropertyHolder()
 Tutorial1.Id = 'tutorial1'
 Tutorial1.Title = 'Test Tutorial 1'
 Tutorial1.Summary = 'A sample Tutorial for functional testing of PloneHelpCenter.  A tutorial that is published; only in one section; has only a single tutorial page.'
-Tutorial1.Versions = ( Hc.Versions[0], )
-Tutorial1.Sections = ( TutorialFolder.Sections[1], )
-Tutorial1.Pages = ( Page1, )
+Tutorial1.Versions = (Hc.Versions[0], )
+Tutorial1.Sections = (TutorialFolder.Sections[1], )
+Tutorial1.Pages = (Page1, )
 Tutorial1.Transition = Transition.publish
 Tutorial1.Owner = User1
 
@@ -1725,9 +1726,9 @@ Tutorial2 = PropertyHolder()
 Tutorial2.Id = 'tutorial2'
 Tutorial2.Title = 'Test Tutorial 2'
 Tutorial2.Summary = 'A sample Tutorial that is pending; only in one section; has three tutorial pages.'
-Tutorial2.Versions = ( Hc.Versions[1], )
-Tutorial2.Sections = ( TutorialFolder.Sections[1], )
-Tutorial2.Pages = ( Page1, Page2, Page3, )
+Tutorial2.Versions = (Hc.Versions[1], )
+Tutorial2.Sections = (TutorialFolder.Sections[1], )
+Tutorial2.Pages = (Page1, Page2, Page3, )
 Tutorial2.Transition = Transition.submit
 Tutorial2.Owner = User1
 
@@ -1736,8 +1737,8 @@ Tutorial3 = PropertyHolder()
 Tutorial3.Id = 'tutorial3'
 Tutorial3.Title = 'Test Tutorial 3'
 Tutorial3.Summary = 'A sample Tutorial that is in-progress; only in one section; has no tutorial pages.'
-Tutorial3.Versions = ( Hc.Versions[1], )
-Tutorial3.Sections = ( TutorialFolder.Sections[1], )
+Tutorial3.Versions = (Hc.Versions[1], )
+Tutorial3.Sections = (TutorialFolder.Sections[1], )
 Tutorial3.Pages = ()
 Tutorial3.Transition = None
 Tutorial3.Owner = User1
@@ -1747,16 +1748,16 @@ Tutorial4 = PropertyHolder()
 Tutorial4.Id = 'tutorial4'
 Tutorial4.Title = 'Test Tutorial 4'
 Tutorial4.Summary = 'A sample Tutorial that is published; only in (a different) one section; has a couple of tutorial pages and at least one non-tutorial page piece of content.'
-Tutorial4.Versions = ( Hc.Versions[1], )
-Tutorial4.Sections = ( TutorialFolder.Sections[0], )
-Tutorial4.Pages = ( Page1, Page2, Page3)
+Tutorial4.Versions = (Hc.Versions[1], )
+Tutorial4.Sections = (TutorialFolder.Sections[0], )
+Tutorial4.Pages = (Page1, Page2, Page3)
 Tutorial4.Transition = Transition.publish
 Tutorial4.Owner = User1
 
 
 # Sample Tutorial content --------------------------------------------
 Tutorial = PropertyHolder()
-Tutorial.list = [ Tutorial1 , Tutorial2, Tutorial3, Tutorial4, ]
+Tutorial.list = [Tutorial1, Tutorial2, Tutorial3, Tutorial4]
 
 # Sample FAQ content 1 -----------------------------------------------
 FAQ1 = PropertyHolder()
@@ -1765,8 +1766,8 @@ FAQ1.Title = 'What is Test FAQ 1?'
 FAQ1.Question = 'This would be a long form of the question.  Sample FAQ for functional testing; published; only in one section.'
 FAQ1.Answer = 'Bogus answer here.  Just a lot of text to fill some space.  ' * 3
 FAQ1.Format = 'text/plain'
-FAQ1.Versions = ( Hc.Versions[1], )
-FAQ1.Sections = ( FAQFolder.Sections[1], )
+FAQ1.Versions = (Hc.Versions[1], )
+FAQ1.Sections = (FAQFolder.Sections[1], )
 FAQ1.Transition = Transition.publish
 FAQ1.Owner = User1
 
@@ -1777,8 +1778,8 @@ FAQ2.Title = 'What is Test FAQ 2?'
 FAQ2.Question = 'This would be a long form of the question.  Sample FAQ for functional testing; pending; only in one section.'
 FAQ2.Answer = 'Bogus answer here.  Just a lot of text to fill some space.  ' * 3
 FAQ2.Format = 'text/plain'
-FAQ2.Versions = ( Hc.Versions[1], )
-FAQ2.Sections = ( FAQFolder.Sections[1], )
+FAQ2.Versions = (Hc.Versions[1], )
+FAQ2.Sections = (FAQFolder.Sections[1], )
 FAQ2.Transition = Transition.submit
 FAQ2.Owner = User1
 
@@ -1789,8 +1790,8 @@ FAQ3.Title = 'What is Test FAQ 3?'
 FAQ3.Question = 'This would be a long form of the question.  Sample FAQ for functional testing; in-progress; only in one section.'
 FAQ3.Answer = 'Bogus answer here.  Just a lot of text to fill some space.  ' * 3
 FAQ3.Format = 'text/plain'
-FAQ3.Versions = ( Hc.Versions[1], )
-FAQ3.Sections = ( FAQFolder.Sections[1], )
+FAQ3.Versions = (Hc.Versions[1], )
+FAQ3.Sections = (FAQFolder.Sections[1], )
 FAQ3.Transition = None
 FAQ3.Owner = User1
 
@@ -1801,14 +1802,14 @@ FAQ4.Title = 'What is Test FAQ 4?'
 FAQ4.Question = 'This would be a long form of the question.  Sample FAQ for functional testing; published; only in (a different) one section.'
 FAQ4.Answer = 'Bogus answer here.  Just a lot of text to fill some space.  ' * 3
 FAQ4.Format = 'text/plain'
-FAQ4.Versions = ( Hc.Versions[1], )
-FAQ4.Sections = ( FAQFolder.Sections[2], )
+FAQ4.Versions = (Hc.Versions[1], )
+FAQ4.Sections = (FAQFolder.Sections[2], )
 FAQ4.Transition = Transition.publish
 FAQ4.Owner = User1
 
 # Sample FAQ content -------------------------------------------------
 FAQ = PropertyHolder()
-FAQ.list = [FAQ1, FAQ2, FAQ3, FAQ4,]
+FAQ.list = [FAQ1, FAQ2, FAQ3, FAQ4]
 
 
 # Sample ErrorReference content --------------------------------------
@@ -1834,5 +1835,3 @@ ReferenceManual.list = []
 # Sample Video content -----------------------------------------------
 Video = PropertyHolder()
 Video.list = []
-
-

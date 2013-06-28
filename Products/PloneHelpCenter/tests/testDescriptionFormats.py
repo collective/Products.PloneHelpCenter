@@ -4,8 +4,6 @@
 # http://plone.org/products/plonehelpcenter/issues/99
 #
 
-import os, sys
-
 from plone.app.controlpanel.markup import IMarkupSchema
 
 from Products.PloneHelpCenter.tests import PHCTestCase
@@ -24,12 +22,12 @@ class TestDescriptionFormats(PHCTestCase.PHCTestCase):
         # format from the "Alternative Formats" choices
         markup_data = IMarkupSchema(self.portal)
         markup_data.allowed_types = (
-            'text/html','text/plain','text/restructured'
+            'text/html', 'text/plain', 'text/restructured'
         )
 
         self._createFAQ(self.folder.hc.faq, 'f')
         self.faq = self.folder.hc.faq.f
-        self._createHowto( getattr(self.folder.hc, 'how-to'), 'howto1' )
+        self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
         self.howto = getattr(self.folder.hc, 'how-to').howto1
         self._createTutorial(self.folder.hc.tutorial, 't')
         self.tutorial = self.folder.hc.tutorial.t

@@ -2,16 +2,13 @@
 # Tests for FAQ types in the PHC
 #
 
-import os, sys
-
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 try:
     from Products import LinguaPlone
-    LINGUAPLONE = True
+    LinguaPlone  # pyflakes
 except ImportError:
-    LINGUAPLONE = False
+    LinguaPlone = False
     print "LinguaPlone not found... skipping multilingual tests."
 
 
@@ -26,7 +23,7 @@ class TestMultilingual(PHCTestCase.PHCTestCase):
         self.frFaq = self.enFaq.getTranslation('fr')
 
     def testIndependentVersions(self):
-        versions = ('1.0','2.0','Strange version')
+        versions = ('1.0', '2.0', 'Strange version')
         self.folder.hc.setVersionsVocab(versions)
         enVersions = self.enFaq.getVersionsVocab()
         frVersions = self.frFaq.getVersionsVocab()
@@ -39,9 +36,10 @@ class TestMultilingual(PHCTestCase.PHCTestCase):
         self.frFaq.setDescription(frDescription)
         self.failIfEqual(self.enFaq.Description(), self.frFaq.Description())
 
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()
-    if LINGUAPLONE:
+    if LinguaPlone:
         suite.addTest(makeSuite(TestMultilingual))
     return suite

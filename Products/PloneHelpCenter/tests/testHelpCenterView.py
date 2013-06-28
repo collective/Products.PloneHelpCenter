@@ -21,6 +21,7 @@ class TestHelpCenterView(PHCFunctionalTestCase):
         subtopic_titles = [s['title'] for s in subtopics]
         self.assertEqual(subtopic_titles, ['Section Z', 'Section A'])
 
+
 def test_suite():
     from unittest import TestSuite, makeSuite
     suite = TestSuite()

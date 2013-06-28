@@ -2,12 +2,9 @@
 # Tests for workflow and permissions in the PHC
 #
 
-import os, sys
-
 from AccessControl import Unauthorized
 from Products.PloneTestCase.PloneTestCase import default_user
 
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 
@@ -17,13 +14,12 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
     def afterSetUp(self):
         PHCTestCase.PHCTestCase.afterSetUp(self)
         self.pm = self.portal.portal_membership
-        self.pm.addMember( 'test_member', 'pw', ['Member'], [] )
-        self.pm.addMember( 'test_reviewer', 'pw', ['Member', 'Reviewer'], [] )
-        self.pm.addMember( 'test_contributor', 'pw', ['Member', 'Contributor'], [] )
-        self.pm.addMember( 'test_editor', 'pw', ['Member', 'Editor'], [] )
-        self.pm.addMember( 'test_reader', 'pw', ['Member', 'Reader'], [] )
-        self.pm.addMember( 'test_manager', 'pw', ['Member', 'Manager'], [])
-
+        self.pm.addMember('test_member', 'pw', ['Member'], [])
+        self.pm.addMember('test_reviewer', 'pw', ['Member', 'Reviewer'], [])
+        self.pm.addMember('test_contributor', 'pw', ['Member', 'Contributor'], [])
+        self.pm.addMember('test_editor', 'pw', ['Member', 'Editor'], [])
+        self.pm.addMember('test_reader', 'pw', ['Member', 'Reader'], [])
+        self.pm.addMember('test_manager', 'pw', ['Member', 'Manager'], [])
 
     def _publishContent(self, item):
         """Moves content created by the default user to the published state."""
@@ -120,7 +116,6 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.portal.portal_workflow.doActionFor(howto, 'mark_obsolete')
         howto.edit(text_format='plain', text=newBody)
         self.assertEqual(howto.getRawText(), newBody)
-
 
     # Next several tests: owners can obsolete their own content at any point
 
@@ -317,7 +312,6 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.portal.portal_workflow.doActionFor(definition, 'mark_obsolete')
         self._checkReviewState(definition, 'obsolete')
 
-
     def testReaderUnpublished(self):
         """Readers can view the item even if it's not published, but
         can't edit it.
@@ -403,6 +397,7 @@ class TestWorkflow(PHCTestCase.PHCTestCase):
         self.logout()
         self.assertFalse(self.pm.checkPermission('View', howto))
         self.assertFalse(self.pm.checkPermission('Modify portal content', howto))
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

@@ -2,9 +2,6 @@
 # PHC Setup tests
 #
 
-import os
-import sys
-
 from AccessControl import Unauthorized
 from Products.PloneHelpCenter.tests import PHCTestCase
 

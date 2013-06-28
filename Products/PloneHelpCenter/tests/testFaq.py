@@ -2,9 +2,6 @@
 # Tests for FAQ types in the PHC
 #
 
-import os, sys
-
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 
@@ -21,7 +18,7 @@ class TestFaq(PHCTestCase.PHCTestCase):
         self.assertEqual(self.faq.getSections(), ('General',))
 
     def testVersionsonFaq(self):
-        versions = ('1.0','2.0','Strange version')
+        versions = ('1.0', '2.0', 'Strange version')
         self.folder.hc.setVersionsVocab(versions)
         newVersions = self.faq.getVersionsVocab()
         self.assertEqual(newVersions, versions)

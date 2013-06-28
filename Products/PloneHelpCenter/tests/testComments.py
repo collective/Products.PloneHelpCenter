@@ -2,11 +2,9 @@
 # Tests for PHC and the Comment (discussion or talkback) system
 #
 
-import os
-import sys
-
 try:
     from email.parser import Parser
+    Parser  # pyflakes
 except ImportError:  # Plone 3, Python 2.4.
     from email.Parser import Parser
 
@@ -15,6 +13,7 @@ from Products.PloneHelpCenter.tests import PHCTestCase
 
 try:
     from Products.CMFPlone.tests.utils import MockMailHost
+    MockMailHost  # pyflakes
 except ImportError:
     MockMailHost = None
 from Products.PloneHelpCenter.utils import discussion_notify

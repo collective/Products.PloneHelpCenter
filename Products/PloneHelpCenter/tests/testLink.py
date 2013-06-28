@@ -2,9 +2,6 @@
 # Tests for Link types in the PHC
 #
 
-import os, sys
-
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 
@@ -21,10 +18,11 @@ class TestLink(PHCTestCase.PHCTestCase):
         self.assertEqual(self.link.getSections(), ('General',))
 
     def testVersionsonLink(self):
-        versions = ('1.0','2.0','Strange version')
+        versions = ('1.0', '2.0', 'Strange version')
         self.folder.hc.setVersionsVocab(versions)
         newVersions = self.link.getVersionsVocab()
         self.assertEqual(newVersions, versions)
+
 
 def test_suite():
     from unittest import TestSuite, makeSuite

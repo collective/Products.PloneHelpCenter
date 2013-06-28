@@ -5,12 +5,13 @@ from Products.Five import fiveconfigure
 from Products.Five import zcml
 from Products.PloneTestCase.layer import onsetup
 import Products.PloneHelpCenter
-from Products.PloneHelpCenter.config import ADD_CENTER_PERMISSION, \
-  ADD_HELP_AREA_PERMISSION
+from Products.PloneHelpCenter.config import ADD_CENTER_PERMISSION
+from Products.PloneHelpCenter.config import ADD_HELP_AREA_PERMISSION
 
 # from Products.Five.testbrowser import Browser
 
 ZopeTestCase.installProduct('PloneHelpCenter')
+
 
 @onsetup
 def setup_product():
@@ -25,7 +26,7 @@ PloneTestCase.setupPloneSite(products=['PloneHelpCenter'])
 class PHCTestCase(PloneTestCase.PloneTestCase):
 
     defaultTitle = 'Default Testing Title'
-    defaultVersions = ( 'Version 1.0', 'Version 2.0', 'Different Version1.0', )
+    defaultVersions = ('Version 1.0', 'Version 2.0', 'Different Version1.0')
     defaultBodyRst = """
     Bogus reST body
     ===============
@@ -77,8 +78,8 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         howto.setTitle(title)
         howto.setDescription('A PHC Howto for unit tests.')
         howto.setText(self.defaultBodyRst)
-        howto.setVersions( ('Version 2.0',) )
-        howto.setSections( ('General',) )
+        howto.setVersions(('Version 2.0', ))
+        howto.setSections(('General', ))
         self.portal.plone_utils.editMetadata(howto, format='text/x-rst')
         return howto
 
@@ -90,8 +91,8 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         tutorial = getattr(tutorialFolder, id)
         tutorial.setTitle(title)
         tutorial.setDescription('A PHC Tutorial for unit tests.')
-        tutorial.setVersions( ('Version 2.0',) )
-        tutorial.setSections( ('General',) )
+        tutorial.setVersions(('Version 2.0', ))
+        tutorial.setSections(('General', ))
         # attach pages
         for i in range(numPages):
             pageNum = i + 1
@@ -101,7 +102,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
             newPage.setTitle('Test Tutorial Page %d' % pageNum)
             newPage.setDescription('A PHC Tutorial Page (%d) for unit tests.' % pageNum)
             newPage.setText(self.defaultBodyRst)
-            self.portal.plone_utils.editMetadata(newPage,format='text/x-rst')
+            self.portal.plone_utils.editMetadata(newPage, format='text/x-rst')
         return tutorial
 
     def _createFAQ(self, faqFolder, id, title=defaultTitle):
@@ -113,29 +114,29 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         faq.setTitle=(title)
         faq.setDescription('An FAQ for unit tests.  Did you know that this field is supposed to be the questionfaq.set?')
         faq.setText('No one knows; it is one of the great mysteries.')
-        faq.setVersions( ('Version 2.0',) )
-        faq.setSections( ('General',) )
+        faq.setVersions(('Version 2.0', ))
+        faq.setSections(('General', ))
         self.portal.plone_utils.editMetadata(faq, format='text/plain')
         return faq
 
     def _createLink(self, linkFolder, id, title=defaultTitle):
         linkFolder.invokeFactory('HelpCenterLink', id)
         link = getattr(linkFolder, id)
-        link.setTitle( title )
-        link.setDescription( 'A Link for unit tests.' )
+        link.setTitle(title)
+        link.setDescription('A Link for unit tests.')
         link.setUrl('http://www.plone.org/')
-        link.setVersions( ('Version 2.0',) )
-        link.setSections( ('General',) )
+        link.setVersions(('Version 2.0', ))
+        link.setSections(('General', ))
         return link
 
     def _createErrorReference(self, errorRefFolder, id, title=defaultTitle):
         errorRefFolder.invokeFactory('HelpCenterErrorReference', id)
         errorRef = getattr(errorRefFolder, id)
-        errorRef.setTitle( title )
-        errorRef.setDescription( 'An error reference for unit tests.' )
-        errorRef.setText( self.defaultBodyRst )
-        errorRef.setVersions( ('Version 2.0',) )
-        errorRef.setSections( ('General',) )
+        errorRef.setTitle(title)
+        errorRef.setDescription('An error reference for unit tests.')
+        errorRef.setText(self.defaultBodyRst)
+        errorRef.setVersions(('Version 2.0', ))
+        errorRef.setSections(('General', ))
         self.portal.plone_utils.editMetadata(errorRef, format='text/x-rst')
         return errorRef
 
@@ -144,8 +145,8 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
         definition = getattr(glossaryFolder, id)
         definition.setTitle(title)
         definition.setDescription('A definition for unit tests.')
-        definition.setVersions( ('Version 2.0',) )
-        definition.setSections( ('General',) )
+        definition.setVersions(('Version 2.0', ))
+        definition.setSections(('General', ))
         return definition
 
     def _createReferenceManual(self, glossaryFolder, id, title=defaultTitle):
@@ -153,6 +154,7 @@ class PHCTestCase(PloneTestCase.PloneTestCase):
 
     def _createVideo(self, videoFolder, id, title=defaultTitle):
         pass
+
 
 class PHCFunctionalTestCase(PloneTestCase.FunctionalTestCase):
 
@@ -163,4 +165,3 @@ class PHCFunctionalTestCase(PloneTestCase.FunctionalTestCase):
     def _setup(self):
         PloneTestCase.FunctionalTestCase._setup(self)
         self.app.REQUEST['SESSION'] = self.Session()
-

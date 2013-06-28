@@ -2,9 +2,6 @@
 # Tests for Howto types in the PHC
 #
 
-import os, sys
-
-from Testing import ZopeTestCase
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 
@@ -13,11 +10,11 @@ class TestHowto(PHCTestCase.PHCTestCase):
 
     def afterSetUp(self):
         PHCTestCase.PHCTestCase.afterSetUp(self)
-        self._createHowto( getattr(self.folder.hc, 'how-to'), 'howto1' )
+        self._createHowto(getattr(self.folder.hc, 'how-to'), 'howto1')
         self.howto = getattr(self.folder.hc, 'how-to').howto1
 
     def testVersionsHowto(self):
-        versions = ('1.0','2.0','Strange version')
+        versions = ('1.0', '2.0', 'Strange version')
         self.folder.hc.setVersionsVocab(versions)
         newVersions = self.howto.getVersionsVocab()
         self.assertEqual(newVersions, versions)
