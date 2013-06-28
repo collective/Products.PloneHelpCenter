@@ -13,6 +13,7 @@ except ImportError:  # Plone 3, Python 2.4.
 if __name__ == '__main__':
     execfile(os.path.join(sys.path[0], 'framework.py'))
 
+from Products.CMFCore.utils import getToolByName
 from Products.PloneHelpCenter.tests import PHCTestCase
 
 try:
@@ -44,7 +45,7 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
     def testCommentOnTutorialPage(self):
         title = 'Test comment'
         body = 'head\nbody\nlegs\n'
-        discussionTool = self.portal.portal_discussion
+        discussionTool = getToolByName(self.portal, 'portal_discussion')
         # turn on discussion
         self.tutorial.page2.allowDiscussion(allowDiscussion=True)
         # set up the talkback subobject
@@ -68,7 +69,7 @@ class TestTutorialPageComments(PHCTestCase.PHCTestCase):
     def testCommentOnTutorialFolder(self):
         title = 'Test folder comment'
         body = 'head\nbody\nlegs\n'
-        discussionTool = self.portal.portal_discussion
+        discussionTool = getToolByName(self.portal, 'portal_discussion')
         # set up the talkback subobject
         discussionTool.getDiscussionFor(self.tutorial)
         # create a comment on the tutorial
