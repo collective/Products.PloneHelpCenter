@@ -21,7 +21,11 @@ def _sectionCmp(a, b):
         if PLONE4:
             from plone.folder.interfaces import IOrdering
             ordering = getAdapter(Acquisition.aq_parent(a.getObject()), IOrdering)
-            return cmp(ordering.getObjectPosition(a.id), ordering.getObjectPosition(b.id))
+            try:
+                return cmp(ordering.getObjectPosition(a.id), ordering.getObjectPosition(b.id))
+            except ValueError:
+                # not comparable; these items are probably not in the same folder
+                return 0
         else: # Plone 3
             return cmp(a.getObjPositionInParent(), b.getObjPositionInParent())
     elif ash:
