@@ -5,6 +5,10 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b4 (unreleased)
 
+    - Fixed faqfolder_view error by checking if item brain returns a value 
+      when asking for getSections
+      [ichim-david]
+
     - Removed ancient patch for CMFCore 1.4.7 or lower, which was last
       used in Plone 2.0.5.
       [maurits]

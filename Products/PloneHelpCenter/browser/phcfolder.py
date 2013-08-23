@@ -57,7 +57,8 @@ class HelpCenterFolderView(BrowserView):
         if section == 'No section':
             items = []
             for item in context.getFolderContents(contentFilter = kwargs):
-                if len(item.getSections) < 2:
+                sections = item.getSections
+                if sections and len(sections) < 2:
                     items.append(item)
             return items
         else:
@@ -222,7 +223,6 @@ class HelpCenterFolderView(BrowserView):
 
         May return [] if there are no sections in the vocabulary
         """
-
         context = Acquisition.aq_inner(self.context)
 
         sections = {}
