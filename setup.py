@@ -27,7 +27,6 @@ setup(name='Products.PloneHelpCenter',
       namespace_packages=['Products'],
       include_package_data=True,
       zip_safe=False,
-      download_url='http://plone.org/products/plonehelpcenter',
       install_requires=[
           'setuptools',
           'lxml',
