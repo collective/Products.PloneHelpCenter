@@ -5,6 +5,12 @@ History of changes to PHC (name of developer listed in brackets)::
 
     PloneHelpCenter 4.0b4 (unreleased)
 
+    - Register png icons from standard Plone for HelpCenterHowToFolder
+      and HelpCenterLinkFolder.  Add upgrade step to apply the
+      typeinfo and recatalog these two portal_types.  Otherwise on
+      Plone 4.3 these items miss icons in listings.
+      [maurits]
+
     - Fixed faqfolder_view error by checking if item brain returns a value 
       when asking for getSections
       [ichim-david]

@@ -46,7 +46,7 @@ class HelpCenterHowToFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
 
     implements(IHelpCenterFolder)
 
-    content_icon = 'topic_icon.gif'
+    content_icon = 'topic_icon.png'
 
     schema = HowToFolderSchema
     archetype_name = 'How-to Section'

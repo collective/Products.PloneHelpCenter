@@ -6,18 +6,20 @@ upgrades.py
 Created by Steve McMahon on 2009-04-17.
 """
 
-from config import PROJECTNAME
-
-from zope.component import getUtility
-from Products.CMFCore.interfaces import ISiteRoot
-from Products.CMFCore.utils import getToolByName
+from StringIO import StringIO
+import logging
 
 from Products.Archetypes.public import listTypes
-
-from StringIO import StringIO
+from Products.CMFCore.interfaces import ISiteRoot
+from Products.CMFCore.utils import getToolByName
 from Products.contentmigration import walker
 from Products.contentmigration.archetypes import InplaceATItemMigrator
+from zope.component import getUtility
 
+from config import PROJECTNAME
+
+PROFILE_ID = 'profile-Products.PloneHelpCenter:default'
+logger = logging.getLogger('PloneHelpCenter')
 
 # getPortal and IfInstalled stolen from Collage.
 # Thanks, Giles!
@@ -119,13 +121,13 @@ def migrateNextPrev(self):
 def runTypesUpdate(setuptool):
     """Upgrade types from profile"""
 
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'typeinfo',
+    setuptool.runImportStepFromProfile(PROFILE_ID, 'typeinfo',
                                        run_dependencies=True)
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'workflow',
+    setuptool.runImportStepFromProfile(PROFILE_ID, 'workflow',
                                       run_dependencies=True)
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'rolemap',
+    setuptool.runImportStepFromProfile(PROFILE_ID, 'rolemap',
                                       run_dependencies=True)
-    setuptool.runImportStepFromProfile('profile-Products.PloneHelpCenter:default', 'difftool',
+    setuptool.runImportStepFromProfile(PROFILE_ID, 'difftool',
                                       run_dependencies=True)
 
 
@@ -199,3 +201,37 @@ def runTypesMigration(setuptool):
     reindexNearlyAll(setuptool)
 
     return
+
+
+def dummy_upgrade_step(setuptool):
+    """Dummy upgrade step when nothing needs to happen.
+
+    We should not need to run any upgrade step then, really, but if we
+    want to, we can use this.
+    """
+    return
+
+
+def run_typeinfo_step(setuptool):
+    """Upgrade types from profile"""
+    setuptool.runImportStepFromProfile(PROFILE_ID, 'typeinfo')
+
+
+def recatalog_portal_types(context, portal_types):
+    # portal_types can be a string of a single portal_type, or a list
+    # or tuple.
+    catalog = getToolByName(context, 'portal_catalog')
+    brains = catalog.searchResults(portal_type=portal_types)
+    logger.info("Recataloging %d items of type %r", len(brains), portal_types)
+    for brain in brains:
+        obj = brain.getObject()
+        catalog.catalog_object(obj)
+    logger.info("Done recataloging.")
+
+
+def recatalog_HelpCenterHowToFolder(setuptool):
+    recatalog_portal_types(setuptool, 'HelpCenterHowToFolder')
+
+
+def recatalog_HelpCenterLinkFolder(setuptool):
+    recatalog_portal_types(setuptool, 'HelpCenterLinkFolder')

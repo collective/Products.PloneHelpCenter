@@ -46,7 +46,7 @@ class HelpCenterLinkFolder(PHCFolder, ATContentTypes.content.folder.ATFolder):
 
     implements(IHelpCenterFolder)
 
-    content_icon = 'link_icon.gif'
+    content_icon = 'link_icon.png'
 
     schema = LinkFolderSchema
     archetype_name = 'Link Section'

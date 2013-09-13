@@ -36,7 +36,36 @@
        handler=".upgrades.runTypesMigration"
        />
   </gs:upgradeSteps>
-
+  <gs:upgradeSteps
+     source="3.0"
+     destination="4.0b3"
+     profile="Products.PloneHelpCenter:default">
+    <gs:upgradeStep
+       title="Dummy upgrade step"
+       description="Step to reach a new profile metadata version"
+       handler=".upgrades.dummy_upgrade_step"
+       />
+  </gs:upgradeSteps>
+  <gs:upgradeSteps
+     source="4.0b3"
+     destination="4.0b4"
+     profile="Products.PloneHelpCenter:default">
+    <gs:upgradeStep
+       title="Upgrade the types"
+       description="This uses a few new icons."
+       handler=".upgrades.run_typeinfo_step"
+       />
+    <gs:upgradeStep
+       title="Recatalog all HelpCenterHowToFolder"
+       description="This gives them a new icon."
+       handler=".upgrades.recatalog_HelpCenterHowToFolder"
+       />
+    <gs:upgradeStep
+       title="Recatalog all HelpCenterLinkFolder"
+       description="This gives them a new icon."
+       handler=".upgrades.recatalog_HelpCenterLinkFolder"
+       />
+  </gs:upgradeSteps>
 
   <adapter
       for="Products.PloneHelpCenter.interfaces.IHelpCenterFolder
