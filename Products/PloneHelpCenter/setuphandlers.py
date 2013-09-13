@@ -6,78 +6,70 @@ setuphandlers.py
 Created by Steve McMahon on 2009-04-25.
 """
 
-from StringIO import StringIO
-
 from Products.CMFCore.utils import getToolByName
 
 from Products.PloneHelpCenter import config
 
 
-def install(self):
-    out = StringIO()
-
+def install(site, logger):
     # Add catalog metadata columns and indexes
-    catalog = getToolByName(self, 'portal_catalog')
-    addCatalogIndex(self, out, catalog, 'isOutdated', 'FieldIndex')
-    addCatalogMetadata(self, out, catalog, 'isOutdated')
-    addCatalogIndex(self, out, catalog, 'getAudiences', 'KeywordIndex')
-    addCatalogMetadata(self, out, catalog, 'getAudiences')
-    addCatalogIndex(self, out, catalog, 'getSections', 'KeywordIndex')
-    addCatalogMetadata(self, out, catalog, 'getSections')
-    addCatalogIndex(self, out, catalog, 'getStartHere', 'FieldIndex')
-    addCatalogMetadata(self, out, catalog, 'getStartHere')
-    addCatalogIndex(self, out, catalog, 'getVersions', 'KeywordIndex')
-    addCatalogMetadata(self, out, catalog, 'getVersions')
-    print >> out, "Added PHC items to catalog indexes and metadata"
+    catalog = getToolByName(site, 'portal_catalog')
+    addCatalogIndex(site, logger, catalog, 'isOutdated', 'FieldIndex')
+    addCatalogMetadata(site, logger, catalog, 'isOutdated')
+    addCatalogIndex(site, logger, catalog, 'getAudiences', 'KeywordIndex')
+    addCatalogMetadata(site, logger, catalog, 'getAudiences')
+    addCatalogIndex(site, logger, catalog, 'getSections', 'KeywordIndex')
+    addCatalogMetadata(site, logger, catalog, 'getSections')
+    addCatalogIndex(site, logger, catalog, 'getStartHere', 'FieldIndex')
+    addCatalogMetadata(site, logger, catalog, 'getStartHere')
+    addCatalogIndex(site, logger, catalog, 'getVersions', 'KeywordIndex')
+    addCatalogMetadata(site, logger, catalog, 'getVersions')
+    logger.info("Added PHC items to catalog indexes and metadata.")
 
-    turnOnVersioning(self)
-    print >> out, "Turned on versioning for leaf types"
+    turnOnVersioning(site)
+    logger.info("Turned on versioning for leaf types.")
 
-    print >> out, "Successfully installed %s" % config.PROJECTNAME
-
-    return out.getvalue()
-
-from Products.PloneHelpCenter.config import *
+    logger.info("Successfully installed %s.", config.PROJECTNAME)
 
 
-def addCatalogIndex(self, out, catalog, index, type, extra=None):
+def addCatalogIndex(site, logger, catalog, index, type, extra=None):
     """Add the given index name, of the given type, to the catalog."""
 
     if index not in catalog.indexes():
         catalog.addIndex(index, type, extra)
-        print >> out, "Added index", index, "to catalog"
+        logger.info("Added index %s to catalog.", index)
     else:
-        print >> out, "Index", index, "already in catalog"
+        logger.info("Index %s already in catalog.", index)
 
 
-def addCatalogMetadata(self, out, catalog, column):
+def addCatalogMetadata(site, logger, catalog, column):
     """Add the given column to the catalog's metadata schema"""
 
     if column not in catalog.schema():
         catalog.addColumn(column)
-        print >> out, "Added", column, "to catalog metadata"
+        logger.info("Added %s to catalog metadata.", column)
     else:
-        print >> out, column, "already in catalog metadata"
+        logger.info("%s already in catalog metadata.", column)
 
 
-def removeCatalogIndex(self, out, catalog, index):
+def removeCatalogIndex(site, logger, catalog, index):
     """Delete the given index"""
 
     if index in catalog.indexes():
         catalog.delIndex(index)
-        print >> out, "Removed index", index
+        logger.info("Removed index %s.", index)
     else:
-        print >> out, "Index", index, "not in catalog"
+        logger.info("Index %s not in catalog.", index)
 
 
-def removeCatalogMetadata(self, out, catalog, column):
+def removeCatalogMetadata(site, logger, catalog, column):
     """Delete the given metadata column"""
 
     if column in catalog.schema():
         catalog.delColumn(column)
-        print >> out, "Removed column", column
+        logger.info("Removed column %s.", column)
     else:
-        print >> out, "Column", column, "not in catalog"
+        logger.info("Column %s not in catalog.", column)
 
 
 def turnOnVersioning(site):
@@ -109,10 +101,10 @@ def importVarious(context):
     """
     Final plonehelpcenter import steps.
     """
-
     # Only run step if a flag file is present (e.g. not an extension profile)
     if context.readDataFile('plonehelpcenter-various.txt') is None:
         return
 
     site = context.getSite()
-    print install(site)
+    logger = context.getLogger('PloneHelpCenter')
+    install(site, logger)
