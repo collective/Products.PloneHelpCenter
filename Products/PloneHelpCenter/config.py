@@ -64,8 +64,8 @@ IMAGE_SIZES = {
     }
 
 # Path to HelpCenter How-to
-MANUAL_PATH = 'doc/PHCManual.stx'
-MANUAL_MIMETYPE = 'text/structured'
+MANUAL_PATH = 'doc/PHCManual.html'
+MANUAL_MIMETYPE = 'text/html'
 MANUAL_ID = 'use-help-center'
 MANUAL_TITLE = 'How to use this resource'
 MANUAL_DESCRIPTION = 'A brief description of how you use and contribute to the Help Center.'
