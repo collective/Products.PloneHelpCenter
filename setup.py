@@ -9,7 +9,7 @@ setup(name='Products.PloneHelpCenter',
       description="A simple help-desk style documentation product for Plone.",
       long_description=(open("README.txt").read() + '\n' +
                         open(os.path.join("docs", "INSTALL.txt")).read() + '\n' +
-                        open(os.path.join("docs", "HISTORY.txt")).read() + '\n' +
+                        open("CHANGES.rst").read() + '\n' +
                         open(os.path.join("docs", "CREDITS.txt")).read()),
       classifiers=[
           "Framework :: Plone",
