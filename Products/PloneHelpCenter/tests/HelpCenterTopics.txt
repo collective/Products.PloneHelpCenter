@@ -39,7 +39,11 @@ Exercise the folder view's getItemsByAudiencesAndSections method.
     1
 
 Exercise the folder view's getItemsBySections method.
-We don't expect to find anything since the only existing howto
-isn't in a current section.
-    >>> len( view.getItemsBySections() )
-    0
+We expect to find one item, in the 'no-section' section.
+    >>> ibs = view.getItemsBySections()
+    >>> len(ibs)
+    1
+    >>> ibs[0]['id']
+    'no-section'
+    >>> ibs[0]['items'][0].getObject()
+    <HelpCenterHowTo at /plone/hc/how-to/use-help-center>
