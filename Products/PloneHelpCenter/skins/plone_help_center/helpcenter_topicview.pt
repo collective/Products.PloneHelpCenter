@@ -1,4 +1,7 @@
-<html metal:use-macro="context/main_template/macros/master">
+<html
+  xmlns:tal="http://xml.zope.org/namespaces/tal"
+  xmlns:metal="http://xml.zope.org/namespaces/metal"
+  metal:use-macro="context/main_template/macros/master">
 <body>
 
   <div metal:fill-slot="main" tal:define="view context/@@hc_view; sections view/getTopics">
