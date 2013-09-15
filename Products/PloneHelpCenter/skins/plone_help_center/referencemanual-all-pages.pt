@@ -40,9 +40,10 @@
                     <span tal:replace="here/Title" />
                 </h1>
 
-                <p class="discreet visualNoPrint"
-                   i18n:translate="view_paginated_reference_manual">
-                    <a href="" tal:attributes="href here/absolute_url">&laquo; Return to page index</a>
+                <p class="discreet visualNoPrint">
+                    <a href="" i18n:translate="view_paginated_reference_manual"
+                      tal:attributes="href here/absolute_url"
+                      >&laquo; Return to page index</a>
                 </p>
 
                 <p class="documentDescription"
