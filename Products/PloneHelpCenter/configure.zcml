@@ -52,7 +52,7 @@
      profile="Products.PloneHelpCenter:default">
     <gs:upgradeStep
        title="Upgrade the types"
-       description="This uses a few new icons."
+       description="This uses a few new icons and cleans up a bit."
        handler=".upgrades.run_typeinfo_step"
        />
     <gs:upgradeStep
