@@ -6,7 +6,7 @@
     name="description">A Glossary can be used to hold definitions of common terms, listing them
       in a dictionary-like manner.
       </property>
- <property name="content_icon">glossary_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/glossary_icon.gif</property>
  <property name="content_meta_type">HelpCenterGlossary</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterGlossary</property>

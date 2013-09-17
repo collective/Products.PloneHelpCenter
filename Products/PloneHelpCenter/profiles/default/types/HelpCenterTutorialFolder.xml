@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Tutorial Section</property>
  <property name="description">A simple folderish archetype</property>
- <property name="content_icon">tutorial_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/tutorial_icon.gif</property>
  <property name="content_meta_type">HelpCenterTutorialFolder</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterTutorialFolder</property>

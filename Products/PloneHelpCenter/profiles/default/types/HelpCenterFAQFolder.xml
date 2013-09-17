@@ -4,7 +4,7 @@
  <property name="title">FAQ Section</property>
  <property
     name="description">An FAQ Section can hold frequently asked questions with answers.</property>
- <property name="content_icon">faq_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/faq_icon.gif</property>
  <property name="content_meta_type">HelpCenterFAQFolder</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterFAQFolder</property>

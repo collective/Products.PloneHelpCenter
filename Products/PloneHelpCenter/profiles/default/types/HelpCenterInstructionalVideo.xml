@@ -7,7 +7,7 @@
     name="description">This is an Instructional Video content type, to which you can attach
       movies and other relevant files.
       </property>
- <property name="content_icon">movie_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/movie_icon.gif</property>
  <property name="content_meta_type">HelpCenterInstructionalVideo</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterInstructionalVideo</property>

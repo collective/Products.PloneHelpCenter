@@ -6,7 +6,7 @@
     name="description">A How-to is a document describing how to address a single, common
       use-case or issue. You may add images and files as attachments.
       </property>
- <property name="content_icon">howto_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/howto_icon.gif</property>
  <property name="content_meta_type">HelpCenterHowTo</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterHowTo</property>

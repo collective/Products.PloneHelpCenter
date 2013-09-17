@@ -7,7 +7,7 @@
       this is a place to document answers to common questions, not ask them.
  </property>
 
- <property name="content_icon">faq_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/faq_icon.gif</property>
  <property name="content_meta_type">HelpCenterFAQ</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterFAQ</property>

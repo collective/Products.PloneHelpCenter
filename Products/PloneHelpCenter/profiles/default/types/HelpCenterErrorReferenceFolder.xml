@@ -7,7 +7,7 @@
     name="description">An Error Reference Section can contain references to and explanations of
       common errors.
       </property>
- <property name="content_icon">errorref_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/errorref_icon.gif</property>
  <property name="content_meta_type">HelpCenterErrorReferenceFolder</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterErrorReferenceFolder</property>

@@ -4,6 +4,9 @@ HISTORY
 PloneHelpCenter 4.0b4 (unreleased)
 ----------------------------------
 
+- Types: switch from content_icon to icon_expr.
+  [maurits]
+
 - Switch the sample manual text to html.  This way you can edit it
   properly with TinyMCE.  It used to be structured text, which is
   not accepted as mimetext by default, so you would actually lose

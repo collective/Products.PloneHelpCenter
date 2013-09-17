@@ -4,7 +4,7 @@
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Reference Manual Section</property>
  <property name="description">A simple folderish archetype</property>
- <property name="content_icon">referencemanual_icon.gif</property>
+ <property name="icon_expr">string:${portal_url}/referencemanual_icon.gif</property>
  <property name="content_meta_type">HelpCenterReferenceManualFolder</property>
  <property name="product">PloneHelpCenter</property>
  <property name="factory">addHelpCenterReferenceManualFolder</property>

@@ -4,7 +4,7 @@
   <property name="title">Tutorial</property>
   <property
   name="description">A tutorial containing TutorialPages, Files and Images.</property>
-  <property name="content_icon">tutorial_icon.gif</property>
+  <property name="icon_expr">string:${portal_url}/tutorial_icon.gif</property>
   <property name="content_meta_type">HelpCenterTutorial</property>
   <property name="product">PloneHelpCenter</property>
   <property name="factory">addHelpCenterTutorial</property>
