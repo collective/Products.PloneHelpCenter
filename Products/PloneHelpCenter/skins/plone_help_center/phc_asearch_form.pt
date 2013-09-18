@@ -201,20 +201,20 @@
                 </span>
 
                 <div style="float:left; margin-right: 2em;">
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="faq" id="pt_faq" i18n:translate="phc_faq" />
-                    <label for="pt_faq">FAQs</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="howto" id="pt_howto" i18n:translate="phc_howto" />
-                    <label for="pt_howto">How-tos</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="tutorial" id="pt_tutorial" i18n:translate="phc_tutorial" />
-                    <label for="pt_tutorial">Tutorials</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="link" id="pt_link" i18n:translate="phc_links" />
-                    <label for="pt_link">Links</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="error" id="pt_error" i18n:translate="phc_errorreference" />
-                    <label for="pt_error">Error references</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="glossary" id="pt_glossary" i18n:translate="phc_definition" />
-                    <label for="pt_glossary">Glossary definitions</label><br />
-                    <input checked="checked" type="checkbox" name="phc_selection:list" value="manual" id="pt_manual" i18n:translate="phc_referencemanual" />
-                    <label for="pt_manual">Reference manuals</label>
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="faq" id="pt_faq" />
+                    <label for="pt_faq" i18n:translate="phc_faq">FAQs</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="howto" id="pt_howto" />
+                    <label for="pt_howto" i18n:translate="phc_howto">How-tos</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="tutorial" id="pt_tutorial" />
+                    <label for="pt_tutorial" i18n:translate="phc_tutorial">Tutorials</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="link" id="pt_link" />
+                    <label for="pt_link" i18n:translate="phc_links">Links</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="error" id="pt_error" />
+                    <label for="pt_error" i18n:translate="phc_errorreference">Error references</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="glossary" id="pt_glossary" />
+                    <label for="pt_glossary" i18n:translate="phc_definition">Glossary definitions</label><br />
+                    <input checked="checked" type="checkbox" name="phc_selection:list" value="manual" id="pt_manual" />
+                    <label for="pt_manual" i18n:translate="phc_referencemanual">Reference manuals</label>
                 </div>
             </div>
 </tal:omit>
