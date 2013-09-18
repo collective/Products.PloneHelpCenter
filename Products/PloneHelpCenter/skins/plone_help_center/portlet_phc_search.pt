@@ -77,7 +77,7 @@
   <img tal:replace="structure here/rss.png" />
   <a tal:attributes="href view/getSyndicationURL"
      i18n:translate="phc_rss_all">
-    Subscribe to updates using RSS
+    Feed for all documentation
   </a>
 </p>
 
