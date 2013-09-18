@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <object name="HelpCenterHowTo" meta_type="Factory-based Type Information with dynamic views"
+   i18n:domain="plonehelpcenter"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">How-to</property>
  <property

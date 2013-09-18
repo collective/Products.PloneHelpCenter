@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <object name="HelpCenterErrorReferenceFolder"
    meta_type="Factory-based Type Information with dynamic views"
+   i18n:domain="plonehelpcenter"
    xmlns:i18n="http://xml.zope.org/namespaces/i18n">
  <property name="title">Error Reference Section</property>
  <property
