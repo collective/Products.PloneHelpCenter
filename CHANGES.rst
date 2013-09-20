@@ -1,8 +1,8 @@
 HISTORY
 =======
 
-PloneHelpCenter 4.0b4 (unreleased)
-----------------------------------
+4.0 (2013-09-21)
+----------------
 
 - Compatible with Plone 4.2 and 4.3.  Should still work on 4.0 and
   4.1.
