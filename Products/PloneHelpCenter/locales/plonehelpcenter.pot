@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PloneHelpCenter\n"
-"POT-Creation-Date: 2013-09-18 16:55+0000\n"
+"POT-Creation-Date: 2013-09-23 23:42+0000\n"
 "PO-Revision-Date: 2005-12-27 11:59+0000\n"
 "Last-Translator: Hanno Schlichting\n"
 "Language-Team: Plone i18n <plone-i18n@lists.sourceforge.net>\n"
@@ -15,10 +15,6 @@ msgstr ""
 "Preferred-Encodings: utf-8\n"
 "Domain: plonehelpcenter\n"
 
-#: ./skins/plone_help_center/tutorial_view.pt:57
-msgid "<a href=\"${DYNAMIC_CONTENT}\">x</a>"
-msgstr ""
-
 #: ./profiles/default/types/HelpCenterReferenceManualPage.xml
 msgid "A Page in a reference manual."
 msgstr ""
@@ -27,7 +23,7 @@ msgstr ""
 msgid "A page in a help center."
 msgstr ""
 
-#: ./skins/plone_help_center/ivideofolder_view.pt:73
+#: ./skins/plone_help_center/ivideofolder_view.pt:76
 msgid "Duration:"
 msgstr ""
 
@@ -37,34 +33,16 @@ msgstr ""
 msgid "Edit"
 msgstr ""
 
-#: ./profiles/default/types/HelpCenterErrorReference.xml
-#: ./profiles/default/types/HelpCenterFAQ.xml
-#: ./profiles/default/types/HelpCenterHowTo.xml
-msgid "External Edit"
-msgstr ""
-
-#: ./skins/plone_help_center/phc_stats.cpt:14
+#: ./skins/plone_help_center/phc_stats.cpt:17
 msgid "Find and modify content"
-msgstr ""
-
-#: ./profiles/default/types/HelpCenterReferenceManual.xml
-#: ./profiles/default/types/HelpCenterReferenceManualSection.xml
-#: ./profiles/default/types/HelpCenterTutorial.xml
-msgid "Folder Listing"
 msgstr ""
 
 #: ./skins/plone_help_center/referencemanual_macros.pt:129
 msgid "Go"
 msgstr ""
 
-#: ./skins/plone_help_center/phc_stats.cpt:8
+#: ./skins/plone_help_center/phc_stats.cpt:11
 msgid "Help Center Statistics and Maintenance"
-msgstr ""
-
-#: ./profiles/default/types/HelpCenterErrorReference.xml
-#: ./profiles/default/types/HelpCenterFAQ.xml
-#: ./profiles/default/types/HelpCenterHowTo.xml
-msgid "History"
 msgstr ""
 
 #: ./browser/phc_topic.pt:15
@@ -79,47 +57,41 @@ msgstr ""
 msgid "Manual Page"
 msgstr ""
 
-#: ./profiles/default/types/HelpCenterErrorReference.xml
-#: ./profiles/default/types/HelpCenterFAQ.xml
-#: ./profiles/default/types/HelpCenterHowTo.xml
-msgid "References"
-msgstr ""
-
-#: ./skins/plone_help_center/helpcenter_view.pt:48
+#: ./skins/plone_help_center/helpcenter_view.pt:51
 msgid "Search"
 msgstr ""
 
-#: ./skins/plone_help_center/helpcenter_view.pt:36
+#: ./skins/plone_help_center/helpcenter_view.pt:39
 msgid "Search Documentation"
 msgstr ""
 
-#: ./skins/plone_help_center/phc_stats.cpt:34
+#: ./skins/plone_help_center/phc_stats.cpt:37
 msgid "Search for content"
 msgstr ""
 
-#: ./skins/plone_help_center/ivideofolder_view.pt:78
+#: ./skins/plone_help_center/ivideofolder_view.pt:81
 msgid "Size:"
 msgstr ""
 
-#: ./skins/plone_help_center/faqfolder_view.pt:96
-#: ./skins/plone_help_center/faqsection_view.pt:59
+#: ./skins/plone_help_center/faqfolder_view.pt:99
+#: ./skins/plone_help_center/faqsection_view.pt:62
 msgid "This FAQ applies to a previous version"
 msgstr ""
 
-#: ./skins/plone_help_center/phc_stats.cpt:10
+#: ./skins/plone_help_center/phc_stats.cpt:13
 msgid "This form aids maintenance of help center content."
 msgstr ""
 
-#: ./skins/plone_help_center/glossary_view.pt:80
-#: ./skins/plone_help_center/phc_genericfolder_view.pt:81
+#: ./skins/plone_help_center/glossary_view.pt:83
+#: ./skins/plone_help_center/phc_genericfolder_view.pt:84
 msgid "This item applies to a previous version"
 msgstr ""
 
-#: ./skins/plone_help_center/ivideofolder_view.pt:65
+#: ./skins/plone_help_center/ivideofolder_view.pt:68
 msgid "This video applies to a previous version"
 msgstr ""
 
-#: ./skins/plone_help_center/phc_stats.cpt:16
+#: ./skins/plone_help_center/phc_stats.cpt:19
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
 msgstr ""
 
@@ -129,39 +101,39 @@ msgstr ""
 msgid "View"
 msgstr ""
 
-#: ./skins/plone_help_center/helpcenter_view.pt:36
+#: ./skins/plone_help_center/helpcenter_view.pt:39
 msgid "accesskeys-search"
 msgstr ""
 
 #. Default: "All content on one page (useful for printing, presentation mode etc.)"
-#: ./skins/plone_help_center/referencemanual_view.pt:59
-#: ./skins/plone_help_center/referencemanualsection_view.pt:64
-#: ./skins/plone_help_center/tutorial_view.pt:57
+#: ./skins/plone_help_center/referencemanual_view.pt:62
+#: ./skins/plone_help_center/referencemanualsection_view.pt:67
+#: ./skins/plone_help_center/tutorial_view.pt:60
 msgid "all_content_on_one_page"
 msgstr ""
 
 #. Default: "All ${number} ${title}…"
-#: ./skins/plone_help_center/helpcenter_view.pt:132
+#: ./skins/plone_help_center/helpcenter_view.pt:135
 msgid "all_helptype"
 msgstr ""
 
 #. Default: "RSS feed of these search results"
-#: ./skins/plone_help_center/phc_search.pt:60
+#: ./skins/plone_help_center/phc_search.pt:63
 msgid "alt"
 msgstr ""
 
 #. Default: "More ${DYNAMIC_CONTENT}…"
-#: ./skins/plone_help_center/portlet_helpcenter.pt:58
+#: ./skins/plone_help_center/portlet_helpcenter.pt:59
 msgid "box_more_documentation"
 msgstr ""
 
 #. Default: "No stale items found in the Help Center."
-#: ./skins/plone_help_center/portlet_stale_items.pt:51
+#: ./skins/plone_help_center/portlet_stale_items.pt:52
 msgid "box_no_stale_items"
 msgstr ""
 
 #. Default: "Stale Help Center Items"
-#: ./skins/plone_help_center/portlet_stale_items.pt:19
+#: ./skins/plone_help_center/portlet_stale_items.pt:20
 msgid "box_staleitems"
 msgstr ""
 
@@ -170,22 +142,22 @@ msgid "desc_answer"
 msgstr ""
 
 #. Default: "Match all"
-#: ./skins/plone_help_center/phc_stats.cpt:297
+#: ./skins/plone_help_center/phc_stats.cpt:300
 msgid "description_audiences_and"
 msgstr ""
 
 #. Default: "Has more than one audience selected"
-#: ./skins/plone_help_center/phc_stats.cpt:261
+#: ./skins/plone_help_center/phc_stats.cpt:264
 msgid "description_audiences_multiple"
 msgstr ""
 
 #. Default: "Match any"
-#: ./skins/plone_help_center/phc_stats.cpt:286
+#: ./skins/plone_help_center/phc_stats.cpt:289
 msgid "description_audiences_or"
 msgstr ""
 
 #. Default: "This search form enables you to find documenation by specifying one or more search terms."
-#: ./skins/plone_help_center/phc_asearch_form.pt:13
+#: ./skins/plone_help_center/phc_asearch_form.pt:16
 msgid "description_documentation_asearch"
 msgstr ""
 
@@ -210,42 +182,42 @@ msgid "description_label_Link"
 msgstr ""
 
 #. Default: "Match all"
-#: ./skins/plone_help_center/phc_stats.cpt:239
+#: ./skins/plone_help_center/phc_stats.cpt:242
 msgid "description_sections_and"
 msgstr ""
 
 #. Default: "Has more than one section selected"
-#: ./skins/plone_help_center/phc_stats.cpt:203
+#: ./skins/plone_help_center/phc_stats.cpt:206
 msgid "description_sections_multiple"
 msgstr ""
 
 #. Default: "Has no sections selected"
-#: ./skins/plone_help_center/phc_stats.cpt:193
+#: ./skins/plone_help_center/phc_stats.cpt:196
 msgid "description_sections_none"
 msgstr ""
 
 #. Default: "Match any"
-#: ./skins/plone_help_center/phc_stats.cpt:228
+#: ./skins/plone_help_center/phc_stats.cpt:231
 msgid "description_sections_or"
 msgstr ""
 
 #. Default: "Match all"
-#: ./skins/plone_help_center/phc_stats.cpt:365
+#: ./skins/plone_help_center/phc_stats.cpt:368
 msgid "description_versions_and"
 msgstr ""
 
 #. Default: "Has more than one version selected"
-#: ./skins/plone_help_center/phc_stats.cpt:329
+#: ./skins/plone_help_center/phc_stats.cpt:332
 msgid "description_versions_multiple"
 msgstr ""
 
 #. Default: "Has no versions selected"
-#: ./skins/plone_help_center/phc_stats.cpt:319
+#: ./skins/plone_help_center/phc_stats.cpt:322
 msgid "description_versions_none"
 msgstr ""
 
 #. Default: "Match any"
-#: ./skins/plone_help_center/phc_stats.cpt:354
+#: ./skins/plone_help_center/phc_stats.cpt:357
 msgid "description_versions_or"
 msgstr ""
 
@@ -265,7 +237,7 @@ msgid "discussion_reply_notify_template_subject"
 msgstr ""
 
 #. Default: "Search for documentation"
-#: ./skins/plone_help_center/phc_asearch_form.pt:11
+#: ./skins/plone_help_center/phc_asearch_form.pt:14
 msgid "heading_documentation_search"
 msgstr ""
 
@@ -274,42 +246,42 @@ msgid "help_detailed_question"
 msgstr ""
 
 #. Default: "Return items marked for some or all of these audiences. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one audience selected."
-#: ./skins/plone_help_center/phc_stats.cpt:248
+#: ./skins/plone_help_center/phc_stats.cpt:251
 msgid "help_search_audiences"
 msgstr ""
 
 #. Default: "Return items that have comments."
-#: ./skins/plone_help_center/phc_stats.cpt:546
+#: ./skins/plone_help_center/phc_stats.cpt:549
 msgid "help_search_has_comments"
 msgstr ""
 
 #. Default: "Return only documents for at least one of the selected audiences. Select no audiences for widest search."
-#: ./skins/plone_help_center/phc_asearch_form.pt:138
+#: ./skins/plone_help_center/phc_asearch_form.pt:141
 msgid "help_search_item_audience"
 msgstr ""
 
 #. Default: "Return only documents matching at least one of the selected topics. Select no topics for widest search."
-#: ./skins/plone_help_center/phc_asearch_form.pt:48
+#: ./skins/plone_help_center/phc_asearch_form.pt:51
 msgid "help_search_item_topic"
 msgstr ""
 
 #. Default: "Return items of a specific type."
-#: ./skins/plone_help_center/phc_asearch_form.pt:184
+#: ./skins/plone_help_center/phc_asearch_form.pt:187
 msgid "help_search_item_type"
 msgstr ""
 
 #. Default: "Return only documents matching at least one of the selected versions. Select no versions for widest search."
-#: ./skins/plone_help_center/phc_asearch_form.pt:93
+#: ./skins/plone_help_center/phc_asearch_form.pt:96
 msgid "help_search_item_version"
 msgstr ""
 
 #. Default: "Return items in some or all of these sections. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one section selected."
-#: ./skins/plone_help_center/phc_stats.cpt:180
+#: ./skins/plone_help_center/phc_stats.cpt:183
 msgid "help_search_sections"
 msgstr ""
 
 #. Default: "Return items in some or all of these versions. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one version selected."
-#: ./skins/plone_help_center/phc_stats.cpt:306
+#: ./skins/plone_help_center/phc_stats.cpt:309
 msgid "help_search_versions"
 msgstr ""
 
@@ -318,12 +290,12 @@ msgid "label_answer"
 msgstr ""
 
 #. Default: "Audiences"
-#: ./skins/plone_help_center/phc_stats.cpt:246
+#: ./skins/plone_help_center/phc_stats.cpt:249
 msgid "label_audiences"
 msgstr ""
 
 #. Default: "Click to enlarge"
-#: ./skins/plone_help_center/ivideofolder_view.pt:57
+#: ./skins/plone_help_center/ivideofolder_view.pt:60
 msgid "label_click_to_enlarge"
 msgstr ""
 
@@ -332,73 +304,73 @@ msgid "label_detailed_question"
 msgstr ""
 
 #. Default: "Has comments"
-#: ./skins/plone_help_center/phc_stats.cpt:544
+#: ./skins/plone_help_center/phc_stats.cpt:547
 msgid "label_has_comments"
 msgstr ""
 
 #. Default: "Audience"
-#: ./skins/plone_help_center/phc_asearch_form.pt:136
+#: ./skins/plone_help_center/phc_asearch_form.pt:139
 msgid "label_item_audience"
 msgstr ""
 
 #. Default: "Topic"
-#: ./skins/plone_help_center/phc_asearch_form.pt:46
+#: ./skins/plone_help_center/phc_asearch_form.pt:49
 msgid "label_item_topic"
 msgstr ""
 
 #. Default: "Item type"
-#: ./skins/plone_help_center/phc_asearch_form.pt:182
+#: ./skins/plone_help_center/phc_asearch_form.pt:185
 msgid "label_item_type"
 msgstr ""
 
 #. Default: "Version"
-#: ./skins/plone_help_center/phc_asearch_form.pt:91
+#: ./skins/plone_help_center/phc_asearch_form.pt:94
 msgid "label_item_version"
 msgstr ""
 
 #. Default: "Sections"
-#: ./skins/plone_help_center/phc_stats.cpt:178
+#: ./skins/plone_help_center/phc_stats.cpt:181
 msgid "label_sections"
 msgstr ""
 
 #. Default: "Select All/None"
-#: ./skins/plone_help_center/phc_asearch_form.pt:60
+#: ./skins/plone_help_center/phc_asearch_form.pt:63
 msgid "label_toggle"
 msgstr ""
 
 #. Default: "Versions"
-#: ./skins/plone_help_center/phc_stats.cpt:304
+#: ./skins/plone_help_center/phc_stats.cpt:307
 msgid "label_versions"
 msgstr ""
 
 #. Default: "Latest ${title}"
-#: ./skins/plone_help_center/helpcenter_view.pt:107
+#: ./skins/plone_help_center/helpcenter_view.pt:110
 msgid "latest_helptype"
 msgstr ""
 
-#: ./skins/plone_help_center/ivideofolder_view.pt:76
+#: ./skins/plone_help_center/ivideofolder_view.pt:79
 msgid "minutes"
 msgstr ""
 
 #. Default: "You must publish this page before it becomes visible to the public."
-#: ./skins/plone_help_center/referencemanualsection_view.pt:53
+#: ./skins/plone_help_center/referencemanualsection_view.pt:56
 msgid "must_publish_before_visible_to_public"
 msgstr ""
 
 #. Default: "Nothing published in ${title}…"
-#: ./skins/plone_help_center/helpcenter_view.pt:138
+#: ./skins/plone_help_center/helpcenter_view.pt:141
 msgid "nopublished_helptype"
 msgstr ""
 
 #. Default: "All documentation"
-#: ./skins/plone_help_center/helpcenter_view.pt:61
+#: ./skins/plone_help_center/helpcenter_view.pt:64
 msgid "phc_all_docs"
 msgstr ""
 
 #. Default: "Any version."
-#: ./skins/plone_help_center/faqfolder_view.pt:134
-#: ./skins/plone_help_center/faqsection_view.pt:85
-#: ./skins/plone_help_center/ivideo_view.pt:95
+#: ./skins/plone_help_center/faqfolder_view.pt:137
+#: ./skins/plone_help_center/faqsection_view.pt:88
+#: ./skins/plone_help_center/ivideo_view.pt:98
 msgid "phc_any_version"
 msgstr ""
 
@@ -407,7 +379,7 @@ msgid "phc_body"
 msgstr ""
 
 #. Default: "Instructions on how to contribute to and use this resource."
-#: ./skins/plone_help_center/helpcenter_view.pt:88
+#: ./skins/plone_help_center/helpcenter_view.pt:91
 msgid "phc_contrib_use"
 msgstr ""
 
@@ -420,8 +392,8 @@ msgid "phc_default_importance_helpcenter"
 msgstr ""
 
 #. Default: "Glossary definitions"
-#: ./skins/plone_help_center/helpcenter_view.pt:67
-#: ./skins/plone_help_center/phc_asearch_form.pt:215
+#: ./skins/plone_help_center/helpcenter_view.pt:70
+#: ./skins/plone_help_center/phc_asearch_form.pt:218
 msgid "phc_definition"
 msgstr ""
 
@@ -474,13 +446,13 @@ msgid "phc_desc_video_folder"
 msgstr ""
 
 #. Default: "Documentation search"
-#: ./skins/plone_help_center/helpcenter_view.pt:28
+#: ./skins/plone_help_center/helpcenter_view.pt:31
 msgid "phc_doc_search"
 msgstr ""
 
 #. Default: "Error references"
-#: ./skins/plone_help_center/helpcenter_view.pt:66
-#: ./skins/plone_help_center/phc_asearch_form.pt:213
+#: ./skins/plone_help_center/helpcenter_view.pt:69
+#: ./skins/plone_help_center/phc_asearch_form.pt:216
 msgid "phc_errorreference"
 msgstr ""
 
@@ -493,13 +465,13 @@ msgid "phc_errorreference_title"
 msgstr ""
 
 #. Default: "FAQs"
-#: ./skins/plone_help_center/helpcenter_view.pt:62
-#: ./skins/plone_help_center/phc_asearch_form.pt:205
+#: ./skins/plone_help_center/helpcenter_view.pt:65
+#: ./skins/plone_help_center/phc_asearch_form.pt:208
 msgid "phc_faq"
 msgstr ""
 
 #. Default: "This FAQ applies to:"
-#: ./skins/plone_help_center/faqsection_view.pt:78
+#: ./skins/plone_help_center/faqsection_view.pt:81
 msgid "phc_faq_applies_to"
 msgstr ""
 
@@ -512,7 +484,7 @@ msgid "phc_faq_title"
 msgstr ""
 
 #. Default: "Entire documentation area"
-#: ./skins/plone_help_center/helpcenter_view.pt:60
+#: ./skins/plone_help_center/helpcenter_view.pt:63
 msgid "phc_full_area"
 msgstr ""
 
@@ -561,8 +533,8 @@ msgid "phc_help_videofile_description"
 msgstr ""
 
 #. Default: "How-tos"
-#: ./skins/plone_help_center/helpcenter_view.pt:63
-#: ./skins/plone_help_center/phc_asearch_form.pt:207
+#: ./skins/plone_help_center/helpcenter_view.pt:66
+#: ./skins/plone_help_center/phc_asearch_form.pt:210
 msgid "phc_howto"
 msgstr ""
 
@@ -583,14 +555,14 @@ msgid "phc_importance_helpcenter"
 msgstr ""
 
 #. Default: "Audiences"
-#: ./skins/plone_help_center/phcfolder_view.pt:21
+#: ./skins/plone_help_center/phcfolder_view.pt:24
 msgid "phc_index_audiences"
 msgstr ""
 
 #. Default: "Sections"
-#: ./skins/plone_help_center/faqfolder_view.pt:51
-#: ./skins/plone_help_center/glossary_view.pt:38
-#: ./skins/plone_help_center/ivideofolder_view.pt:14
+#: ./skins/plone_help_center/faqfolder_view.pt:54
+#: ./skins/plone_help_center/glossary_view.pt:41
+#: ./skins/plone_help_center/ivideofolder_view.pt:17
 msgid "phc_index_sections"
 msgstr ""
 
@@ -719,8 +691,8 @@ msgid "phc_label_videofile_description"
 msgstr ""
 
 #. Default: "Links"
-#: ./skins/plone_help_center/helpcenter_view.pt:65
-#: ./skins/plone_help_center/phc_asearch_form.pt:211
+#: ./skins/plone_help_center/helpcenter_view.pt:68
+#: ./skins/plone_help_center/phc_asearch_form.pt:214
 msgid "phc_links"
 msgstr ""
 
@@ -734,18 +706,18 @@ msgstr ""
 
 #. Default: "Next:"
 #: ./skins/plone_help_center/referencemanual_macros.pt:81
-#: ./skins/plone_help_center/tutorialpage_view.pt:71
+#: ./skins/plone_help_center/tutorialpage_view.pt:74
 msgid "phc_next"
 msgstr ""
 
 #. Default: "There are no contained help center object types."
-#: ./skins/plone_help_center/helpcenter_view.pt:151
+#: ./skins/plone_help_center/helpcenter_view.pt:154
 msgid "phc_nolist"
 msgstr ""
 
 #. Default: "Previous:"
 #: ./skins/plone_help_center/referencemanual_macros.pt:95
-#: ./skins/plone_help_center/tutorialpage_view.pt:81
+#: ./skins/plone_help_center/tutorialpage_view.pt:84
 msgid "phc_previous"
 msgstr ""
 
@@ -754,8 +726,8 @@ msgid "phc_reference"
 msgstr ""
 
 #. Default: "Reference manuals"
-#: ./skins/plone_help_center/helpcenter_view.pt:68
-#: ./skins/plone_help_center/phc_asearch_form.pt:217
+#: ./skins/plone_help_center/helpcenter_view.pt:71
+#: ./skins/plone_help_center/phc_asearch_form.pt:220
 msgid "phc_referencemanual"
 msgstr ""
 
@@ -772,12 +744,13 @@ msgid "phc_related"
 msgstr ""
 
 #. Default: "Feed for all documentation."
-#: ./skins/plone_help_center/helpcenter_view.pt:80
+#: ./skins/plone_help_center/helpcenter_view.pt:83
+#: ./skins/plone_help_center/portlet_phc_misc.pt:11
 msgid "phc_rss_all"
 msgstr ""
 
 #. Default: "Did you not find what you were looking for? <a href=\"phc_asearch_form\">Try again.</a> Or, use the ${advanced_search} for more precise search options or to search other kinds of documents."
-#: ./skins/plone_help_center/phc_asearch.pt:47
+#: ./skins/plone_help_center/phc_asearch.pt:50
 msgid "phc_search_results_advanced"
 msgstr ""
 
@@ -790,8 +763,8 @@ msgid "phc_sections_vocab"
 msgstr ""
 
 #. Default: "Tutorials"
-#: ./skins/plone_help_center/helpcenter_view.pt:64
-#: ./skins/plone_help_center/phc_asearch_form.pt:209
+#: ./skins/plone_help_center/helpcenter_view.pt:67
+#: ./skins/plone_help_center/phc_asearch_form.pt:212
 msgid "phc_tutorial"
 msgstr ""
 
@@ -804,14 +777,14 @@ msgid "phc_tutorial_title"
 msgstr ""
 
 #. Default: "Back to Glossary"
-#: ./skins/plone_help_center/definition_view.pt:42
+#: ./skins/plone_help_center/definition_view.pt:45
 msgid "phc_up_to_glossary"
 msgstr ""
 
 #. Default: "Back to Table of Contents"
-#: ./skins/plone_help_center/faq_view.pt:48
-#: ./skins/plone_help_center/faqfolder_view.pt:66
-#: ./skins/plone_help_center/faqsection_view.pt:47
+#: ./skins/plone_help_center/faq_view.pt:51
+#: ./skins/plone_help_center/faqfolder_view.pt:69
+#: ./skins/plone_help_center/faqsection_view.pt:50
 msgid "phc_up_to_toc"
 msgstr ""
 
@@ -824,7 +797,7 @@ msgid "phc_versions"
 msgstr ""
 
 #. Default: "This Video applies to:"
-#: ./skins/plone_help_center/ivideo_view.pt:92
+#: ./skins/plone_help_center/ivideo_view.pt:95
 msgid "phc_video_applies_to"
 msgstr ""
 
@@ -837,56 +810,56 @@ msgid "phc_video_title"
 msgstr ""
 
 #. Default: "View entire FAQ expanded"
-#: ./skins/plone_help_center/faqfolder_view.pt:73
+#: ./skins/plone_help_center/faqfolder_view.pt:76
 msgid "phc_view_entire_faq"
 msgstr ""
 
 #. Default: "Warning: This item is marked as outdated."
-#: ./skins/plone_help_center/definition_view.pt:50
-#: ./skins/plone_help_center/errorreference_view.pt:21
-#: ./skins/plone_help_center/faq_view.pt:52
+#: ./skins/plone_help_center/definition_view.pt:53
+#: ./skins/plone_help_center/errorreference_view.pt:24
+#: ./skins/plone_help_center/faq_view.pt:55
 msgid "phc_warning_outdated"
 msgstr ""
 
 #. Default: "Recent documentation"
-#: ./skins/plone_help_center/portlet_helpcenter.pt:23
+#: ./skins/plone_help_center/portlet_helpcenter.pt:24
 msgid "portlet_header_recent_docs"
 msgstr ""
 
 #. Default: "Advanced Search"
-#: ./skins/plone_help_center/phc_asearch.pt:48
+#: ./skins/plone_help_center/phc_asearch.pt:51
 msgid "search_results_advanced_link"
 msgstr ""
 
 #. Default: "in"
-#: ./skins/plone_help_center/helpcenter_view.pt:57
+#: ./skins/plone_help_center/helpcenter_view.pt:60
 msgid "searchform_in"
 msgstr ""
 
 #. Default: "Related content"
-#: ./skins/plone_help_center/helpcenter_references.pt:9
+#: ./skins/plone_help_center/helpcenter_references.pt:12
 msgid "see_also"
 msgstr ""
 
 #. Default: "There are no pages or sections in this Reference Manual."
-#: ./skins/plone_help_center/referencemanual_view.pt:65
-#: ./skins/plone_help_center/referencemanualsection_view.pt:70
+#: ./skins/plone_help_center/referencemanual_view.pt:68
+#: ./skins/plone_help_center/referencemanualsection_view.pt:73
 msgid "view_no_reference_manual1"
 msgstr ""
 
 #. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
-#: ./skins/plone_help_center/referencemanual_view.pt:67
-#: ./skins/plone_help_center/referencemanualsection_view.pt:71
+#: ./skins/plone_help_center/referencemanual_view.pt:70
+#: ./skins/plone_help_center/referencemanualsection_view.pt:74
 msgid "view_no_reference_manual2"
 msgstr ""
 
-#. Default: "<a href=\"${DYNAMIC_CONTENT}\">&laquo; Return to page index</a>"
-#: ./skins/plone_help_center/tutorial-all-pages.pt:42
+#. Default: "&laquo; Return to page index"
+#: ./skins/plone_help_center/tutorial-all-pages.pt:44
 msgid "view_paginated_pages"
 msgstr ""
 
-#. Default: "<a href=\"${DYNAMIC_CONTENT}\">&laquo; Return to page index</a>"
-#: ./skins/plone_help_center/referencemanual-all-pages.pt:42
+#. Default: "&laquo; Return to page index"
+#: ./skins/plone_help_center/referencemanual-all-pages.pt:44
 msgid "view_paginated_reference_manual"
 msgstr ""
 
