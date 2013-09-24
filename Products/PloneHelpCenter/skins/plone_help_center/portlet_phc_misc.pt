@@ -1,6 +1,7 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:metal="http://xml.zope.org/namespaces/metal"
-      i18n:domain="plone">
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plonehelpcenter">
 <body>
 <div metal:define-macro="portlet"
     tal:define="view context/@@hc_view;">
@@ -9,7 +10,7 @@
       <img tal:replace="structure here/rss.png" />
       <a tal:attributes="href view/getSyndicationURL"
          i18n:translate="phc_rss_all">
-        Feed for all documentation
+        Feed for all documentation.
       </a>
     </p>
 

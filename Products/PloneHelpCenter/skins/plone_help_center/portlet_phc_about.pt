@@ -1,6 +1,7 @@
 <html xmlns:tal="http://xml.zope.org/namespaces/tal"
-	xmlns:metal="http://xml.zope.org/namespaces/metal"
-	i18n:domain="plone">
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      i18n:domain="plone">
 <body>
 <div metal:define-macro="portlet"
     tal:define="pview context/@@phc_paged_view | nothing;
