@@ -252,7 +252,6 @@ msgstr ""
 
 #. Default: "Someone has replied to your comment, ${title}. To view the reply, visit: ${url}"
 #: ./skins/plone_help_center/discussion_reply_notify_template.pt:18
-#, fuzzy
 msgid "discussion_reply_notify_template_body"
 msgstr ""
 "Qualcuno ha risposto al tuo commento, ${title}.\n"
@@ -388,7 +387,6 @@ msgstr "Questa pagina deve essere pubblicata prima di essere visibile a tutti."
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "Nessuna pubblicazione in ${title}"
 

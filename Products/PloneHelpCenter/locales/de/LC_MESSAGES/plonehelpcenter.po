@@ -374,7 +374,6 @@ msgstr "Sie müssen die Seite veröffentlichen um sie für Besucher sichtbar zu 
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "Nichts veröffentlicht in ${title}"
 

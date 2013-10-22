@@ -376,7 +376,6 @@ msgstr ""
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "No hay nada publicado en $title..."
 

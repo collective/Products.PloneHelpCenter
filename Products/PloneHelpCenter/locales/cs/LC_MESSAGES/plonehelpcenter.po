@@ -385,7 +385,6 @@ msgstr "Musíte zveřejnit tuto položk. Po zveřejnění bude dostupná všem u
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "V ${title} není zveřejněna žádná položka."
 

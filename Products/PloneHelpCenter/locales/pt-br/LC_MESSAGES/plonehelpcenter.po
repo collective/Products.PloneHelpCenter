@@ -396,7 +396,6 @@ msgstr "Você precisa publicar esta página antes dela se tornar visível ao pú
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "Nada publicado em ${title}"
 

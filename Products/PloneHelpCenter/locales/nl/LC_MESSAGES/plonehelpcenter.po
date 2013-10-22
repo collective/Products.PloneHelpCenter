@@ -386,7 +386,6 @@ msgstr "Je moet deze pagina publiceren voordat deze publiek zichtbaar is."
 
 #. Default: "Nothing published in ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:141
-#, fuzzy
 msgid "nopublished_helptype"
 msgstr "Niets gepubliceerd in ${title}"
 
