@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 """ support for HelpCenter templates """
 
 try:
@@ -13,30 +14,37 @@ except ImportError:
                 raise TypeError('first argument must be callable')
             dict.__init__(self, *a, **kw)
             self.default_factory = default_factory
+
         def __getitem__(self, key):
             try:
                 return dict.__getitem__(self, key)
             except KeyError:
                 return self.__missing__(key)
+
         def __missing__(self, key):
             if self.default_factory is None:
                 raise KeyError(key)
             self[key] = value = self.default_factory()
             return value
+
         def __reduce__(self):
             if self.default_factory is None:
                 args = tuple()
             else:
                 args = self.default_factory,
             return type(self), args, None, None, self.items()
+
         def copy(self):
             return self.__copy__()
+
         def __copy__(self):
             return type(self)(self.default_factory, self)
+
         def __deepcopy__(self, memo):
             import copy
             return type(self)(self.default_factory,
                               copy.deepcopy(self.items()))
+
         def __repr__(self):
             return 'defaultdict(%s, %s)' % (self.default_factory,
                                             dict.__repr__(self))
@@ -59,7 +67,7 @@ def _cacheKey(method, self):
     # the cache.
     context = Acquisition.aq_inner(self.context)
     if CACHE_SECONDS:
-        return ( time() // CACHE_SECONDS, context.modified() )
+        return (time() // CACHE_SECONDS, context.modified())
     else:
         return time()
 
@@ -69,15 +77,15 @@ def _cacheKeyTypes(method, self, portal_types):
 # note that KnowledgeBases are not included; they don't really
 # fit the type-folder scheme.
 subtypes_tuples = (
-    ('HelpCenterKnowledgeBase','HelpCenterHowTo'),
-    ('HelpCenterFAQFolder','HelpCenterFAQ'),
-    ('HelpCenterHowToFolder','HelpCenterHowTo'),
-    ('HelpCenterTutorialFolder','HelpCenterTutorial'),
-    ('HelpCenterLinkFolder','HelpCenterLink'),
-    ('HelpCenterErrorReferenceFolder','HelpCenterErrorReference'),
-    ('HelpCenterGlossary','HelpCenterDefinition'),
-    ('HelpCenterReferenceManualFolder','HelpCenterReferenceManual'),
-    ('HelpCenterInstructionalVideoFolder','HelpCenterInstructionalVideo')
+    ('HelpCenterKnowledgeBase', 'HelpCenterHowTo'),
+    ('HelpCenterFAQFolder', 'HelpCenterFAQ'),
+    ('HelpCenterHowToFolder', 'HelpCenterHowTo'),
+    ('HelpCenterTutorialFolder', 'HelpCenterTutorial'),
+    ('HelpCenterLinkFolder', 'HelpCenterLink'),
+    ('HelpCenterErrorReferenceFolder', 'HelpCenterErrorReference'),
+    ('HelpCenterGlossary', 'HelpCenterDefinition'),
+    ('HelpCenterReferenceManualFolder', 'HelpCenterReferenceManual'),
+    ('HelpCenterInstructionalVideoFolder', 'HelpCenterInstructionalVideo')
     )
 
 
@@ -119,39 +127,29 @@ class HelpCenterView(BrowserView):
         self.portal_url = getToolByName(self.context, 'portal_url')()
         self.context_path = '/'.join(self.context.getPhysicalPath())
 
-
     def subtypes(self):
         """ returns a list of major container types """
         return [t[0] for t in subtypes_tuples]
-
 
     def rss_subtypes(self):
         """ returns a list of doc types """
         return [t[1] for t in subtypes_tuples]
 
-
     def getSyndicationURL(self):
         """ returns a URL for RSS feed of help doc types """
-
         return self.portal_url + '/search_rss?sort_on=modified&sort_order=descending&path=' \
-         + self.context_path + '&' + ('&'.join(['portal_type=%s' % s[1] for s in subtypes_tuples ]))
-
+            + self.context_path + '&' + ('&'.join(['portal_type=%s' % s[1] for s in subtypes_tuples]))
 
     def sections(self):
         """ subtype sections in current folder """
-
         context = Acquisition.aq_inner(self.context)
-
-        contentFilter = {'review_state':('published', 'visible',), 'portal_type' : self.subtypes()}
+        contentFilter = {'review_state': ('published', 'visible',), 'portal_type': self.subtypes()}
         return context.getFolderContents(contentFilter=contentFilter)
-
 
     def sectionContents(self, section, limit=5):
         """ return section contents """
-
-        contentFilter = {'review_state':'published','sort_on':'modified','sort_order':'reverse', 'limit' : limit}
-        return section.getObject().getFolderContents(contentFilter=contentFilter);
-
+        contentFilter = {'review_state': 'published', 'sort_on': 'modified', 'sort_order': 'reverse', 'limit': limit}
+        return section.getObject().getFolderContents(contentFilter=contentFilter)
 
     @cache(_cacheKey)
     def getTopics(self):
@@ -164,14 +162,14 @@ class HelpCenterView(BrowserView):
 
         context = Acquisition.aq_inner(self.context)
 
-        here_url  = context.absolute_url()
+        here_url = context.absolute_url()
 
         # get a set of the major topics
         try:
             majorTopics = context.getSectionsVocab()
         except KeyError:
             return []
-        liveSections = set( self.catalog.uniqueValuesFor('getSections') )
+        liveSections = set(self.catalog.uniqueValuesFor('getSections'))
 
         sections = []
         currTitle = ''
@@ -187,24 +185,21 @@ class HelpCenterView(BrowserView):
                     # append a new topic dict
                     currTitle = main
                     currSubSections = []
-                    sections.append(
-                     {'title':currTitle,
-                      'subtopics':currSubSections,
-                      'url': here_url + '/topic/' + url_quote_plus(currTitle),
-                      }
-                     )
+                    sections.append({
+                        'title': currTitle,
+                        'subtopics': currSubSections,
+                        'url': here_url + '/topic/' + url_quote_plus(currTitle),
+                        })
                 if sub:
                     # add to the subtopics list
-                    id = sub.lower().replace(' ','-')  # make HTML anchor ID
-                    currSubSections.append(
-                     {'title':sub,
-                      'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
-                      }
-                     )
+                    id = sub.lower().replace(' ', '-')  # make HTML anchor ID
+                    currSubSections.append({
+                        'title': sub,
+                        'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
+                        })
 
         #sections.sort(indexCmp)
         return sections
-
 
     @cache(_cacheKeyTypes)
     def getSectionMap(self, portal_types=TOPIC_VIEW_TYPES):
@@ -216,8 +211,7 @@ class HelpCenterView(BrowserView):
         """
 
         context = Acquisition.aq_inner(self.context)
-
-        here_url  = context.absolute_url()
+        here_url = context.absolute_url()
         phc = context.getPHCObject()
 
         topics = phc.getSectionsVocab()
@@ -230,7 +224,8 @@ class HelpCenterView(BrowserView):
                              review_state='published')
         for item in items:
             for section in item.getSections:
-                if not section: continue
+                if not section:
+                    continue
                 topicsDict[section] = topicsDict[section] + 1
                 if item.getStartHere:
                     featuredDict[section].append({
@@ -254,26 +249,23 @@ class HelpCenterView(BrowserView):
                     currTitle = main
                     currSubSections = []
                     featured = featuredDict.get(topic)
-                    sections.append(
-                     {'title':currTitle,
-                      'subtopics':currSubSections,
-                      'url': here_url + '/topic/' + url_quote_plus(currTitle),
-                      'count':count,
-                      'featured': featured,
-                      }
-                     )
+                    sections.append({
+                        'title': currTitle,
+                        'subtopics': currSubSections,
+                        'url': here_url + '/topic/' + url_quote_plus(currTitle),
+                        'count': count,
+                        'featured': featured,
+                        })
                 if sub:
                     # add to the subtopics list
-                    id = sub.lower().replace(' ','-')  # make HTML anchor ID
+                    id = sub.lower().replace(' ', '-')  # make HTML anchor ID
                     #sections[-1]['count'] += count #no need to globalize on the main level section because it's already done: now a subsection item has the main section automatically selected
-                    currSubSections.append(
-                     {'title':sub,
-                      'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
-                      }
-                     )
+                    currSubSections.append({
+                        'title': sub,
+                        'url': "%s/topic/%s#%s" % (here_url, url_quote_plus(currTitle), id)
+                        })
 
         return sections
-
 
     @cache(_cacheKey)
     def getStartHeres(self, startHereLimit=10):
@@ -286,32 +278,30 @@ class HelpCenterView(BrowserView):
 
         context = Acquisition.aq_inner(self.context)
 
-        here_url  = context.absolute_url()
+        here_url = context.absolute_url()
         phc = context.getPHCObject()
 
         topics = phc.getSectionsVocab()
         sections = []
         for topic in topics:
             if ':' not in topic:
-                items = self.catalog(portal_type=['HelpCenterReferenceManual','HelpCenterTutorial','HelpCenterHowTo'],
-                                               review_state='published',
-                                               getSections=[topic])
+                items = self.catalog(portal_type=['HelpCenterReferenceManual', 'HelpCenterTutorial', 'HelpCenterHowTo'],
+                                     review_state='published',
+                                     getSections=[topic])
 
                 startHeres = []
                 for item in items:
                     if item.getStartHere:
-                        startHeres.append( {'title':item.Title, 'url':item.getURL()} )
+                        startHeres.append({'title': item.Title, 'url': item.getURL()})
 
-                sections.append(
-                 {'title':topic,
-                  'startheres': startHeres[:startHereLimit],
-                  'url': here_url + '/topic/' + url_quote_plus(topic),
-                  'count':len(items),
-                  }
-                 )
+                sections.append({
+                    'title': topic,
+                    'startheres': startHeres[:startHereLimit],
+                    'url': here_url + '/topic/' + url_quote_plus(topic),
+                    'count': len(items),
+                    })
 
         return sections
-
 
     def getSubTopics(self, topic="Visual Design", portal_types=TOPIC_VIEW_TYPES, with_general=False):
         """Get subtopics for phc_topic_area -- a utility for the phc_topicarea view.
@@ -334,8 +324,8 @@ class HelpCenterView(BrowserView):
         def isSubTopicOf(subtopic, topic):
             """Return true if the given subtopic is really a subtopic
             of topic."""
-            if subtopic.startswith(topic) and subtopic!=topic \
-                   and ':' in subtopic:
+            if subtopic.startswith(topic) and subtopic != topic and ':' \
+                    in subtopic:
                 return True
             return False
 
@@ -344,33 +334,33 @@ class HelpCenterView(BrowserView):
         # place each item under the right subtopic
         subtopic_items = {}
         for item in items:
-            item_sections = sorted(item.getSections, sectionCmp) #we sort sections, putting subsections first
+            item_sections = sorted(item.getSections, sectionCmp)  # we sort sections, putting subsections first
             in_sub = False
             for section in item_sections:
-                if not section: continue
+                if not section:
+                    continue
                 if section in subtopics:
                     subtopic_items.setdefault(section, []).append(item)
                     in_sub = True
-                elif section == topic and not in_sub: # item matches the main topic but not any subtopic
+                elif section == topic and not in_sub:  # item matches the main topic but not any subtopic
                     subtopic_items.setdefault('General', []).append(item)
-                    break #to put only one time the item in General in case of multiple main topics
+                    break  # to put only one time the item in General in case of multiple main topics
 
         sorted_list = []
-        if with_general and subtopic_items.has_key('General'):
+        if with_general and 'General' in subtopic_items:
             subtopic_items['General'].sort(itemCmp)
-            sorted_list.append({ 'title': 'General', 'id':'', 'docs': subtopic_items['General'], })
+            sorted_list.append({'title': 'General', 'id': '', 'docs': subtopic_items['General']})
         for subtopic in subtopics:
-           title = subtopic[subtopic.index(':')+1:].strip()
-           id = title.lower().replace(' ','-')  # make HTML anchor ID
-           if subtopic in subtopic_items:
-               docs = subtopic_items[subtopic]
-           else:  # no docs matching this subtopic
-               docs = []
-           docs.sort(itemCmp)
-           sorted_list.append( { 'title': title, 'id':id, 'docs': docs, } )
+            title = subtopic[subtopic.index(':')+1:].strip()
+            id = title.lower().replace(' ', '-')  # make HTML anchor ID
+            if subtopic in subtopic_items:
+                docs = subtopic_items[subtopic]
+            else:  # no docs matching this subtopic
+                docs = []
+            docs.sort(itemCmp)
+            sorted_list.append({'title': title, 'id': id, 'docs': docs, })
 
         return sorted_list
-
 
     @cache(_cacheKey)
     def getMajorTopics(self):
@@ -391,7 +381,6 @@ class HelpCenterView(BrowserView):
 
         return keys
 
-
     def getNonPHCContents(self):
         """Get a list of folder objects of types not defined by the help
         center product which have been placed in this help center.
@@ -408,8 +397,7 @@ class HelpCenterView(BrowserView):
         if not nonPHCTypes:
             return []
 
-        return context.getFolderContents(contentFilter = {'portal_type' : nonPHCTypes}, batch=True)
-
+        return context.getFolderContents(contentFilter={'portal_type': nonPHCTypes}, batch=True)
 
     def statsQueryCatalog(self):
         """
@@ -449,8 +437,8 @@ class HelpCenterView(BrowserView):
         hasComments = REQUEST.get('hasComments', False)
         if hasComments:
             matchedPaths = [m.getPath() for m in matches]
-            comments = self.catalog.searchResults(path = matchedPaths,
-                                                  portal_type = 'Discussion Item')
+            comments = self.catalog.searchResults(path=matchedPaths,
+                                                  portal_type='Discussion Item')
 
             foundPaths = {}
             for c in comments:
@@ -474,39 +462,37 @@ class HelpCenterView(BrowserView):
 
         # get our choice from the form request
         request = context.REQUEST
-        choice = request.form.get("phc_selection",None)
+        choice = request.form.get("phc_selection", None)
 
         # map our sections to our eligible choices
-        choiceTypes={
-            "faq":('HelpCenterFAQ','HelpCenterFAQFolder'),
-            "howto":("HelpCenterHowTo","HelpCenterHowtoFolder"),
-            "tutorial":("HelpCenterTutorial","HelpCenterTutorialFolder", \
-                        "HelpCenterLeafPage"),
-            "link":("HelpCenterLink","HelpCenterLinkFolder"),
-            "error":("HelpCenterErrorReference","HelpCenterErrorReferenceFolder"),
-            "glossary":("HelpCenterDefinition","HelpCenterGlossary"),
-            "manual":("HelpCenterReferenceManual","HelpCenterReferenceManualFolder", \
-                    "HelpCenterReferenceManualSection","HelpCenterReferenceManualPage"),
-            "video":("HelpCenterInstructionalVideo","HelpCenterInstructionalVideoFolder"),
+        choiceTypes = {
+            "faq": ('HelpCenterFAQ', 'HelpCenterFAQFolder'),
+            "howto": ("HelpCenterHowTo", "HelpCenterHowtoFolder"),
+            "tutorial": ("HelpCenterTutorial", "HelpCenterTutorialFolder",
+                         "HelpCenterLeafPage"),
+            "link": ("HelpCenterLink", "HelpCenterLinkFolder"),
+            "error": ("HelpCenterErrorReference", "HelpCenterErrorReferenceFolder"),
+            "glossary": ("HelpCenterDefinition", "HelpCenterGlossary"),
+            "manual": ("HelpCenterReferenceManual", "HelpCenterReferenceManualFolder",
+                       "HelpCenterReferenceManualSection", "HelpCenterReferenceManualPage"),
+            "video": ("HelpCenterInstructionalVideo", "HelpCenterInstructionalVideoFolder"),
         }
 
-        if choice and choiceTypes.has_key(choice):
+        if choice and choice in choiceTypes:
             result = choiceTypes.get(choice)
         else:
             # choice must have been "all documentation"
-            result=['HelpCenterFAQ',
-                    'HelpCenterHowTo',
-                    'HelpCenterTutorial',
-                    'HelpCenterTutorialPage',
-                    'HelpCenterLink',
-                    'HelpCenterErrorReference',
-                    'HelpCenterDefinition',
-                    'HelpCenterReferenceManual',
-                    'HelpCenterReferenceManualSection',
-                    'HelpCenterReferenceManualPage',
-                    'HelpCenterInstructionalVideo']
+            result = [
+                'HelpCenterFAQ',
+                'HelpCenterHowTo',
+                'HelpCenterTutorial',
+                'HelpCenterTutorialPage',
+                'HelpCenterLink',
+                'HelpCenterErrorReference',
+                'HelpCenterDefinition',
+                'HelpCenterReferenceManual',
+                'HelpCenterReferenceManualSection',
+                'HelpCenterReferenceManualPage',
+                'HelpCenterInstructionalVideo']
 
         return result
-
-
-
