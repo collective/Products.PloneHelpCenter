@@ -89,7 +89,7 @@ msgstr "Diese FAQ betrifft eine alte Version"
 #. Default: "This form aids maintenance of help center content."
 #: ./skins/plone_help_center/phc_stats.cpt:13
 msgid "This form aids maintenance of help center content."
-msgstr ""
+msgstr "Dieses Formular unterstützt bei der Wartung des Helpcenters."
 
 #. Default: "This item applies to a previous version"
 #: ./skins/plone_help_center/glossary_view.pt:83
@@ -105,7 +105,7 @@ msgstr "Dieser Film betrifft eine alte Version"
 #. Default: "Using the criteria below, you can find content and then modify it from the search results page."
 #: ./skins/plone_help_center/phc_stats.cpt:19
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
-msgstr ""
+msgstr "Suchen Sie Inhalte des Helpcenters um diese auf der Ergebnisseite zu bearbeiten."
 
 #: ./profiles/default/types/HelpCenterErrorReference.xml
 #: ./profiles/default/types/HelpCenterFAQ.xml
@@ -123,18 +123,17 @@ msgstr "AccessKeys (Zugangsschlssel) suchen"
 #: ./skins/plone_help_center/referencemanualsection_view.pt:67
 #: ./skins/plone_help_center/tutorial_view.pt:60
 msgid "all_content_on_one_page"
-msgstr ""
+msgstr "All Inhalte auf einer Seite (z.B. zum Drucken oder Praesentieren)"
 
 #. Default: "All ${number} ${title}…"
 #: ./skins/plone_help_center/helpcenter_view.pt:135
-#, fuzzy
 msgid "all_helptype"
 msgstr "Alle ${title}"
 
 #. Default: "RSS feed of these search results"
 #: ./skins/plone_help_center/phc_search.pt:63
 msgid "alt"
-msgstr ""
+msgstr "RSS-Feed dieser Suchergebnisse"
 
 #. Default: "More ${DYNAMIC_CONTENT}…"
 #: ./skins/plone_help_center/portlet_helpcenter.pt:59
@@ -144,12 +143,12 @@ msgstr ""
 #. Default: "No stale items found in the Help Center."
 #: ./skins/plone_help_center/portlet_stale_items.pt:52
 msgid "box_no_stale_items"
-msgstr ""
+msgstr "Mehr ${DYNAMIC_CONTENT}…"
 
 #. Default: "Stale Help Center Items"
 #: ./skins/plone_help_center/portlet_stale_items.pt:20
 msgid "box_staleitems"
-msgstr ""
+msgstr "Veraltete Inhalte des Helpcenters"
 
 #. Default: "Meaningful sentences that explains the answer."
 msgid "desc_answer"
@@ -158,7 +157,7 @@ msgstr "Sinnvolle Sätze, die die Antwort erklären."
 #. Default: "Match all"
 #: ./skins/plone_help_center/phc_stats.cpt:300
 msgid "description_audiences_and"
-msgstr ""
+msgstr "Alle"
 
 #. Default: "Has more than one audience selected"
 #: ./skins/plone_help_center/phc_stats.cpt:264
@@ -536,7 +535,6 @@ msgid "phc_help_video_height"
 msgstr "Höhe des Videos"
 
 #. Default: "Add a screenshot by clicking the \'Browse\' button. Add a screenshot that highlights the content of the instructional video.""
-#, fuzzy
 msgid "phc_help_video_screenshot"
 msgstr "Fügen Sie bitte durch Klicken des 'Durchsuchen' Knopfes einen Screenshot hinzu. Suchen Sie einen Screenshot aus, der den Inhalt des Videos hervorhebt."
 
@@ -794,7 +792,6 @@ msgstr "Tutorials"
 
 #. Default: "Back to Glossary"
 #: ./skins/plone_help_center/definition_view.pt:45
-#, fuzzy
 msgid "phc_up_to_glossary"
 msgstr "Zum Wörterbuch"
 
@@ -802,7 +799,6 @@ msgstr "Zum Wörterbuch"
 #: ./skins/plone_help_center/faq_view.pt:51
 #: ./skins/plone_help_center/faqfolder_view.pt:69
 #: ./skins/plone_help_center/faqsection_view.pt:50
-#, fuzzy
 msgid "phc_up_to_toc"
 msgstr "Zum Inhaltsverzeichnis"
 
@@ -829,7 +825,6 @@ msgstr "Videos"
 
 #. Default: "View entire FAQ expanded"
 #: ./skins/plone_help_center/faqfolder_view.pt:76
-#, fuzzy
 msgid "phc_view_entire_faq"
 msgstr "Zeige die ganze FAQ"
 
@@ -848,7 +843,7 @@ msgstr "Neueste Dokumentation"
 #. Default: "Advanced Search"
 #: ./skins/plone_help_center/phc_asearch.pt:51
 msgid "search_results_advanced_link"
-msgstr ""
+msgstr "Erweiterte Suche"
 
 #. Default: "in"
 #: ./skins/plone_help_center/helpcenter_view.pt:60
@@ -857,7 +852,6 @@ msgstr ""
 
 #. Default: "Related content"
 #: ./skins/plone_help_center/helpcenter_references.pt:12
-#, fuzzy
 msgid "see_also"
 msgstr "siehe auch:"
 
@@ -871,15 +865,15 @@ msgstr "Es gibt keine Seiten in diesem Handbuch."
 #: ./skins/plone_help_center/referencemanual_view.pt:70
 #: ./skins/plone_help_center/referencemanualsection_view.pt:74
 msgid "view_no_reference_manual2"
-msgstr ""
+msgstr "Verwenden Sie das 'Hinzufügen'-Menu um Sections, Seiten, Dateien oder Bilder zu erstellen. Sections können beliebig tief verschachtelt werden, es sollten aber nicht mehr als 3-4 Ebenen verwendet werden um die Lesbarkeit nicht einzuschränken. "
 
 #. Default: "&laquo; Return to page index"
 #: ./skins/plone_help_center/tutorial-all-pages.pt:44
 msgid "view_paginated_pages"
-msgstr ""
+msgstr "&laquo; Zurück zur Seitenübersicht"
 
 #. Default: "&laquo; Return to page index"
 #: ./skins/plone_help_center/referencemanual-all-pages.pt:44
 msgid "view_paginated_reference_manual"
-msgstr ""
+msgstr "&laquo; Zurück zur Seitenübersicht"
 
