@@ -130,7 +130,7 @@
                 <dd class="portletFooter">
                     <a tal:attributes="href section/getURL">
                       <span i18n:translate="all_helptype" tal:condition="python:len(objs) &gt; 0">
-                        All <span tal:content="python:len(objs)"
+                        <span i18n:domain="plone" i18n:translate="label_all">All</span> <span tal:content="python:len(objs)"
                                   i18n:name="number" />
                         <span i18n:name="title" tal:content="string:${section/Title}">
                             Title of section
