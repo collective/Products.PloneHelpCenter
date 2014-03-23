@@ -143,12 +143,12 @@ class HelpCenterView(BrowserView):
     def sections(self):
         """ subtype sections in current folder """
         context = Acquisition.aq_inner(self.context)
-        contentFilter = {'review_state': ('published', 'visible',), 'portal_type': self.subtypes()}
+        contentFilter = {'review_state': ('published', 'visible', 'internally_published'), 'portal_type': self.subtypes()}
         return context.getFolderContents(contentFilter=contentFilter)
 
     def sectionContents(self, section, limit=5):
         """ return section contents """
-        contentFilter = {'review_state': 'published', 'sort_on': 'modified', 'sort_order': 'reverse', 'limit': limit}
+        contentFilter = {'review_state': ('published', 'internally_published'), 'sort_on': 'modified', 'sort_order': 'reverse', 'limit': limit}
         return section.getObject().getFolderContents(contentFilter=contentFilter)
 
     @cache(_cacheKey)
@@ -286,7 +286,7 @@ class HelpCenterView(BrowserView):
         for topic in topics:
             if ':' not in topic:
                 items = self.catalog(portal_type=['HelpCenterReferenceManual', 'HelpCenterTutorial', 'HelpCenterHowTo'],
-                                     review_state='published',
+                                     review_state=('published', 'internally_published'),
                                      getSections=[topic])
 
                 startHeres = []

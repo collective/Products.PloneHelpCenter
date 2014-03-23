@@ -4,7 +4,11 @@ HISTORY
 4.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Allow 'internally_published' for items.
+  [pbauer]
+
+- Fix german translations.
+  [pbauer]
 
 
 4.0 (2013-09-21)
@@ -29,7 +33,7 @@ HISTORY
   Plone 4.3 these items miss icons in listings.
   [maurits]
 
-- Fixed faqfolder_view error by checking if item brain returns a value 
+- Fixed faqfolder_view error by checking if item brain returns a value
   when asking for getSections
   [ichim-david]
 
@@ -152,7 +156,7 @@ PloneHelpCenter 4.0a1 (2010-12-07)
   Fixes http://plone.org/products/plonehelpcenter/issues/140.
   [dukebody]
 
-- Made it possible to query contentIds via XML-RPC for 
+- Made it possible to query contentIds via XML-RPC for
   collective.developermanual uploads [miohtama]
 
 - Use the aq_parent function instead of the attribute to avoid
@@ -187,12 +191,12 @@ PloneHelpCenter 4.0a1 (2010-12-07)
 
 - Update the whole product to work with Plone 4.0a2. [dukebody]
 
-- Removed "global allow" for Reference Manual. This closes 
+- Removed "global allow" for Reference Manual. This closes
   http://plone.org/products/plonehelpcenter/issues/150.
   [keul]
 
-- updated INSTALL.txt with step by step upgrade guide related to 
-  issue #142 "upgrade steps order unclear" and issue #132 "errata 
+- updated INSTALL.txt with step by step upgrade guide related to
+  issue #142 "upgrade steps order unclear" and issue #132 "errata
   mentioning Ploneboard". [acsr]
 
 - Respect exclude_from_nav setting in the reference manual
