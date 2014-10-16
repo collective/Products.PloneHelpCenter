@@ -4,6 +4,9 @@ HISTORY
 4.0.1 (unreleased)
 ------------------
 
+- Add items to 'No section' for which getSection returns an empty list.
+  [pbauer]
+
 - Allow 'internally_published' for items.
   [pbauer]
 
