@@ -4,6 +4,9 @@ HISTORY
 4.0.1 (unreleased)
 ------------------
 
+- Safely get 'getAudiences' metadata from brains
+  [avoinea]
+
 - Add items to 'No section' for which getSection returns an empty list.
   [pbauer]
 

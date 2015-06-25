@@ -178,7 +178,7 @@ class HelpCenterFolderView(BrowserView):
                         except ValueError:
                             pass
 
-            itemAudiences = b.getAudiences or ['Any audience']
+            itemAudiences = getattr(b, 'getAudiences', None) or ['Any audience']
             matchedAudiences = [a for a in audiences if a['audience'] in itemAudiences]
             if not matchedAudiences:
                 # put it in 'Any audience'

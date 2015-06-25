@@ -424,7 +424,8 @@ class HelpCenterView(BrowserView):
 
         multipleAudiences = REQUEST.get('getAudiences_multiple', False)
         if multipleAudiences:
-            matches = [m for m in matches if len(m.getAudiences) > 1]
+            matches = [m for m in matches if len(
+                getattr(m, 'getAudiences', [])) > 1]
 
         multipleVersions = REQUEST.get('getVersions_multiple', False)
         if multipleVersions:

@@ -69,7 +69,7 @@
                         <input type="checkbox" name="paths:list" tal:attributes="value item/getPath"/>
                      </td>
                      <td><a tal:content="item/Title" tal:attributes="href item/getURL"/></td>
-                     <td tal:content="python:'; '.join(item.getAudiences)" tal:on-error="nothing"/>
+                     <td tal:content="python:'; '.join(getattr(item, 'getAudiences', []))" tal:on-error="nothing"/>
                      <td tal:content="python:'; '.join(item.getSections)" tal:on-error="nothing"/>
                      <td tal:content="python:'; '.join(item.getVersions)" tal:on-error="nothing"/>
                      <td tal:content="python:'; '.join(item.Subject)" tal:on-error="nothing"/>
