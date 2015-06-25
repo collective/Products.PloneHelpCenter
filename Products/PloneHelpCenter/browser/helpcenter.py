@@ -227,7 +227,7 @@ class HelpCenterView(BrowserView):
                 if not section:
                     continue
                 topicsDict[section] = topicsDict[section] + 1
-                if item.getStartHere:
+                if getattr(item, 'getStartHere', False):
                     featuredDict[section].append({
                         'title': item.Title,
                         'description': item.Description,
@@ -291,7 +291,7 @@ class HelpCenterView(BrowserView):
 
                 startHeres = []
                 for item in items:
-                    if item.getStartHere:
+                    if getattr(item, 'getStartHere', False):
                         startHeres.append({'title': item.Title, 'url': item.getURL()})
 
                 sections.append({
