@@ -4,6 +4,9 @@ HISTORY
 4.0.1 (unreleased)
 ------------------
 
+- Safely get 'getVersions' metadata from brains
+  [avoinea]
+
 - Safely get 'getStartHere' metadata from brains
   [avoinea]
 

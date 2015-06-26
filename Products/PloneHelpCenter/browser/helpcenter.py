@@ -429,11 +429,11 @@ class HelpCenterView(BrowserView):
 
         multipleVersions = REQUEST.get('getVersions_multiple', False)
         if multipleVersions:
-            matches = [m for m in matches if len(m.getVersions) > 1]
+            matches = [m for m in matches if len(getattr(m, 'getVersions', [])) > 1]
 
         noVersions = REQUEST.get('getVersions_none', False)
         if noVersions:
-            matches = [m for m in matches if len(m.getVersions) == 0]
+            matches = [m for m in matches if len(getattr(m, 'getVersions', [])) == 0]
 
         hasComments = REQUEST.get('hasComments', False)
         if hasComments:
