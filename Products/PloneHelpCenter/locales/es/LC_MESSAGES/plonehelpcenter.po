@@ -1,12 +1,12 @@
-msgid ""
+Ôªømsgid ""
 msgstr ""
 "Project-Id-Version: plonehelpcenter-es\n"
 "POT-Creation-Date: 2013-09-23 23:42+0000\n"
 "PO-Revision-Date: 2007-03-12 11:38+0200\n"
-"Last-Translator: Fernando de los RÌos <fdelosrios@ub.edu>\n"
+"Last-Translator: Diego Municio <dmunicio@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: es\n"
@@ -16,22 +16,22 @@ msgstr ""
 
 #: ./profiles/default/types/HelpCenterReferenceManualPage.xml
 msgid "A Page in a reference manual."
-msgstr ""
+msgstr "Una p√°gina en el manual de referencia."
 
 #: ./profiles/default/types/HelpCenterLeafPage.xml
 msgid "A page in a help center."
-msgstr ""
+msgstr "Una p√°gina en el centro de ayuda."
 
 #. Default: "Duration:"
 #: ./skins/plone_help_center/ivideofolder_view.pt:76
 msgid "Duration:"
-msgstr "DuraciÛn:"
+msgstr "Duraci√≥n:"
 
 #: ./profiles/default/types/HelpCenterErrorReference.xml
 #: ./profiles/default/types/HelpCenterFAQ.xml
 #: ./profiles/default/types/HelpCenterHowTo.xml
 msgid "Edit"
-msgstr ""
+msgstr "Editar"
 
 #. Default: "Find and modify content"
 #: ./skins/plone_help_center/phc_stats.cpt:17
@@ -46,11 +46,11 @@ msgstr "Ir"
 #. Default: "Help Center Statistics and Maintenance"
 #: ./skins/plone_help_center/phc_stats.cpt:11
 msgid "Help Center Statistics and Maintenance"
-msgstr "EstadÌsticas y mantenimiento del Help Center"
+msgstr "Estad√≠sticas y mantenimiento del Help Center"
 
 #: ./browser/phc_topic.pt:15
 msgid "In This Section..."
-msgstr ""
+msgstr "En esta secci√≥n..."
 
 #: ./profiles/default/types/HelpCenterLeafPage.xml
 msgid "Leaf Page"
@@ -63,27 +63,27 @@ msgstr ""
 #. Default: "Search"
 #: ./skins/plone_help_center/helpcenter_view.pt:51
 msgid "Search"
-msgstr "B˙squeda"
+msgstr "B√∫squeda"
 
 #: ./skins/plone_help_center/helpcenter_view.pt:39
 msgid "Search Documentation"
-msgstr ""
+msgstr "Buscar Documentaci√≥n"
 
 #. Default: "Search for content"
 #: ./skins/plone_help_center/phc_stats.cpt:37
 msgid "Search for content"
-msgstr "B˙squeda"
+msgstr "B√∫squeda"
 
 #. Default: "Size:"
 #: ./skins/plone_help_center/ivideofolder_view.pt:81
 msgid "Size:"
-msgstr "TamaÒo:"
+msgstr "Tama√±o:"
 
 #. Default: "This FAQ applies to a previous version"
 #: ./skins/plone_help_center/faqfolder_view.pt:99
 #: ./skins/plone_help_center/faqsection_view.pt:62
 msgid "This FAQ applies to a previous version"
-msgstr "Este FAQ se aplica a una versiÛn anterior."
+msgstr "Este FAQ se aplica a una versi√≥n anterior."
 
 #. Default: "This form aids maintenance of help center content."
 #: ./skins/plone_help_center/phc_stats.cpt:13
@@ -94,17 +94,17 @@ msgstr "Este formulario ayuda a mantener los contenidos del Help Center."
 #: ./skins/plone_help_center/glossary_view.pt:83
 #: ./skins/plone_help_center/phc_genericfolder_view.pt:84
 msgid "This item applies to a previous version"
-msgstr "Este Ìtem se aplica a una versiÛn anterior."
+msgstr "Este √≠tem se aplica a una versi√≥n anterior."
 
 #. Default: "This video applies to a previous version"
 #: ./skins/plone_help_center/ivideofolder_view.pt:68
 msgid "This video applies to a previous version"
-msgstr "Este vÌdeo se aplica a una versiÛn anterior."
+msgstr "Este v√≠deo se aplica a una versi√≥n anterior."
 
 #. Default: "Using the criteria below, you can find content and then modify it from the search results page."
 #: ./skins/plone_help_center/phc_stats.cpt:19
 msgid "Using the criteria below, you can find content and then modify it from the search results page."
-msgstr "Utilizando los siguientes criterios puede encontrar y modificar contenidos desde la p·gina de resultados."
+msgstr "Utilizando los siguientes criterios puede encontrar y modificar contenidos desde la p√°gina de resultados."
 
 #: ./profiles/default/types/HelpCenterErrorReference.xml
 #: ./profiles/default/types/HelpCenterFAQ.xml
@@ -115,7 +115,7 @@ msgstr ""
 #. Default: "accesskeys-search"
 #: ./skins/plone_help_center/helpcenter_view.pt:39
 msgid "accesskeys-search"
-msgstr "Teclas r·pidas de b˙squeda"
+msgstr "Teclas r√°pidas de b√∫squeda"
 
 #. Default: "All content on one page (useful for printing, presentation mode etc.)"
 #: ./skins/plone_help_center/referencemanual_view.pt:62
@@ -128,7 +128,7 @@ msgstr ""
 #: ./skins/plone_help_center/helpcenter_view.pt:135
 #, fuzzy
 msgid "all_helptype"
-msgstr "Todo ${title}"
+msgstr "Total ${title}"
 
 #. Default: "RSS feed of these search results"
 #: ./skins/plone_help_center/phc_search.pt:63
@@ -139,12 +139,12 @@ msgstr ""
 #: ./skins/plone_help_center/portlet_helpcenter.pt:59
 #, fuzzy
 msgid "box_more_documentation"
-msgstr "M·s <tal:center replace=\"center/Title\">DocumentaciÛn</tal:center> ‚Ä¶"
+msgstr "M√°s <tal:center replace=\"center/Title\">Documentaci√≥n</tal:center> ‚Ä¶"
 
 #. Default: "No stale items found in the Help Center."
 #: ./skins/plone_help_center/portlet_stale_items.pt:52
 msgid "box_no_stale_items"
-msgstr "No hay Ìtems obsoletos en el Help Center."
+msgstr "No hay √≠tems obsoletos en el Help Center."
 
 #. Default: "Stale Help Center Items"
 #: ./skins/plone_help_center/portlet_stale_items.pt:20
@@ -163,7 +163,7 @@ msgstr "Coincidir con todas"
 #. Default: "Has more than one audience selected"
 #: ./skins/plone_help_center/phc_stats.cpt:264
 msgid "description_audiences_multiple"
-msgstr "Tiene m·s de una audiencia seleccionada"
+msgstr "Tiene m√°s de una audiencia seleccionada"
 
 #. Default: "Match any"
 #: ./skins/plone_help_center/phc_stats.cpt:289
@@ -177,23 +177,23 @@ msgstr ""
 
 #. Default: "Description for the Error Reference Container."
 msgid "description_edit_ErrorReference"
-msgstr "DescripciÛn del contenedor de referencias de error"
+msgstr "Descripci√≥n del contenedor de referencias de error"
 
 #. Default: "Description for the Link."
 msgid "description_edit_Link"
-msgstr "DescripciÛn del link"
+msgstr "Descripci√≥n del link"
 
 #. Default: "Description for the Link Container."
 msgid "description_edit_Link_Container"
-msgstr "DescripciÛn del contenedor de enlaces"
+msgstr "Descripci√≥n del contenedor de enlaces"
 
 #. Default: "Description"
 msgid "description_label_ErrorReference"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description"
 msgid "description_label_Link"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Match all"
 #: ./skins/plone_help_center/phc_stats.cpt:242
@@ -203,7 +203,7 @@ msgstr "Coincidir con todos los elementos"
 #. Default: "Has more than one section selected"
 #: ./skins/plone_help_center/phc_stats.cpt:206
 msgid "description_sections_multiple"
-msgstr "Tiene m·s de un elemento seleccionado"
+msgstr "Tiene m√°s de un elemento seleccionado"
 
 #. Default: "Has no sections selected"
 #: ./skins/plone_help_center/phc_stats.cpt:196
@@ -223,7 +223,7 @@ msgstr "Coincidir con todos los elementos"
 #. Default: "Has more than one version selected"
 #: ./skins/plone_help_center/phc_stats.cpt:332
 msgid "description_versions_multiple"
-msgstr "Tiene m·s de una versiÛn seleccionada"
+msgstr "Tiene m√°s de una versi√≥n seleccionada"
 
 #. Default: "Has no versions selected"
 #: ./skins/plone_help_center/phc_stats.cpt:322
@@ -239,7 +239,7 @@ msgstr "Coincidir con cualquier elemento"
 #: ./skins/plone_help_center/discussion_notify_template.pt:20
 #, fuzzy
 msgid "discussion_notify_template_body"
-msgstr "Alguien ha opinado sobre <span tal:condition=\"comment_on_type\" tal:define=\"content string:your $comment_on_type, \" tal:replace=\"content\"/> \" <span tal:replace=\"comment_on_object/title_or_id\"/> \". Si es el autor de este elemento: le recomendamos que lea el comentario, actualice la documentaciÛn si fuera necesario y borre el comentario. Si necesita aclarar lo expuesto, responda al comentario y la persona recibir· una notificaciÛn como Èsta, probablemente le dÈ m·s detalles. Para ver el nuevo comentario visite: <span tal:replace=\"comment_on_object/absolute_url\"/>"
+msgstr "Alguien ha opinado sobre <span tal:condition=\"comment_on_type\" tal:define=\"content string:your $comment_on_type, \" tal:replace=\"content\"/> \" <span tal:replace=\"comment_on_object/title_or_id\"/> \". Si es el autor de este elemento: le recomendamos que lea el comentario, actualice la documentaci√≥n si fuera necesario y borre el comentario. Si necesita aclarar lo expuesto, responda al comentario y la persona recibir√° una notificaci√≥n como √©sta, probablemente le d√© m√°detalles. Para ver el nuevo comentario visite: <span tal:replace=\"comment_on_object/absolute_url\"/>"
 
 #. Default: "Someone has replied to your comment, ${title}. To view the reply, visit: ${url}"
 #: ./skins/plone_help_center/discussion_reply_notify_template.pt:18
@@ -259,12 +259,12 @@ msgstr ""
 
 #. Default: "More details on the question, if not evident from the title."
 msgid "help_detailed_question"
-msgstr "M·s detalles sobre la pregunta, si no es suficientemente claro el tÌtulo."
+msgstr "M√°s detalles sobre la pregunta, si no es suficientemente claro el t√≠tulo."
 
 #. Default: "Return items marked for some or all of these audiences. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one audience selected."
 #: ./skins/plone_help_center/phc_stats.cpt:251
 msgid "help_search_audiences"
-msgstr "Devuelve los elementos destinados a las audiencias seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. TambiÈn puede limitar su b˙squeda a sÛlo aquellos elementos con m·s de una audiencia seleccionada."
+msgstr "Devuelve los elementos destinados a las audiencias seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. Tambi√©n puede limitar su b√∫squeda a s√≥lo aquellos elementos con m√°s de una audiencia seleccionada."
 
 #. Default: "Return items that have comments."
 #: ./skins/plone_help_center/phc_stats.cpt:549
@@ -294,12 +294,12 @@ msgstr ""
 #. Default: "Return items in some or all of these sections. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one section selected."
 #: ./skins/plone_help_center/phc_stats.cpt:183
 msgid "help_search_sections"
-msgstr "Devuelve elementos ubicados en las secciones seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. TambiÈn puede limitar su b˙squeda a sÛlo aquellos elementos con m·s de una secciÛn seleccionada."
+msgstr "Devuelve elementos ubicados en las secciones seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. Tambi√©n puede limitar su b√∫squeda a s√≥lo aquellos elementos con m√°s de una secci√≥n seleccionada."
 
 #. Default: "Return items in some or all of these versions. Multiple words may be found by pressing <strong>Ctrl</strong> (or <strong>Apple</strong> key on Mac) while clicking the keywords. You can also limit your search to only those items with more than one version selected."
 #: ./skins/plone_help_center/phc_stats.cpt:309
 msgid "help_search_versions"
-msgstr "Devuelve elementos correspondientes a las versiones seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. TambiÈn puede limitar su b˙squeda a sÛlo aquellos elementos con m·s de una versiÛn seleccionada."
+msgstr "Devuelve elementos correspondientes a las versiones seleccionadas. Puede seleccionar varias presionando <strong>Ctrl</strong> (o la tecla <strong>Apple</strong>  en Mac) mientras hace click sobre ellas. Tambi√©n puede limitar su b√∫squeda a s√≥lo aquellos elementos con m√°s de una versi√≥n seleccionada."
 
 #. Default: "Answer"
 msgid "label_answer"
@@ -362,7 +362,7 @@ msgstr "Versiones"
 #. Default: "Latest ${title}"
 #: ./skins/plone_help_center/helpcenter_view.pt:110
 msgid "latest_helptype"
-msgstr "⁄ltimos ${title}"
+msgstr "√öltimos ${title}"
 
 #. Default: "minutes"
 #: ./skins/plone_help_center/ivideofolder_view.pt:79
@@ -389,7 +389,7 @@ msgstr ""
 #: ./skins/plone_help_center/faqsection_view.pt:88
 #: ./skins/plone_help_center/ivideo_view.pt:98
 msgid "phc_any_version"
-msgstr "Cualquier versiÛn"
+msgstr "Cualquier versi√≥n"
 
 #. Default: "Body"
 msgid "phc_body"
@@ -398,11 +398,11 @@ msgstr "Cuerpo del texto"
 #. Default: "Instructions on how to contribute to and use this resource."
 #: ./skins/plone_help_center/helpcenter_view.pt:91
 msgid "phc_contrib_use"
-msgstr "Instrucciones de cÛmo contribuir y usar este recurso."
+msgstr "Instrucciones de c√≥mo contribuir y usar este recurso."
 
 #. Default: "Readers will be informed when content relates to versions not in this list, as it may be outdated."
 msgid "phc_current_versions_helpcenter"
-msgstr "Los lectores ser·n informados cuando el contenido haga referencia a versiones que no estÈn en la lista, podrÌa estar obsoleto."
+msgstr "Los lectores ser√°n informados cuando el contenido haga referencia a versiones que no est√©n en la lista, podr√≠a estar obsoleto."
 
 #. Default: "Default importance rating for new content."
 msgid "phc_default_importance_helpcenter"
@@ -417,11 +417,11 @@ msgstr "Definiciones del glosario"
 #. Default: "Enter a brief description"
 #, fuzzy
 msgid "phc_desc_ErrorReference"
-msgstr "Introduzca una breve descripciÛn."
+msgstr "Introduzca una breve descripci√≥n."
 
 #. Default: "Explanation of the error."
 msgid "phc_desc_body_ErrorReference"
-msgstr "ExplicaciÛn del error."
+msgstr "Explicaci√≥n del error."
 
 #. Default: "The body text."
 msgid "phc_desc_body_tutorial"
@@ -429,46 +429,46 @@ msgstr "Cuerpo del texto"
 
 #. Default: "An explanation of the term."
 msgid "phc_desc_definition"
-msgstr "Una explicaciÛn del tÈrmino."
+msgstr "Una explicaci√≥n del t√©rmino."
 
 #. Default: "Description of the FAQ Container."
 msgid "phc_desc_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description of the Glossary."
 msgid "phc_desc_folder_glossary"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description for the Help Center."
 msgid "phc_desc_helpcenter"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "The text of the Howto"
 msgid "phc_desc_howto_body"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description for the How-to Container."
 msgid "phc_desc_howto_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Web address"
 #, fuzzy
 msgid "phc_desc_link_url"
-msgstr "DirecciÛn web."
+msgstr "Direcci√≥n web."
 
 #. Default: "Enter a brief description"
 #, fuzzy
 msgid "phc_desc_tutorial_page"
-msgstr "Introduzca una breve descripciÛn."
+msgstr "Introduzca una breve descripci√≥n."
 
 #. Default: "Description for the Video section."
 msgid "phc_desc_video_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Documentation search"
 #: ./skins/plone_help_center/helpcenter_view.pt:31
 msgid "phc_doc_search"
-msgstr "Buscar documentaciÛn"
+msgstr "Buscar documentaci√≥n"
 
 #. Default: "Error references"
 #: ./skins/plone_help_center/helpcenter_view.pt:69
@@ -478,7 +478,7 @@ msgstr "Referencias de error"
 
 #. Default: "Error reference section."
 msgid "phc_errorreference_description"
-msgstr "SecciÛn de Referencias de error"
+msgstr "Secci√≥n de Referencias de error"
 
 #. Default: "Error References"
 msgid "phc_errorreference_title"
@@ -506,11 +506,11 @@ msgstr "Preguntas frecuentes (FAQ)"
 #. Default: "Entire documentation area"
 #: ./skins/plone_help_center/helpcenter_view.pt:63
 msgid "phc_full_area"
-msgstr "Toda el area de documentaciÛn"
+msgstr "Toda el area de documentaci√≥n"
 
 #. Default: "Glossary of terms."
 msgid "phc_glossary_description"
-msgstr "Glosario de tÈrminos"
+msgstr "Glosario de t√©rminos"
 
 #. Default: "Glossary Definitions"
 msgid "phc_glossary_title"
@@ -518,24 +518,24 @@ msgstr "Definiciones del glosario"
 
 #. Default: "Brief explanation of the How To."
 msgid "phc_help_detailed_howto"
-msgstr "Breve explicaciÛn del How-to."
+msgstr "Breve explicaci√≥n del How-to."
 
 #. Default: "Brief explanation of the video's content."
 msgid "phc_help_detailed_video"
-msgstr "Breve explicaciÛn del contenido del video."
+msgstr "Breve explicaci√≥n del contenido del video."
 
 #. Default: "A summary of the reference manual -- subject and scope. Will be displayed on every page of the manual."
 msgid "phc_help_referencemanual_summary"
-msgstr "Un resumen del Manual de referencia -- tema y alcance. Se mostrar· en cada p·gina del manual."
+msgstr "Un resumen del Manual de referencia -- tema y alcance. Se mostrar√° en cada p√°gina del manual."
 
 #. Default: "A summary of the tutorial--aims and scope. Will be displayed on every page of the tutorial."
 msgid "phc_help_tutorial_summary"
-msgstr "Un resumen del Tutorial -- propÛsitos y alcance. Se mostrar· en cada p·gina del manual."
+msgstr "Un resumen del Tutorial -- prop√≥sitos y alcance. Se mostrar√° en cada p√°gina del manual."
 
 #. Default: "Length (in minutes) of the video"
 #, fuzzy
 msgid "phc_help_video_duration"
-msgstr "DuraciÛn (en minutos) del video."
+msgstr "Duraci√≥n (en minutos) del video."
 
 #. Default: "Height of the video"
 #, fuzzy
@@ -545,7 +545,7 @@ msgstr "Altura del video."
 #. Default: "Add a screenshot by clicking the \'Browse\' button. Add a screenshot that highlights the content of the instructional video.""
 #, fuzzy
 msgid "phc_help_video_screenshot"
-msgstr "AÒada una captura de pantalla haciendo click sobre el botÛn 'Explorar'. AÒada una captura que represente el contenido del video did·ctico."
+msgstr "A√±ada una captura de pantalla haciendo click sobre el bot√≥n 'Explorar'. A√±ada una captura que represente el contenido del video did√°ctico."
 
 #. Default: "Width of the video"
 #, fuzzy
@@ -554,7 +554,7 @@ msgstr "Ancho del video."
 
 #. Default: "Click 'Browse' to upload a Flash .swf file."
 msgid "phc_help_videofile_description"
-msgstr "Pulse el botÛn 'Explorar' para subir un video en formato Flash (extensiÛn .swf)."
+msgstr "Pulse el bot√≥n 'Explorar' para subir un video en formato Flash (extensi√≥n .swf)."
 
 #. Default: "How-tos"
 #: ./skins/plone_help_center/helpcenter_view.pt:66
@@ -592,7 +592,7 @@ msgstr "Secciones"
 
 #. Default: "Description"
 msgid "phc_label_ErrorReference"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Body text"
 msgid "phc_label_body_ErrorReference"
@@ -613,11 +613,11 @@ msgstr "Relevancia por defecto"
 
 #. Default: "Definition"
 msgid "phc_label_definition"
-msgstr "DefiniciÛn"
+msgstr "Definici√≥n"
 
 #. Default: "Description"
 msgid "phc_label_desc_helpcenter"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Summary"
 msgid "phc_label_detailed_howto"
@@ -629,19 +629,19 @@ msgstr "Resumen"
 
 #. Default: "Description"
 msgid "phc_label_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description"
 msgid "phc_label_folder_glossary"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description"
 msgid "phc_label_folder_tutorial"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description"
 msgid "phc_label_howto_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Importance"
 msgid "phc_label_importance"
@@ -661,7 +661,7 @@ msgstr "Elementos referenciados"
 
 #. Default: "Reference Manual Description"
 msgid "phc_label_referencemanual_description"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Related keywords"
 msgid "phc_label_related"
@@ -677,11 +677,11 @@ msgstr "Secciones"
 
 #. Default: "Tutorial Description"
 msgid "phc_label_tutorial_description"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Description"
 msgid "phc_label_tutorial_page"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Versions"
 msgid "phc_label_version_helpcenter"
@@ -693,15 +693,15 @@ msgstr "Versiones"
 
 #. Default: "Duration"
 msgid "phc_label_video_duration"
-msgstr "DuraciÛn"
+msgstr "Duraci√≥n"
 
 #. Default: "Description"
 msgid "phc_label_video_folder"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Height"
 msgid "phc_label_video_height"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Screenshot"
 msgid "phc_label_video_screenshot"
@@ -713,7 +713,7 @@ msgstr "Ancho"
 
 #. Default: "Flash File (.swf)"
 msgid "phc_label_videofile_description"
-msgstr "Archivo en formato Flash (extensiÛn .swf)"
+msgstr "Archivo en formato Flash (extensi√≥n .swf)"
 
 #. Default: "Links"
 #: ./skins/plone_help_center/helpcenter_view.pt:68
@@ -723,7 +723,7 @@ msgstr "Enlaces"
 
 #. Default: "Links section."
 msgid "phc_links_description"
-msgstr "SecciÛn de Enlaces"
+msgstr "Secci√≥n de Enlaces"
 
 #. Default: "Links"
 msgid "phc_links_title"
@@ -748,7 +748,7 @@ msgstr "Anterior:"
 
 #. Default: "Set one or more references to HelpCenter items."
 msgid "phc_reference"
-msgstr "Establece una o m·s referencias a elementos del centro de ayuda."
+msgstr "Establece una o m√°s referencias a elementos del centro de ayuda."
 
 #. Default: "Reference manuals"
 #: ./skins/plone_help_center/helpcenter_view.pt:71
@@ -758,7 +758,7 @@ msgstr "Manuales de referencia"
 
 #. Default: "Reference Manual description"
 msgid "phc_referencemanual_description"
-msgstr "DescripciÛn"
+msgstr "Descripci√≥n"
 
 #. Default: "Reference Manual"
 msgid "phc_referencemanual_title"
@@ -767,14 +767,13 @@ msgstr "Manual de referencia"
 #. Default: "A list of keywords that should be indexed along with the content (e.g. for a how-to on VerboseSecurity, you might include Verbose Security, Insufficient Privileges, Debugging security problems)"
 #, fuzzy
 msgid "phc_related"
-msgstr "Una lista de palabras clave que deben ser indexadas junto al contenido (p.e. para un how-to sobre 'CÛmo hacer una tortilla de patatas', podrÌa incluir Cocina, Tortilla patatas, GastronomÌa espaÒola...)."
+msgstr "Una lista de palabras clave que deben ser indexadas junto al contenido (p.e. para un how-to sobre Seguridad, podr√≠a incluir Privilegios Insuficientes, Problemas de depuraci√≥n)."
 
 #. Default: "Feed for all documentation."
 #: ./skins/plone_help_center/helpcenter_view.pt:83
 #: ./skins/plone_help_center/portlet_phc_misc.pt:11
-#, fuzzy
 msgid "phc_rss_all"
-msgstr "Hilo RSS para todos los tipos de documentaciÛn"
+msgstr "Hilo RSS para todos los tipos de documentaci√≥n"
 
 #. Default: "Did you not find what you were looking for? <a href=\"phc_asearch_form\">Try again.</a> Or, use the ${advanced_search} for more precise search options or to search other kinds of documents."
 #: ./skins/plone_help_center/phc_asearch.pt:50
@@ -783,7 +782,7 @@ msgstr ""
 
 #. Default: "Section(s) that this item should appear in."
 msgid "phc_sections"
-msgstr "SecciÛn(es) en que este elemento deberÌa aparecer."
+msgstr "Secci√≥n(es) en que este elemento deber√≠aparecer."
 
 #. Default: "Define the available sections for classifying these items."
 msgid "phc_sections_vocab"
@@ -805,7 +804,6 @@ msgstr "Tutorial"
 
 #. Default: "Back to Glossary"
 #: ./skins/plone_help_center/definition_view.pt:45
-#, fuzzy
 msgid "phc_up_to_glossary"
 msgstr "Volver al Glosario"
 
@@ -813,27 +811,25 @@ msgstr "Volver al Glosario"
 #: ./skins/plone_help_center/faq_view.pt:51
 #: ./skins/plone_help_center/faqfolder_view.pt:69
 #: ./skins/plone_help_center/faqsection_view.pt:50
-#, fuzzy
 msgid "phc_up_to_toc"
-msgstr "Volver al Ìndice"
+msgstr "Volver al √≠ndice"
 
 #. Default: "Versions that items in help can refer to."
 msgid "phc_version_helpcenter"
 msgstr "Versiones a que elementos en la ayuda pueden referirse."
 
 #. Default: "Versions of product that apply to this item (leave blank if not version-specific)"
-#, fuzzy
 msgid "phc_versions"
-msgstr "Versiones del producto aplicables a este elemento (dejar en blanco si no es especÌfico de una versiÛn)"
+msgstr "Versiones del producto aplicables a este elemento (dejar en blanco si no es espec√≠fico de una versi√≥n)"
 
 #. Default: "This Video applies to:"
 #: ./skins/plone_help_center/ivideo_view.pt:95
 msgid "phc_video_applies_to"
-msgstr "Este Video did·ctico es aplicable a:"
+msgstr "Este Video did√°ctico es aplicable a:"
 
 #. Default: "Instructional videos."
 msgid "phc_video_description"
-msgstr "Videos did·cticos"
+msgstr "Videos did√°cticos"
 
 #. Default: "Videos"
 msgid "phc_video_title"
@@ -841,7 +837,6 @@ msgstr "Videos"
 
 #. Default: "View entire FAQ expanded"
 #: ./skins/plone_help_center/faqfolder_view.pt:76
-#, fuzzy
 msgid "phc_view_entire_faq"
 msgstr "Muestra las Preguntas frecuentes (FAQ) en modo completo"
 
@@ -850,12 +845,12 @@ msgstr "Muestra las Preguntas frecuentes (FAQ) en modo completo"
 #: ./skins/plone_help_center/errorreference_view.pt:24
 #: ./skins/plone_help_center/faq_view.pt:55
 msgid "phc_warning_outdated"
-msgstr "AtenciÛn: Este elemento est· marcado como obsoleto."
+msgstr "Atenci√≥n: Este elemento est√° marcado como obsoleto."
 
 #. Default: "Recent documentation"
 #: ./skins/plone_help_center/portlet_helpcenter.pt:24
 msgid "portlet_header_recent_docs"
-msgstr "DocumentaciÛn reciente"
+msgstr "Documentaci√≥n reciente"
 
 #. Default: "Advanced Search"
 #: ./skins/plone_help_center/phc_asearch.pt:51
@@ -876,23 +871,23 @@ msgstr ""
 #: ./skins/plone_help_center/referencemanual_view.pt:68
 #: ./skins/plone_help_center/referencemanualsection_view.pt:73
 msgid "view_no_reference_manual1"
-msgstr "No hay p·ginas o secciones en este Manual de referencia."
+msgstr "No hay p√°ginas o secciones en este Manual de referencia."
 
 #. Default: "Use the 'add new item' menu to add Sections, Pages, Files, or Images. Sections can be nested in an arbitrary depth, but we recommend not using more than three or four levels for good legibility."
 #: ./skins/plone_help_center/referencemanual_view.pt:70
 #: ./skins/plone_help_center/referencemanualsection_view.pt:74
 msgid "view_no_reference_manual2"
-msgstr "Use el men˙ 'agregar un nuevo Ìtem' para aÒadir Secciones, P·ginas, Archivos o Im·genes. Las secciones pueden anidarse a cualquier profundidad pero se recomienda no hacerlo en m·s de tres o cuatro niveles para una buena legibilidad."
+msgstr "Use el men√∫ 'agregar un nuevo √≠tem' para a√±r Secciones, P√°ginas, Archivos o Im√°genes. Las secciones pueden anidarse a cualquier profundidad pero se recomienda no hacerlo en m√°s de tres o cuatro niveles para una buena legibilidad."
 
 #. Default: "&laquo; Return to page index"
 #: ./skins/plone_help_center/tutorial-all-pages.pt:44
 #, fuzzy
 msgid "view_paginated_pages"
-msgstr "Nota: …sta es la vista de impresiÛn del Tutorial completo en una sola p·gina. Si lo prefiere puede encontrar la versiÛn original <a tal:attributes=\"href here/absolute_url\">aquÌ</a>."
+msgstr "Nota: √©sta es la vista de impresi√≥n del Tutorial completo en una sola p√°gina. Si lo prefiere puede encontrar la versi√≥n original <a tal:attributes=\"href here/absolute_url\">aqu√≠</a>."
 
 #. Default: "&laquo; Return to page index"
 #: ./skins/plone_help_center/referencemanual-all-pages.pt:44
 #, fuzzy
 msgid "view_paginated_reference_manual"
-msgstr "Nota: …sta es la vista de impresiÛn del Manual de referencia completo en una sola p·gina. Si lo prefiere puede encontrar la versiÛn original <a tal:attributes=\"href here/absolute_url\">aquÌ</a>."
+msgstr "Nota: √©sta es la vista de impresi√≥n del Manual de referencia completo en una sola p√°gina. Si lo prefiere puede encontrar la versi√≥n original <a tal:attributes=\"href here/absolute_url\">aqu√≠</a>."
 
