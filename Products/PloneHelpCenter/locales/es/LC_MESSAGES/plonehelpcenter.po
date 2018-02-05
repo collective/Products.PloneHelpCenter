@@ -877,7 +877,7 @@ msgstr "No hay páginas o secciones en este Manual de referencia."
 #: ./skins/plone_help_center/referencemanual_view.pt:70
 #: ./skins/plone_help_center/referencemanualsection_view.pt:74
 msgid "view_no_reference_manual2"
-msgstr "Use el menú 'agregar un nuevo ítem' para añr Secciones, Páginas, Archivos o Imágenes. Las secciones pueden anidarse a cualquier profundidad pero se recomienda no hacerlo en más de tres o cuatro niveles para una buena legibilidad."
+msgstr "Use el menú 'agregar un nuevo ítem' para añadir Secciones, Páginas, Archivos o Imágenes. Las secciones pueden anidarse a cualquier profundidad pero se recomienda no hacerlo en más de tres o cuatro niveles para una buena legibilidad."
 
 #. Default: "&laquo; Return to page index"
 #: ./skins/plone_help_center/tutorial-all-pages.pt:44
