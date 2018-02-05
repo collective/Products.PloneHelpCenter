@@ -3,9 +3,9 @@ msgstr ""
 "Project-Id-Version: plone-es\n"
 "POT-Creation-Date: 2006-03-06 15:17+0000\n"
 "PO-Revision-Date: 2007-03-12 11:23+0200\n"
-"Last-Translator: Fernando de los RÌos S·nchez<fdelosrios@ub.edu>\n"
+"Last-Translator: Fernando de los R√≠os S√°nchez<fdelosrios@ub.edu>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 "Language-Code: es\n"
@@ -23,15 +23,15 @@ msgstr "En progreso"
 
 #. Default: "A Reference Manual Section can contain Reference Manual Pages, and other Reference Manual (Sub-)Sections. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content."
 msgid "description_edit_referencemanualsection"
-msgstr "Una SecciÛn de Manuales de referencia contiene P·ginas de manual de referencia y otras subsecciones de Manuales de referencia. El Ûrden del Ìndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
+msgstr "Una Secci√≥n de Manuales de referencia contiene P√°ginas de manual de referencia y otras subsecciones de Manuales de referencia. El √≥rden del √≠ndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
 
 #. Default: "A Reference Manual Page contains the text of one of the pages of the the reference manual, usually confined to a single topic."
 msgid "description_edit_referencemanualpage"
-msgstr "Una P·gina de manual de referencia contiene el texto de una de las p·ginas del manual, generalmente sobre un ˙nico tema."
+msgstr "Una P√°gina de manual de referencia contiene el texto de una de las p√°ginas del manual, generalmente sobre un √∫nico tema."
 
 #. Default: "Section"
 msgid "Section"
-msgstr "SecciÛn"
+msgstr "Secci√≥n"
 
 #. Default: "Close for submissions"
 msgid "Close for submissions"
@@ -51,11 +51,11 @@ msgstr "Borrador"
 
 #. Default: "Public"
 msgid "Public"
-msgstr "P˙blico"
+msgstr "P√∫blico"
 
 #. Default: "An Instructional Video can be used to upload Flash instructional videos."
 msgid "description_edit_instructionalvideo"
-msgstr "Un Video did·ctico puede usarse para subir videos did·cticos en formato Flash."
+msgstr "Un Video did√°ctico puede usarse para subir videos did√°cticos en formato Flash."
 
 #. Default: "Attachments"
 msgid "Attachments"
@@ -67,43 +67,43 @@ msgstr "Una Referencia de error se utiliza para explicar un error particular que
 
 #. Default: "A Reference Manual can contain Reference Manual Pages and Sections, Images and Files. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content."
 msgid "description_edit_referencemanual"
-msgstr "Un Manual de referencia contiene P·ginas de manual de referencia y Secciones, Im·genes y Archivos. El Ûrden del Ìndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
+msgstr "Un Manual de referencia contiene P√°ginas de manual de referencia y Secciones, Im√°genes y Archivos. El √≥rden del √≠ndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
 
 #. Default: "A How-to is a document describing how to address a single, common use-case or issue. You may add images and files as attachments."
 msgid "description_edit_howto"
-msgstr "Un How-to es un documento que describe cÛmo hacer algo particular. Se pueden adjuntar im·genes y archivos."
+msgstr "Un How-to es un documento que describe c√≥mo hacer algo particular. Se pueden adjuntar im√°genes y archivos."
 
 #. Default: "A Video Section can contain instructional Flash videos."
 msgid "description_edit_instructionalvideofolder"
-msgstr "Una SecciÛn de Video contiene videos Flash did·cticos."
+msgstr "Una Secci√≥n de Video contiene videos Flash did√°cticos."
 
 #. Default: "An Error Reference Section can contain references to and explanations of common errors."
 msgid "description_edit_errorreferencefolder"
-msgstr "Una SecciÛn de Referencias de error contiene referencias y explicaciones sobre errores comunes."
+msgstr "Una Secci√≥n de Referencias de error contiene referencias y explicaciones sobre errores comunes."
 
 #. Default: "A Reference Manual Section can contain reference manuals for individual projects and larger documentation efforts."
 msgid "description_edit_referencemanualfolder"
-msgstr "Una SecciÛn de Manuales de referencia contiene manuales de referencia para proyectos individuales y otra documentaciÛn extensa."
+msgstr "Una Secci√≥n de Manuales de referencia contiene manuales de referencia para proyectos individuales y otra documentaci√≥n extensa."
 
 #. Default: "A Tutorial Section can contain tutorial-length, multi-page documentation."
 msgid "description_edit_tutorialfolder"
-msgstr "Una SecciÛn de Tutoriales contiene documentaciÛn detallada multip·gina sobre un tema."
+msgstr "Una Secci√≥n de Tutoriales contiene documentaci√≥n detallada multip√°gina sobre un tema."
 
 #. Default: "A Tutorial can contain Tutorial Pages, Images and Files. Index order is decided by the folder order, use the normal up/down arrow in the folder content view to rearrange content."
 msgid "description_edit_tutorial"
-msgstr "Un Tutorial contiene P·ginas de tutorial, im·genes y archivos. El Ûrden del Ìndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
+msgstr "Un Tutorial contiene P√°ginas de tutorial, im√°genes y archivos. El √≥rden del √≠ndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
 
 #. Default: "A How-to Section can contain how-to documents."
 msgid "description_edit_howtofolder"
-msgstr "Una SecciÛn de How-tos contiene documentos sobre cÛmo hacer algo concreto."
+msgstr "Una Secci√≥n de How-tos contiene documentos sobre c√≥mo hacer algo concreto."
 
 #. Default: "Statistics"
 msgid "Statistics"
-msgstr "EstadÌsticas"
+msgstr "Estad√≠sticas"
 
 #. Default: "Definition"
 msgid "Definition"
-msgstr "DefiniciÛn"
+msgstr "Definici√≥n"
 
 #. Default: "Error Reference"
 msgid "Error Reference"
@@ -111,11 +111,11 @@ msgstr "Referencia de error"
 
 #. Default: "Error Reference Section"
 msgid "Error Reference Section"
-msgstr "SecciÛn de Referencias de error"
+msgstr "Secci√≥n de Referencias de error"
 
 #. Default: "Reference Manual Section"
 msgid "Reference Manual Section"
-msgstr "SecciÛn de Manuales de referencia"
+msgstr "Secci√≥n de Manuales de referencia"
 
 #. Default: "Reference Manual"
 msgid "Reference Manual"
@@ -127,7 +127,7 @@ msgstr "Preguntas frecuentes (FAQ)"
 
 #. Default: "FAQ Section"
 msgid "FAQ Section"
-msgstr "SecciÛn de Preguntas Frecuentes (FAQ)"
+msgstr "Secci√≥n de Preguntas Frecuentes (FAQ)"
 
 #. Default: "Glossary"
 msgid "Glossary"
@@ -147,15 +147,15 @@ msgstr "Manual de referencia"
 
 #. Default: "Help Center Reference Manual Page"
 msgid "HelpCenterReferenceManualPage"
-msgstr "P·gina de Manual de referencia"
+msgstr "P√°gina de Manual de referencia"
 
 #. Default: "Help Center Reference Manual Section"
 msgid "HelpCenterReferenceManualSection"
-msgstr "SecciÛn de Manual de referencia"
+msgstr "Secci√≥n de Manual de referencia"
 
 #. Default: "Help Center Definition"
 msgid "HelpCenterDefinition"
-msgstr "DefiniciÛn"
+msgstr "Definici√≥n"
 
 #. Default: "Help Center Error Reference"
 msgid "HelpCenterErrorReference"
@@ -187,11 +187,11 @@ msgstr "Carpeta de How-tos"
 
 #. Default: "Help Center Instructional Video"
 msgid "HelpCenterInstructionalVideo"
-msgstr "Video did·ctico"
+msgstr "Video did√°ctico"
 
 #. Default: "Help Center Instructional Video Folder"
 msgid "HelpCenterInstructionalVideoFolder"
-msgstr "Carpeta de Videos did·cticos"
+msgstr "Carpeta de Videos did√°cticos"
 
 #. Default: "Help Center Link"
 msgid "HelpCenterLink"
@@ -211,7 +211,7 @@ msgstr "Carpeta de Tutoriales"
 
 #. Default: "Help Center Tutorial Page"
 msgid "HelpCenterTutorialPage"
-msgstr "P·gina de tutorial"
+msgstr "P√°gina de tutorial"
 
 #. Default: "How-to"
 msgid "How-to"
@@ -219,11 +219,11 @@ msgstr "How-to"
 
 #. Default: "How-to Section"
 msgid "How-to Section"
-msgstr "SecciÛn de How-tos"
+msgstr "Secci√≥n de How-tos"
 
 #. Default: "Link Section"
 msgid "Link Section"
-msgstr "SecciÛn de enlaces"
+msgstr "Secci√≥n de enlaces"
 
 #. Default: "Link"
 msgid "Link"
@@ -239,11 +239,11 @@ msgstr "Tutorial"
 
 #. Default: "Tutorial Page"
 msgid "Tutorial Page"
-msgstr "P·gina de tutorial"
+msgstr "P√°gina de tutorial"
 
 #. Default: "Tutorial Section"
 msgid "Tutorial Section"
-msgstr "SecciÛn de tutoriales"
+msgstr "Secci√≥n de tutoriales"
 
 #. Default: "Video"
 msgid "Video"
@@ -255,11 +255,11 @@ msgstr "Carpeta de videos"
 
 #. Default: "You can add a Definition to the Glossary, and it will be reviewed and approved by our documentation team."
 msgid "description_edit_definition"
-msgstr "Puede aÒadir una DefiniciÛn al Glosario y ser· revisada y aprobada por nuestro equipo de documentaciÛn."
+msgstr "Puede a√±adir una Definici√≥n al Glosario y ser√° revisada y aprobada por nuestro equipo de documentaci√≥n."
 
 #. Default: "You can add a Frequently Asked Question (preferrably with an answer), and it will be reviewed and approved by our documentation team."
 msgid "description_edit_faq"
-msgstr "Puede aÒadir una Pregunta frecuente (preferiblemente con su respuesta) y ser· revisada y aprobada por nuestro equipo de documentaciÛn."
+msgstr "Puede a√±adir una Pregunta frecuente (preferiblemente con su respuesta) y ser√° revisada y aprobada por nuestro equipo de documentaci√≥n."
 
 #. Default: "This is a folder that holds FAQs, and it allows you to display individual sections."
 msgid "description_edit_faqfolder"
@@ -271,7 +271,7 @@ msgstr "Esta carpeta contiene Definiciones y las muestra en listas como un dicci
 
 #. Default: "Help Center links are links to other documentation, etc."
 msgid "description_edit_link"
-msgstr "Los enlaces de ayuda son enlaces a otra documentaciÛn, etc."
+msgstr "Los enlaces de ayuda son enlaces a otra documentaci√≥n, etc."
 
 #. Default: "This is a folder that holds Help Center Links, and it allows you to display individual sections."
 msgid "description_edit_linkfolder"
@@ -279,11 +279,11 @@ msgstr "Esta carpeta contiene enlaces del Centro de ayuda y permite mostrar secc
 
 #. Default: "This is a folder that holds PHC content"
 msgid "description_edit_phc"
-msgstr "Esta carpeta contiene documentaciÛn."
+msgstr "Esta carpeta contiene documentaci√≥n."
 
 #. Default: "A Tutorial can contain Tutorial Pages, Image and Files. Index order is decided by the folder order, use the normal up/down selectors to rearrange content."
 msgid "description_edit_tutorial"
-msgstr "Un Tutorial contiene P·ginas de tutorial, Im·genes y Archivos. El Ûrden del Ìndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
+msgstr "Un Tutorial contiene P√°ginas de tutorial, Im√°genes y Archivos. El √≥rden del √≠ndice viene dado por el orden de la carpeta, utilice las flechas de arriba/abajo habituales en la vista de contenidos de la carpeta para reorganizar el contenido."
 
 #: ../skins/plone_help_center/helpcenter_topicview_main.pt
 #: ../skins/plone_help_center/helpcenter_topicview.pt
